@@ -1,0 +1,69 @@
+{
+"bob": {
+	"requirements" : {
+						"tan" : 5,
+						"style" : 3,
+						"fitness": 2
+						},
+	"intro" : {
+				"subject": "You have a new message!",
+				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
+				"responses" : [
+								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
+									"path" : "smoothies",
+									"time" : 1
+								},
+								{ 	"response" : "I love Uncle Shelby! What else are you into?",
+									"path" : "shel",
+									"time" : 3
+								},
+								{ 	"response" : "I love attics! Why would you want the lights on though?",
+									"path" : "lights",
+									"time" : 9999
+								}
+
+								]
+
+			},
+	"shel" : {		"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
+					"responses": [
+									{"response": "How old are you?",
+									 "path": "howold",
+									 "time": 9999},
+									{"response" : "Do you read anything other than childrens books?",
+									 "path": "childrensbooks",
+									 "time": 9999}
+								]
+			},
+	"smoothies" : {
+					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
+					"responses" : [
+									{	"response" : "Eww, kale is gross",
+										"path" : "kalegross",
+										"time" : 3
+										},
+									{ 	"response" : "I love kale!",
+										"path" : "lovekale",
+										"time" : 2},
+									{	"response" : "I'm more of a fruit smoothie kind of person.",
+										"path" : "fruitsmoothie",
+										"time" : 1}
+
+								]
+			},
+	"kalegross" : {
+					"message" : "You didn't have to be so mean!",
+					"responses" : [
+									{	"response" : "I'm sorry!",
+										"path" : "sorry",
+										"time" : 9999
+										},
+									{ 	"response" : "I was just kidding. I like kale.",
+										"path" : "likekale",
+										"time" : 1}
+
+								]
+		}
+
+	}
+}

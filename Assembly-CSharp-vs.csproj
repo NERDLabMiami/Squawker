@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
      <Compile Include="Assets\Scripts\Messages\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Messages\IncomingMessage.cs" />
      <Compile Include="Assets\Scripts\Messages\Response.cs" />

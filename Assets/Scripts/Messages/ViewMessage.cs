@@ -17,4 +17,10 @@ public class ViewMessage : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnDisable() {
+		Debug.Log("Destroying Object");
+		GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>().messageContainer.SetActive(true);
+		Destroy (this.gameObject);
+	}
 }

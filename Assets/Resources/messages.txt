@@ -10,56 +10,60 @@
 				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
 				"responses" : [
 								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
-									"path" : "smoothies",
+									"path" : "bob/smoothies",
 									"time" : 1
 								},
 								{ 	"response" : "I love Uncle Shelby! What else are you into?",
-									"path" : "shel",
+									"path" : "bob/shel",
 									"time" : 3
 								},
 								{ 	"response" : "I love attics! Why would you want the lights on though?",
-									"path" : "lights",
+									"path" : "bob/lights",
 									"time" : 9999
 								}
 
 								]
 
 			},
-	"shel" : {		"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
+	"shel" : {		
+					"subject": "[character] replied to your message",
+					"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
 					"responses": [
 									{"response": "How old are you?",
-									 "path": "howold",
+									 "path": "bob/howold",
 									 "time": 9999},
 									{"response" : "Do you read anything other than childrens books?",
-									 "path": "childrensbooks",
+									 "path": "bob/childrensbooks",
 									 "time": 9999}
 								]
 			},
 	"smoothies" : {
+					"subject": "[character] replied to your message",
 					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
 					"responses" : [
 									{	"response" : "Eww, kale is gross",
-										"path" : "kalegross",
+										"path" : "bob/kalegross",
 										"time" : 3
 										},
 									{ 	"response" : "I love kale!",
-										"path" : "lovekale",
+										"path" : "bob/lovekale",
 										"time" : 2},
 									{	"response" : "I'm more of a fruit smoothie kind of person.",
-										"path" : "fruitsmoothie",
+										"path" : "bob/fruitsmoothie",
 										"time" : 1}
 
 								]
 			},
 	"kalegross" : {
+					"subject": "[character] replied to your message",
 					"message" : "You didn't have to be so mean!",
 					"responses" : [
 									{	"response" : "I'm sorry!",
-										"path" : "sorry",
+										"path" : "bob/sorry",
 										"time" : 9999
 										},
 									{ 	"response" : "I was just kidding. I like kale.",
-										"path" : "likekale",
+										"path" : "bob/likekale",
 										"time" : 1}
 
 								]

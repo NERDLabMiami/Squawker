@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour {
 	public int actionsLeft = 0;
 	public int daysLeft = 0;
 	public bool reset = false;
+	private Inbox inbox;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +31,48 @@ public class PlayerStats : MonoBehaviour {
 			PlayerPrefs.SetInt("days left", 30);
 		}
 		populateStats();
+		inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
+
 	}
+
+	private void saveProgress(int actions, int days) {
+		PlayerPrefs.SetInt("actions left", actions);
+		PlayerPrefs.SetInt("days left", days);
+	}
+
+	private void newDay() {
+		for(int i = 0; i < inbox.getCount(); i++) {
+			//iterate through inbox, reduce wait time for each message
+			inbox.reduceDuration(i, 1);
+		}
+	}
+
+	public bool takeAction() {
+		if (actionsLeft > 1) {
+			actionsLeft--;
+			saveProgress(actionsLeft, daysLeft);
+			return true;
+		}
+		else {
+			daysLeft--;
+			newDay();
+			//TODO: REFRESH INBOX
+			inbox.refresh();
+			if (daysLeft < 0) {
+				//GAME OVER
+				Debug.Log("Days have run out");
+				return false;
+			}
+			else {
+				actionsLeft = 3;
+				saveProgress(actionsLeft, daysLeft);
+				return true;
+			}
+		}
+
+	}
+
+
 
 	private void populateStats() {
 		tan = PlayerPrefs.GetInt("tan", 0);

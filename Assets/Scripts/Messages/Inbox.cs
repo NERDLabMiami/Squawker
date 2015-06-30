@@ -10,6 +10,7 @@ public class Inbox : MonoBehaviour {
 	public GameObject messageContainer;
 	private JSONNode json;
 	private List<string> inbox;
+	public PlayerStats stats;
 
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class Inbox : MonoBehaviour {
 		}
 		
 		inbox = messages.OfType<string>().ToList();
-
+		show ();
 	}
 
 	public int getCount() {
@@ -43,8 +44,7 @@ public class Inbox : MonoBehaviour {
 	private string[] getMessage(string message) {
 		return message.Split (new string[] {"/"}, System.StringSplitOptions.None);
 	}
-
-
+	
 	public void save() {
 		Prefs.PlayerPrefsX.SetStringArray("messages", inbox.ToArray());
 	}
@@ -100,7 +100,7 @@ public class Inbox : MonoBehaviour {
 		message.GetComponent<IncomingMessage>().message.text = text;
 		message.GetComponent<IncomingMessage>().path = path;
 		message.GetComponent<IncomingMessage>().index = idx;
-		
+		show ();
 	}
 	
 	// Update is called once per frame

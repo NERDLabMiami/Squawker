@@ -4,11 +4,11 @@
     <Files>
       <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="23" Column="100" />
       <File FileName="Assets/Plugins/PlayerPrefsX.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="40" Column="24" />
-      <File FileName="Assets/Scripts/Messages/InboxDebug.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="35" Column="73" />
+      <File FileName="Assets/Scripts/Messages/InboxDebug.cs" Line="24" Column="16" />
       <File FileName="Assets/Resources/messages.txt" Line="22" Column="23" />
-      <File FileName="Assets/Scripts/Messages/Response.cs" Line="13" Column="42" />
-      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="18" Column="78" />
+      <File FileName="Assets/Scripts/Messages/Response.cs" Line="16" Column="19" />
+      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="103" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

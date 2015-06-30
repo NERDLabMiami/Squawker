@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Messages/IncomingMessage.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Messages/Inbox.cs">
     <Files>
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="23" Column="100" />
       <File FileName="Assets/Plugins/PlayerPrefsX.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="42" Column="1" />
-      <File FileName="Assets/Scripts/Messages/InboxDebug.cs" Line="33" Column="1" />
-      <File FileName="Assets/Resources/messages.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/Response.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="40" Column="24" />
+      <File FileName="Assets/Scripts/Messages/InboxDebug.cs" Line="27" Column="1" />
+      <File FileName="Assets/Resources/messages.txt" Line="22" Column="23" />
+      <File FileName="Assets/Scripts/Messages/Response.cs" Line="13" Column="42" />
+      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="18" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

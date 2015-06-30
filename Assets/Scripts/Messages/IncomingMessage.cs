@@ -8,6 +8,7 @@ public class IncomingMessage : MonoBehaviour {
 	public Text message;
 	public ViewMessage expandedMessageTemplate;
 	public string path;
+	public int index;
 	private string character;
 	private string passage;
 	private JSONNode json;
@@ -29,7 +30,7 @@ public class IncomingMessage : MonoBehaviour {
 			Debug.Log("Response #" + i);
 			expandedMessageTemplate.responses[i].GetComponent<Response>().response.text =  json[character][passage]["responses"][i]["response"];
 			expandedMessageTemplate.responses[i].GetComponent<Response>().path =  json[character][passage]["responses"][i]["path"] + "/" + json[character][passage]["responses"][i]["time"];
-
+			expandedMessageTemplate.responses[i].GetComponent<Response>().messageIndex = index;
 			//			msg.GetComponent<ViewMessage>().responses[i].GetComponent<Button>().onClick.AddListener(
 			//TODO: If there are previous longer response lists, it will show up	
 		}

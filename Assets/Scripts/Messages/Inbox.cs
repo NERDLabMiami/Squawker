@@ -54,11 +54,25 @@ public class Inbox : MonoBehaviour {
 		save();
 	}
 
-	public void newMessage(string path) {	
-		inbox.Add(path);
-		Prefs.PlayerPrefsX.SetStringArray("messages", inbox.ToArray());
+	public void removeMessage(int index) {
+		inbox.RemoveAt(index);
+		save ();
 	}
 
+	public void newMessage(string path) {	
+		inbox.Add(path);
+		save ();
+	}
+
+	public void refresh() {
+		foreach (Transform child in messageContainer.transform)
+		{
+			Destroy(child.gameObject);
+		}
+		
+		show ();
+	}
+	
 	public void show() {
 		int existingMessageCount = messageContainer.GetComponentsInChildren<IncomingMessage>().Length;
 		if (existingMessageCount < inbox.Count) {
@@ -68,7 +82,7 @@ public class Inbox : MonoBehaviour {
 				if (int.Parse(message[2]) <= 0) {
 					Debug.Log("Message Available");
 					string body = json[message[0]][message[1]]["subject"];
-					newIncomingMessage(message[0], body, inbox[i]);
+					newIncomingMessage(message[0], body, inbox[i], i);
 				}
 			}
 		}
@@ -78,13 +92,14 @@ public class Inbox : MonoBehaviour {
 
 	}
 
-	public void newIncomingMessage(string sender, string text, string path) {
+	public void newIncomingMessage(string sender, string text, string path, int idx) {
 		GameObject message = Instantiate(messageTemplate.gameObject);
 
 		message.transform.SetParent(messageContainer.transform, false);
 		message.GetComponent<IncomingMessage>().sender.text = sender;
 		message.GetComponent<IncomingMessage>().message.text = text;
 		message.GetComponent<IncomingMessage>().path = path;
+		message.GetComponent<IncomingMessage>().index = idx;
 		
 	}
 	

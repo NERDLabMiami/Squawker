@@ -7,10 +7,13 @@ public class Response : MonoBehaviour {
 	public string path;
 	public int responseTime;
 	private Inbox inbox;
+	public int messageIndex;
 
 	public void respond() {
 		inbox.newMessage(path);
 		Debug.Log("Destroying full message object");
+		inbox.removeMessage(messageIndex);
+		inbox.refresh();
 		inbox.messageContainer.SetActive(true);
 		Destroy (transform.parent.parent.gameObject);
 	}

@@ -10,7 +10,6 @@ public class Inbox : MonoBehaviour {
 	public GameObject messageContainer;
 	private JSONNode json;
 	private List<string> inbox;
-	public PlayerStats stats;
 
 
 	// Use this for initialization
@@ -74,10 +73,7 @@ public class Inbox : MonoBehaviour {
 	}
 	
 	public void show() {
-		int existingMessageCount = messageContainer.GetComponentsInChildren<IncomingMessage>().Length;
-		if (existingMessageCount < inbox.Count) {
-		//TODO: show new messages
-			for (int i = existingMessageCount; i < inbox.Count; i++) {
+			for (int i = 0; i < inbox.Count; i++) {
 				string[] message = getMessage (inbox[i]);
 				if (int.Parse(message[2]) <= 0) {
 					Debug.Log("Message Available");
@@ -85,11 +81,6 @@ public class Inbox : MonoBehaviour {
 					newIncomingMessage(message[0], body, inbox[i], i);
 				}
 			}
-		}
-		else {
-			Debug.Log("No New Messages");
-		}
-
 	}
 
 	public void newIncomingMessage(string sender, string text, string path, int idx) {
@@ -100,7 +91,6 @@ public class Inbox : MonoBehaviour {
 		message.GetComponent<IncomingMessage>().message.text = text;
 		message.GetComponent<IncomingMessage>().path = path;
 		message.GetComponent<IncomingMessage>().index = idx;
-		show ();
 	}
 	
 	// Update is called once per frame

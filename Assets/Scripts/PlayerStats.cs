@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour {
 	public int tan = 0;
 	public int fitness = 0;
 	public int style = 0;
+	public int cancerRisk = 0;
 	public int actionsLeft = 0;
 	public int daysLeft = 0;
 	public bool reset = false;
@@ -27,11 +28,15 @@ public class PlayerStats : MonoBehaviour {
 			PlayerPrefs.SetInt("tan", Random.Range(0,10));
 			PlayerPrefs.SetInt("fitness", Random.Range(0,10));
 			PlayerPrefs.SetInt("style", Random.Range(0,10));
+			PlayerPrefs.SetInt("cancer risk", 0);
 			PlayerPrefs.SetInt("actions left", 3);
 			PlayerPrefs.SetInt("days left", 30);
 		}
 		populateStats();
-		inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
+		GameObject ib = GameObject.FindGameObjectWithTag("Inbox");
+		if (ib) {
+			inbox = ib.GetComponent<Inbox>();
+		}
 
 	}
 
@@ -41,9 +46,11 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	private void newDay() {
-		for(int i = 0; i < inbox.getCount(); i++) {
-			//iterate through inbox, reduce wait time for each message
-			inbox.reduceDuration(i, 1);
+		if (inbox) {
+			for(int i = 0; i < inbox.getCount(); i++) {
+				//iterate through inbox, reduce wait time for each message
+				inbox.reduceDuration(i, 1);
+			}
 		}
 	}
 
@@ -57,7 +64,10 @@ public class PlayerStats : MonoBehaviour {
 			daysLeft--;
 			newDay();
 			//TODO: REFRESH INBOX
-			inbox.refresh();
+			if (inbox) {
+				inbox.refresh();
+			}
+
 			if (daysLeft < 0) {
 				//GAME OVER
 				Debug.Log("Days have run out");
@@ -72,6 +82,18 @@ public class PlayerStats : MonoBehaviour {
 
 	}
 
+	public void setTan(int amount) {
+		if (tan < amount) {
+			//tan increased, increase risk by amount tanned
+			int riskIncrease = amount - tan;
+			cancerRisk += riskIncrease;
+			PlayerPrefs.SetInt("cancer risk", cancerRisk);
+		}
+		tan = amount;
+
+		PlayerPrefs.SetInt("tan", tan);
+	}
+
 
 
 	private void populateStats() {
@@ -80,6 +102,7 @@ public class PlayerStats : MonoBehaviour {
 		style = PlayerPrefs.GetInt("style", 0);
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
+		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
 
 	}
 

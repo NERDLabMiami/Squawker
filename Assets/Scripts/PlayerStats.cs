@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
 
 	public int tan = 0;
-	public int fitness = 0;
 	public int style = 0;
+	public int attractiveness = 0;
 	public int cancerRisk = 0;
 	public int actionsLeft = 0;
 	public int daysLeft = 0;
@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour {
 			//New game, reset variables
 			PlayerPrefs.SetInt("game in progress", 1);
 			PlayerPrefs.SetInt("tan", Random.Range(0,10));
-			PlayerPrefs.SetInt("fitness", Random.Range(0,10));
+			PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
 			PlayerPrefs.SetInt("style", Random.Range(0,10));
 			PlayerPrefs.SetInt("cancer risk", 0);
 			PlayerPrefs.SetInt("actions left", 3);
@@ -94,11 +94,18 @@ public class PlayerStats : MonoBehaviour {
 		PlayerPrefs.SetInt("tan", tan);
 	}
 
+	public void setAttractiveness(int amount) {
+		//TODO: Decide if attractiveness is additive or just personal best in the love game
+		attractiveness = amount;		
+		PlayerPrefs.SetInt("attractiveness", amount);
+
+	}
 
 
 	private void populateStats() {
 		tan = PlayerPrefs.GetInt("tan", 0);
-		fitness = PlayerPrefs.GetInt("fitness", 0);
+		attractiveness = PlayerPrefs.GetInt("attractiveness", 0);
+		//TODO: Style becomes an avatar choice with accessories
 		style = PlayerPrefs.GetInt("style", 0);
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);

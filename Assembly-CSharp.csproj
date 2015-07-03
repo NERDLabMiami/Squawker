@@ -46,14 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerDebug.cs" />
+     <Compile Include="Assets\CupidStats.cs" />
      <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
      <Compile Include="Assets\Scripts\Messages\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Messages\IncomingMessage.cs" />
      <Compile Include="Assets\Scripts\Messages\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\ViewMessage.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\Arrow.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\BrokenHeart.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\CupidControl.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\ObjectEmitter.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
+     <Compile Include="Assets\Scripts\PlayerDebug.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
-     <Compile Include="Assets\TanningBed.cs" />
      <None Include="Assets\Resources\messages.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

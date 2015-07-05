@@ -2,22 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PlayerDebug : MonoBehaviour {
-	public Text daysLeft;
+public class Profile : MonoBehaviour {
+
+//	public Player player;
 	public Text actionsLeft;
-	public PlayerStats stats;
+	public Text daysLeft;
+	public Text messageCount;
+
 
 	// Use this for initialization
 	void Start () {
 		refresh();
 	}
 
-	public void refresh() {
-		daysLeft.text = stats.daysLeft.ToString();
-		actionsLeft.text = stats.actionsLeft.ToString();
-
+	void refresh() {
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

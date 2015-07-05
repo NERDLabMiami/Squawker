@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TanningBed : MonoBehaviour {
 	public float tanAmount = 0;
 	public Text feedbackMessage;
-	public PlayerStats player;
+	public Player player;
 	// Use this for initialization
 	void Start () {
 	

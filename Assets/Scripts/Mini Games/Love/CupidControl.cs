@@ -6,7 +6,7 @@ public class CupidControl : MonoBehaviour {
 	public float movementIntensity = 5.0f;
 	public GameObject arrow;
 	public GameObject startButton;
-	public PlayerStats player;
+	public Player player;
 	private bool playing = false;
 
 	// Use this for initialization

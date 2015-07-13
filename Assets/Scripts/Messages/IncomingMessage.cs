@@ -12,7 +12,6 @@ public class IncomingMessage : MonoBehaviour {
 	private Message message;
 
 	public void setMessage(Message msg) {
-		Debug.Log("S MESSAGE: " + msg);
 		message = msg;
 		sender.text = message.sender;
 		subject.text = message.subject;

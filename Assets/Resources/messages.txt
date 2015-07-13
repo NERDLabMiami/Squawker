@@ -1,9 +1,13 @@
 {
+"names": { 	"men": ["Rogelio","Dominick","Mathew","Anton","Elijah","Efrain", "Kelly", "Nestor","Garry","Kareem", "Francisco",  "Beau",  "Jordan",  "Sandy", "Kennith",  "Pete",  "Delbert",  "Sherman", "Gabriel",  "Ben",  "Ian","Zackary", "Brandon",  "Bradly",  "Stevie",  "Fredrick",  "Jeff",  "Zack",  "Bryce",  "Gerald "],
+					"women": []
+	},
+"mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
 "bob": {
 	"requirements" : {
 						"tan" : 5,
-						"style" : 3,
-						"fitness": 2
+						"accessory" : 3,
+						"love": 2
 						},
 	"intro" : {
 				"subject": "You have a new message!",

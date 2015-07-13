@@ -110,7 +110,7 @@ public class Player : MonoBehaviour {
 
 
 	private void newDay() {
-			for(int i = 0; i < messageList.Count; i++) {
+		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
 				string[] message = StringArrayFunctions.getMessage (messageList[i]);
 				int currentDuration = int.Parse(message[2]);
@@ -192,7 +192,7 @@ public class Player : MonoBehaviour {
 
 	}
 
-	private void updateProfile() {
+	public void updateProfile() {
 		if (profile) {
 			profile.actionsLeft.text = actionsLeft.ToString();
 			profile.daysLeft.text = daysLeft.ToString("0 days left to get a date");
@@ -201,8 +201,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-	
+	public string fetchMaleName() {
+		int numNames = json["names"]["men"].Count;
+		return json["names"]["men"][Random.Range(0,numNames)];
+	}
+
+	public string fetchMotto() {
+		int numMottos = json["mottos"].Count;
+		return json["mottos"][Random.Range (0, numMottos)];
 	}
 }

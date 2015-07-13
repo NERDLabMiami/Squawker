@@ -29,9 +29,15 @@ public class ViewMessage : MonoBehaviour {
 		player.removeMessage(index);
 		player.addMessage(path);
 		player.refreshInbox();
+		Debug.Log("Should activate message container...");
 		player.previewInbox.messageContainer.SetActive(true);
 		Destroy (gameObject);
 
+	}
+
+	public void ignore() {
+		player.previewInbox.messageContainer.SetActive(true);
+		Destroy (gameObject);
 	}
 	// Update is called once per frame
 	void Update () {

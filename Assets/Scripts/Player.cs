@@ -58,6 +58,15 @@ public class Player : MonoBehaviour {
 				message.body = json[message.sender][message.passage]["message"];
 				JSONNode responses = json[message.sender][message.passage]["responses"];
 				for (int j = 0; j < responses.Count; j++) {
+					string NextPath = responses[j]["path"];
+					string PlayerResponses = responses[j]["response"];
+					int timeUntil = responses[j]["time"].AsInt;
+
+					if (NextPath.Equals ("tan")){
+						Debug.Log ("This is a special response");
+						//The mini game is triggered in the code for method respond() in ViewMessage.cs
+					}
+
 					Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
 					Debug.Log("Response Text: " + responses[j]["response"]);
 					message.responses.Add(r);
@@ -209,5 +218,9 @@ public class Player : MonoBehaviour {
 	public string fetchMotto() {
 		int numMottos = json["mottos"].Count;
 		return json["mottos"][Random.Range (0, numMottos)];
+	}
+
+	public void returnHome(){
+		Application.LoadLevel (0);
 	}
 }

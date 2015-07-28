@@ -19,7 +19,16 @@ public class ViewMessage : MonoBehaviour {
 	public void addResponse(Response r) {
 		GameObject response = Instantiate(responseTemplate);
 		response.GetComponent<ResponseOption>().response.text = r.text;
-		response.GetComponent<Button>().onClick.AddListener(() => {respond(r.path, r.messageIndex);});	
+		if (r.path.Equals ("tan/0")) {
+			response.GetComponent<Button> ().onClick.AddListener (() => {
+				player.removeMessage (r.messageIndex);
+				Debug.Log ("Go to TanLines Mini Game");
+				Application.LoadLevel (1);
+			});
+		} else {
+			response.GetComponent<Button> ().onClick.AddListener (() => {
+				respond (r.path, r.messageIndex);});	
+		}
 		response.transform.SetParent(responseContainer, false);
 
 	}

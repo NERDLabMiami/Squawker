@@ -30,13 +30,15 @@ public class Match : MonoBehaviour {
 	}
 
 	public void wink() {
-		//TODO: Get Minimimum Required Attributes
-		//TAN > player.tan
-		//love <= player.love
-		//accessory = accessory match
 		if (player.takeAction()) {
 			GetComponent<Animator>().SetTrigger("winked");
 			player.updateProfile();
+			//TODO: Check if NPC and Player are a match
+			//TODO: Get Minimimum Required Attributes
+			//TAN > player.tan
+			//love <= player.love
+			//accessory = accessory match
+
 			//TODO: Instead of passing to create a new character, it should log it in the system
 			pass ();
 		}

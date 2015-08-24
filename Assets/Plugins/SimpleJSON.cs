@@ -668,7 +668,8 @@ namespace SimpleJSON
 				return Deserialize (R);
 			}
 		}
-		
+
+
 		public static JSONNode LoadFromFile (string aFileName)
 		{
 			#if USE_FileIO
@@ -687,6 +688,9 @@ namespace SimpleJSON
 			stream.Position = 0;
 			return LoadFromStream (stream);
 		}
+
+
+
 	}
 	// End of JSONNode
 	
@@ -899,7 +903,16 @@ namespace SimpleJSON
 			foreach (KeyValuePair<string, JSONNode> N in m_Dict)
 				yield return N;
 		}
-		
+
+
+		public ArrayList GetKeys() // The method is named "GetKeys()"
+		{
+			ArrayList arrayOfStrings = new ArrayList(); // declares new array
+			foreach (KeyValuePair<string, JSONNode> N in m_Dict) // for each key/values
+				arrayOfStrings.Add(N.Key); // I add only the keys
+			return arrayOfStrings; // And then I get them all :D
+		}
+
 		public override string ToString ()
 		{
 			string result = "{";

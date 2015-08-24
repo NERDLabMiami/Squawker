@@ -69,6 +69,7 @@ public class Player : MonoBehaviour {
 
 					Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
 					Debug.Log("Response Text: " + responses[j]["response"]);
+					Debug.Log ("Response Path: " + responses[j]["path"]);
 					message.responses.Add(r);
 				}
 
@@ -117,12 +118,27 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("days left", days);
 	}
 
+	private void newTanningOffer() {
+		JSONNode offers = json ["tanning"].AsObject;
+	
+		Debug.Log ("Amount of Offers: " + offers.Count);
+		for (int i = 0; i < offers.Count; i++) {
+			JSONNode offer = offers[i].AsObject;
+
+		}
+	}
 
 	private void newDay() {
+
+		//ADD TANNING OFFER
+//		addMessage ("tanning/offer/5");
+		newTanningOffer ();
+
+
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
 				string[] message = StringArrayFunctions.getMessage (messageList[i]);
-				int currentDuration = int.Parse(message[2]);
+			int currentDuration = int.Parse(message[2]);
 				
 				if(currentDuration > 0) {
 					currentDuration-=1;
@@ -188,6 +204,8 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("cancer risk", 0);
 		PlayerPrefs.SetInt("actions left", 3);
 		PlayerPrefs.SetInt("days left", 30);
+		PlayerPrefs.DeleteKey ("messages");
+
 	}
 	
 	private void populateStats() {

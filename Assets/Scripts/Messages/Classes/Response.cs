@@ -13,9 +13,9 @@ public class Response  {
 	//	public Text response;
 
 	public Response(string p, string txt, int rt, int index) {
+		responseTime = rt;
 		path = p + "/" + responseTime;
 		text = txt;
-		responseTime = rt;
 		messageIndex = index;
 	}
 

@@ -85,7 +85,7 @@
 	
 "tanning" : {
 	"offer1" : {
-			"subject": "Try this FREE Groupon for Indoor Tanning",
+			"subject": "T1111ry this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
@@ -94,8 +94,8 @@
 							},
 						]
 		},
-"offer2" : {
-			"subject": "Try this FREE Groupon for Indoor Tanning",
+	"offer2" : {
+			"subject": "T2222ry this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
@@ -104,8 +104,8 @@
 							},
 						]
 		},
-"offer3" : {
-			"subject": "Try this FREE Groupon for Indoor Tanning",
+	"offer3" : {
+			"subject": "3333Try this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",

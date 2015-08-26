@@ -122,10 +122,16 @@ public class Player : MonoBehaviour {
 		JSONNode offers = json ["tanning"].AsObject;
 	
 		Debug.Log ("Amount of Offers: " + offers.Count);
+		int selectedOffer = Random.Range (0, offers.Count);
+		JSONNode offer = offers [selectedOffer].AsObject;
+		Debug.Log ("Picked Offer #" + selectedOffer + ", subject is: " + offer ["subject"]);
+		/*
 		for (int i = 0; i < offers.Count; i++) {
 			JSONNode offer = offers[i].AsObject;
+			Debug.Log("Offer is: " + offer["subject"]);
 
 		}
+		*/
 	}
 
 	private void newDay() {

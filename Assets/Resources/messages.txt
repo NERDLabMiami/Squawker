@@ -137,7 +137,14 @@
 	}
 	
 "dermatologist" : {
-	"offer" : {
+	"conversation": [
+								{"doctor":"Great, let's take a look.", "patient":"OK"},
+								{"doctor":"Looks like you have some sun spots, I can try to remove them.", "patient":"That'd be great."},
+								{"doctor":"OK, you're good to go.", "patient":"Thanks!"},
+								{"doctor":"Always use sunscreen!", "patient":"Will do."},
+								
+			],
+		"offer" : {
 			"path": "dermatologist/offer/0",
 			"subject": "Free SkiN Exam",
 			"message": "Would you like to take advantage of this great opportunity to have your skin examined?",

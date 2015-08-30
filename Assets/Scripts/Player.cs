@@ -63,14 +63,7 @@ public class Player : MonoBehaviour {
 //					string PlayerResponses = responses[j]["response"];
 //					int timeUntil = responses[j]["time"].AsInt;
 
-					if (NextPath.Equals ("tanning")){
-						Debug.Log ("This is a special response");
-						//The mini game is triggered in the code for method respond() in ViewMessage.cs
-					}
-
 					Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
-					Debug.Log("Response Text: " + responses[j]["response"]);
-					Debug.Log ("Response Path: " + responses[j]["path"]);
 					message.responses.Add(r);
 				}
 
@@ -129,6 +122,18 @@ public class Player : MonoBehaviour {
 		addMessage(offer["path"]);
 
 	}
+
+
+	public string getDermatologistMessage(int index) {
+		JSONNode dermatologistMessage = json ["dermatologist"]["conversation"][index]["doctor"];		
+		return dermatologistMessage;
+	}
+
+	public string getDermatologistResponse(int index) {
+		JSONNode dermatologistResponse = json ["dermatologist"]["conversation"][index]["patient"];		
+		return dermatologistResponse;
+	}
+
 
 	private void newDay() {
 

@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
 					string PlayerResponses = responses[j]["response"];
 					int timeUntil = responses[j]["time"].AsInt;
 
-					if (NextPath.Equals ("tan")){
+					if (NextPath.Equals ("tanning")){
 						Debug.Log ("This is a special response");
 						//The mini game is triggered in the code for method respond() in ViewMessage.cs
 					}
@@ -118,29 +118,24 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("actions left", actions);
 		PlayerPrefs.SetInt("days left", days);
 	}
-
-	private void newTanningOffer() {
-		JSONNode offers = json ["tanning"].AsObject;
 	
+	private void newOffer(string type) {
+		JSONNode offers = json [type].AsObject;
+		
 		Debug.Log ("Amount of Offers: " + offers.Count);
 		int selectedOffer = Random.Range (0, offers.Count);
 		JSONNode offer = offers [selectedOffer].AsObject;
 		Debug.Log ("Picked Offer #" + selectedOffer + ", subject is: " + offer ["subject"]);
-		/*
-		for (int i = 0; i < offers.Count; i++) {
-			JSONNode offer = offers[i].AsObject;
-			Debug.Log("Offer is: " + offer["subject"]);
+		addMessage(offer["path"]);
 
-		}
-		*/
 	}
 
 	private void newDay() {
 
 		//ADD TANNING OFFER
-//		addMessage ("tanning/offer/5");
-		newTanningOffer ();
-
+		newOffer("tanning");
+		newOffer ("love");
+		newOffer ("dermatologist");
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message

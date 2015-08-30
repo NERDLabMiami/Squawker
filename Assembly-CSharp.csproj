@@ -56,11 +56,11 @@
      <Compile Include="Assets\Scripts\Messages\IncomingMessage.cs" />
      <Compile Include="Assets\Scripts\Messages\ResponseOption.cs" />
      <Compile Include="Assets\Scripts\Messages\ViewMessage.cs" />
-     <Compile Include="Assets\Scripts\Mini Games\CupidStats.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Dermatologist.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\Arrow.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\BrokenHeart.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\CupidControl.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\CupidStats.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\ObjectEmitter.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

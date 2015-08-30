@@ -33,7 +33,7 @@ public class ViewMessage : MonoBehaviour {
 	bool isOffer(GameObject obj, Response r) {
 //		if (int.Parse(messageParts[2]) <= 0) {
 		string[] pathArray = StringArrayFunctions.getMessage(r.path);
-		if (pathArray [0] == "tan") {
+		if (pathArray [0] == "tanning") {
 			Debug.Log("Tanning Offer");
 			obj.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
@@ -44,8 +44,25 @@ public class ViewMessage : MonoBehaviour {
 		}
 		if (pathArray [0] == "love") {
 			Debug.Log("Love Quotient Offer");
+			obj.GetComponent<Button> ().onClick.AddListener (() => {
+				player.removeMessage (r.messageIndex);
+				Debug.Log ("Go to Love Q Mini Game");
+				Application.LoadLevel (2);
+			});
 			return true;
 		}
+
+		if (pathArray [0] == "dermatologist") {
+			Debug.Log("Skin Exam");
+			obj.GetComponent<Button> ().onClick.AddListener (() => {
+				player.removeMessage (r.messageIndex);
+				Debug.Log ("Go to Skin Exam");
+				Application.LoadLevel (3);
+			});
+			return true;
+		}
+
+
 		return false;
 	}
 

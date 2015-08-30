@@ -85,31 +85,34 @@
 	
 "tanning" : {
 	"offer1" : {
+			"path":"tanning/offer1/0",
 			"subject": "T1111ry this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
-								"path" : "tan",
+								"path" : "tanning",
 								"time" : 5
 							},
 						]
 		},
 	"offer2" : {
+			"path":"tanning/offer2/0",
 			"subject": "T2222ry this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
-								"path" : "tan",
+								"path" : "tanning",
 								"time" : 5
 							},
 						]
 		},
 	"offer3" : {
+			"path":"tanning/offer3/0",
 			"subject": "3333Try this FREE Groupon for Indoor Tanning",
 			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
-								"path" : "tan",
+								"path" : "tanning",
 								"time" : 5
 							},
 						]
@@ -118,8 +121,10 @@
 		
 						
 	}
+	
 "love" : {
 	"offer" : {
+			"path": "love/offer/0",
 			"subject": "Try this MiniGame ???",
 			"message": "Would you like to take advantage of this great opportunity to try this mini game?",
 			"responses" : [
@@ -130,4 +135,20 @@
 						]
 		}
 	}
+	
+"dermatologist" : {
+	"offer" : {
+			"path": "dermatologist/offer/0",
+			"subject": "Free SkiN Exam",
+			"message": "Would you like to take advantage of this great opportunity to have your skin examined?",
+			"responses" : [
+							{ 	"response" : "Sounds good! I'll give it a try",
+								"path" : "dermatologist",
+								"time" : 9999
+							},
+						]
+		}
+	}	
+	
+	
 }

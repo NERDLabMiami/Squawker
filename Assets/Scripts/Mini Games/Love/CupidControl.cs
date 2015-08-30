@@ -6,6 +6,7 @@ public class CupidControl : MonoBehaviour {
 	public float movementIntensity = 5.0f;
 	public GameObject arrow;
 	public GameObject startButton;
+	public GameObject endButton;
 	public Player player;
 	private bool playing = false;
 
@@ -24,7 +25,14 @@ public class CupidControl : MonoBehaviour {
 	public void endGame(int healCount) {
 		player.setAttractiveness(healCount);
 		Time.timeScale = 0f;
-		startButton.SetActive(true);
+		endButton.SetActive(true);
+//		startButton.SetActive(true);
+	}
+
+	public void returnHome() {
+		//TODO: Proper transition
+		Time.timeScale = 1f;
+		Application.LoadLevel(0);
 	}
 
 	// Update is called once per frame

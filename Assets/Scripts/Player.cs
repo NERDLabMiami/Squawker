@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	public int cancerRisk = 0;
 	public int actionsLeft = 0;
 	public int daysLeft = 0;
+	public int dermatologistVisits = 0;
 	public TextAsset potentialMessages;
 	public bool reset = false;
 	public List<Message> inbox;
@@ -208,6 +209,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
 		PlayerPrefs.SetInt("style", Random.Range(0,10));
 		PlayerPrefs.SetInt("cancer risk", 0);
+		PlayerPrefs.SetInt("dermatologist visits", 0);
 		PlayerPrefs.SetInt("actions left", 3);
 		PlayerPrefs.SetInt("days left", 30);
 		PlayerPrefs.DeleteKey ("messages");
@@ -222,7 +224,7 @@ public class Player : MonoBehaviour {
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
 		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
-
+		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
 	}
 
 	public void updateProfile() {

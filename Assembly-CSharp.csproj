@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Match.cs" />
      <Compile Include="Assets\Scripts\Debug\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Debug\PlayerDebug.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
+     <Compile Include="Assets\Scripts\Match.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Messages\ResponseOption.cs" />
      <Compile Include="Assets\Scripts\Messages\ViewMessage.cs" />
      <Compile Include="Assets\Scripts\Mini Games\CupidStats.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Dermatologist.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\Arrow.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\BrokenHeart.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\CupidControl.cs" />

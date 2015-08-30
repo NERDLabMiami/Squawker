@@ -60,8 +60,8 @@ public class Player : MonoBehaviour {
 				JSONNode responses = json[message.sender][message.passage]["responses"];
 				for (int j = 0; j < responses.Count; j++) {
 					string NextPath = responses[j]["path"];
-					string PlayerResponses = responses[j]["response"];
-					int timeUntil = responses[j]["time"].AsInt;
+//					string PlayerResponses = responses[j]["response"];
+//					int timeUntil = responses[j]["time"].AsInt;
 
 					if (NextPath.Equals ("tanning")){
 						Debug.Log ("This is a special response");
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("days left", days);
 	}
 	
-	private void newOffer(string type) {
+	public void newOffer(string type) {
 		JSONNode offers = json [type].AsObject;
 		
 		Debug.Log ("Amount of Offers: " + offers.Count);
@@ -135,7 +135,6 @@ public class Player : MonoBehaviour {
 		//ADD TANNING OFFER
 		newOffer("tanning");
 		newOffer ("love");
-		newOffer ("dermatologist");
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message

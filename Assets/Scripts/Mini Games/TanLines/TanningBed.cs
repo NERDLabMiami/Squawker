@@ -21,6 +21,11 @@ public class TanningBed : MonoBehaviour {
 	}
 
 	public void stopTanningSlider() {
+		//TODO: take into account severity and their risk level
+		//TODO: add sun spots
+
+		player.newOffer ("dermatologist");
+
 		switch((int)tanAmount) {
 		case 0:
 			feedbackMessage.text = "Worst tan ever!";

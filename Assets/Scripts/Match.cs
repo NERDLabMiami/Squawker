@@ -6,8 +6,9 @@ public class Match : MonoBehaviour {
 	public Player player;
 	public Text alias;
 	public Text motto;
-	public Image tempImage;
-	public Sprite[] avatars;
+//	public Image tempImage;
+//	public Sprite[] avatars;
+	public Character avatar;
 	private string path;
 
 	// Use this for initialization
@@ -25,7 +26,9 @@ public class Match : MonoBehaviour {
 		// Name randomizer
 		alias.text = player.fetchMaleName();
 		motto.text = player.fetchMotto();
-		tempImage.sprite = avatars[Random.Range (0,avatars.Length)];
+		avatar.generateAvatar ();
+		avatar.assignStyles ();
+//		tempImage.sprite = avatars[Random.Range (0,avatars.Length)];
 		// Intro randomizer
 	}
 

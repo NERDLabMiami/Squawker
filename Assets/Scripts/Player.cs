@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
 	public Inbox previewInbox;
 	public Profile profile;
 	
-	private JSONNode json;
+	public JSONNode json;
 	private List<string> messageList;
 
 	// Use this for initialization
@@ -125,12 +125,12 @@ public class Player : MonoBehaviour {
 
 
 	public string getDermatologistMessage(int index) {
-		JSONNode dermatologistMessage = json ["dermatologist"]["conversation"][index]["doctor"];		
+		JSONNode dermatologistMessage = json ["doctor"]["conversation"][index]["doctor"];		
 		return dermatologistMessage;
 	}
 
 	public string getDermatologistResponse(int index) {
-		JSONNode dermatologistResponse = json ["dermatologist"]["conversation"][index]["patient"];		
+		JSONNode dermatologistResponse = json ["doctor"]["conversation"][index]["patient"];		
 		return dermatologistResponse;
 	}
 

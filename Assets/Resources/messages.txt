@@ -3,7 +3,8 @@
 					"women": []
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
-"bob": {
+"characters": ["male1", "male2"],
+"male1": {
 	"requirements" : {
 						"tan" : 5,
 						"accessory" : 3,
@@ -14,15 +15,15 @@
 				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
 				"responses" : [
 								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
-									"path" : "bob/smoothies",
+									"path" : "male1/smoothies",
 									"time" : 1
 								},
 								{ 	"response" : "I love Uncle Shelby! What else are you into?",
-									"path" : "bob/shel",
+									"path" : "male1/shel",
 									"time" : 3
 								},
 								{ 	"response" : "I love attics! Why would you want the lights on though?",
-									"path" : "bob/lights",
+									"path" : "male1/lights",
 									"time" : 9999
 								}
 
@@ -34,10 +35,10 @@
 					"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
 					"responses": [
 									{"response": "How old are you?",
-									 "path": "bob/howold",
+									 "path": "male1/howold",
 									 "time": 9999},
 									{"response" : "Do you read anything other than childrens books?",
-									 "path": "bob/childrensbooks",
+									 "path": "male1/childrensbooks",
 									 "time": 9999}
 								]
 			},
@@ -46,14 +47,14 @@
 					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
 					"responses" : [
 									{	"response" : "Eww, kale is gross",
-										"path" : "bob/kalegross",
+										"path" : "male1/kalegross",
 										"time" : 3
 										},
 									{ 	"response" : "I love kale!",
-										"path" : "bob/lovekale",
+										"path" : "male1/lovekale",
 										"time" : 2},
 									{	"response" : "I'm more of a fruit smoothie kind of person.",
-										"path" : "bob/fruitsmoothie",
+										"path" : "male1/fruitsmoothie",
 										"time" : 1}
 
 								]
@@ -63,31 +64,53 @@
 					"message" : "You didn't have to be so mean!",
 					"responses" : [
 									{	"response" : "I'm sorry!",
-										"path" : "bob/sorry",
+										"path" : "male1/sorry",
 										"time" : 9999
 										},
 									{ 	"response" : "I was just kidding. I like kale.",
-										"path" : "bob/likekale",
+										"path" : "male1/likekale",
 										"time" : 1}
 
 								]
 		}
 
-	}
+	},
 	
 	
-	
-	
-	
-	
-	
+"male2": {
+	"requirements" : {
+						"tan" : 0,
+						"accessory" : 0,
+						"love": 0
+						},
+	"intro" : {
+				"subject": "Hiya!!!",
+				"message": "YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "I do!?",
+									"path" : "male2/do",
+									"time" : 9999
+								},
+								{ 	"response" : "Gross!",
+									"path" : "male1/gross",
+									"time" : 9999
+								},
+								{ 	"response" : "What?",
+									"path" : "male1/what",
+									"time" : 9999
+								}
+
+								]
+
+			}
+		},
 	
 	
 "tanning" : {
 	"offer1" : {
 			"path":"tanning/offer1/0",
-			"subject": "T1111ry this FREE Groupon for Indoor Tanning",
-			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
+			"subject": "Feeling down?",
+			"message": "Feeling down about the imperfections of your skin, like uneven skin tones, blemishes, scars, or acne? Well, one quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful and confident.",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
 								"path" : "tanning",
@@ -97,10 +120,10 @@
 		},
 	"offer2" : {
 			"path":"tanning/offer2/0",
-			"subject": "T2222ry this FREE Groupon for Indoor Tanning",
-			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
+			"subject": "Blemishes?",
+			"message": "A silly blemish got you down? Come in for a session in one of our tanning beds and your imperfections will surely be hidden, leaving you feeling clean, carefree, and confident.",
 			"responses" : [
-							{ 	"response" : "Sounds good! I'll give it a try",
+							{ 	"response" : "I hate blemishes, sign me up!",
 								"path" : "tanning",
 								"time" : 5
 							},
@@ -108,10 +131,10 @@
 		},
 	"offer3" : {
 			"path":"tanning/offer3/0",
-			"subject": "3333Try this FREE Groupon for Indoor Tanning",
-			"message": "Would you like to take advantage of this great opportunity to try indoor tanning? Many customers report more attention from the opposite sex after indoor tanning.",
+			"subject": "Feeling uncomfortable in your own skin?",
+			"message": "No person should EVER feel uncomfortable in his or her own skin! If you feel this way, you must fix this situation as soon as possible! One quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful, bold, and bright!",
 			"responses" : [
-							{ 	"response" : "Sounds good! I'll give it a try",
+							{ 	"response" : "Yes, I want to be beautiful!",
 								"path" : "tanning",
 								"time" : 5
 							},
@@ -120,23 +143,22 @@
 		
 		
 						
-	}
+	},
 	
 "love" : {
 	"offer" : {
 			"path": "love/offer/0",
-			"subject": "Try this MiniGame ???",
-			"message": "Would you like to take advantage of this great opportunity to try this mini game?",
+			"subject": "Test your ability to love!",
+			"message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
 			"responses" : [
-							{ 	"response" : "Sounds good! I'll give it a try",
+							{ 	"response" : "Sure, why not?",
 								"path" : "love",
 								"time" : 9999
 							},
 						]
 		}
-	}
-	
-"dermatologist" : {
+	},
+"doctor": {
 	"conversation": [
 								{"doctor":"Great, let's take a look.", "patient":"OK"},
 								{"doctor":"Looks like you have some sun spots, I can try to remove them.", "patient":"That'd be great."},
@@ -144,9 +166,12 @@
 								{"doctor":"Always use sunscreen!", "patient":"Will do."},
 								
 			],
+
+	},	
+"exam" : {
 		"offer" : {
-			"path": "dermatologist/offer/0",
-			"subject": "Free SkiN Exam",
+			"path": "exam/offer/0",
+			"subject": "Free Skin Exam",
 			"message": "Would you like to take advantage of this great opportunity to have your skin examined?",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",

@@ -1,19 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Match.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/messages.txt">
     <Files>
-      <File FileName="Assets/Scripts/Mini Games/Dermatologist.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="147" Column="31" />
       <File FileName="Assets/Scripts/Mini Games/Love/CupidControl.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
       <File FileName="Assets/Plugins/SimpleJSON.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/messages.txt" Line="1" Column="1" />
+      <File FileName="Assets/Resources/messages.txt" Line="119" Column="8" />
       <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Classes/Response.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Match.cs" Line="11" Column="21" />
+      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="32" Column="10" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="116" Column="1" />
+      <File FileName="Assets/Scripts/Dating/Match.cs" Line="42" Column="2" />
+      <File FileName="Assets/Resources/marketing.txt" Line="52" Column="287" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

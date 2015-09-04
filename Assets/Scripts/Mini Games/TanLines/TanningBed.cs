@@ -24,7 +24,7 @@ public class TanningBed : MonoBehaviour {
 		//TODO: take into account severity and their risk level
 		//TODO: add sun spots
 
-		player.newOffer ("dermatologist");
+		player.newOffer ("exam");
 
 		switch((int)tanAmount) {
 		case 0:

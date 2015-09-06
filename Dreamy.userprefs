@@ -1,20 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/messages.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dating/Character.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="147" Column="31" />
+      <File FileName="Assets/Scripts/Player.cs" Line="85" Column="24" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="58" Column="29" />
       <File FileName="Assets/Scripts/Mini Games/Love/CupidControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="7" Column="22" />
       <File FileName="Assets/Plugins/SimpleJSON.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/messages.txt" Line="119" Column="8" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/messages.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="11" Column="29" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="31" Column="53" />
       <File FileName="Assets/Scripts/Messages/Classes/Response.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="32" Column="10" />
-      <File FileName="Assets/Scripts/Dating/Character.cs" Line="116" Column="1" />
-      <File FileName="Assets/Scripts/Dating/Match.cs" Line="42" Column="2" />
-      <File FileName="Assets/Resources/marketing.txt" Line="52" Column="287" />
+      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Dating/Match.cs" Line="55" Column="15" />
+      <File FileName="Assets/Scripts/Messages/ResponseOption.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class ViewMessage : MonoBehaviour {
 	public Image profilePic;
-	public Text sender;
+	public Character character;
+	public Text alias;
 	public Text body;
 	public Transform responseContainer;
 	public GameObject responseTemplate;

@@ -24,7 +24,9 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//for debugging, reset the player stats
+
+		json = JSON.Parse(potentialMessages.ToString());
+
 		if (reset) {
 			PlayerPrefs.DeleteKey("game in progress");
 		}
@@ -34,13 +36,13 @@ public class Player : MonoBehaviour {
 			resetStats();
 		}
 
-		json = JSON.Parse(potentialMessages.ToString());
 		string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
 		messageList = storedMessages.OfType<string>().ToList();
 		inbox = new List<Message>();
 		refreshInbox();
 		populateStats();
 		updateProfile();
+
 	}
 
 	public void refreshInbox() {
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour {
 				message.body = json[message.sender][message.passage]["message"];
 				JSONNode responses = json[message.sender][message.passage]["responses"];
 				for (int j = 0; j < responses.Count; j++) {
-					string NextPath = responses[j]["path"];
+//					string NextPath = responses[j]["path"];
 //					string PlayerResponses = responses[j]["response"];
 //					int timeUntil = responses[j]["time"].AsInt;
 
@@ -138,13 +140,13 @@ public class Player : MonoBehaviour {
 	private void newDay() {
 
 		//ADD TANNING OFFER
-		newOffer("tanning");
-		newOffer ("love");
+//		newOffer("tanning");
+//		newOffer ("love");
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
 				string[] message = StringArrayFunctions.getMessage (messageList[i]);
-			int currentDuration = int.Parse(message[2]);
+				int currentDuration = int.Parse(message[2]);
 				
 				if(currentDuration > 0) {
 					currentDuration-=1;
@@ -203,6 +205,27 @@ public class Player : MonoBehaviour {
 	}
 
 	private void resetStats() {
+//		PlayerPrefs.DeleteKey ("messages");
+		PlayerPrefs.DeleteAll();
+		//Debug.Log (json.ToString());
+		/*
+		JSONNode offers = json ["characters"].AsObject;
+		
+		Debug.Log ("Amount of Offers: " + offers.Count);
+		int selectedOffer = Random.Range (0, offers.Count);
+		JSONNode offer = offers [selectedOffer].AsObject;
+
+
+
+*/
+		List<string> list = new List<string>();
+
+		for (int i = 0; i < json["characters"].Count; i++) {
+			list.Add(json["characters"][i]);
+		}
+
+		Prefs.PlayerPrefsX.SetStringArray("men", list.ToArray());
+		Debug.Log("Saved " + list.Count + " characters");
 		PlayerPrefs.SetInt("game in progress", 1);
 		PlayerPrefs.SetInt("tan", Random.Range(0,10));
 		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
@@ -211,7 +234,6 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("dermatologist visits", 0);
 		PlayerPrefs.SetInt("actions left", 3);
 		PlayerPrefs.SetInt("days left", 30);
-		PlayerPrefs.DeleteKey ("messages");
 
 	}
 	

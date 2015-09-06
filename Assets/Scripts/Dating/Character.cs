@@ -16,7 +16,6 @@ public class Character : MonoBehaviour {
 	public Image nose;
 	public Image mouth;
 	public Image brows;
-	public Player player;
 	private Sprite[] backgroundHairStyles;
 	private Sprite[] faceStyles;
 	private Sprite[] hairlineStyles;
@@ -42,33 +41,41 @@ public class Character : MonoBehaviour {
 	private bool hasShortHair = false;
 	public string name;
 	private string characterAssignment;
+	private Player player;
 
 //	private Image 
 	// Use this for initialization
 	void Start () {
-		//PlayerPrefs.DeleteKey ("me");
-		//PlayerPrefs.DeleteKey ("male1");
-		//PlayerPrefs.DeleteKey ("male2");
-
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		if (name == "me") {
 			characterAssignment = name;
-		} else {
-			assignName("men");
-		}
+			assign ();
+		} 
 
+	}
+
+
+	public void assign(string character = null) {
+		if (character != null) {
+			characterAssignment = character;
+		}
+		Debug.Log("My Character Assignment is " + characterAssignment);
 		if (PlayerPrefs.HasKey (characterAssignment)) {
 			Debug.Log("Has Character Assignment for " + characterAssignment);
 			loadCharacter();
 			loadStyles ();
 			assignStyles ();
-
+			
 		} else {
-			Debug.Log("Generating Character Assignment for " + characterAssignment);
-
+			Debug.Log("Generating Character Assignment");
+			
 			randomlyGenerate();
 		}
 
+	}
 
+	public string getCharacterAssignment() {
+		return characterAssignment;
 	}
 
 	public void randomlyGenerate() {
@@ -77,8 +84,6 @@ public class Character : MonoBehaviour {
 		loadStyles ();
 		generateAvatar ();
 		assignStyles ();
-		Debug.Log ("Saving Character...");
-		saveCharacter ();
 
 	}
 
@@ -93,6 +98,7 @@ public class Character : MonoBehaviour {
 	public void loadCharacter() {
 		Debug.Log ("Loading " + characterAssignment);
 		name = PlayerPrefs.GetString (characterAssignment);
+		Debug.Log("Has name of " + name);
 		int[] prefs = Prefs.PlayerPrefsX.GetIntArray (characterAssignment + "_avatar");
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
 		hasLongHair = options [0];
@@ -111,21 +117,26 @@ public class Character : MonoBehaviour {
 		selectedMouth = prefs [11];
 	}
 
+	public void assignCharacter(string type) {
+		string [] dates = Prefs.PlayerPrefsX.GetStringArray(type);
+		//TODO: Check if there are no more potential characters
+		Debug.Log("There are currently " + dates.Length + " characters left");
+		List<string> list = new List<string>(dates);
+//		int numNames = player.json["names"]["men"].Count;
+//		name = player.json ["names"] [type] [Random.Range (0, numNames)];
+		int selectedCharacter = Random.Range(0, list.Count);
+		characterAssignment = list[selectedCharacter];
+		list.RemoveAt(selectedCharacter);
+		Prefs.PlayerPrefsX.SetStringArray(type,list.ToArray());
+		PlayerPrefs.SetString(characterAssignment, name);
+		Debug.Log("NAME IS " + name);
+
+	}
+
 	public void assignName(string type) {
-
 		int numNames = player.json["names"]["men"].Count;
-		int numCharacters = player.json ["characters"].Count;
 		name = player.json ["names"] [type] [Random.Range (0, numNames)];
-		characterAssignment = player.json ["characters"] [Random.Range (0, numCharacters)];
-
-		//TODO: Randomize
-		if (Time.frameCount % 2 == 0) {
-			characterAssignment = "male2";
-		} else {
-			characterAssignment = "male1";
-
-		}
-}
+	}
 
 
 	public Sprite getHairStyle() {

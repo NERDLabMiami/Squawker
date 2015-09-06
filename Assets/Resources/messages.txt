@@ -3,7 +3,7 @@
 					"women": []
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
-"characters": ["male1", "male2"],
+"characters": ["male1", "male2", "male3", "male4", "male5"],
 "male1": {
 	"requirements" : {
 						"tan" : 5,
@@ -92,11 +92,38 @@
 									"time" : 9999
 								},
 								{ 	"response" : "Gross!",
-									"path" : "male1/gross",
+									"path" : "male2/gross",
 									"time" : 9999
 								},
 								{ 	"response" : "What?",
-									"path" : "male1/what",
+									"path" : "male2/what",
+									"time" : 9999
+								}
+
+								]
+
+			}
+		},
+"male3": {
+	"requirements" : {
+						"tan" : 0,
+						"accessory" : 0,
+						"love": 5
+						},
+	"intro" : {
+				"subject": "Well Hello!",
+				"message": "I'D SAY YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "I do!?",
+									"path" : "male3/do",
+									"time" : 9999
+								},
+								{ 	"response" : "Gross!",
+									"path" : "male3/gross",
+									"time" : 9999
+								},
+								{ 	"response" : "What?",
+									"path" : "male3/what",
 									"time" : 9999
 								}
 
@@ -105,6 +132,63 @@
 			}
 		},
 	
+	"male4": {
+	"requirements" : {
+						"tan" : 0,
+						"accessory" : 0,
+						"love": 3
+						},
+	"intro" : {
+				"subject": "OMG!",
+				"message": "YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "I do!?",
+									"path" : "male4/do",
+									"time" : 9999
+								},
+								{ 	"response" : "Gross!",
+									"path" : "male4/gross",
+									"time" : 9999
+								},
+								{ 	"response" : "What?",
+									"path" : "male4/what",
+									"time" : 9999
+								}
+
+								]
+
+			}
+		},
+	
+	"male5": {
+	"requirements" : {
+						"tan" : 0,
+						"accessory" : 0,
+						"love": 0
+						},
+	"intro" : {
+				"subject": "WHOA!",
+				"message": "YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "I do!?",
+									"path" : "male5/do",
+									"time" : 9999
+								},
+								{ 	"response" : "Gross!",
+									"path" : "male5/gross",
+									"time" : 9999
+								},
+								{ 	"response" : "What?",
+									"path" : "male5/what",
+									"time" : 9999
+								}
+
+								]
+
+			}
+		},
+	
+		
 	
 "tanning" : {
 	"offer1" : {

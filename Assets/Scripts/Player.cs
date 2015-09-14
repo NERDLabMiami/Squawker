@@ -45,32 +45,79 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public int matches(string characterPath) {
+		//Get character's attractiveness, between 0 and 100 to set as the initial response time
+
+		int responseTime = json[characterPath]["requirements"]["love"].AsInt;
+
+		//Get the difference between the two characters attractiveness. NPC with 50, player with 20, response time is 30. 
+		responseTime -= attractiveness;
+
+		//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
+
+		if (profile.character.wearingGlasses) {
+			responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
+		}
+
+		if (profile.character.wearingTie) {
+			responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
+
+		}
+
+		if (profile.character.wearingBand) {
+			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
+
+		}
+
+		if (profile.character.wearingRibbon) {
+			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
+		}
+
+
+		if (tan <= json [characterPath] ["requirements"] ["tan"].AsInt) {
+			//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
+			responseTime = 9999;
+		}
+
+
+		//If the response time is negative, we just set it to 0 so the NPC responds instantly
+
+		if (responseTime < 0) {
+			responseTime = 0;
+		}
+		Debug.Log("Match will respond in " + responseTime + " days");
+		return responseTime;
+	}
+
 	public void refreshInbox() {
 		inbox.Clear();
 		Debug.Log("MESSAGE LIST COUNT: " + messageList.Count);
 		for (int i = 0; i < messageList.Count; i++) {
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
 			if (int.Parse(messageParts[2]) <= 0) {
-				//new message, add to list
-				Message message = new Message();
-				message.index = i;
-				message.path = messageList[i];
-				message.sender = messageParts[0];
-				message.passage = messageParts[1];
-				message.subject = json[message.sender][message.passage]["subject"];
-				message.body = json[message.sender][message.passage]["message"];
-				JSONNode responses = json[message.sender][message.passage]["responses"];
-				for (int j = 0; j < responses.Count; j++) {
-//					string NextPath = responses[j]["path"];
-//					string PlayerResponses = responses[j]["response"];
-//					int timeUntil = responses[j]["time"].AsInt;
-
-					Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
-					message.responses.Add(r);
+				//TODO: Check tan requirements. not sure if this is the best place
+				if (tan <= json[messageParts[0]]["requirements"]["tan"]) {
+					//Don't add message
 				}
+				else {
+				}
+					//new message, add to list
+					Message message = new Message();
+					message.index = i;
+					message.path = messageList[i];
+					message.sender = messageParts[0];
+					message.passage = messageParts[1];
+					message.subject = json[message.sender][message.passage]["subject"];
+					message.body = json[message.sender][message.passage]["message"];
+					JSONNode responses = json[message.sender][message.passage]["responses"];
+					for (int j = 0; j < responses.Count; j++) {
+						Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
+						message.responses.Add(r);
+					}
 
-				inbox.Add(message);
-				Debug.Log("Adding message to inbox");
+					inbox.Add(message);
+					Debug.Log("Adding message to inbox");
+
 			}
 		}
 
@@ -148,12 +195,14 @@ public class Player : MonoBehaviour {
 				int currentDuration = int.Parse(message[2]);
 				
 				if(currentDuration > 0) {
+				//TODO: Check tan requirements here and if not met, add 1?
 					currentDuration-=1;
 					Debug.Log("Decreasing Duration");
 				}
 				else {
 					Debug.Log("Leaving Duration Alone : " + currentDuration);
 				}
+			//TODO: Look at parts of message
 				messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
 			}
 			saveMessageList();

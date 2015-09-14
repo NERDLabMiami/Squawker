@@ -95,6 +95,22 @@ public class Character : MonoBehaviour {
 		return characterAssignment;
 	}
 
+	public bool wearingTie() {
+		return hasTie;
+	}
+
+	public bool wearingBand() {
+		return hasBand;
+	}
+
+	public bool wearingRibbon() {
+		return hasRibbon;
+	}
+
+	public bool wearingGlasses() {
+		return hasGlasses;
+	}
+
 	public void randomlyGenerate() {
 		randomlyPickColors ();
 		loadStyles ();

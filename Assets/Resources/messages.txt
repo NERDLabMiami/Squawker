@@ -7,8 +7,13 @@
 "male1": {
 	"requirements" : {
 						"tan" : 5,
-						"accessory" : 3,
-						"love": 2
+						"accessories" : {
+								"glasses": 1,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 20
 						},
 	"intro" : {
 				"subject": "You have a new message!",
@@ -80,8 +85,13 @@
 "male2": {
 	"requirements" : {
 						"tan" : 0,
-						"accessory" : 0,
-						"love": 0
+						"accessories" : {
+								"glasses": 2,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 40
 						},
 	"intro" : {
 				"subject": "Hiya!!!",
@@ -107,8 +117,13 @@
 "male3": {
 	"requirements" : {
 						"tan" : 0,
-						"accessory" : 0,
-						"love": 5
+						"accessories" : {
+								"glasses": 3,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 50
 						},
 	"intro" : {
 				"subject": "Well Hello!",
@@ -135,8 +150,13 @@
 	"male4": {
 	"requirements" : {
 						"tan" : 0,
-						"accessory" : 0,
-						"love": 3
+						"accessories" : {
+								"glasses": 4,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 35
 						},
 	"intro" : {
 				"subject": "OMG!",
@@ -163,8 +183,13 @@
 	"male5": {
 	"requirements" : {
 						"tan" : 0,
-						"accessory" : 0,
-						"love": 0
+						"accessories" : {
+								"glasses": 5,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 60
 						},
 	"intro" : {
 				"subject": "WHOA!",

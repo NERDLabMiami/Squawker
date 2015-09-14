@@ -26,6 +26,7 @@ public class Match : MonoBehaviour {
 		if(player.takeAction()) {
 			newMatch();
 			player.updateProfile();
+
 		}
 	}
 
@@ -49,7 +50,7 @@ public class Match : MonoBehaviour {
 			Debug.Log ("Saving Character...");
 			avatar.saveCharacter ();
 			Debug.Log("adding message for " + avatar.getCharacterAssignment());
-			player.addMessage(avatar.getCharacterAssignment() + "/intro/0");
+			player.addMessage(avatar.getCharacterAssignment() + "/intro/" + avatar.getCharacterAssignment());
 			player.updateProfile();
 		}
 

@@ -141,7 +141,6 @@ public class Player : MonoBehaviour {
 
 		//ADD TANNING OFFER
 //		newOffer("tanning");
-//		newOffer ("love");
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
@@ -240,6 +239,8 @@ public class Player : MonoBehaviour {
 	private void populateStats() {
 		tan = PlayerPrefs.GetInt("tan", 0);
 		attractiveness = PlayerPrefs.GetInt("attractiveness", 0);
+	
+		profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3,true);
 		//TODO: Style becomes an avatar choice with accessories
 		style = PlayerPrefs.GetInt("style", 0);
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
@@ -253,7 +254,7 @@ public class Player : MonoBehaviour {
 			profile.actionsLeft.text = actionsLeft.ToString();
 			profile.daysLeft.text = daysLeft.ToString("0 days left to get a date");
 			profile.messageCount.text = inbox.Count.ToString();
-
+			
 		}
 	}
 
@@ -270,4 +271,10 @@ public class Player : MonoBehaviour {
 	public void returnHome(){
 		Application.LoadLevel (0);
 	}
+
+
+	public float Remap (this float value, float from1, float to1, float from2, float to2) {
+		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+	}
+		
 }

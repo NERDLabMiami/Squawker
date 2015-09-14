@@ -16,6 +16,10 @@ public class Character : MonoBehaviour {
 	public Image nose;
 	public Image mouth;
 	public Image brows;
+	public Image glasses;
+	public Image tie;
+	public Image band;
+	public Image ribbon;
 	private Sprite[] backgroundHairStyles;
 	private Sprite[] faceStyles;
 	private Sprite[] hairlineStyles;
@@ -25,6 +29,11 @@ public class Character : MonoBehaviour {
 	private Sprite[] noseStyles;
 	private Sprite[] mouthStyles;
 	private Sprite[] eyeBrowStyles;
+	private Sprite[] sunglasses;
+	private Sprite[] ties;
+	private Sprite[] ribbons;
+	private Sprite[] bands;
+
 	private int selectedBackgroundHair;
 	private int selectedFace;
 	private int selectedHairLine;
@@ -36,9 +45,17 @@ public class Character : MonoBehaviour {
 	private int selectedMouth;
 	private int selectedHairColor;
 	private int baseSkinTone;
+	private int selectedSunglasses;
+	private int selectedTie;
+	private int selectedBand;
+	private int selectedRibbon;
 	private int tanTone;
 	private bool hasLongHair = false;
 	private bool hasShortHair = false;
+	private bool hasBand = false;
+	private bool hasRibbon = false;
+	private bool hasTie = false;
+	private bool hasGlasses = false;
 	public string name;
 	private string characterAssignment;
 	private Player player;
@@ -80,7 +97,6 @@ public class Character : MonoBehaviour {
 
 	public void randomlyGenerate() {
 		randomlyPickColors ();
-
 		loadStyles ();
 		generateAvatar ();
 		assignStyles ();
@@ -88,9 +104,9 @@ public class Character : MonoBehaviour {
 	}
 
 	public void saveCharacter() {
-		int[] prefs = new int[12] {baseSkinTone, tanTone, selectedFace,selectedHairColor,selectedEyeBrow,selectedBackgroundHair, selectedForegroundHair, selectedHairLine, selectedEyes, selectedIris, selectedNose, selectedMouth};
+		int[] prefs = new int[16] {baseSkinTone, tanTone, selectedFace,selectedHairColor,selectedEyeBrow,selectedBackgroundHair, selectedForegroundHair, selectedHairLine, selectedEyes, selectedIris, selectedNose, selectedMouth, selectedSunglasses, selectedBand, selectedRibbon, selectedTie};
 		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", prefs);
-		bool[] options = new bool[]{ hasLongHair, hasShortHair };
+		bool[] options = new bool[]{ hasLongHair, hasShortHair,hasGlasses, hasBand, hasRibbon, hasTie };
 		Prefs.PlayerPrefsX.SetBoolArray (characterAssignment + "_options", options);
 		PlayerPrefs.SetString (characterAssignment, name);
 	}
@@ -103,6 +119,9 @@ public class Character : MonoBehaviour {
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
 		hasLongHair = options [0];
 		hasShortHair = options [1];
+		hasBand = options [2];
+		hasRibbon = options [3];
+		hasTie = options [4];
 		baseSkinTone = prefs [0];
 		tanTone = prefs [1];
 		selectedFace = prefs [2];
@@ -115,6 +134,10 @@ public class Character : MonoBehaviour {
 		selectedIris = prefs [9];
 		selectedNose = prefs [10];
 		selectedMouth = prefs [11];
+		selectedSunglasses = prefs [12];
+		selectedBand = prefs [13];
+		selectedRibbon = prefs [14];
+		selectedTie = prefs [15];
 	}
 
 	public void assignCharacter(string type) {
@@ -147,10 +170,40 @@ public class Character : MonoBehaviour {
 
 		if (Random.Range (0, 2) == 1) {
 			hasShortHair = true;
+			Debug.Log("SHORT HAIR!");
+		} else {
+			hasShortHair = false;
 		}
 
 		if (Random.Range (0, 2) == 1) {
 			hasLongHair = true;
+			Debug.Log("LONG HAIR!");
+		} else {
+			hasLongHair = false;
+		}
+
+		if (Random.Range (0, 2) == 1) {
+			hasBand = true;
+		} else {
+			hasBand = false;
+		}
+
+		if (Random.Range (0, 2) == 1) {
+			hasRibbon = true;
+		} else {
+			hasRibbon = false;
+		}
+
+		if (Random.Range (0, 2) == 1) {
+			hasTie = true;
+		} else {
+			hasTie = false;
+		}
+
+		if (Random.Range (0, 2) == 1) {
+			hasGlasses = true;
+		} else {
+			hasGlasses = false;
 		}
 
 		selectedHairColor = Random.Range (0, 8);
@@ -175,23 +228,44 @@ public class Character : MonoBehaviour {
 			irisStyles = Resources.LoadAll<Sprite> ("Avatar/Iris");
 			noseStyles = Resources.LoadAll<Sprite> ("Avatar/Nose");
 			mouthStyles = Resources.LoadAll<Sprite> ("Avatar/Mouth");
+			sunglasses = Resources.LoadAll<Sprite> ("Avatar/Sunglasses");
+			ties = Resources.LoadAll<Sprite> ("Avatar/Ties");
+			bands = Resources.LoadAll<Sprite> ("Avatar/Bands");
+			ribbons = Resources.LoadAll<Sprite> ("Avatar/Ribbons");
 
 	}
 
 	public void assignStyles() {
-
 		if (hasShortHair) {
 			foregroundHair.sprite = hairStyles [selectedForegroundHair];
-		} else {
-			foregroundHair.enabled = false;
-		}
+		} 
+
 
 		if (hasLongHair) {
 			backgroundHair.sprite = backgroundHairStyles[selectedBackgroundHair];
+		} 
 
-		} else {
-			backgroundHair.enabled = false;
-		}
+		if (hasGlasses) {
+			glasses.sprite = sunglasses[selectedSunglasses];
+		} 
+		if (hasBand) {
+			band.sprite = bands[selectedBand];
+		} 
+		if (hasRibbon) {
+			ribbon.sprite = ribbons[selectedRibbon];
+		} 
+
+		if (hasTie) {
+			tie.sprite = ties[selectedTie];
+		} 
+
+		foregroundHair.enabled = hasShortHair;
+		backgroundHair.enabled = hasLongHair;
+		glasses.enabled = hasGlasses;
+		band.enabled = hasBand;
+		ribbon.enabled = hasRibbon;
+		tie.enabled = hasTie;
+
 
 		face.sprite = faceStyles[selectedFace];
 		hairLine.sprite = hairlineStyles [selectedHairLine];
@@ -212,6 +286,10 @@ public class Character : MonoBehaviour {
 			selectedIris = Random.Range (0, irisStyles.Length);
 			selectedNose = Random.Range (0, noseStyles.Length);
 			selectedMouth = Random.Range (0, mouthStyles.Length);
+			selectedTie = Random.Range (0, ties.Length);
+			selectedBand = Random.Range (0, bands.Length);
+			selectedRibbon = Random.Range (0, ribbons.Length);
+			selectedSunglasses = Random.Range (0, sunglasses.Length);
 	}
 	// Update is called once per frame
 	void Update () {

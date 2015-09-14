@@ -30,10 +30,7 @@ public class Match : MonoBehaviour {
 	}
 
 	public void newMatch() {
-		avatar.randomlyPickColors ();
-		avatar.loadStyles ();
-		avatar.generateAvatar ();
-		avatar.assignStyles ();
+		avatar.randomlyGenerate ();
 		avatar.assignName("men");
 		alias.text = avatar.name;
 

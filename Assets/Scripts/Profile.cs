@@ -8,6 +8,7 @@ public class Profile : MonoBehaviour {
 	public Text actionsLeft;
 	public Text daysLeft;
 	public Text messageCount;
+	public Image heart;
 
 
 	// Use this for initialization

@@ -55,21 +55,21 @@ public class Player : MonoBehaviour {
 
 		//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
 
-		if (profile.character.wearingGlasses) {
+		if (profile.character.wearingGlasses()) {
 			responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
 		}
 
-		if (profile.character.wearingTie) {
+		if (profile.character.wearingTie()) {
 			responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
 
 		}
 
-		if (profile.character.wearingBand) {
+		if (profile.character.wearingBand()) {
 			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
 
 		}
 
-		if (profile.character.wearingRibbon) {
+		if (profile.character.wearingRibbon()) {
 			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
 		}
 
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour {
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
 			if (int.Parse(messageParts[2]) <= 0) {
 				//TODO: Check tan requirements. not sure if this is the best place
-				if (tan <= json[messageParts[0]]["requirements"]["tan"]) {
+				if (tan <= json[messageParts[0]]["requirements"]["tan"].AsInt) {
 					//Don't add message
 				}
 				else {

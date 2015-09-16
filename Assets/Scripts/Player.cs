@@ -52,31 +52,39 @@ public class Player : MonoBehaviour {
 
 		//Get the difference between the two characters attractiveness. NPC with 50, player with 20, response time is 30. 
 		responseTime -= attractiveness;
+		Debug.Log("Accounting for attractiveness, response time is now " + responseTime);
 
 		//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
 
 		if (profile.character.wearingGlasses()) {
 			responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
+			Debug.Log("Liking the glasses, response time is now " + responseTime);
 		}
 
 		if (profile.character.wearingTie()) {
 			responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
+			Debug.Log("Liking the tie, response time is now " + responseTime);
 
 		}
 
 		if (profile.character.wearingBand()) {
 			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
+			Debug.Log("Liking the band, response time is now " + responseTime);
 
 		}
 
 		if (profile.character.wearingRibbon()) {
 			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
+			Debug.Log("Liking the ribbon, response time is now " + responseTime);
+
 		}
 
 
 		if (tan <= json [characterPath] ["requirements"] ["tan"].AsInt) {
 			//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
 			responseTime = 9999;
+			Debug.Log("Tan not appropriate, response time is now " + responseTime);
+
 		}
 
 
@@ -84,6 +92,7 @@ public class Player : MonoBehaviour {
 
 		if (responseTime < 0) {
 			responseTime = 0;
+			Debug.Log("So attractive, response is immediate");
 		}
 		Debug.Log("Match will respond in " + responseTime + " days");
 		return responseTime;
@@ -93,11 +102,13 @@ public class Player : MonoBehaviour {
 		inbox.Clear();
 		Debug.Log("MESSAGE LIST COUNT: " + messageList.Count);
 		for (int i = 0; i < messageList.Count; i++) {
+			Debug.Log(messageList[i].ToString());
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
 			if (int.Parse(messageParts[2]) <= 0) {
 				//TODO: Check tan requirements. not sure if this is the best place
 				if (tan <= json[messageParts[0]]["requirements"]["tan"].AsInt) {
 					//Don't add message
+
 				}
 				else {
 				}
@@ -133,8 +144,6 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private void getMessageList() {
-	}
 
 	private void saveMessageList() {
 		Prefs.PlayerPrefsX.SetStringArray("messages", messageList.ToArray());
@@ -143,7 +152,7 @@ public class Player : MonoBehaviour {
 	public void addMessage(string path) {
 		messageList.Add(path);
 		saveMessageList();
-		Debug.Log("Adding Message");
+		Debug.Log("Adding Message : " + path);
 	}
 
 	public void removeMessage(int index) {
@@ -163,13 +172,13 @@ public class Player : MonoBehaviour {
 	
 	public void newOffer(string type) {
 		JSONNode offers = json [type].AsObject;
-		
-		Debug.Log ("Amount of Offers: " + offers.Count);
 		int selectedOffer = Random.Range (0, offers.Count);
 		JSONNode offer = offers [selectedOffer].AsObject;
-		Debug.Log ("Picked Offer #" + selectedOffer + ", subject is: " + offer ["subject"]);
-		addMessage(offer["path"]);
-
+		if (offer ["path"] != null) {
+			addMessage (offer ["path"]);
+		} else {
+			Debug.Log("Offer path doesn't exist...");
+		}
 	}
 
 
@@ -183,21 +192,38 @@ public class Player : MonoBehaviour {
 		return dermatologistResponse;
 	}
 
+	public string getTanningSalonAssistantMessage(int index) {
+		JSONNode tanningSalonMessage = json ["salon"] ["conversation"] [index] ["assistant"];
+		return tanningSalonMessage;
+	}
+
+	public string getTanningSalonAssistantResponse(int index) {
+		JSONNode tanningSalonMessage = json ["salon"] ["conversation"] [index] ["response"];
+		return tanningSalonMessage;
+	}
 
 	private void newDay() {
 
 		//ADD TANNING OFFER
-//		newOffer("tanning");
-
+		newOffer("tanning");
+		newOffer ("love");
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
+			Debug.Log("MESSAGE LIST:" + i + " " + messageList[i]);
 				string[] message = StringArrayFunctions.getMessage (messageList[i]);
 				int currentDuration = int.Parse(message[2]);
 				
 				if(currentDuration > 0) {
 				//TODO: Check tan requirements here and if not met, add 1?
-					currentDuration-=1;
-					Debug.Log("Decreasing Duration");
+				int requiredTan = json[message[0]][message[1]]["thresholds"]["tan"].AsInt;
+					if (requiredTan <= tan) {
+						Debug.Log("Meets tan requirements, counting down to conversation");
+						currentDuration-=1;
+
+					}
+					else {
+						Debug.Log("Tan requirement not met, holding off. Required tan of " + requiredTan + " to proceed");
+					}
 				}
 				else {
 					Debug.Log("Leaving Duration Alone : " + currentDuration);
@@ -206,6 +232,10 @@ public class Player : MonoBehaviour {
 				messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
 			}
 			saveMessageList();
+
+			//TAKE TOLLS ON ATTRACTIVENESS, TAN
+			setAttractiveness (attractiveness - 1);
+			setTan (tan - 1);
 		}
 
 
@@ -241,7 +271,7 @@ public class Player : MonoBehaviour {
 			PlayerPrefs.SetInt("cancer risk", cancerRisk);
 		}
 		tan = amount;
-
+//		profile.character.transform 
 		PlayerPrefs.SetInt("tan", tan);
 	}
 
@@ -288,14 +318,16 @@ public class Player : MonoBehaviour {
 	private void populateStats() {
 		tan = PlayerPrefs.GetInt("tan", 0);
 		attractiveness = PlayerPrefs.GetInt("attractiveness", 0);
-	
-		profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3,true);
-		//TODO: Style becomes an avatar choice with accessories
+			//TODO: Style becomes an avatar choice with accessories
 		style = PlayerPrefs.GetInt("style", 0);
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
 		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
 		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
+		if (profile) {
+			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
+		}
+
 	}
 
 	public void updateProfile() {

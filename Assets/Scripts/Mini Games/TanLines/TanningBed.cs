@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class TanningBed : MonoBehaviour {
 	public float tanAmount = 0;
-	public Text feedbackMessage;
-	public Player player;
+	public TanningSalonAssistant assistant;
+	public Character character;
 	// Use this for initialization
 	void Start () {
 	
@@ -24,26 +24,33 @@ public class TanningBed : MonoBehaviour {
 		//TODO: take into account severity and their risk level
 		//TODO: add sun spots
 
-		player.newOffer ("exam");
-
+		assistant.player.newOffer ("exam");
 		switch((int)tanAmount) {
 		case 0:
-			feedbackMessage.text = "Worst tan ever!";
+			assistant.dialogue.text = "Looks like you didn't get much of a tan, perhaps I'll see you again.";
+			assistant.response.text = "Perhaps...";
 			break;
 		case 1:
-			feedbackMessage.text = "Not too pale";
+			assistant.dialogue.text = "Hey, nice base tan you got there. Come back if you want to take it to the next level.";
+			assistant.response.text = "We'll see.";
 			break;
 		case 2:
-			feedbackMessage.text = "Nice and orange!";
+			assistant.dialogue.text = "Yo Jersey! That's what I call a tan!";
+			assistant.response.text = "Thanks!";
 			break;
 		case 3:
-			feedbackMessage.text = "BURNED!";
+			assistant.dialogue.text = "Whoa, that looks painful. You shouldn't stay in there that long.";
+			assistant.response.text = "I'll have to work on that.";
 			break;	
 		}
+
 		Time.timeScale = 0f;
-		int tan = player.tan + (int)tanAmount;
-		player.setTan(tan);
-		player.takeAction();
+		int tan = (int)tanAmount;
+		assistant.player.setTan (tan);
+//		character.setTone (tan);
+		character.setTone (0);
+		assistant.player.takeAction ();
+		assistant.transform.parent.gameObject.SetActive (true);
 
 
 	}

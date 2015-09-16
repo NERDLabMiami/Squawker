@@ -23,10 +23,9 @@ public class CupidControl : MonoBehaviour {
 	}
 
 	public void endGame(int healCount) {
-		player.setAttractiveness(healCount);
+		player.setAttractiveness(Mathf.Min(player.attractiveness + healCount, 100));
 		Time.timeScale = 0f;
 		endButton.SetActive(true);
-//		startButton.SetActive(true);
 	}
 
 	public void returnHome() {

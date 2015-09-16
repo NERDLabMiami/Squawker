@@ -64,11 +64,11 @@ public class Character : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
 		if (name == "me") {
 			characterAssignment = name;
 			assign ();
 		} 
-
 	}
 
 
@@ -88,6 +88,7 @@ public class Character : MonoBehaviour {
 			
 			randomlyGenerate();
 		}
+		saveCharacter ();
 
 	}
 
@@ -118,6 +119,14 @@ public class Character : MonoBehaviour {
 		assignStyles ();
 
 	}
+	public void setTone(int amount) {
+		tanTone = amount;
+		PlayerPrefs.SetInt ("tan", amount);
+		Debug.Log ("Setting tan to " + amount);
+		loadStyles ();
+		assignStyles ();
+		saveCharacter ();
+	}
 
 	public void saveCharacter() {
 		int[] prefs = new int[16] {baseSkinTone, tanTone, selectedFace,selectedHairColor,selectedEyeBrow,selectedBackgroundHair, selectedForegroundHair, selectedHairLine, selectedEyes, selectedIris, selectedNose, selectedMouth, selectedSunglasses, selectedBand, selectedRibbon, selectedTie};
@@ -138,6 +147,7 @@ public class Character : MonoBehaviour {
 		hasBand = options [2];
 		hasRibbon = options [3];
 		hasTie = options [4];
+
 		baseSkinTone = prefs [0];
 		tanTone = prefs [1];
 		selectedFace = prefs [2];
@@ -160,16 +170,17 @@ public class Character : MonoBehaviour {
 		string [] dates = Prefs.PlayerPrefsX.GetStringArray(type);
 		//TODO: Check if there are no more potential characters
 		Debug.Log("There are currently " + dates.Length + " characters left");
-		List<string> list = new List<string>(dates);
-//		int numNames = player.json["names"]["men"].Count;
-//		name = player.json ["names"] [type] [Random.Range (0, numNames)];
-		int selectedCharacter = Random.Range(0, list.Count);
-		characterAssignment = list[selectedCharacter];
-		list.RemoveAt(selectedCharacter);
-		Prefs.PlayerPrefsX.SetStringArray(type,list.ToArray());
-		PlayerPrefs.SetString(characterAssignment, name);
-		Debug.Log("NAME IS " + name);
-
+		if (dates.Length > 0) {
+			List<string> list = new List<string> (dates);
+			int selectedCharacter = Random.Range (0, list.Count);
+			characterAssignment = list [selectedCharacter];
+			list.RemoveAt (selectedCharacter);
+			Prefs.PlayerPrefsX.SetStringArray (type, list.ToArray ());
+			PlayerPrefs.SetString (characterAssignment, name);
+			Debug.Log ("NAME IS " + name);
+		} else {
+			Debug.Log("No more characters to assign :(");
+		}
 	}
 
 	public void assignName(string type) {
@@ -186,14 +197,12 @@ public class Character : MonoBehaviour {
 
 		if (Random.Range (0, 2) == 1) {
 			hasShortHair = true;
-			Debug.Log("SHORT HAIR!");
 		} else {
 			hasShortHair = false;
 		}
 
 		if (Random.Range (0, 2) == 1) {
 			hasLongHair = true;
-			Debug.Log("LONG HAIR!");
 		} else {
 			hasLongHair = false;
 		}
@@ -225,9 +234,8 @@ public class Character : MonoBehaviour {
 		selectedHairColor = Random.Range (0, 8);
 		baseSkinTone = Random.Range (0, 8);
 		tanTone = 0;
-		PlayerPrefs.SetInt("selected hair color", selectedHairColor);
-		PlayerPrefs.SetInt ("selected skin tone", baseSkinTone);
-		PlayerPrefs.SetInt ("tan tone", tanTone);
+//		PlayerPrefs.SetInt("selected hair color", selectedHairColor);
+//		PlayerPrefs.SetInt ("selected skin tone", baseSkinTone);
 	}
 
 
@@ -277,6 +285,7 @@ public class Character : MonoBehaviour {
 
 		foregroundHair.enabled = hasShortHair;
 		backgroundHair.enabled = hasLongHair;
+
 		glasses.enabled = hasGlasses;
 		band.enabled = hasBand;
 		ribbon.enabled = hasRibbon;

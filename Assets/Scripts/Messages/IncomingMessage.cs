@@ -27,11 +27,22 @@ public class IncomingMessage : MonoBehaviour {
 		msg.GetComponent<ViewMessage>().character.name = message.sender;
 		Debug.Log("CHARACTER NAME IS " + message.sender);
 
+		switch (message.sender) {
+		case "tanning":
+			break;
+		case "love":
+			break;
+		case "dermatologist":
+			break;
+		default:
+			msg.GetComponent<ViewMessage>().character.assign(message.sender);
+			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
+
+			break;
+
+		}
 		msg.transform.SetParent(this.gameObject.transform.parent.parent, false);
 		this.transform.parent.gameObject.SetActive(false);
-		msg.GetComponent<ViewMessage>().character.assign(message.sender);
-
-		msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
 
 		for (int i = 0; i < message.responses.Count; i++) {
 			msg.GetComponent<ViewMessage>().addResponse(message.responses[i]);

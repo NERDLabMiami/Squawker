@@ -18,6 +18,9 @@
 	"intro" : {
 				"subject": "You have a new message!",
 				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
+				"thresholds": {
+						"tan": 0
+					},
 				"responses" : [
 								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
 									"path" : "male1/smoothies",
@@ -36,6 +39,10 @@
 
 			},
 	"shel" : {		
+					"thresholds": {
+						"tan": 0
+					},
+
 					"subject": "[character] replied to your message",
 					"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
 					"responses": [
@@ -48,6 +55,10 @@
 								]
 			},
 	"smoothies" : {
+					"thresholds": {
+						"tan": 0
+					},
+
 					"subject": "[character] replied to your message",
 					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
 					"responses" : [
@@ -94,6 +105,10 @@
 						"love": 40
 						},
 	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
 				"subject": "Hiya!!!",
 				"message": "YOU LOOK JUST LIKE MY FATHER!",
 				"responses" : [
@@ -126,6 +141,10 @@
 						"love": 50
 						},
 	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
 				"subject": "Well Hello!",
 				"message": "I'D SAY YOU LOOK JUST LIKE MY FATHER!",
 				"responses" : [
@@ -159,6 +178,10 @@
 						"love": 35
 						},
 	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
 				"subject": "OMG!",
 				"message": "YOU LOOK JUST LIKE MY FATHER!",
 				"responses" : [
@@ -192,6 +215,10 @@
 						"love": 60
 						},
 	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
 				"subject": "WHOA!",
 				"message": "YOU LOOK JUST LIKE MY FATHER!",
 				"responses" : [
@@ -291,5 +318,14 @@
 		}
 	}	
 	
+"salon": {
+	"conversation": [
+								{"assistant":"Hello there, looks like you could use some artificial sunlight!", "response":"Yes I could!"},
+								{"assistant":"I just need you to sign this waiver and we can get started.", "response":"OK"},
+								{"assistant":"Just press the button when you've had enough!", "response":"OK"},
+								
+			],
+
+	},		
 	
 }

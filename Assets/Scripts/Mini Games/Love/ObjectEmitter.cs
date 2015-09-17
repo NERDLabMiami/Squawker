@@ -18,8 +18,6 @@ public class ObjectEmitter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (nextSpawnTime < Time.time) {
-			Debug.Log("NEXT SPAWN TIME: " + nextSpawnTime);
-			Debug.Log("TIME: " + Time.time);
 			GameObject go = (GameObject) Instantiate(objectToEmit, transform.position, transform.rotation);
 			go.transform.SetParent(container.transform);
 			newSpawnTime();

@@ -27,15 +27,6 @@ public class Player : MonoBehaviour {
 
 		json = JSON.Parse(potentialMessages.ToString());
 
-		if (reset) {
-			PlayerPrefs.DeleteKey("game in progress");
-		}
-		
-		if (!PlayerPrefs.HasKey("game in progress")) {
-			//Game in Progress, populate variables
-			resetStats();
-		}
-
 		string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
 		messageList = storedMessages.OfType<string>().ToList();
 		inbox = new List<Message>();
@@ -44,7 +35,7 @@ public class Player : MonoBehaviour {
 		updateProfile();
 
 	}
-
+	
 	public int matches(string characterPath) {
 		//Get character's attractiveness, between 0 and 100 to set as the initial response time
 
@@ -80,8 +71,9 @@ public class Player : MonoBehaviour {
 		}
 
 
-		if (tan <= json [characterPath] ["requirements"] ["tan"].AsInt) {
+		if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
 			//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
+			Debug.Log("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
 			responseTime = 9999;
 			Debug.Log("Tan not appropriate, response time is now " + responseTime);
 
@@ -282,9 +274,10 @@ public class Player : MonoBehaviour {
 
 	}
 
-	private void resetStats() {
+	public void resetStats() {
 //		PlayerPrefs.DeleteKey ("messages");
 		PlayerPrefs.DeleteAll();
+		removeAllMessages();
 		//Debug.Log (json.ToString());
 		/*
 		JSONNode offers = json ["characters"].AsObject;
@@ -304,7 +297,6 @@ public class Player : MonoBehaviour {
 
 		Prefs.PlayerPrefsX.SetStringArray("men", list.ToArray());
 		Debug.Log("Saved " + list.Count + " characters");
-		PlayerPrefs.SetInt("game in progress", 1);
 		PlayerPrefs.SetInt("tan", Random.Range(0,10));
 		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
 		PlayerPrefs.SetInt("style", Random.Range(0,10));
@@ -350,7 +342,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void returnHome(){
-		Application.LoadLevel (0);
+		Application.LoadLevel (1);
 	}
 
 

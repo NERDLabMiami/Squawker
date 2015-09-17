@@ -26,7 +26,7 @@ public class Dermatologist : MonoBehaviour {
 		//TODO: With assets in place, transition between close up of dermatologist and player's face
 		//TODO: With assets in place, animate transitions
 		if (conversationIndex == 4) {
-			Application.LoadLevel(0);
+			Application.LoadLevel(1);
 		}
 		else {
 			dermatologistDialog.text = player.getDermatologistMessage(conversationIndex);

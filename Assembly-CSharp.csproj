@@ -45,11 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Career.cs" />
      <Compile Include="Assets\Scripts\Dating\Character.cs" />
      <Compile Include="Assets\Scripts\Dating\Match.cs" />
      <Compile Include="Assets\Scripts\Debug\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Debug\PlayerDebug.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
+     <Compile Include="Assets\Scripts\Home.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
@@ -65,7 +67,7 @@
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
-     <Compile Include="Assets\TanningSalonAssistant.cs" />
+     <Compile Include="Assets\Scripts\TanningSalonAssistant.cs" />
      <None Include="Assets\Resources\messages.txt" />
      <None Include="Assets\Resources\marketing.txt" />
  <Reference Include="UnityEngine.UI">

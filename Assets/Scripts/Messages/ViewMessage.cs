@@ -24,6 +24,7 @@ public class ViewMessage : MonoBehaviour {
 		if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				Debug.Log("Adding Offer Response");
+				player.removeMessage (r.messageIndex);
 				Application.LoadLevel(type);
 			});
 		} else {
@@ -40,31 +41,31 @@ public class ViewMessage : MonoBehaviour {
 		string[] pathArray = StringArrayFunctions.getMessage(r.path);
 		if (pathArray [0] == "tanning") {
 			Debug.Log("Tanning Offer");
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				Debug.Log ("Go to TanLines Mini Game");
-				Application.LoadLevel (1);
-			});
-			return 1;
+//			obj.GetComponent<Button> ().onClick.AddListener (() => {
+//				player.removeMessage (r.messageIndex);
+//				Debug.Log ("Go to TanLines Mini Game");
+//				Application.LoadLevel (2);
+//			});
+			return 2;
 		}
 		if (pathArray [0] == "love") {
 			Debug.Log("Love Quotient Offer");
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				Debug.Log ("Go to Love Q Mini Game");
-				Application.LoadLevel (2);
-			});
-			return 2;
+//			obj.GetComponent<Button> ().onClick.AddListener (() => {
+//				player.removeMessage (r.messageIndex);
+//				Debug.Log ("Go to Love Q Mini Game");
+//				Application.LoadLevel (3);
+//			});
+			return 3;
 		}
 		
 		if (pathArray [0] == "dermatologist") {
 			Debug.Log("Skin Exam");
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				Debug.Log ("Go to Skin Exam");
-				Application.LoadLevel (3);
-			});
-			return 3;
+//			obj.GetComponent<Button> ().onClick.AddListener (() => {
+//				player.removeMessage (r.messageIndex);
+//				Debug.Log ("Go to Skin Exam");
+//				Application.LoadLevel (4);
+//			});
+			return 4;
 		}
 		
 		

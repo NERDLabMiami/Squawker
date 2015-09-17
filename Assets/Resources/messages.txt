@@ -6,14 +6,14 @@
 "characters": ["male1", "male2", "male3", "male4", "male5"],
 "male1": {
 	"requirements" : {
-						"tan" : 5,
+						"tan" : 0,
 						"accessories" : {
-								"glasses": 1,
-								"tie": 1,
-								"band": -2,
+								"glasses": 0,
+								"tie": 0,
+								"band": 0,
 								"ribbon": 0
 									},
-						"love": 20
+						"love": 0
 						},
 	"intro" : {
 				"subject": "You have a new message!",
@@ -97,12 +97,12 @@
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {
-								"glasses": 2,
+								"glasses": 0,
 								"tie": 1,
-								"band": -2,
+								"band": 0,
 								"ribbon": 0
 									},
-						"love": 40
+						"love": 11
 						},
 	"intro" : {
 					"thresholds": {
@@ -133,12 +133,12 @@
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {
-								"glasses": 3,
+								"glasses": 0,
 								"tie": 1,
-								"band": -2,
+								"band": 0,
 								"ribbon": 0
 									},
-						"love": 50
+						"love": 2
 						},
 	"intro" : {
 					"thresholds": {
@@ -170,12 +170,12 @@
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {
-								"glasses": 4,
-								"tie": 1,
-								"band": -2,
+								"glasses": 0,
+								"tie": 0,
+								"band": 0,
 								"ribbon": 0
 									},
-						"love": 35
+						"love": 3
 						},
 	"intro" : {
 					"thresholds": {
@@ -212,7 +212,7 @@
 								"band": -2,
 								"ribbon": 0
 									},
-						"love": 60
+						"love": 5
 						},
 	"intro" : {
 					"thresholds": {

@@ -11,7 +11,7 @@ public class Match : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		newMatch();
 	}
 	
 	// Update is called once per frame

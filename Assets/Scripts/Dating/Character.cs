@@ -58,25 +58,28 @@ public class Character : MonoBehaviour {
 	private bool hasGlasses = false;
 	public string name;
 	private string characterAssignment;
-	private Player player;
-
+	public TextAsset characters;
+	private JSONNode json;
+//	private Player player;
+	
 //	private Image 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+//		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		json = JSON.Parse(characters.ToString());
 
 		if (name == "me") {
 			characterAssignment = name;
 			assign ();
 		} 
 	}
-
-
+	
 	public void assign(string character = null) {
 		if (character != null) {
 			characterAssignment = character;
 		}
 		Debug.Log("My Character Assignment is " + characterAssignment);
+
 		if (PlayerPrefs.HasKey (characterAssignment)) {
 			Debug.Log("Has Character Assignment for " + characterAssignment);
 			loadCharacter();
@@ -89,7 +92,6 @@ public class Character : MonoBehaviour {
 			randomlyGenerate();
 		}
 		saveCharacter ();
-
 	}
 
 	public string getCharacterAssignment() {
@@ -133,6 +135,7 @@ public class Character : MonoBehaviour {
 		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", prefs);
 		bool[] options = new bool[]{ hasLongHair, hasShortHair,hasGlasses, hasBand, hasRibbon, hasTie };
 		Prefs.PlayerPrefsX.SetBoolArray (characterAssignment + "_options", options);
+		Debug.Log("Saving Character " + name);
 		PlayerPrefs.SetString (characterAssignment, name);
 	}
 
@@ -184,8 +187,10 @@ public class Character : MonoBehaviour {
 	}
 
 	public void assignName(string type) {
-		int numNames = player.json["names"]["men"].Count;
-		name = player.json ["names"] [type] [Random.Range (0, numNames)];
+		int numNames = json["names"]["men"].Count;
+		name = json["names"][type][Random.Range(0,numNames)];
+//		int numNames = player.json["names"]["men"].Count;
+//		name = player.json ["names"] [type] [Random.Range (0, numNames)];
 	}
 
 

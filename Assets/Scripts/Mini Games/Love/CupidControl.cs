@@ -31,7 +31,7 @@ public class CupidControl : MonoBehaviour {
 	public void returnHome() {
 		//TODO: Proper transition
 		Time.timeScale = 1f;
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 	}
 
 	// Update is called once per frame

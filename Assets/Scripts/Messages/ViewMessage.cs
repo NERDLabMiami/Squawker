@@ -21,7 +21,10 @@ public class ViewMessage : MonoBehaviour {
 		GameObject response = Instantiate(responseTemplate);
 		response.GetComponent<ResponseOption>().response.text = r.text;
 		int type = offerType (response, r);
-		if (type != -1) {
+		if (type == 5) {
+			//TODO: parse path sender and cue epilogue
+		}
+		else if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				Debug.Log("Adding Offer Response");
 				player.removeMessage (r.messageIndex);
@@ -67,6 +70,14 @@ public class ViewMessage : MonoBehaviour {
 //			});
 			return 4;
 		}
+		if (pathArray.Length > 1) {
+			//has a character attached to it
+			if (pathArray [1] == "epilogue") {
+				Debug.Log("Epilogue for ..." + pathArray[0]);
+				return 5;
+			}
+		}
+
 		
 		
 		return -1;

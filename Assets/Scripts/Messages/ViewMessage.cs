@@ -23,6 +23,20 @@ public class ViewMessage : MonoBehaviour {
 		int type = offerType (response, r);
 		if (type == 5) {
 			//TODO: parse path sender and cue epilogue
+			response.GetComponent<Button> ().onClick.AddListener (() => {
+				player.removeMessage (r.messageIndex);
+				Debug.Log("Should Show Epilogue at this point");
+				Inbox inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
+				inbox.epilogue.npc.assign(character.getCharacterAssignment());
+				inbox.epilogue.cue ();
+				responseContainer.parent.parent.parent.gameObject.GetComponent<Inbox>().epilogue.gameObject.SetActive(true);
+				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();
+//				Epilogue ep = GameObject.FindGameObjectWithTag("Epilogue").GetComponent<Epilogue>();
+				e.npc = character;
+				e.cue();
+
+			});
+
 		}
 		else if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {

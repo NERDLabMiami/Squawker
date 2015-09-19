@@ -7,6 +7,7 @@ using SimpleJSON;
 public class Inbox : MonoBehaviour {
 	public IncomingMessage messageTemplate;
 	public GameObject messageContainer;
+	public Epilogue epilogue;
 
 	void Start () {
 	}

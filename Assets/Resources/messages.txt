@@ -4,6 +4,7 @@
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
 "characters": ["male1", "male2", "male3", "male4", "male5"],
+"character_ids":["C11", "C12", "C13", "C21", "C22", "C23", "C31", "C32", "C33"],
 "male1": {
 	"requirements" : {
 						"tan" : 0,
@@ -18,6 +19,9 @@
 	"intro" : {
 				"subject": "You have a new message!",
 				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
+				"belief_id": "",
+				"belief_dlg_id": "",
+				"belief_dlg_id_num":"",
 				"thresholds": {
 						"tan": 0
 					},
@@ -264,8 +268,11 @@
 "tanning" : {
 	"offer1" : {
 			"path":"tanning/offer1/0",
-			"subject": "Feeling down?",
-			"message": "Feeling down about the imperfections of your skin, like uneven skin tones, blemishes, scars, or acne? Well, one quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful and confident.",
+			"subject": "Feeling drab?",
+			"belief_id": "APB1",
+			"belief_marketing_id": "APB1_M1",
+			"B_M_ID_Num": "",
+			"message": "Feeling drab, pale, and sickly? Come in for a session in one of our tanning beds and you’ll immediately look healthy and youthful!",
 			"responses" : [
 							{ 	"response" : "Sounds good! I'll give it a try",
 								"path" : "tanning",
@@ -315,7 +322,7 @@
 	},
 "doctor": {
 	"conversation": [
-								{"doctor":"Great, let's take a look.", "patient":"OK"},
+								{"doctor":"Great, let's take a look.", "patient":"OK", "Belief_ID":"", "Belief_Derm_ID": "", "B_D_ID_Num":""},
 								{"doctor":"Looks like you have some sun spots, I can try to remove them.", "patient":"That'd be great."},
 								{"doctor":"OK, you're good to go.", "patient":"Thanks!"},
 								{"doctor":"Always use sunscreen!", "patient":"Will do."},

@@ -29,7 +29,7 @@ public class ViewMessage : MonoBehaviour {
 				Inbox inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
 				inbox.epilogue.npc.assign(character.getCharacterAssignment());
 				inbox.epilogue.cue ();
-				responseContainer.parent.parent.parent.gameObject.GetComponent<Inbox>().epilogue.gameObject.SetActive(true);
+//				responseContainer.parent.parent.parent.gameObject.GetComponent<Inbox>().epilogue.gameObject.SetActive(true);
 				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();
 //				Epilogue ep = GameObject.FindGameObjectWithTag("Epilogue").GetComponent<Epilogue>();
 				e.npc = character;

@@ -207,8 +207,9 @@ public class Player : MonoBehaviour {
 				
 				if(currentDuration > 0) {
 				//TODO: Check tan requirements here and if not met, add 1?
-				int requiredTan = json[message[0]][message[1]]["thresholds"]["tan"].AsInt;
-					if (requiredTan <= tan) {
+				//int requiredTan = json[message[0]][message[1]]["thresholds"]["tan"].AsInt;
+				int requiredTan = json[message[0]]["requirements"]["tan"].AsInt;
+				if (requiredTan <= tan) {
 						Debug.Log("Meets tan requirements, counting down to conversation");
 						currentDuration-=1;
 

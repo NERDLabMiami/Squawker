@@ -4,6 +4,7 @@ using System.Collections;
 public class ObjectEmitter : MonoBehaviour {
 	public GameObject objectToEmit;
 	public float randomInterval = 0;
+	public float randomInterval2 = 0;
 	public GameObject container;
 	private float nextSpawnTime;
 	// Use this for initialization
@@ -12,7 +13,7 @@ public class ObjectEmitter : MonoBehaviour {
 	}
 
 	void newSpawnTime() {
-		nextSpawnTime = Time.time + Random.Range (2, randomInterval * .5f);
+		nextSpawnTime = Time.time + Random.Range (randomInterval, randomInterval2);
 
 	}
 	// Update is called once per frame

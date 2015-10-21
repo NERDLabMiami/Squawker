@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += Vector3.up * speed * Time.deltaTime;
+		transform.position += Vector3.right * speed * Time.deltaTime;
 		if (endTime < Time.realtimeSinceStartup) {
 			Destroy (this.gameObject);
 		}

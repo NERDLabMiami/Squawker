@@ -37,15 +37,18 @@ public class CupidControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (playing) {
-			if (Input.GetButton("Horizontal")) {
-				if (Input.GetAxis("Horizontal") < 0) {
-					transform.position += Vector3.left * movementIntensity * Time.deltaTime;
+			if (Input.GetButton("Vertical")) {
+				if (Input.GetAxis("Vertical") > 0) {
+					GetComponent<Animator>().SetTrigger("flap");
+
+					transform.position += Vector3.up* movementIntensity * Time.deltaTime;
 				}
 				else {
-					transform.position += Vector3.right * movementIntensity * Time.deltaTime;
+					transform.position += Vector3.down * movementIntensity * Time.deltaTime;
 				}
 			}
-			if (Input.GetButtonDown("Vertical") || Input.GetButtonDown("Fire1")) {
+			if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Fire1")) {
+				GetComponent<Animator>().SetTrigger("shoot");
 				Instantiate(arrow, transform.position, transform.rotation);		
 				Debug.Log("Fire!");
 			}

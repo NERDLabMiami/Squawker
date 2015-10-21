@@ -50,7 +50,7 @@ public class TanningBed : MonoBehaviour {
 //		character.setTone (tan);
 		character.setTone (0);
 		assistant.player.takeAction ();
-		assistant.transform.parent.gameObject.SetActive (true);
+		assistant.dialogControls.SetActive (true);
 
 
 	}

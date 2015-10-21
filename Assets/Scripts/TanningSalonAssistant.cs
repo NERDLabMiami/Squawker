@@ -8,7 +8,8 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public Text response;
 	public Player player;
 	public GameObject waiver;
-	public GameObject salon;
+	public GameObject tanControls;
+	public GameObject dialogControls;
 
 	private int conversationIndex = 0;
 
@@ -25,8 +26,9 @@ public class TanningSalonAssistant : MonoBehaviour {
 			waiver.SetActive(true);
 		}
 		if (conversationIndex == 4) {
-			gameObject.transform.parent.gameObject.SetActive(false);
-			salon.SetActive(true);
+			dialogControls.SetActive(false);
+			Debug.Log("Activating Salon");
+			tanControls.SetActive(true);
 		}
 		if (conversationIndex == 5) {
 			Application.LoadLevel(1);

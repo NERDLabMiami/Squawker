@@ -33,6 +33,12 @@ public class CupidControl : MonoBehaviour {
 		Time.timeScale = 1f;
 		Application.LoadLevel(1);
 	}
+	public void shoot() {
+		Vector3 pos = transform.position;
+		pos.x += 1f;
+		Instantiate(arrow, pos, transform.rotation);		
+
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -49,7 +55,6 @@ public class CupidControl : MonoBehaviour {
 			}
 			if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Fire1")) {
 				GetComponent<Animator>().SetTrigger("shoot");
-				Instantiate(arrow, transform.position, transform.rotation);		
 				Debug.Log("Fire!");
 			}
 		

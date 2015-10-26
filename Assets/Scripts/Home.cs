@@ -6,7 +6,7 @@ public class Home : MonoBehaviour {
 	public Match match;
 	// Use this for initialization
 	void Start () {
-		player.profile.character.assign("me");
+//		player.profile.character.assign("me");
 //		player.refreshInbox();
 //		player.updateProfile();
 		match.newMatch();

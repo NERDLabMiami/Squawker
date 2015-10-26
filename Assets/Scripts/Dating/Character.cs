@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using SimpleJSON;
+using UnityEditor;
 
 public class Character : MonoBehaviour {
 
@@ -70,6 +71,27 @@ public class Character : MonoBehaviour {
 	private int selectedBand;
 	private int selectedRibbon;
 
+	
+	private string selectedBackgroundHairPath;
+	private string selectedFacePath;
+	private string selectedEarsPath;
+	private string selectedHairLinePath;
+	private string selectedEyesPath;
+	private string selectedEyeBrowPath;
+	private string selectedForegroundHairPath;
+	private string selectedIrisPath;
+	private string selectedNosePath;
+	private string selectedMouthPath;
+	private string selectedSunglassesPath;
+	private string selectedGlassesPath;
+	private string selectedBowPath;
+	private string selectedBarettePath;
+	private string selectedPiercingPath;
+	private string selectedTiePath;
+	private string selectedBandPath;
+	private string selectedRibbonPath;
+	
+
 
 	private int tanTone;
 
@@ -97,7 +119,7 @@ public class Character : MonoBehaviour {
 //	private Image 
 	// Use this for initialization
 	void Start () {
-//		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
 		json = JSON.Parse(characters.ToString());
 
 		if (name == "me") {
@@ -107,6 +129,7 @@ public class Character : MonoBehaviour {
 	}
 	
 	public void assign(string character = null) {
+
 		if (character != null) {
 			characterAssignment = character;
 		}
@@ -115,17 +138,39 @@ public class Character : MonoBehaviour {
 		if (PlayerPrefs.HasKey (characterAssignment)) {
 			Debug.Log("Has Character Assignment for " + characterAssignment);
 			loadCharacter();
-			loadStyles ();
-			assignStyles ();
-			
+			getSprites();
+//			loadStyles ();
+//			setSprites();
+
 		} else {
 			Debug.Log("Generating Character Assignment");
-			
 			randomlyGenerate();
 		}
-		saveCharacter ();
+
+
 	}
 
+
+	public void randomlyGenerate() {
+		//assign true false values
+		randomlyPickColors();
+
+		//load resources
+		loadStyles();
+	
+		//get assignments
+		selectRandomStyles();
+
+		//set sprites
+		setSprites();
+
+		//set paths
+		setPaths();
+
+		//save
+		saveCharacter();
+	}
+	
 	public string getCharacterAssignment() {
 		return characterAssignment;
 	}
@@ -164,26 +209,30 @@ public class Character : MonoBehaviour {
 		return hasPiercing;
 	}
 
-	public void randomlyGenerate() {
-		randomlyPickColors ();
-		loadStyles ();
-		generateAvatar ();
-		assignStyles ();
 
-	}
 	public void setTone(int amount) {
+
 		tanTone = amount;
 		PlayerPrefs.SetInt ("tan", amount);
 		Debug.Log ("Setting tan to " + amount);
+		//TODO: Need to reload sprite
+		/*
 		loadStyles ();
-		assignStyles ();
 		saveCharacter ();
-	}
+*/
+}
 
 	public void saveCharacter() {
-		int[] prefs = new int[21] {baseSkinTone, tanTone, selectedFace,selectedHairColor,selectedEyeBrow,selectedBackgroundHair, selectedForegroundHair, selectedHairLine, selectedEyes, selectedIris,
-			selectedNose, selectedEars, selectedMouth, selectedSunglasses, selectedBand, selectedRibbon, selectedTie, selectedBow, selectedGlasses, selectedPiercing, selectedBarette};
+		int[] prefs = new int[3] {baseSkinTone, tanTone, selectedHairColor};
+		string[] prefPaths = new string[18] {selectedFacePath,selectedEyeBrowPath,selectedBackgroundHairPath, selectedForegroundHairPath, selectedHairLinePath, 
+																selectedEyesPath, selectedIrisPath, selectedNosePath, selectedEarsPath, selectedMouthPath, selectedSunglassesPath, selectedBandPath,
+																selectedRibbonPath, selectedTiePath, selectedBowPath, selectedGlassesPath, selectedPiercingPath, selectedBarettePath};
+
 		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", prefs);
+		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", prefPaths);
+		for (int i = 0; i < prefPaths.Length; i++) {
+			Debug.Log("PREF #" + i + " : " + prefPaths[i]);
+		}
 		bool[] options = new bool[]{ hasLongHair, hasShortHair,hasGlasses, hasBand, hasRibbon, hasTie, hasBow, hasPiercing, hasSunglasses, hasBarette };
 		Prefs.PlayerPrefsX.SetBoolArray (characterAssignment + "_options", options);
 		Debug.Log("Saving Character " + name);
@@ -198,35 +247,43 @@ public class Character : MonoBehaviour {
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
 		hasLongHair = options [0];
 		hasShortHair = options [1];
-		hasBand = options [2];
-		hasRibbon = options [3];
-		hasTie = options [4];
-		hasBow = options [5];
-		hasPiercing = options [6];
-		hasSunglasses = options [7];
-		hasBarette = options [8];
+		hasGlasses = options[2];
+		hasBand = options [3];
+		hasRibbon = options [4];
+		hasTie = options [5];
+		hasBow = options [6];
+		hasPiercing = options [7];
+		hasSunglasses = options [8];
+		hasBarette = options [9];
 
 		baseSkinTone = prefs [0];
 		tanTone = prefs [1];
-		selectedFace = prefs [2];
-		selectedHairColor = prefs [3];
-		selectedEyeBrow = prefs [4];
-		selectedBackgroundHair = prefs [5];
-		selectedForegroundHair = prefs [6];
-		selectedHairLine = prefs [7];
-		selectedEyes = prefs [8];
-		selectedIris = prefs [9];
-		selectedNose = prefs [10];
-		selectedEars = prefs [11];
-		selectedMouth = prefs [12];
-		selectedSunglasses = prefs [13];
-		selectedBand = prefs [14];
-		selectedRibbon = prefs [15];
-		selectedTie = prefs [16];
-		selectedBow = prefs [17];
-		selectedGlasses = prefs[18];
-		selectedPiercing = prefs[19];
-		selectedBarette = prefs [20];
+		selectedHairColor = prefs[2];
+		getPaths();
+
+
+	}
+	public void getPaths() {
+		string[] prefPaths = Prefs.PlayerPrefsX.GetStringArray(characterAssignment + "_avatar_paths");
+		selectedFacePath = prefPaths[0];
+		selectedEyeBrowPath = prefPaths[1];
+		selectedBackgroundHairPath = prefPaths[2];
+		selectedForegroundHairPath = prefPaths[3];
+		selectedHairLinePath = prefPaths[4];
+		selectedEyesPath = prefPaths[5];
+		selectedIrisPath = prefPaths[6];
+		selectedNosePath = prefPaths[7];
+		selectedEarsPath = prefPaths[8];
+		selectedMouthPath = prefPaths[9];
+		selectedSunglassesPath = prefPaths[10];
+		selectedBandPath = prefPaths[11];
+		selectedRibbonPath = prefPaths[12];
+		selectedTiePath = prefPaths[13];
+		selectedBowPath = prefPaths[14];
+		selectedGlassesPath = prefPaths[15];
+		selectedPiercingPath = prefPaths[16];
+		selectedBarettePath = prefPaths[17];
+
 	}
 
 	public void assignCharacter(string type) {
@@ -355,52 +412,86 @@ public class Character : MonoBehaviour {
 			baretteStyles = Resources.LoadAll<Sprite> ("Avatar/Barrette");
 			bowStyles = Resources.LoadAll<Sprite> ("Avatar/Bow");
 			piercingStyles = Resources.LoadAll<Sprite> ("Avatar/Piercings");
-			
+
 	}
 
-	public void assignStyles() {
-		if (hasShortHair) {
-			foregroundHair.sprite = hairStyles [selectedForegroundHair];
-		} 
+	public void selectRandomStyles() {
+		selectedBackgroundHair = Random.Range (0, backgroundHairStyles.Length);
+		selectedFace = Random.Range (0, faceStyles.Length);
+		selectedEars = Random.Range (0, earStyles.Length);
+		selectedHairLine = Random.Range (0, hairlineStyles.Length);
+		selectedEyes = Random.Range (0, eyeStyles.Length);
+		selectedEyeBrow = Random.Range (0, eyeBrowStyles.Length);
+		selectedForegroundHair = Random.Range (0, hairStyles.Length);
+		selectedIris = Random.Range (0, irisStyles.Length);
+		selectedNose = Random.Range (0, noseStyles.Length);
+		selectedMouth = Random.Range (0, mouthStyles.Length);
+		selectedTie = Random.Range (0, tieStyles.Length);
+		selectedBand = Random.Range (0, bandStyles.Length);
+		selectedRibbon = Random.Range (0, ribbonStyles.Length);
+		selectedSunglasses = Random.Range (0, sunglassStyles.Length);
+		selectedBow = Random.Range (0, bowStyles.Length);
+		selectedGlasses = Random.Range (0, glassStyles.Length);
+		selectedBarette = Random.Range (0, baretteStyles.Length);
+		selectedPiercing = Random.Range (0, piercingStyles.Length);
 
-
-		if (hasLongHair) {
-			backgroundHair.sprite = backgroundHairStyles[selectedBackgroundHair];
-		} 
-
-		if (hasGlasses) {
-			glasses.sprite = glassStyles[selectedSunglasses];
-		} 
-		if (hasBand) {
-			band.sprite = bandStyles[selectedBand];
-		} 
-		if (hasRibbon) {
-			ribbon.sprite = ribbonStyles[selectedRibbon];
-		} 
-
-		if (hasTie) {
-			tie.sprite = tieStyles[selectedTie];
-		} 
-
-		if (hasSunglasses) {
-			sunglasses.sprite = sunglassStyles[selectedSunglasses];
-		}
-
-		if (hasBarette) {
-			barette.sprite = baretteStyles[selectedBarette];
-		}
-
-		if (hasPiercing) {
-			piercing.sprite = piercingStyles[selectedPiercing];
-		}
-
-		if (hasBow) {
-			bow.sprite = bowStyles[selectedBow];
-		}
-
+	}
+	public void getSprites() {
+		foregroundHair.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedForegroundHairPath);
+		backgroundHair.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBackgroundHairPath);
+		glasses.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedGlassesPath);
+		band.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBandPath);
+		ribbon.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedRibbonPath);
+		tie.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedTiePath);
+		sunglasses.sprite = AssetDatabase.LoadAssetAtPath<Sprite> (selectedSunglassesPath);
+		barette.sprite = AssetDatabase.LoadAssetAtPath<Sprite> (selectedBarettePath);
+		piercing.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedPiercingPath);
+		bow.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBowPath);
+		face.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedFacePath);
+		ears.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEarsPath);
+		hairLine.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedHairLinePath);
+		brows.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEyeBrowPath);
+		eyes.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEyesPath);
+		iris.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedIrisPath);
+		nose.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedNosePath);
+		mouth.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedMouthPath);
+		
 		foregroundHair.enabled = hasShortHair;
-		backgroundHair.enabled = hasLongHair;
+		backgroundHair.enabled = hasLongHair;		
+		glasses.enabled = hasGlasses;
+		band.enabled = hasBand;
+		ribbon.enabled = hasRibbon;
+		tie.enabled = hasTie;
+		bow.enabled = hasBow;
+		barette.enabled = hasBarette;
+		sunglasses.enabled = hasSunglasses;
+		piercing.enabled = hasPiercing;
+		
+	}
 
+
+	public void setSprites() {
+		foregroundHair.sprite = hairStyles [selectedForegroundHair];
+		backgroundHair.sprite = backgroundHairStyles[selectedBackgroundHair];
+		glasses.sprite = glassStyles[selectedGlasses];
+		band.sprite = bandStyles[selectedBand];
+		ribbon.sprite = ribbonStyles[selectedRibbon];
+		tie.sprite = tieStyles[selectedTie];
+		sunglasses.sprite = sunglassStyles[selectedSunglasses];
+		barette.sprite = baretteStyles[selectedBarette];
+		piercing.sprite = piercingStyles[selectedPiercing];
+		bow.sprite = bowStyles[selectedBow];
+		face.sprite = faceStyles[selectedFace];
+		ears.sprite = earStyles [selectedEars];
+		hairLine.sprite = hairlineStyles [selectedHairLine];
+		brows.sprite = eyeBrowStyles [selectedEyeBrow];
+		eyes.sprite = eyeStyles [selectedEyes];
+		iris.sprite = irisStyles [selectedIris];
+		nose.sprite = noseStyles [selectedNose];
+		mouth.sprite = mouthStyles [selectedMouth];
+		
+		foregroundHair.enabled = hasShortHair;
+		backgroundHair.enabled = hasLongHair;		
 		glasses.enabled = hasGlasses;
 		band.enabled = hasBand;
 		ribbon.enabled = hasRibbon;
@@ -410,17 +501,31 @@ public class Character : MonoBehaviour {
 		sunglasses.enabled = hasSunglasses;
 		piercing.enabled = hasPiercing;
 
-
-		face.sprite = faceStyles[selectedFace];
-		ears.sprite = earStyles [selectedEars];
-		hairLine.sprite = hairlineStyles [selectedHairLine];
-		brows.sprite = eyeBrowStyles [selectedEyeBrow];
-		eyes.sprite = eyeStyles [selectedEyes];
-		iris.sprite = irisStyles [selectedIris];
-		nose.sprite = noseStyles [selectedNose];
-		mouth.sprite = mouthStyles [selectedMouth];
-		                         
 	}
+
+	public void setPaths() {
+
+		selectedBarettePath = AssetDatabase.GetAssetPath(barette.sprite);
+		selectedBowPath = AssetDatabase.GetAssetPath(bow.sprite);
+		selectedBandPath = AssetDatabase.GetAssetPath(band.sprite);
+		selectedEarsPath = AssetDatabase.GetAssetPath(ears.sprite);
+		selectedEyeBrowPath = AssetDatabase.GetAssetPath(brows.sprite);
+		selectedEyesPath = AssetDatabase.GetAssetPath(eyes.sprite);
+		selectedFacePath = AssetDatabase.GetAssetPath(face.sprite);
+		selectedForegroundHairPath = AssetDatabase.GetAssetPath(foregroundHair.sprite);
+		selectedBackgroundHairPath = AssetDatabase.GetAssetPath (backgroundHair.sprite);
+		selectedGlassesPath = AssetDatabase.GetAssetPath(glasses.sprite);
+		selectedHairLinePath = AssetDatabase.GetAssetPath(hairLine.sprite);
+		selectedIrisPath = AssetDatabase.GetAssetPath(iris.sprite);
+		selectedMouthPath = AssetDatabase.GetAssetPath(mouth.sprite);
+		selectedNosePath = AssetDatabase.GetAssetPath(nose.sprite);
+		selectedPiercingPath = AssetDatabase.GetAssetPath(piercing.sprite);
+		selectedRibbonPath = AssetDatabase.GetAssetPath(ribbon.sprite);
+		selectedSunglassesPath = AssetDatabase.GetAssetPath(sunglasses.sprite);
+		selectedTiePath = AssetDatabase.GetAssetPath(tie.sprite);
+
+	}
+	
 
 	public void generateAvatar() {
 			selectedBackgroundHair = Random.Range (0, backgroundHairStyles.Length);
@@ -440,6 +545,26 @@ public class Character : MonoBehaviour {
 			selectedGlasses = Random.Range (0, glassStyles.Length);
 			selectedBarette = Random.Range (0, baretteStyles.Length);
 			selectedPiercing = Random.Range (0, piercingStyles.Length);
+
+
+			backgroundHair.sprite = backgroundHairStyles[selectedBackgroundHair];
+			face.sprite = faceStyles[selectedFace];
+			ears.sprite = earStyles[selectedEars];
+			hairLine.sprite = hairlineStyles[selectedHairLine];
+			eyes.sprite = eyeStyles[selectedEars];
+			foregroundHair.sprite = hairStyles[selectedForegroundHair];
+			iris.sprite = irisStyles[selectedIris];
+			nose.sprite = noseStyles[selectedNose];
+			mouth.sprite = mouthStyles[selectedMouth];
+			tie.sprite = tieStyles[selectedTie];
+			band.sprite = bandStyles[selectedBand];
+			ribbon.sprite = ribbonStyles[selectedRibbon];
+			sunglasses.sprite = sunglassStyles[selectedSunglasses];
+			bow.sprite = bowStyles[selectedBow];
+			glasses.sprite = glassStyles[selectedGlasses];
+			barette.sprite = baretteStyles[selectedBarette];
+			piercing.sprite = piercingStyles[selectedPiercing];
+			brows.sprite = eyeBrowStyles[selectedEyeBrow];
 	}
 	// Update is called once per frame
 	void Update () {

@@ -24,14 +24,13 @@ public class ItemFolderSelector : MonoBehaviour {
 
 			item.transform.SetParent(gameObject.transform,false);
 			item.transform.localScale = new Vector3(1,1,1);
-			Vector3 position = new Vector3(gameObject.transform.position.x + (col*100),gameObject.transform.position.y - (row*100),gameObject.transform.position.z);
+			Vector3 position = new Vector3(gameObject.transform.position.x + (col*110),gameObject.transform.position.y - (row*110),gameObject.transform.position.z);
 			item.transform.position = position;
 			item.GetComponent<ItemSelector>().selectButton.image.sprite = sprites[i];
 			if (AssetDatabase.GetAssetPath(avatarImage.sprite) == AssetDatabase.GetAssetPath (sprites[i]) && avatarImage.enabled) {
 
 				item.GetComponent<ItemSelector>().use();
 			}
-
 			col++;
 
 		}
@@ -49,5 +48,6 @@ public class ItemFolderSelector : MonoBehaviour {
 
 	public void removeImage() {
 		avatarImage.enabled = false;
+		//TODO: Loop through other items and check for inUse to remove those as well.
 	}
 }

@@ -263,6 +263,20 @@ public class Character : MonoBehaviour {
 
 
 	}
+
+	public void setOptions() {
+		hasLongHair = backgroundHair.enabled;
+		hasShortHair = foregroundHair.enabled;
+		hasGlasses = glasses.enabled;
+		hasBand = band.enabled;
+		hasRibbon = ribbon.enabled;
+		hasTie = tie.enabled;
+		hasBow = bow.enabled;
+		hasPiercing = piercing.enabled;
+		hasSunglasses = sunglasses.enabled;
+		hasBarette = barette.enabled;
+
+	}
 	public void getPaths() {
 		string[] prefPaths = Prefs.PlayerPrefsX.GetStringArray(characterAssignment + "_avatar_paths");
 		selectedFacePath = prefPaths[0];

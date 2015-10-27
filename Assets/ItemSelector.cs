@@ -30,6 +30,16 @@ public class ItemSelector : MonoBehaviour {
 		selectButton.targetGraphic.color = c;
 		removeButton.gameObject.SetActive(true);
 		gameObject.GetComponentInParent<ItemFolderSelector> ().assignImage (AssetDatabase.GetAssetPath (selectButton.image.sprite));
+		saveChanges ();
+	}
+
+	private void saveChanges() {
+		Debug.Log("Saving Changes");
+		Character character = gameObject.GetComponentInParent<ItemFolderSelector> ().avatarImage.transform.parent.GetComponent<Character> ();
+		character.setPaths ();
+		character.setOptions ();
+		character.saveCharacter ();
+
 	}
 
 	public void remove() {
@@ -38,6 +48,6 @@ public class ItemSelector : MonoBehaviour {
 		selectButton.targetGraphic.color = c;
 		removeButton.gameObject.SetActive(false);
 		gameObject.GetComponentInParent<ItemFolderSelector> ().removeImage();
-
+		saveChanges ();
 	}
 }

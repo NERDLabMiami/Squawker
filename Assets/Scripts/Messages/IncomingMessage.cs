@@ -24,7 +24,7 @@ public class IncomingMessage : MonoBehaviour {
 
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
-		msg.GetComponent<ViewMessage>().character.name = message.sender;
+		msg.GetComponent<ViewMessage>().character.characterName = message.sender;
 		Debug.Log("CHARACTER NAME IS " + message.sender);
 
 		switch (message.sender) {

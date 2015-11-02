@@ -1,16 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/messages.txt">
     <Files>
-      <File FileName="Assets/Scripts/Dating/Character.cs" Line="304" Column="33" />
       <File FileName="Assets/ItemFolderSelector.cs" Line="1" Column="1" />
       <File FileName="Assets/ItemSelector.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/Love/CupidControl.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/messages.txt" Line="6" Column="23" />
+      <File FileName="Assets/Resources/messages.txt" Line="262" Column="32" />
       <File FileName="Assets/Scripts/Mini Games/Love/ObjectEmitter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="133" Column="3" />
+      <File FileName="Assets/Scripts/Player.cs" Line="185" Column="25" />
       <File FileName="Assets/Epilogue.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
@@ -20,6 +19,9 @@
       <File FileName="Assets/Scripts/Home.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Career.cs" Line="1" Column="1" />
       <File FileName="Assets/CategorySelector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="27" Column="58" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/marketing.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

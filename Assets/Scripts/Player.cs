@@ -58,18 +58,6 @@ public class Player : MonoBehaviour {
 
 		}
 
-		if (profile.character.wearingBand()) {
-			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
-			Debug.Log("Liking the band, response time is now " + responseTime);
-
-		}
-
-		if (profile.character.wearingRibbon()) {
-			responseTime += json[characterPath]["requirements"]["accessories"]["band"].AsInt;
-			Debug.Log("Liking the ribbon, response time is now " + responseTime);
-
-		}
-
 
 		if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
 			//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.

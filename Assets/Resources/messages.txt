@@ -3,102 +3,629 @@
 					"women": []
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
-"characters": ["male1", "male2", "male3", "male4", "male5"],
+"characters": ["male1"],
 "character_ids":["C11", "C12", "C13", "C21", "C22", "C23", "C31", "C32", "C33"],
-"male1": {
-	"requirements" : {
-						"tan" : 0,
-						"accessories" : {
-								"glasses": 0,
-								"tie": 0,
-								"band": 0,
-								"ribbon": 0
-									},
-						"love": 0
-						},
-	"intro" : {
-				"subject": "You have a new message!",
-				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
-				"belief_id": "",
-				"belief_dlg_id": "",
-				"belief_dlg_id_num":"",
-				"thresholds": {
-						"tan": 0
-					},
-				"responses" : [
-								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
-									"path" : "male1/smoothies",
-									"time" : 1
-								},
-								{ 	"response" : "I love Uncle Shelby! What else are you into?",
-									"path" : "male1/shel",
-									"time" : 3
-								},
-								{ 	"response" : "I love attics! Why would you want the lights on though?",
-									"path" : "male1/epilogue",
-									"time" : 0
-								}
-
-								]
-
-			},
-	"epilogue" : {
-					"story": "they lived happily ever after";
-				},
-	"shel" : {		
-					"thresholds": {
-						"tan": 0
-					},
-
-					"subject": "[character] replied to your message",
-					"message" : "I'm really into Clifford the Big Red Dog and the Bernstein Bears are my favorite!",
-					"responses": [
-									{"response": "How old are you?",
-									 "path": "male1/howold",
-									 "time": 9999},
-									{"response" : "Do you read anything other than childrens books?",
-									 "path": "male1/childrensbooks",
-									 "time": 9999}
-								]
-			},
-	"smoothies" : {
-					"thresholds": {
-						"tan": 0
-					},
-
-					"subject": "[character] replied to your message",
-					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
-					"responses" : [
-									{	"response" : "Eww, kale is gross",
-										"path" : "male1/kalegross",
-										"time" : 3
-										},
-									{ 	"response" : "I love kale!",
-										"path" : "male1/lovekale",
-										"time" : 2},
-									{	"response" : "I'm more of a fruit smoothie kind of person.",
-										"path" : "male1/fruitsmoothie",
-										"time" : 1}
-
-								]
-			},
-	"kalegross" : {
-					"subject": "[character] replied to your message",
-					"message" : "You didn't have to be so mean!",
-					"responses" : [
-									{	"response" : "I'm sorry!",
-										"path" : "male1/sorry",
-										"time" : 9999
-										},
-									{ 	"response" : "I was just kidding. I like kale.",
-										"path" : "male1/likekale",
-										"time" : 1}
-
-								]
-		}
-
-	},
-	
+  "male1": {
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Nice Profile!",
+      "message": "I liked the look of your profile so here I am, messaging you!\r\n\r\nSome fun facts about me! My favorite song is \u201cSomewhere Over the Rainbow\u201d from The Wizard of Oz and the fact it was almost cut from the movie still scares me. I work in pharmaceutical sales and I love to travel. If I could go anywhere and do anything there I would probably go to New Zealand and take a hot air balloon ride over the mountains. I think the hot air balloon interest comes from The Wizard of Oz, so maybe I didn\u2019t quite grasp the movie haha!\r\n\r\nAnyway, say hi if you\u2019d like to chat!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I love The Wizard of Oz. Which character do you think you most relate to?",
+          "path": "r1wizard",
+          "time": "0"
+        },
+        {
+          "response": "\u0022Pharmaceutical sales\u0022, huh? Fanciest name for a drug dealer I\u2019ve ever heard.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "I\u2019ve always wanted to go to New Zealand. But my interest is inspired by Lord of the Rings.",
+          "path": "r3lotr",
+          "time": "0"
+        }
+      ]
+    },
+    "r1wizard": {
+      "subject": "Tough Question...",
+      "message": "Oooh tough question. I would probably say Dorothy lol. I\u2019ve traveled my whole life so I guess the search for a home is something I could relate to.\r\n\r\nHow about you?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Probably Scarecrow. I can be a bit dense sometimes.",
+          "path": "r1scarecrow",
+          "time": "0"
+        },
+        {
+          "response": "Definitely the Lion. I can\u0027t do horror movies whatsoever. Or the dark. Or being alone. I sleep with a night light.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "The Tin Man. Aren\u0027t we all sort of Tin people on here, looking for love?",
+          "path": "r3tinman",
+          "time": "0"
+        }
+      ]
+    },
+    "r3lotr": {
+      "subject": "Great reason!",
+      "message": "That\u0027s a great reason as well! I think it\u0027s a beautiful country, and I love hiking and exploring the outdoors so any good vacation involves a lot of that.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I love hiking! I just got a new pair of hiking boots last weekend.",
+          "path": "r1hiking",
+          "time": "0"
+        },
+        {
+          "response": "I\u0027m not a big hiker. Or outdoorsman. My ideal trip involves seeing beautiful landscapes through a window.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "One ring to rule them all, one ring to find them, one ring to bring them all and in the darkness bind them!",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1scarecrow": {
+      "subject": "Aww...",
+      "message": "Aww I\u0027m sure that isn\u0027t the case! You seem very intelligent. And very beautiful, if you don\u0027t mind my saying. You look like you take care of yourself, which is important to me.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "1"
+      },
+      "responses": [
+        {
+          "response": "Well thank you.  You look great as well! Just good old fashioned diet and exercise?",
+          "path": "r1diet",
+          "time": "0"
+        },
+        {
+          "response": "I think I just have good metabolism. I hardly work out at all! I don\u0027t really like to.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "I do take care of myself. Spend time at the gym, indoor tanning, and eating right. All that good stuff.",
+          "path": "r3gym",
+          "time": "2"
+        }
+      ]
+    },
+    "r3tinman": {
+      "subject": "Well well!",
+      "message": "Well you\u0027re just a poet now, aren\u0027t you? I like that. What do you do in your spare time, Ms. Poet?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Well I spend a lot of time at home, watching TV and using the computer. I prefer staying in to going out in most cases.",
+          "path": "r1tv",
+          "time": "0"
+        },
+        {
+          "response": "I love going to the beach. Swimming and exercising in the sun is so refreshing, and also leaves me with a pretty nice tan.",
+          "path": "r2beach",
+          "time": "0"
+        },
+        {
+          "response": "Nothing so special. I spend time at the gym, watch a lot of television, and enjoy meeting attractive people like yourself!",
+          "path": "r3nothingspecial",
+          "time": "0"
+        }
+      ]
+    },
+    "r1diet": {
+      "subject": "That\u0027s it!",
+      "message": "That\u0027s it! Being healthy is probably the most important thing to me. I know people who insist on going to a tanning salon weekly in order to look good. Like it isn\u0027t super dangerous for you. Can you believe that?",
+      "belief_id": "HT11",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I do believe it! I\u0027m one of them! Healthy eating and exercise can only do so much for you.",
+          "path": "r1healthy",
+          "time": "0"
+        },
+        {
+          "response": "What people believe scares me.",
+          "path": "r2scary",
+          "time": "0"
+        },
+        {
+          "response": "Super dangerous? Don\u0027t those tanning salons have safety regulations?",
+          "path": "r3dangerous",
+          "time": "0"
+        }
+      ]
+    },
+    "r3gym": {
+      "subject": "Really?",
+      "message": "One of these things is not like the other.... indoor tanning? Really? Do you know how dangerous that is?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "It\u0027s not that dangerous. Maybe once I get a little older it would be, but right now my body can take it.",
+          "path": "r1notdangerous",
+          "time": "0"
+        },
+        {
+          "response": "Don\u0027t be so uptight. You gotta risk it to get the biscuit, am I right?",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1healthy": {
+      "subject": "You do?",
+      "message": "I understand that you may think you look better, but you have to be aware of the regulations. Some salons don\u0027t tell the full truth to their customers. You have to know for yourself whether the UV limits and frequency of tanning they\u0027re telling you is actually true.",
+      "belief_id": "HT51",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I hear what you\u0027re saying. I just don\u0027t think my tanning salon would want to hurt me. If I died, they would lose a customer right? Hahaha",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "Don\u0027t Respond",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r2scary": {
+      "subject": "Exactly",
+      "message": "Exactly. I mean, indoor tanning doesn\u0027t just cause skin cancer but it can also lead to eye problems if the salons aren\u0027t using the right protection, and you know these tanning places don\u0027t care about their customer\u0027s health at all.\r\n\r\nBut enough of all that, would you want to meet up for a coffee sometime? Maybe tomorrow?",
+      "belief_id": "HT12",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That would be great!",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "I\u0027m flattered, but no thanks.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r3dangerous": {
+      "subject": "It\u0027s just business",
+      "message": "Tanning salons are a business. Most are exceeding the UV levels that are typically deemed \u0022safe\u0022 by the FDA so they can give customers the tan they\u0027re expecting.",
+      "belief_id": "HT51",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That\u0027s actually pretty scary to think about. But you must be right. I guess they\u0027re doing it for themselves and not so much for their customers.",
+          "path": "r1notforcustomers",
+          "time": "0"
+        },
+        {
+          "response": "Oh lighten up. If they were really that bad for you the FDA would shut them down. They definitely aren\u0027t trying to hurt us.",
+          "path": "r2nothurtingus",
+          "time": "0"
+        },
+        {
+          "response": "I usually go with friends, as a kind of social activity. We could go together sometime if you\u0027re scared!",
+          "path": "r3social",
+          "time": "0"
+        }
+      ]
+    },
+    "r1notforcustomers": {
+      "subject": "Right!",
+      "message": "Right! They\u0027re a business and anybody who says otherwise needs to seriously reevaluate.\r\n\r\nAnyway, how would you feel about going for a hike together sometime? I know a great park nearby.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I\u0027d love that! Let\u0027s do it!",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "Oh, I don\u0027t think so. But thanks for the invitation.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r2nothurtingus": {
+      "subject": "You should know...",
+      "message": "I\u0027m replying to this for your own good. The FDA isn\u0027t all powerful, but they are trying to strengthen the tanning salon\u0027s regulations to protect customers. But still with those regulations, the tanning salon may not be completely transparent with their customers, and that bothers me.",
+      "belief_id": "HT53",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I\u0027m glad the FDA is doing that if it\u0027s as bad as you think. That gives me some hope for our crumbling government system.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "Well thanks for the warning. I\u0027ll give it some thought next time I\u0027m at the salon.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "I wouldn\u0027t give up this tan for anything. I\u0027m glad the salons are getting around the FDA.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r3social": {
+      "subject": "I dunno...",
+      "message": "You couldn\u0027t pay me to go into a place like that. They cost so much, I definitely have better things to spend my money on.",
+      "belief_id": "DISCOM3",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That\u0027s a really good point. I guess I would rather spend on things that aren\u0027t life threatening.",
+          "path": "r1lifethreatening",
+          "time": "0"
+        },
+        {
+          "response": "I don\u0027t know, people are always coming up with new ways to buy beauty. This is a pretty good way to do it, I think.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "Come onnnnn. It\u0027ll be fun!",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1lifethreatening": {
+      "subject": "On that note",
+      "message": "And on that note, how about we go out sometime? There\u0027s a movie coming out this weekend, people say it\u0027s very \u0022Wizard of Oz\u0022-esque.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I\u0027d like that!",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "Ah, I have plans this weekend. Sorry.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1notdangerous": {
+      "subject": "Wow",
+      "message": "Wow, alright, I don\u0027t mean to lecture here, but that\u0027s not how it works. When you begin tanning earlier in life your risk of melanoma increases a ton. If you start indoor tanning before you\u0027re 35, your risk of getting it goes up by 75 percent.",
+      "belief_id": "HT71",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I didn\u0027t actually know that.",
+          "path": "r1didnotknow",
+          "time": "0"
+        },
+        {
+          "response": "Yeah, alright, where are you even getting these facts? Some things are worth the risk to look this good.",
+          "path": "r2worthrisk",
+          "time": "0"
+        }
+      ]
+    },
+    "r1didnotknow": {
+      "subject": "Now you do!",
+      "message": "Well now you do. Just be careful in the future. Melanoma is the second most common cancer in women between 20 and 29.",
+      "belief_id": "HT72",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Thank you. Hey, would you be interested in grabbing a drink sometime?",
+          "path": "r1thankyoudrink",
+          "time": "1"
+        },
+        {
+          "response": "I\u0027ll be more careful then.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "We\u0027ll see. I still look good.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1thankyoudrink": {
+      "subject": "Sure",
+      "message": "Sure, I could do that. Tomorrow night?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sure, sounds good.",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "On second thought, I don\u0027t think I\u0027m interested.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r2beach": {
+      "subject": "I can tell",
+      "message": "I can tell that\u0027s the case. Would you have any interest in getting a drink sometime?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "2"
+      },
+      "responses": [
+        {
+          "response": "Sounds great.",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "I think that\u0027s a little fast for me. Thanks anyways.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r3nothingspecial": {
+      "subject": "Wow!",
+      "message": "You\u0027re pretty aggressive with the flattery.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "You deserve every word, gorgeous.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "Sorry, I can come on strong when I like someone.",
+          "path": "r2strong",
+          "time": "0"
+        },
+        {
+          "response": "Don\u0027t be ungrateful, that isn\u0027t cute.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r2strong": {
+      "subject": "Oh",
+      "message": "That\u0027s better. You seem nice. What brings you on here?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I\u0027m just looking for a pretty guy to go out to dinner with. Any interest?",
+          "path": "r1prettyguy",
+          "time": "0"
+        },
+        {
+          "response": "Just a quick thing. You down?",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1prettyguy": {
+      "subject": "Dinner?",
+      "message": "That sounds great. Wanna grab dinner tonight?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "2"
+      },
+      "responses": [
+        {
+          "response": "I\u0027ll see you then.",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "Actually, I don\u0027t think I can. Sorry.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1hiking": {
+      "subject": "Hiking!",
+      "message": "That\u0027s great! Are you more of a mountain hiker or a forest hiker?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Mountains, definitely. I like my workout to double as a bit of a tanning session as well. I need the clear sky above me!",
+          "path": "r1mountains",
+          "time": "0"
+        },
+        {
+          "response": "I love a good forest hike. Nothing like the sights and sounds of all those different types of trees and animals to relax you.",
+          "path": "r2forest",
+          "time": "0"
+        },
+        {
+          "response": "Baby, I\u0027m into whatever you are.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r1mountains": {
+      "subject": "Clear skies...",
+      "message": "I get what you mean. I heard about this gym that\u0027s including sessions at the neighboring tanning salon in their membership package. It\u0027s like, why not just hike outside where you can do both at once, and be a lot safer and smarter about it?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Is that a real thing? I\u0027ve got to go sign up! Indoor tanning is life!",
+          "path": "r1indoortanningislife",
+          "time": "0"
+        },
+        {
+          "response": "That\u0027s horrible. I don\u0027t understand the obsession with indoor tanning these days.",
+          "path": "r2horrible",
+          "time": "0"
+        },
+        {
+          "response": "I mean, at least you\u0027d be avoiding getting a sunburn like you might outdoors, right?",
+          "path": "r3sunburn",
+          "time": "0"
+        }
+      ]
+    },
+    "r2forest": {
+      "subject": "For sure!",
+      "message": "There\u0027s no better place to get in tune with nature than the middle of the woods. I could use a partner who could keep up with me.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "2"
+      },
+      "responses": [
+        {
+          "response": "I\u0027m not tooo sure I could, to be honest",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "Maybe we should go on a hike together sometime!",
+          "path": "r2hikesometime",
+          "time": "0"
+        }
+      ]
+    },
+    "r2horrible": {
+      "subject": "Me neither",
+      "message": "Neither do I. It\u0027s a complete mystery to me.\r\n\r\nOn that note, how about we meet up for a hike this weekend? Get in some exercise and maybe tan a little bit the good old-fashioned way!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That would be fun! Let\u0027s do it!",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "Oh no thanks, I\u0027m allergic to the sun.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r3sunburn": {
+      "subject": "Those are rumors!",
+      "message": "That\u0027s just a rumor! Staying under artificial light for too long or under too high an intensity can cause a sunburn as well. And technically speaking, a tan by definition is just skin damage.",
+      "belief_id": "HT3",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Wow that\u0027s not comforting at all.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "How could you get a sunburn when you\u0027re not in the sun? There\u0027s no way I\u0027m going to believe that.",
+          "path": "deadend",
+          "time": "9999"
+        },
+        {
+          "response": "UGH WHY IS THE WORLD WE LIVE IN SO DANGEROUS?",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    },
+    "r2hikesometime": {
+      "subject": "Sounds great",
+      "message": "Sounds great. How about this weekend?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Works for me!",
+          "path": "epilogue",
+          "time": "0"
+        },
+        {
+          "response": "On second thought, I don\u0027t think I can.",
+          "path": "deadend",
+          "time": "9999"
+        }
+      ]
+    }
+  },	
 	
 "male2": {
 	"requirements" : {

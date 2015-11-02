@@ -34,6 +34,7 @@ public class Character : MonoBehaviour {
 	public string faceStylePath;
 	public string earStylePath;
 	public string irisStylePath;
+	public string eyeStylePath;
 	public string eyebrowStylePath;
 	public string noseStylePath;
 	public string mouthStylePath;
@@ -163,6 +164,10 @@ public class Character : MonoBehaviour {
 	
 		//get assignments
 		selectRandomStyles();
+
+		//assign sprites
+
+		generateAvatar ();
 
 		//set sprites
 		setSprites();
@@ -309,7 +314,7 @@ public class Character : MonoBehaviour {
 
 
 	public Sprite getHairStyle() {
-		return backgroundHairStyles [Random.Range (0, backgroundHairStyles.Length)];
+		return longHairStyles [Random.Range (0, longHairStyles.Length)];
 	}
 
 	public void randomlyPickColors() {
@@ -372,14 +377,14 @@ public class Character : MonoBehaviour {
 //		earStylePath = "Avatar/Ears/" + baseSkinTone + "/" + tanTone;
 //		hairLinePath = "Avatar/Hair/" + selectedHairColor + "/" + "/Line";
 
-		faceStyles = Resources.LoadAll<Sprite> (faceStylePath + baseSkinTone + "/" + tanTone);
-			hairlineStyles = Resources.LoadAll<Sprite> (hairLineStylePath + selectedHairColor);
-			longHairStyles = Resources.LoadAll<Sprite> (longHairStylePath + selectedHairColor);
-			shortHairStyles = Resources.LoadAll<Sprite> (shortHairStylePath + selectedHairColor);
-			eyebrowStyles = Resources.LoadAll<Sprite> (eyebrowStylePath + selectedHairColor);
-			eyeStyles = Resources.LoadAll<Sprite> (eyebrowStylePath);
+			faceStyles = Resources.LoadAll<Sprite> (faceStylePath + "/" + baseSkinTone + "/" + tanTone);
+			hairlineStyles = Resources.LoadAll<Sprite> (hairLineStylePath + "/" + selectedHairColor);
+			longHairStyles = Resources.LoadAll<Sprite> (longHairStylePath + "/" +selectedHairColor);
+			shortHairStyles = Resources.LoadAll<Sprite> (shortHairStylePath + "/" +selectedHairColor);
+			eyebrowStyles = Resources.LoadAll<Sprite> (eyebrowStylePath + "/" + selectedHairColor);
+			eyeStyles = Resources.LoadAll<Sprite> (eyeStylePath);
 			irisStyles = Resources.LoadAll<Sprite> (irisStylePath);
-			earStyles = Resources.LoadAll<Sprite> (earStylePath + baseSkinTone + "/" + tanTone);
+			earStyles = Resources.LoadAll<Sprite> (earStylePath + "/" + baseSkinTone + "/" + tanTone);
 			noseStyles = Resources.LoadAll<Sprite> (noseStylePath);
 			mouthStyles = Resources.LoadAll<Sprite> (mouthStylePath);
 			glassStyles = Resources.LoadAll<Sprite> (glassStylePath);
@@ -387,6 +392,9 @@ public class Character : MonoBehaviour {
 			headwearStyles = Resources.LoadAll<Sprite> (headwearStylePath);
 			hairAccessoryStyles = Resources.LoadAll<Sprite> (hairAccessoryStylePath);
 			piercingStyles = Resources.LoadAll<Sprite> (piercingStylePath);
+		Debug.Log ("Path: " + piercingStylePath + " Piercings: " + piercingStyles.Length);
+		Debug.Log ("Hair Accessories: " + hairAccessoryStyles.Length);
+		Debug.Log ("Glasses: " + glassStyles.Length);
 
 	}
 
@@ -409,41 +417,41 @@ public class Character : MonoBehaviour {
 
 	}
 	public void getSprites() {
-		foregroundHair.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedForegroundHairPath);
-		backgroundHair.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBackgroundHairPath);
-		glasses.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedGlassesPath);
-		band.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBandPath);
-		ribbon.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedRibbonPath);
-		tie.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedTiePath);
-		sunglasses.sprite = AssetDatabase.LoadAssetAtPath<Sprite> (selectedSunglassesPath);
-		barette.sprite = AssetDatabase.LoadAssetAtPath<Sprite> (selectedBarettePath);
-		piercing.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedPiercingPath);
-		bow.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedBowPath);
-		face.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedFacePath);
-		ears.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEarsPath);
-		hairLine.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedHairLinePath);
-		brows.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEyeBrowPath);
-		eyes.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedEyesPath);
-		iris.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedIrisPath);
-		nose.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedNosePath);
-		mouth.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(selectedMouthPath);
-		
+		hairLine.sprite = Resources.Load<Sprite> (hairLineStylePath + "/" + selectedHairColor + "/" + selectedHairLineName);
+		shortHair.sprite = Resources.Load<Sprite>(shortHairStylePath + "/" + selectedHairColor + "/" + selectedShortHairName);
+		longHair.sprite = Resources.Load<Sprite>(longHairStylePath + "/" + selectedHairColor + "/" + selectedLongHairName);
+		eyebrows.sprite = Resources.Load<Sprite>(eyebrowStylePath + "/" + selectedHairColor + "/" + selectedEyebrowName);
+
+		face.sprite = Resources.Load<Sprite> (faceStylePath + "/" + baseSkinTone + "/" + tanTone + "/" + selectedFaceName);	
+		ears.sprite = Resources.Load<Sprite> (earStylePath + "/" + baseSkinTone + "/" + tanTone + "/" + selectedEarsName);
+
+		mouth.sprite = Resources.Load<Sprite> (mouthStylePath + "/" + selectedMouthName);
+		nose.sprite = Resources.Load<Sprite> (noseStylePath + "/" + selectedNoseName);
+		eyes.sprite = Resources.Load<Sprite> (eyeStylePath + "/" + selectedEyesName);
+		iris.sprite = Resources.Load<Sprite> (irisStylePath + "/" + selectedIrisName);
+
+		glasses.sprite = Resources.Load<Sprite> (glassStylePath + "/" + selectedGlassesName);
+		headwear.sprite = Resources.Load<Sprite> (headwearStylePath + "/" + selectedHeadwearName);
+		hairAccessory.sprite = Resources.Load<Sprite> (hairAccessoryStylePath + "/" + selectedHairAccessoryName);
+		tie.sprite = Resources.Load<Sprite> (tieStylePath + "/" + selectedTieName);
+		piercing.sprite = Resources.Load<Sprite> (piercingStylePath + "/" + selectedPiercingName);
+
 		setEnabledAttributes ();
 	}
 
 
 	public void setSprites() {
-		shortHair.sprite = hairStyles [selectedForegroundHair];
-		longHair.sprite = backgroundHairStyles[selectedBackgroundHair];
+		shortHair.sprite = shortHairStyles [selectedShortHair];
+		longHair.sprite = longHairStyles[selectedLongHair];
 		glasses.sprite = glassStyles[selectedGlasses];
-		headwear.sprite = bandStyles[selectedBand];
-		hairAccessory.sprite = ribbonStyles[selectedRibbon];
+		headwear.sprite = headwearStyles[selectedHeadwear];
+		hairAccessory.sprite = hairAccessoryStyles[selectedHairAccessory];
 		tie.sprite = tieStyles[selectedTie];
 		piercing.sprite = piercingStyles[selectedPiercing];
 		face.sprite = faceStyles[selectedFace];
 		ears.sprite = earStyles [selectedEars];
 		hairLine.sprite = hairlineStyles [selectedHairLine];
-		eyebrows.sprite = eyeBrowStyles [selectedEyeBrow];
+		eyebrows.sprite = eyebrowStyles[selectedEyebrow];
 		eyes.sprite = eyeStyles [selectedEyes];
 		iris.sprite = irisStyles [selectedIris];
 		nose.sprite = noseStyles [selectedNose];
@@ -464,67 +472,63 @@ public class Character : MonoBehaviour {
 	}
 
 	public void setPaths() {
-
-		selectedBarettePath = AssetDatabase.GetAssetPath(barette.sprite);
-		selectedBowPath = AssetDatabase.GetAssetPath(bow.sprite);
-		selectedBandPath = AssetDatabase.GetAssetPath(band.sprite);
-		selectedEarsPath = AssetDatabase.GetAssetPath(ears.sprite);
-		selectedEyeBrowPath = AssetDatabase.GetAssetPath(brows.sprite);
-		selectedEyesPath = AssetDatabase.GetAssetPath(eyes.sprite);
-		selectedFacePath = AssetDatabase.GetAssetPath(face.sprite);
-		selectedForegroundHairPath = AssetDatabase.GetAssetPath(foregroundHair.sprite);
-		selectedBackgroundHairPath = AssetDatabase.GetAssetPath (backgroundHair.sprite);
-		selectedGlassesPath = AssetDatabase.GetAssetPath(glasses.sprite);
-		selectedHairLinePath = AssetDatabase.GetAssetPath(hairLine.sprite);
-		selectedIrisPath = AssetDatabase.GetAssetPath(iris.sprite);
-		selectedMouthPath = AssetDatabase.GetAssetPath(mouth.sprite);
-		selectedNosePath = AssetDatabase.GetAssetPath(nose.sprite);
-		selectedPiercingPath = AssetDatabase.GetAssetPath(piercing.sprite);
-		selectedRibbonPath = AssetDatabase.GetAssetPath(ribbon.sprite);
-		selectedSunglassesPath = AssetDatabase.GetAssetPath(sunglasses.sprite);
-		selectedTiePath = AssetDatabase.GetAssetPath(tie.sprite);
+		selectedShortHairName = shortHair.sprite.name;
+		selectedLongHairName = longHair.sprite.name;
+		selectedHairLineName = hairLine.sprite.name;
+		selectedHairAccessoryName = hairAccessory.sprite.name;
+		selectedHeadwearName = headwear.sprite.name;
+		selectedEarsName = ears.sprite.name;
+		selectedEyebrowName = eyebrows.sprite.name;
+		selectedEyesName = eyes.sprite.name;
+		selectedIrisName = iris.sprite.name;
+		selectedFaceName = face.sprite.name;
+		selectedMouthName = mouth.sprite.name;
+		selectedNoseName = nose.sprite.name;
+		selectedGlassesName = glasses.sprite.name;
+		selectedPiercingName = piercing.sprite.name;
+		selectedTieName = tie.sprite.name;
 
 	}
 	
 
 	public void generateAvatar() {
-			selectedBackgroundHair = Random.Range (0, backgroundHairStyles.Length);
+			selectedLongHair = Random.Range (0, longHairStyles.Length);
 			selectedFace = Random.Range (0, faceStyles.Length);
 			selectedEars = Random.Range (0, earStyles.Length);
 			selectedHairLine = Random.Range (0, hairlineStyles.Length);
 			selectedEyes = Random.Range (0, eyeStyles.Length);
-			selectedForegroundHair = Random.Range (0, hairStyles.Length);
+			selectedShortHair = Random.Range (0, shortHairStyles.Length);
 			selectedIris = Random.Range (0, irisStyles.Length);
 			selectedNose = Random.Range (0, noseStyles.Length);
 			selectedMouth = Random.Range (0, mouthStyles.Length);
 			selectedTie = Random.Range (0, tieStyles.Length);
-			selectedBand = Random.Range (0, bandStyles.Length);
-			selectedRibbon = Random.Range (0, ribbonStyles.Length);
-			selectedSunglasses = Random.Range (0, sunglassStyles.Length);
-			selectedBow = Random.Range (0, bowStyles.Length);
+			selectedHeadwear = Random.Range (0, headwearStyles.Length);
+			selectedHairAccessory = Random.Range (0, hairAccessoryStyles.Length);
 			selectedGlasses = Random.Range (0, glassStyles.Length);
-			selectedBarette = Random.Range (0, baretteStyles.Length);
 			selectedPiercing = Random.Range (0, piercingStyles.Length);
+			selectedEyebrow = Random.Range (0, eyebrowStyles.Length);
 
-
-			backgroundHair.sprite = backgroundHairStyles[selectedBackgroundHair];
+			Debug.Log ("Selected Long Hair : " + selectedLongHair);
+			Debug.Log ("Long Hair Styles : " + longHairStyles.Length);
+			longHair.sprite = longHairStyles [selectedLongHair];
 			face.sprite = faceStyles[selectedFace];
 			ears.sprite = earStyles[selectedEars];
 			hairLine.sprite = hairlineStyles[selectedHairLine];
 			eyes.sprite = eyeStyles[selectedEars];
-			foregroundHair.sprite = hairStyles[selectedForegroundHair];
+			shortHair.sprite = shortHairStyles [selectedShortHair];
 			iris.sprite = irisStyles[selectedIris];
 			nose.sprite = noseStyles[selectedNose];
 			mouth.sprite = mouthStyles[selectedMouth];
 			tie.sprite = tieStyles[selectedTie];
-			band.sprite = bandStyles[selectedBand];
-			ribbon.sprite = ribbonStyles[selectedRibbon];
-			sunglasses.sprite = sunglassStyles[selectedSunglasses];
-			bow.sprite = bowStyles[selectedBow];
+			headwear.sprite = headwearStyles [selectedHeadwear];
+		//?
+		hairAccessory.sprite = hairAccessoryStyles [selectedHairAccessory];
+		//?
 			glasses.sprite = glassStyles[selectedGlasses];
-			barette.sprite = baretteStyles[selectedBarette];
+		//?
 			piercing.sprite = piercingStyles[selectedPiercing];
-			brows.sprite = eyeBrowStyles[selectedEyeBrow];
+		//?
+		eyebrows.sprite = eyebrowStyles [selectedEyebrow];
 	}
 	// Update is called once per frame
 	void Update () {

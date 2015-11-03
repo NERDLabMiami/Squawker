@@ -155,7 +155,12 @@ public class Player : MonoBehaviour {
 		int selectedOffer = Random.Range (0, offers.Count);
 		JSONNode offer = offers [selectedOffer].AsObject;
 		if (offer ["path"] != null) {
-			addMessage (offer ["path"]);
+			int offerCount = PlayerPrefs.GetInt(offer["path"] + "_offers", 0);
+			if (offerCount <= 0) {
+				addMessage (offer ["path"]);
+				offerCount++;
+				PlayerPrefs.SetInt(offer["path"] + "_offers", offerCount);
+			}
 		} else {
 			Debug.Log("Offer path doesn't exist...");
 		}

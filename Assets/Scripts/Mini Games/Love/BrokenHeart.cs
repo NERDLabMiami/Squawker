@@ -30,4 +30,8 @@ public class BrokenHeart : MonoBehaviour {
 		cupid.heal();
 		Destroy(this.gameObject);
 	}
+
+	void broke() {
+		cupid.broken ();
+	}
 }

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class ItemSelector : MonoBehaviour {
 	public bool inUse;
@@ -29,7 +28,7 @@ public class ItemSelector : MonoBehaviour {
 		Color c = new Color(0.2F, 0.3F, 0.4F, 0.5F);
 		selectButton.targetGraphic.color = c;
 		removeButton.gameObject.SetActive(true);
-		gameObject.GetComponentInParent<ItemFolderSelector> ().assignImage (AssetDatabase.GetAssetPath (selectButton.image.sprite));
+		gameObject.GetComponentInParent<ItemFolderSelector> ().assignImage (path + "/" + selectButton.image.sprite.name);
 		saveChanges ();
 	}
 

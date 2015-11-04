@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using SimpleJSON;
-using UnityEditor;
 
 public class Character : MonoBehaviour {
 	//HAIR

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class ItemFolderSelector : MonoBehaviour {
 	public GameObject[] items;
@@ -27,7 +26,7 @@ public class ItemFolderSelector : MonoBehaviour {
 			Vector3 position = new Vector3(gameObject.transform.position.x + (col*110),gameObject.transform.position.y - (row*110),gameObject.transform.position.z);
 			item.transform.position = position;
 			item.GetComponent<ItemSelector>().selectButton.image.sprite = sprites[i];
-			if (AssetDatabase.GetAssetPath(avatarImage.sprite) == AssetDatabase.GetAssetPath (sprites[i]) && avatarImage.enabled) {
+			if (avatarImage.sprite.name == sprites[i].name && avatarImage.enabled) {
 
 				item.GetComponent<ItemSelector>().use();
 			}
@@ -42,7 +41,7 @@ public class ItemFolderSelector : MonoBehaviour {
 	}
 
 	public void assignImage(string path) {
-		avatarImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite> (path);
+		avatarImage.sprite = Resources.Load<Sprite>(path);
 		avatarImage.enabled = true;
 	}
 

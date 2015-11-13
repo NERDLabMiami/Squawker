@@ -24,7 +24,6 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		json = JSON.Parse(potentialMessages.ToString());
 
 		string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
@@ -39,43 +38,48 @@ public class Player : MonoBehaviour {
 	public int matches(string characterPath) {
 		//Get character's attractiveness, between 0 and 100 to set as the initial response time
 
-		int responseTime = json[characterPath]["requirements"]["love"].AsInt;
+		if (json[characterPath] != null) {
+		
+			int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
 
-		//Get the difference between the two characters attractiveness. NPC with 50, player with 20, response time is 30. 
-		responseTime -= attractiveness;
-		Debug.Log("Accounting for attractiveness, response time is now " + responseTime);
+			//Get the difference between the two characters attractiveness. NPC with 50, player with 20, response time is 30. 
+			responseTime -= attractiveness;
+			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
 
-		//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
+			//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
 
-		if (profile.character.wearingGlasses()) {
-			responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
-			Debug.Log("Liking the glasses, response time is now " + responseTime);
+			if (profile.character.wearingGlasses ()) {
+				responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
+				Debug.Log ("Liking the glasses, response time is now " + responseTime);
+			}
+
+			if (profile.character.wearingTie ()) {
+				responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
+				Debug.Log ("Liking the tie, response time is now " + responseTime);
+
+			}
+
+
+			if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
+				//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
+				Debug.Log ("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
+				responseTime = 9999;
+				Debug.Log ("Tan not appropriate, response time is now " + responseTime);
+
+			}
+
+
+			//If the response time is negative, we just set it to 0 so the NPC responds instantly
+
+			if (responseTime < 0) {
+				responseTime = 0;
+				Debug.Log ("So attractive, response is immediate");
+			}
+			Debug.Log ("Match will respond in " + responseTime + " days");
+			return responseTime;
+		} else {
+			return 9999;
 		}
-
-		if (profile.character.wearingTie()) {
-			responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
-			Debug.Log("Liking the tie, response time is now " + responseTime);
-
-		}
-
-
-		if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
-			//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
-			Debug.Log("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
-			responseTime = 9999;
-			Debug.Log("Tan not appropriate, response time is now " + responseTime);
-
-		}
-
-
-		//If the response time is negative, we just set it to 0 so the NPC responds instantly
-
-		if (responseTime < 0) {
-			responseTime = 0;
-			Debug.Log("So attractive, response is immediate");
-		}
-		Debug.Log("Match will respond in " + responseTime + " days");
-		return responseTime;
 	}
 
 	public void refreshInbox() {

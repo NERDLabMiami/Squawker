@@ -28,6 +28,7 @@ public class BrokenHeart : MonoBehaviour {
 
 	void healed() {
 		cupid.heal();
+		GetComponent<AudioSource> ().Play ();
 		Destroy(this.gameObject);
 	}
 

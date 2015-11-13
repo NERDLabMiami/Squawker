@@ -8,10 +8,15 @@ public class Inbox : MonoBehaviour {
 	public IncomingMessage messageTemplate;
 	public GameObject messageContainer;
 	public Epilogue epilogue;
+	public GameObject emptyMailboxMessage;
 
 	void Start () {
 	}
-	
+
+	public void checkIfEmpty() {
+		//TODO: Look at player
+			emptyMailboxMessage.SetActive (true);
+	}
 	public void clear() {
 		foreach (Transform child in messageContainer.transform)
 		{

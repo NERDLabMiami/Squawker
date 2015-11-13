@@ -23,7 +23,7 @@ public class TanningBed : MonoBehaviour {
 	public void stopTanningSlider() {
 		//TODO: take into account severity and their risk level
 		//TODO: add sun spots
-
+		GetComponent<AudioSource> ().Stop ();
 		assistant.player.newOffer ("exam");
 		switch((int)tanAmount) {
 		case 0:
@@ -48,6 +48,7 @@ public class TanningBed : MonoBehaviour {
 		int tan = (int)tanAmount;
 		assistant.player.setTan (tan);
 //		character.setTone (tan);
+		//TODO: Change to actual tone based on scale.
 		character.setTone (0);
 		assistant.player.takeAction ();
 		assistant.dialogControls.SetActive (true);

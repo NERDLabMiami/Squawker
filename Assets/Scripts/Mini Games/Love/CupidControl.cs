@@ -4,27 +4,32 @@ using UnityEngine.UI;
 
 public class CupidControl : MonoBehaviour {
 	public float movementIntensity = 5.0f;
+	public float force = 300f;
 	public GameObject arrow;
 	public GameObject startButton;
 	public GameObject endButton;
+	public GameObject gameContainer;
 	public Player player;
+	public CupidTalk cupid;
+	public AudioSource wings;
 	private bool playing = false;
+
 
 	// Use this for initialization
 
 	void Start () {
-		Time.timeScale = 0f;
-	}
-
-	public void startGame() {
+		gameContainer.SetActive (true);
 		startButton.SetActive(false);
 		playing = true;
-		Time.timeScale = 1.0f;
 	}
-
+	
 	public void endGame(int healCount) {
 		player.setAttractiveness(Mathf.Min(player.attractiveness + healCount, 100));
-		Time.timeScale = 0f;
+		playing = false;
+		cupid.changeDialog ("end");
+		cupid.gameObject.SetActive (true);
+		startButton.SetActive (false);
+		gameContainer.SetActive (false);
 		endButton.SetActive(true);
 	}
 
@@ -37,7 +42,6 @@ public class CupidControl : MonoBehaviour {
 		Vector3 pos = transform.position;
 		pos.x += 1f;
 		Instantiate(arrow, pos, transform.rotation);		
-
 	}
 
 	// Update is called once per frame
@@ -45,12 +49,15 @@ public class CupidControl : MonoBehaviour {
 		if (playing) {
 			if (Input.GetButton("Vertical")) {
 				if (Input.GetAxis("Vertical") > 0) {
+					wings.Play();
 					GetComponent<Animator>().SetTrigger("flap");
-
-					transform.position += Vector3.up* movementIntensity * Time.deltaTime;
+					transform.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force);
+//					transform.position += Vector3.up* movementIntensity * Time.deltaTime;
 				}
 				else {
-					transform.position += Vector3.down * movementIntensity * Time.deltaTime;
+					transform.GetComponent<Rigidbody2D>().AddForce(Vector2.down * force);
+
+					//					transform.position += Vector3.down * movementIntensity * Time.deltaTime;
 				}
 			}
 			if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Fire1")) {

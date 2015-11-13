@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class CupidStats : MonoBehaviour {
 	private int healed;
 	public Text healCount;
-	public Text feedback;
 	public Image attractiveness;
 	private CupidControl cupidControl;
 
@@ -21,6 +20,7 @@ public class CupidStats : MonoBehaviour {
 	}
 
 	public void heal() {
+		GetComponent<AudioSource> ().Play ();
 		healed++;
 		healCount.text = healed + " Hearts Healed";
 		float alpha = Mathf.Min (cupidControl.player.attractiveness * .01f, 1);
@@ -29,7 +29,6 @@ public class CupidStats : MonoBehaviour {
 	}
 
 	public void broken() {
-		feedback.text = "a heart remains broken";
 		cupidControl.endGame(healed);
 	}
 }

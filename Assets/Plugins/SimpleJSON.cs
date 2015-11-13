@@ -816,6 +816,9 @@ namespace SimpleJSON
 		public override JSONNode this [string aKey]
 		{
 			get {
+				if (aKey == null) {
+					return null;
+				}
 				if (m_Dict.ContainsKey (aKey))
 					return m_Dict [aKey];
 				else

@@ -9,14 +9,25 @@ public class Inbox : MonoBehaviour {
 	public GameObject messageContainer;
 	public Epilogue epilogue;
 	public GameObject emptyMailboxMessage;
+	private Player player;
 
 	void Start () {
 	}
 
 	public void checkIfEmpty() {
 		//TODO: Look at player
-			emptyMailboxMessage.SetActive (true);
+			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+	
+			if (player.inbox.Count < 1) {
+				emptyMailboxMessage.SetActive (true);
+			}
+			else {
+				emptyMailboxMessage.SetActive (false);
+
+			}
+
 	}
+
 	public void clear() {
 		foreach (Transform child in messageContainer.transform)
 		{

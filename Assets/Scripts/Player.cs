@@ -325,6 +325,12 @@ public class Player : MonoBehaviour {
 			profile.actionsLeft.text = actionsLeft.ToString();
 			profile.daysLeft.text = daysLeft.ToString("0 days left to get a date");
 			profile.messageCount.text = inbox.Count.ToString();
+			if(inbox.Count <= 0) {
+				previewInbox.emptyMailboxMessage.SetActive(true);
+			}
+			else {
+				previewInbox.emptyMailboxMessage.SetActive(false);
+			}
 			
 		}
 	}

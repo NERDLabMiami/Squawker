@@ -11,8 +11,9 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public GameObject tanControls;
 	public GameObject dialogControls;
 
-	private int conversationIndex = 0;
 
+	private int conversationIndex = 0;
+	private bool signedWaiver = false;
 	// Use this for initialization
 	void Start () {
 	}
@@ -26,9 +27,14 @@ public class TanningSalonAssistant : MonoBehaviour {
 			waiver.SetActive(true);
 		}
 		if (conversationIndex == 4) {
-			dialogControls.SetActive(false);
-			Debug.Log("Activating Salon");
-			tanControls.SetActive(true);
+			if (signedWaiver) {
+				dialogControls.SetActive(false);
+				Debug.Log("Activating Salon");
+				tanControls.SetActive(true);
+			}
+			else {
+				Application.LoadLevel(1);
+			}
 		}
 		if (conversationIndex == 5) {
 			Application.LoadLevel(1);
@@ -39,12 +45,15 @@ public class TanningSalonAssistant : MonoBehaviour {
 		//TODO: Animate transition between waiver
 		waiver.SetActive (false);
 		gameObject.SetActive (true);
+		signedWaiver = true;
 	}
 
 	public void decline() {
 		//TODO: Should log analytics for declining offer
 		//TODO: Animate the transition
-		Application.LoadLevel (1);
+		dialogue.text = "Changed your mind? That's okay. Maybe next time!";
+		response.text = "Ok!";
+		waiver.SetActive (false);
 	}
 
 }

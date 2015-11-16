@@ -265,6 +265,13 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("tan", tan);
 	}
 
+	public void visitDermatologist() {
+		if (cancerRisk > 1) {
+			cancerRisk--;
+		}
+		PlayerPrefs.SetInt ("cancer risk", cancerRisk);
+	}
+
 	public void setAttractiveness(int amount) {
 		//TODO: Decide if attractiveness is additive or just personal best in the love game
 		attractiveness = amount;		

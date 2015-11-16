@@ -275,9 +275,9 @@
 	
 "salon": {
 	"conversation": [
-								{"assistant":"Hello there, looks like you could use some artificial sunlight!", "response":"Yes I could!"},
-								{"assistant":"I just need you to sign this waiver and we can get started.", "response":"OK"},
-								{"assistant":"Just press the button when you've had enough!", "response":"OK"},
+								{"assistant":"It looks like you could use some artificial sunlight!", "response":"Sign me up!"},
+								{"assistant":"I just need you to sign this waiver and we can get started.", "response":"Let me take a look."},
+								{"assistant":"Just press the button when you've had enough!", "response":"Great!"},
 								
 			],
 

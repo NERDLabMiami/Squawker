@@ -26,6 +26,7 @@ public class Dermatologist : MonoBehaviour {
 		//TODO: With assets in place, transition between close up of dermatologist and player's face
 		//TODO: With assets in place, animate transitions
 		if (conversationIndex == 4) {
+			player.visitDermatologist();
 			Application.LoadLevel(1);
 		}
 		else {

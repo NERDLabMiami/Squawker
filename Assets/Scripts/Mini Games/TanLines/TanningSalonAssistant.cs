@@ -10,7 +10,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public GameObject waiver;
 	public GameObject tanControls;
 	public GameObject dialogControls;
-
+	public Animator bed;
 
 	private int conversationIndex = 0;
 	private bool signedWaiver = false;
@@ -31,6 +31,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 				dialogControls.SetActive(false);
 				Debug.Log("Activating Salon");
 				tanControls.SetActive(true);
+				bed.SetTrigger("close");
 			}
 			else {
 				Application.LoadLevel(1);
@@ -46,6 +47,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 		waiver.SetActive (false);
 		gameObject.SetActive (true);
 		signedWaiver = true;
+		bed.SetTrigger("open");
 	}
 
 	public void decline() {

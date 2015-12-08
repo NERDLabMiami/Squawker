@@ -23,7 +23,7 @@ public class Match : MonoBehaviour {
 		//TODO: Generate a new potential match
 		// Name randomizer
 
-		if(player.takeAction()) {
+		if(player.takeAction(true)) {
 			newMatch();
 			player.updateProfile();
 
@@ -38,7 +38,7 @@ public class Match : MonoBehaviour {
 	}
 
 	public void wink() {
-		if (player.takeAction()) {
+		if (player.takeAction(true)) {
 			GetComponent<Animator>().SetTrigger("winked");
 
 			//TODO: Check if NPC and Player are a match

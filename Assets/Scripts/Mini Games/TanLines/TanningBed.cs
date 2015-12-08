@@ -43,16 +43,15 @@ public class TanningBed : MonoBehaviour {
 			assistant.response.text = "I'll have to work on that.";
 			break;	
 		}
-
 		Time.timeScale = 0f;
 		int tan = (int)tanAmount;
-		assistant.player.setTan (tan);
-//		character.setTone (tan);
-		//TODO: Change to actual tone based on scale.
-		character.setTone (0);
-		assistant.player.takeAction ();
-		assistant.dialogControls.SetActive (true);
+		Debug.Log("Setting tan to : " + tan);
 
+//		assistant.player.setTan (tan);
+		character.setTone (tan);
+		assistant.player.tan = tan;
+		assistant.player.takeAction (false);
+		assistant.dialogControls.SetActive (true);
 
 	}
 

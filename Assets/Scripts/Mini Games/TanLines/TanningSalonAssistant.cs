@@ -38,6 +38,8 @@ public class TanningSalonAssistant : MonoBehaviour {
 			}
 		}
 		if (conversationIndex == 5) {
+			Time.timeScale = 1f;
+
 			Application.LoadLevel(1);
 		}
 	}

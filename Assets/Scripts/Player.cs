@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	public List<Message> inbox;
 	public Inbox previewInbox;
 	public Profile profile;
+	public Character avatar;
 	
 	public JSONNode json;
 	private List<string> messageList;
@@ -222,14 +223,11 @@ public class Player : MonoBehaviour {
 				messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
 			}
 			saveMessageList();
-
-			//TAKE TOLLS ON ATTRACTIVENESS, TAN
-			setAttractiveness (attractiveness - 1);
-			setTan (tan - 1);
 		}
 
 
-	public bool takeAction() {
+	public bool takeAction(bool takeTolls) {
+
 		if (actionsLeft > 1) {
 			actionsLeft--;
 			saveProgress(actionsLeft, daysLeft);
@@ -238,6 +236,12 @@ public class Player : MonoBehaviour {
 		else {
 			daysLeft--;
 			newDay();
+			if (takeTolls) {
+				//TAKE TOLLS ON ATTRACTIVENESS, TAN
+				setAttractiveness (attractiveness - 1);
+				tan = avatar.setTone(tan - 1);
+				
+			}
 			refreshInbox();
 			if (daysLeft < 0) {
 				//GAME OVER
@@ -313,7 +317,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	private void populateStats() {
-		tan = PlayerPrefs.GetInt("tan", 0);
 		attractiveness = PlayerPrefs.GetInt("attractiveness", 0);
 			//TODO: Style becomes an avatar choice with accessories
 		style = PlayerPrefs.GetInt("style", 0);
@@ -324,6 +327,8 @@ public class Player : MonoBehaviour {
 		if (profile) {
 			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
 		}
+		tan = PlayerPrefs.GetInt("tan", 0);
+		Debug.Log("THE TAN IS SET TO " + tan);
 
 	}
 

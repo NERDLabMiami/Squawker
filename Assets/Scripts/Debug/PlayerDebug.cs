@@ -13,7 +13,7 @@ public class PlayerDebug : MonoBehaviour {
 	}
 
 	public void refresh() {
-		if (player.takeAction()) {
+		if (player.takeAction(true)) {
 			Debug.Log("Action Taken, Refreshing");
 			daysLeft.text = player.daysLeft.ToString();
 			actionsLeft.text = player.actionsLeft.ToString();

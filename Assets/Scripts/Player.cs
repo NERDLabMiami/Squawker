@@ -325,7 +325,20 @@ public class Player : MonoBehaviour {
 		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
 		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
 		if (profile) {
-			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
+//			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
+			if (attractiveness > 75) {
+				profile.heart.GetComponent<Animator>().SetTrigger("four");
+			}
+			else if (attractiveness > 50) {
+				profile.heart.GetComponent<Animator>().SetTrigger("three");
+			}
+			else if(attractiveness > 25) {
+				profile.heart.GetComponent<Animator>().SetTrigger("two");
+			}
+			else {
+				profile.heart.GetComponent<Animator>().SetTrigger("one");
+			}
+
 		}
 		tan = PlayerPrefs.GetInt("tan", 0);
 		Debug.Log("THE TAN IS SET TO " + tan);

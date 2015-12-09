@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Match : MonoBehaviour {
 	public Player player;
 	public Text alias;
-	public Text motto;
 	public Character avatar;
 	private string path;
 

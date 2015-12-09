@@ -19,9 +19,9 @@ public class ItemSelector : MonoBehaviour {
 	public void use() {
 		for(int i = 0; i < gameObject.transform.parent.GetComponentsInChildren<ItemSelector>().Length; i++){
 			ItemSelector item = gameObject.transform.parent.GetComponentsInChildren<ItemSelector>()[i];
-			if (item.inUse) {
+//			if (item.inUse) {
 				item.remove();
-			}
+//			}
 		}
 		
 		inUse = true;

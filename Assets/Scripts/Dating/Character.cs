@@ -370,6 +370,7 @@ public class Character : MonoBehaviour {
 		} else {
 			hasHeadwear = false;
 		}
+		hasHeadwear = true;
 
 		if (Random.Range (0, 2) == 1) {
 			hasHairAccessory = true;

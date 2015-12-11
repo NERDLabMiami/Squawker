@@ -134,7 +134,7 @@ public class Character : MonoBehaviour {
 	private bool hasPiercing = false;
 	
 	public string characterName;
-	private string characterAssignment;
+	public string characterAssignment;
 	public TextAsset characters;
 	private JSONNode json;
 
@@ -146,7 +146,13 @@ public class Character : MonoBehaviour {
 		if (characterName == "me") {
 			characterAssignment = characterName;
 			assign ();
-		} 
+		}
+		else if(characterName == "new") {
+			//skipping assignment
+			characterAssignment = "me";
+			PlayerPrefs.SetInt("tan",0);
+
+		}
 	}
 	
 	public void assign(string character = null) {
@@ -154,7 +160,6 @@ public class Character : MonoBehaviour {
 		if (character != null) {
 			characterAssignment = character;
 		}
-		Debug.Log("My Character Assignment is " + characterAssignment);
 
 		if (PlayerPrefs.HasKey (characterAssignment)) {
 			Debug.Log("Has Character Assignment for " + characterAssignment);
@@ -162,8 +167,12 @@ public class Character : MonoBehaviour {
 			getSprites();
 
 		} else {
-			Debug.Log("Generating Character Assignment");
-			randomlyGenerate();
+			if (character == "me") {
+				randomlyGenerate(true);
+			}
+			else {
+				randomlyGenerate(false);
+			}
 			PlayerPrefs.SetInt("tan",0);
 		}
 
@@ -171,7 +180,7 @@ public class Character : MonoBehaviour {
 	}
 
 
-	public void randomlyGenerate() {
+	public void randomlyGenerate(bool save = false) {
 		//assign true false values
 		randomlyPickColors();
 
@@ -192,7 +201,9 @@ public class Character : MonoBehaviour {
 		setPaths();
 
 		//save
-		saveCharacter();
+		if (save) {
+			saveCharacter();
+		}
 	}
 	
 	public string getCharacterAssignment() {
@@ -227,9 +238,7 @@ public class Character : MonoBehaviour {
 		}
 		tanTone = amount;
 		PlayerPrefs.SetInt ("tan", tanTone);
-		Debug.Log("Tan Tone is now " + tanTone);
 		if (tanTone >= 1) {
-			Debug.Log("Using Tan : " + tanTone);
 			faceTan.sprite = Resources.Load<Sprite>(faceTanLevelPath + "/" + tanTone + "/" + selectedFaceName);
 			earsTan.sprite = Resources.Load<Sprite>(earsTanLevelPath + "/" + tanTone + "/" + selectedEarsName);
 
@@ -243,7 +252,7 @@ public class Character : MonoBehaviour {
 			earsTan.enabled = false;
 		}
 //		moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
-				saveCharacter ();
+		saveCharacter ();
 		return tanTone;
 }
 
@@ -256,12 +265,12 @@ public class Character : MonoBehaviour {
 
 		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", assignedColors);
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
-
+		//added 12.8.15, for avatar creation
+		setOptions();
 		bool[] options = new bool[]{ hasLongHair, hasShortHair, hasGlasses, hasHeadwear, hasHairAccessory, hasTie, hasPiercing, hasMole};
 
 		Prefs.PlayerPrefsX.SetBoolArray (characterAssignment + "_options", options);
-		Debug.Log("Saving Character " + name);
-		PlayerPrefs.SetString (characterAssignment, name);
+		PlayerPrefs.SetString (characterAssignment, characterName);
 	}
 
 	public void loadCharacter() {
@@ -281,7 +290,6 @@ public class Character : MonoBehaviour {
 		baseSkinTone = assignedColors[0];
 //		tanTone = assignedColors[1];
 		tanTone = PlayerPrefs.GetInt("tan", assignedColors[1]);
-		Debug.Log("The loaded character of " + name + " has a tan of " + tanTone);
 		selectedHairColor = assignedColors[2];
 
 		getPaths();
@@ -329,7 +337,6 @@ public class Character : MonoBehaviour {
 	public void assignCharacter(string type) {
 		string [] dates = Prefs.PlayerPrefsX.GetStringArray(type);
 		//TODO: Check if there are no more potential characters
-		Debug.Log("There are currently " + dates.Length + " characters left");
 		if (dates.Length > 0) {
 			List<string> list = new List<string> (dates);
 			int selectedCharacter = Random.Range (0, list.Count);
@@ -338,13 +345,14 @@ public class Character : MonoBehaviour {
 			Prefs.PlayerPrefsX.SetStringArray (type, list.ToArray ());
 			PlayerPrefs.SetString (characterAssignment, characterName);
 		} else {
-			Debug.Log("No more characters to assign :(");
+//			Debug.Log("No more characters to assign :(");
 		}
 	}
 
 	public void assignName(string type) {
 		int numNames = json["names"]["men"].Count;
 		name = json["names"][type][Random.Range(0,numNames)];
+		characterName = name;
 //		int numNames = player.json["names"]["men"].Count;
 //		name = player.json ["names"] [type] [Random.Range (0, numNames)];
 	}
@@ -474,7 +482,6 @@ public class Character : MonoBehaviour {
 		tie.sprite = Resources.Load<Sprite> (tieStylePath + "/" + selectedTieName);
 		piercing.sprite = Resources.Load<Sprite> (piercingStylePath + "/" + selectedPiercingName);
 		if (tanTone >= 1) {
-			Debug.Log("This character is tan");
 			faceTan.sprite = Resources.Load<Sprite>(faceTanLevelPath + "/" + tanTone + "/" + selectedFaceTanName);
 			earsTan.sprite = Resources.Load<Sprite>(earsTanLevelPath + "/" + tanTone + "/" + selectedEarsTanName);
 		}
@@ -517,7 +524,6 @@ public class Character : MonoBehaviour {
 		tie.enabled = hasTie;
 		piercing.enabled = hasPiercing;
 		mole.enabled = hasMole;
-		Debug.Log("TAN TONE: " + tanTone);
 		if (tanTone >= 1) {
 			earsTan.enabled = true;
 			faceTan.enabled = true;

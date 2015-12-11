@@ -45,6 +45,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AvatarColorOption.cs" />
+     <Compile Include="Assets\AvatarColorSelector.cs" />
+     <Compile Include="Assets\AvatarWizard.cs" />
+     <Compile Include="Assets\ImageSet.cs" />
+     <Compile Include="Assets\RemoveAvatarOption.cs" />
      <Compile Include="Assets\Scripts\Career.cs" />
      <Compile Include="Assets\Scripts\CategorySelector.cs" />
      <Compile Include="Assets\Scripts\Dating\Character.cs" />

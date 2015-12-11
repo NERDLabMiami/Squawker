@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 	public Inbox previewInbox;
 	public Profile profile;
 	public Character avatar;
+	public Animator progress;
 	
 	public JSONNode json;
 	private List<string> messageList;
@@ -85,9 +86,7 @@ public class Player : MonoBehaviour {
 
 	public void refreshInbox() {
 		inbox.Clear();
-		Debug.Log("MESSAGE LIST COUNT: " + messageList.Count);
 		for (int i = 0; i < messageList.Count; i++) {
-			Debug.Log(messageList[i].ToString());
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
 			if (int.Parse(messageParts[2]) <= 0) {
 				//TODO: Check tan requirements. not sure if this is the best place
@@ -104,6 +103,9 @@ public class Player : MonoBehaviour {
 					message.sender = messageParts[0];
 					message.passage = messageParts[1];
 					message.subject = json[message.sender][message.passage]["subject"];
+					message.alias = PlayerPrefs.GetString(message.sender, "");
+					message.subject = message.subject.Replace("%C", message.alias);
+					
 					message.body = json[message.sender][message.passage]["message"];
 					JSONNode responses = json[message.sender][message.passage]["responses"];
 					for (int j = 0; j < responses.Count; j++) {
@@ -112,7 +114,6 @@ public class Player : MonoBehaviour {
 					}
 
 					inbox.Add(message);
-					Debug.Log("Adding message to inbox");
 
 			}
 		}
@@ -227,13 +228,19 @@ public class Player : MonoBehaviour {
 
 
 	public bool takeAction(bool takeTolls) {
-
 		if (actionsLeft > 1) {
 			actionsLeft--;
 			saveProgress(actionsLeft, daysLeft);
+			if (actionsLeft == 1) {
+				progress.SetTrigger("one");
+			}
+			if (actionsLeft == 2) {
+				progress.SetTrigger("two");
+			}
 			return true;
 		}
 		else {
+			progress.SetTrigger("three");
 			daysLeft--;
 			newDay();
 			if (takeTolls) {

@@ -8,6 +8,7 @@ public class IncomingMessage : MonoBehaviour {
 	public string character;
 	public Text subject;
 	public ViewMessage expandedMessageTemplate;
+	public Character avatar;
 
 	private JSONNode json;
 	private Message message;
@@ -16,16 +17,15 @@ public class IncomingMessage : MonoBehaviour {
 		message = msg;
 		character = message.sender;
 		alias.text = message.alias;
+		message.alias = PlayerPrefs.GetString(character);
+		avatar.assign(character);
 		subject.text = message.subject;
-		Debug.Log("Message Sender: " + message.sender);
 	}
 
 	public void show() {
 
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
-		msg.GetComponent<ViewMessage>().character.characterName = message.sender;
-		Debug.Log("CHARACTER NAME IS " + message.sender);
 
 		switch (message.sender) {
 		case "tanning":
@@ -35,7 +35,9 @@ public class IncomingMessage : MonoBehaviour {
 		case "dermatologist":
 			break;
 		default:
-			msg.GetComponent<ViewMessage>().character.assign(message.sender);
+//			msg.GetComponent<ViewMessage>().character.assign(message.sender);
+			msg.GetComponent<ViewMessage>().character.assign(character);
+
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
 
 			break;

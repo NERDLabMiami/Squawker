@@ -38,7 +38,6 @@ public class Match : MonoBehaviour {
 
 	public void wink() {
 		if (player.takeAction(true)) {
-			GetComponent<Animator>().SetTrigger("winked");
 
 			//TODO: Check if NPC and Player are a match
 			//TODO: Get Minimimum Required Attributes
@@ -47,13 +46,18 @@ public class Match : MonoBehaviour {
 			//accessory = accessory match
 			//TODO: Instead of passing to create a new character, it should log it in the system
 			avatar.assignCharacter("men");
-			Debug.Log ("Saving Character...");
+//			Debug.Log ("Saving Character...");
+
 			avatar.saveCharacter ();
-			Debug.Log("adding message for " + avatar.getCharacterAssignment());
+
+			Debug.Log("adding message for " + avatar.getCharacterAssignment() + " with name of " + avatar.characterName);
 			int timeAdded = player.matches(avatar.getCharacterAssignment());
 			player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);
+			GetComponent<Animator>().SetTrigger("winked");
+
 			player.updateProfile();
 			newMatch();
+
 		}
 
 

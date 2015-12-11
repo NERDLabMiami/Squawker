@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Epilogue : MonoBehaviour {
 	public Character player;
 	public Character npc;
+	public Text story;
 	// Use this for initialization
 	void Start () {
 	

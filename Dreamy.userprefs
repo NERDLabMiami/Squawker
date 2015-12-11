@@ -1,25 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AvatarWizard.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Messages/ViewMessage.cs">
     <Files>
-      <File FileName="Assets/AvatarWizard.cs" Line="43" Column="45" />
-      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/Epilogue.cs" Line="21" Column="17" />
+      <File FileName="Assets/AvatarWizard.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Dating/Character.cs" Line="174" Column="2" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="139" Column="29" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningSalonAssistant.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Home.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Debug/PlayerDebug.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Profile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="42" Column="52" />
       <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ItemFolderSelector.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CategorySelector.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
       <File FileName="Assets/ImageSet.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Career.cs" Line="1" Column="1" />
-      <File FileName="Assets/AvatarColorOption.cs" Line="21" Column="1" />
+      <File FileName="Assets/AvatarColorOption.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/messages.txt" Line="47" Column="61" />
+      <File FileName="Assets/Scripts/Helpers/StringArrayFunctions.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="31" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -36,7 +36,16 @@ public class Player : MonoBehaviour {
 		updateProfile();
 
 	}
-	
+
+	public string getFinalStory(string character, string story) {
+		if (json[character] != null) {
+			return json[character]["epilogue"][story];
+		}
+		else {
+			return "no story available";
+		}
+	}
+
 	public int matches(string characterPath) {
 		//Get character's attractiveness, between 0 and 100 to set as the initial response time
 

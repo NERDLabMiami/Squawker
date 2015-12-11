@@ -11,12 +11,17 @@ public class ViewMessage : MonoBehaviour {
 	public GameObject responseTemplate;
 
 	private Player player;
+	private string characterEpiloguePath;
+	private string epilogueStoryPath;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
-	
+	private void startEpilogue() {
+
+	}
+
 	public void addResponse(Response r) {
 		GameObject response = Instantiate(responseTemplate);
 		response.GetComponent<ResponseOption>().response.text = r.text;
@@ -25,13 +30,21 @@ public class ViewMessage : MonoBehaviour {
 			//TODO: parse path sender and cue epilogue
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
-				Debug.Log("Should Show Epilogue at this point");
+			//	Debug.Log("Should Show Epilogue at this point");
 				Inbox inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
-				inbox.epilogue.npc.assign(character.getCharacterAssignment());
+			//	Debug.Log("Character Path: " + characterEpiloguePath + " story path: " + epilogueStoryPath);
+				Debug.Log("PATH: " + r.path);
+				string characterPath = getStringFromResponse(r.path,0);
+				string storyPath = getStringFromResponse(r.path, 2);
+				Debug.Log("CHARACTER PATH FOUND: " + characterPath);
+				Debug.Log("STORY PATH FOUND: " + storyPath);
+				inbox.populateEpilogue(characterPath, storyPath);
+				inbox.epilogue.npc.assign(character.characterName);
 				inbox.epilogue.cue ();
-				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();
-				e.npc = character;
-				e.cue();
+
+//				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();
+//				e.npc = character;
+//				e.cue();
 
 			});
 
@@ -66,18 +79,23 @@ public class ViewMessage : MonoBehaviour {
 		if (pathArray.Length > 1) {
 			//has a character attached to it
 			if (pathArray [1] == "epilogue") {
-				Debug.Log("Epilogue for ..." + pathArray[0]);
+
+				Debug.Log("Epilogue: " + r.path);
+
 				return 5;
 			}
 		}
+	return -1;
 
-		
-		
-		return -1;
-
-	
 	}
 
+	string getStringFromResponse(string path, int index) {
+		string[] pathArray = StringArrayFunctions.getMessage(path);
+		Debug.Log("PATH IS " + pathArray.Length + " LONG");
+		Debug.Log("PATH IS " + path);
+
+		return pathArray[index];
+	}
 	bool isOffer(GameObject obj, Response r) {
 		string[] pathArray = StringArrayFunctions.getMessage(r.path);
 		if (pathArray [0] == "tanning") {

@@ -3,13 +3,19 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class AvatarWizard : MonoBehaviour {
-	public int skinTone;
-	public int hairColor;
+	public AvatarColorSelector skinToneColorSelector;
+	public AvatarColorSelector hairColorSelector;
 	public Text previousFeatureText;
 	public Text nextFeatureText;
 	public Text currentFeatureText;
 	public Button nextOptionButton;
 	public Button previousOptionButton;
+	public Image leftFace;
+	public Image rightFace;
+	public Image currentFace;
+	public GameObject saveButton;
+	public Character avatar;
+
 	public ImageSet[] folders;
 	public int currentFolderIndex = 0;
 
@@ -20,6 +26,7 @@ public class AvatarWizard : MonoBehaviour {
 		populateOptions();
 		folders[currentFolderIndex].set ();
 		folders[currentFolderIndex].checkForColor();
+
 	}
 
 	
@@ -27,9 +34,29 @@ public class AvatarWizard : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void saveAndContinue() {
+		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.resetStats();
+		player.newOffer("tanning");
+		player.newOffer ("love");
+		PlayerPrefs.SetInt("game in progress", 1);
+		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);
+		avatar.setPaths();
+		avatar.saveCharacter();
+		Application.LoadLevel(1);
+	}
+
 	void populateOptions() {
 		nextOptionButton.image.sprite = folders[currentFolderIndex].getNextSprite();
 		previousOptionButton.image.sprite = folders[currentFolderIndex].getPreviousSprite();
+		leftFace.sprite = currentFace.sprite;
+		rightFace.sprite = currentFace.sprite;
+
+		//run avatar check
+		if (avatar.hasCompleteCharacter()) {
+			saveButton.SetActive(true);
+		}
 	}
 
 	void populateNavigation() {

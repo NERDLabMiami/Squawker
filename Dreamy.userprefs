@@ -2,10 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AvatarWizard.cs">
     <Files>
-      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="38" Column="33" />
+      <File FileName="Assets/AvatarWizard.cs" Line="43" Column="45" />
+      <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Dating/Character.cs" Line="154" Column="4" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="174" Column="2" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningSalonAssistant.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Home.cs" Line="1" Column="1" />
@@ -16,11 +17,9 @@
       <File FileName="Assets/Scripts/ItemFolderSelector.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CategorySelector.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
-      <File FileName="Assets/AvatarWizard.cs" Line="22" Column="47" />
-      <File FileName="Assets/AvatarColorSelector.cs" Line="9" Column="1" />
-      <File FileName="Assets/AvatarColorOption.cs" Line="22" Column="1" />
-      <File FileName="Assets/ImageSet.cs" Line="27" Column="23" />
-      <File FileName="Assets/RemoveAvatarOption.cs" Line="17" Column="86" />
+      <File FileName="Assets/ImageSet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Career.cs" Line="1" Column="1" />
+      <File FileName="Assets/AvatarColorOption.cs" Line="21" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

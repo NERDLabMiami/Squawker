@@ -320,6 +320,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("dermatologist visits", 0);
 		PlayerPrefs.SetInt("actions left", 3);
 		PlayerPrefs.SetInt("days left", 30);
+		PlayerPrefs.SetInt("tutorial", 0);
 
 	}
 	

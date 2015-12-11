@@ -22,7 +22,6 @@ public class ImageSet : MonoBehaviour {
 	void Update () {
 	
 	}
-
 	public void load() {
 		if (colorSelector) {
 			Debug.Log("Loading Folder " + colorSelector.selectedColor);

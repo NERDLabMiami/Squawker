@@ -124,6 +124,9 @@ public class Character : MonoBehaviour {
 
 	private bool hasLongHair = false;
 	private bool hasShortHair = false;
+	private bool hasHairLine = false;
+	private bool hasEyeBrows = false;
+	private bool hasTan = false;
 
 	private bool hasHeadwear = false;
 	private bool hasHairAccessory = false;
@@ -154,7 +157,21 @@ public class Character : MonoBehaviour {
 
 		}
 	}
-	
+
+	public bool hasCompleteCharacter() {
+		if (face.gameObject.activeSelf && ears.gameObject.activeSelf && nose.gameObject.activeSelf && mouth.gameObject.activeSelf && iris.gameObject.activeSelf) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public void setColors(int skinColor, int tanLevel, int hairColor) {
+		selectedHairColor = hairColor;
+		tanTone = tanLevel;
+		baseSkinTone = skinColor;
+	}
+
 	public void assign(string character = null) {
 
 		if (character != null) {
@@ -267,7 +284,7 @@ public class Character : MonoBehaviour {
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
 		//added 12.8.15, for avatar creation
 		setOptions();
-		bool[] options = new bool[]{ hasLongHair, hasShortHair, hasGlasses, hasHeadwear, hasHairAccessory, hasTie, hasPiercing, hasMole};
+		bool[] options = new bool[]{ hasLongHair, hasShortHair, hasGlasses, hasHeadwear, hasHairAccessory, hasTie, hasPiercing, hasMole, hasHairLine, hasEyeBrows, hasTan};
 
 		Prefs.PlayerPrefsX.SetBoolArray (characterAssignment + "_options", options);
 		PlayerPrefs.SetString (characterAssignment, characterName);
@@ -286,6 +303,9 @@ public class Character : MonoBehaviour {
 		hasTie = options [5];
 		hasPiercing = options [6];
 		hasMole = options[7];
+		hasHairLine = options[8];
+		hasEyeBrows = options[9];
+		hasTan = options[10];
 
 		baseSkinTone = assignedColors[0];
 //		tanTone = assignedColors[1];
@@ -298,6 +318,46 @@ public class Character : MonoBehaviour {
 	}
 
 	public void setOptions() {
+		if (!longHair.gameObject.activeSelf) {
+			longHair.enabled = false;
+		}
+		if (!shortHair.gameObject.activeSelf) {
+			shortHair.enabled = false;
+		}
+
+		if (!hairLine.gameObject.activeSelf) {
+			hairLine.enabled = false;
+		}
+
+		if (!eyebrows.gameObject.activeSelf) {
+			eyebrows.enabled = false;
+		}
+
+		if (!faceTan.gameObject.activeSelf) {
+			faceTan.enabled = false;
+		}
+
+		if (!glasses.gameObject.activeSelf) {
+			glasses.enabled = false;
+		}
+		if (!headwear.gameObject.activeSelf) {
+			headwear.enabled = false;
+		}
+		if (!hairAccessory.gameObject.activeSelf) {
+			hairAccessory.enabled = false;
+		}
+
+		if (!tie.gameObject.activeSelf) {
+			tie.enabled = false;
+		}
+
+		if (!piercing.gameObject.activeSelf) {
+			piercing.enabled = false;
+		}
+
+		if(!mole.gameObject.activeSelf) {
+			mole.enabled = false;
+		}
 		hasLongHair = longHair.enabled;
 		hasShortHair = shortHair.enabled;
 		hasGlasses = glasses.enabled;
@@ -306,6 +366,10 @@ public class Character : MonoBehaviour {
 		hasTie = tie.enabled;
 		hasPiercing = piercing.enabled;
 		hasMole = mole.enabled;
+		hasTan = faceTan.enabled;
+		hasHairLine = hairLine.enabled;
+		hasEyeBrows = eyebrows.enabled;
+	
 
 	}
 	public void getPaths() {
@@ -463,6 +527,8 @@ public class Character : MonoBehaviour {
 
 	}
 	public void getSprites() {
+		Debug.Log("SELECTED HAIR COLOR IS : " + selectedHairColor);
+		Debug.Log("PATH: " + hairLineStylePath + "/" + selectedHairColor + "/" + selectedHairLineName);
 		hairLine.sprite = Resources.Load<Sprite> (hairLineStylePath + "/" + selectedHairColor + "/" + selectedHairLineName);
 		shortHair.sprite = Resources.Load<Sprite>(shortHairStylePath + "/" + selectedHairColor + "/" + selectedShortHairName);
 		longHair.sprite = Resources.Load<Sprite>(longHairStylePath + "/" + selectedHairColor + "/" + selectedLongHairName);
@@ -518,12 +584,15 @@ public class Character : MonoBehaviour {
 	public void setEnabledAttributes() {
 		shortHair.enabled = hasShortHair;
 		longHair.enabled = hasLongHair;		
+		hairLine.enabled = hasHairLine;
+		eyebrows.enabled = hasEyeBrows;
 		glasses.enabled = hasGlasses;
 		headwear.enabled = hasHeadwear;
 		hairAccessory.enabled = hasHairAccessory;
 		tie.enabled = hasTie;
 		piercing.enabled = hasPiercing;
 		mole.enabled = hasMole;
+
 		if (tanTone >= 1) {
 			earsTan.enabled = true;
 			faceTan.enabled = true;
@@ -532,26 +601,88 @@ public class Character : MonoBehaviour {
 			earsTan.enabled = false;
 			faceTan.enabled = false;
 		}
-
+		if (!hasTan) {
+			earsTan.enabled = false;
+			faceTan.enabled = false;
+		}
 	}
 
 	public void setPaths() {
-		selectedShortHairName = shortHair.sprite.name;
-		selectedLongHairName = longHair.sprite.name;
-		selectedHairLineName = hairLine.sprite.name;
-		selectedHairAccessoryName = hairAccessory.sprite.name;
-		selectedHeadwearName = headwear.sprite.name;
+		if (shortHair.sprite) {
+			selectedShortHairName = shortHair.sprite.name;
+		}
+		else {
+			selectedShortHairName = "none";
+		}
+		if (longHair.sprite) {
+			selectedLongHairName = longHair.sprite.name;
+		}
+		else {
+			selectedLongHairName = "none";
+		}
+		if (hairLine.sprite) {
+			selectedHairLineName = hairLine.sprite.name;
+		}
+		else {
+			selectedHairLineName = "none";
+		}
+
+		if (hairAccessory.sprite) {
+			selectedHairAccessoryName = hairAccessory.sprite.name;
+		}
+		else {
+			selectedHairAccessoryName = "none";
+		}
+
+		if (headwear.sprite) {
+			selectedHeadwearName = headwear.sprite.name;
+		}
+		else {
+			selectedHeadwearName = "none";
+		}
+
+		if (eyebrows.sprite) {
+			selectedEyebrowName = eyebrows.sprite.name;
+		}
+		else {
+			selectedEyebrowName = "none";
+		}
+
+		if (mole.sprite) {
+			selectedMoleName = mole.sprite.name;
+		}
+		else {
+			selectedMoleName = "none";
+		}
+
+		if (glasses.sprite) {
+			selectedGlassesName = glasses.sprite.name;
+		}
+		else {
+			selectedGlassesName = "none";
+		}
+
+		if (tie.sprite) {
+			selectedTieName = tie.sprite.name;
+		}
+		else {
+			selectedTieName = "none";
+		}
+
+		if (piercing.sprite) {
+			selectedPiercingName = piercing.sprite.name;
+		}
+		else {
+			selectedPiercingName = "none";
+		}
+
 		selectedEarsName = ears.sprite.name;
-		selectedEyebrowName = eyebrows.sprite.name;
 		selectedEyesName = eyes.sprite.name;
 		selectedIrisName = iris.sprite.name;
 		selectedFaceName = face.sprite.name;
 		selectedMouthName = mouth.sprite.name;
 		selectedNoseName = nose.sprite.name;
-		selectedMoleName = mole.sprite.name;
-		selectedGlassesName = glasses.sprite.name;
-		selectedPiercingName = piercing.sprite.name;
-		selectedTieName = tie.sprite.name;
+
 		if (tanTone >= 1) {
 			selectedEarsTanName = earsTan.sprite.name;
 			selectedFaceTanName = faceTan.sprite.name;

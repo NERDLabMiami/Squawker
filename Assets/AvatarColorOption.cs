@@ -18,7 +18,7 @@ public class AvatarColorOption : MonoBehaviour {
 	public void selected() {
 		GetComponentInParent<AvatarColorSelector>().selectedColor = colorReference;
 		gameObject.transform.parent.parent.GetComponent<ImageSet>().load ();
-//		gameObject.transform.parent.parent.GetComponent<ImageSet>().sprite.sprite = //gameObject.GetComponent<Image>().sprite; 
 		gameObject.transform.parent.parent.GetComponent<ImageSet>().set ();
 	}
+
 }

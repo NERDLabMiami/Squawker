@@ -11,7 +11,7 @@ public class ItemFolderSelector : MonoBehaviour {
 	public int maxColumns = 4;
 	// Use this for initialization
 	void Start () {
-		RectTransform rect = GetComponent<RectTransform>();
+//		RectTransform rect = GetComponent<RectTransform>();
 //		rect.offsetMin = new Vector2(rect.offsetMin.x, 300);
 
 		Sprite[] sprites = Resources.LoadAll <Sprite> (path);

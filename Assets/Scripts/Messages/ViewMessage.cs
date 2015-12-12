@@ -30,16 +30,11 @@ public class ViewMessage : MonoBehaviour {
 			//TODO: parse path sender and cue epilogue
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
-			//	Debug.Log("Should Show Epilogue at this point");
 				Inbox inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
-			//	Debug.Log("Character Path: " + characterEpiloguePath + " story path: " + epilogueStoryPath);
-				Debug.Log("PATH: " + r.path);
 				string characterPath = getStringFromResponse(r.path,0);
 				string storyPath = getStringFromResponse(r.path, 2);
-				Debug.Log("CHARACTER PATH FOUND: " + characterPath);
-				Debug.Log("STORY PATH FOUND: " + storyPath);
-				inbox.populateEpilogue(characterPath, storyPath);
-				inbox.epilogue.npc.assign(character.characterName);
+				inbox.populateEpilogue(characterPath, storyPath, character.name);
+				inbox.epilogue.npc.characterAssignment = character.characterAssignment;
 				inbox.epilogue.cue ();
 
 //				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();

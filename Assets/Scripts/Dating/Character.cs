@@ -720,6 +720,7 @@ public class Character : MonoBehaviour {
 				earsTan.sprite = earTanLevels[selectedEars];
 			}
 			hairLine.sprite = hairlineStyles[selectedHairLine];
+			hasHairLine = true;
 			eyes.sprite = eyeStyles[selectedEars];
 			shortHair.sprite = shortHairStyles [selectedShortHair];
 			iris.sprite = irisStyles[selectedIris];

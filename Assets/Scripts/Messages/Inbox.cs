@@ -27,9 +27,11 @@ public class Inbox : MonoBehaviour {
 			}
 
 	}
-	public void populateEpilogue(string character, string story) {
+	public void populateEpilogue(string character, string story, string lover) {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		epilogue.story.text = player.getFinalStory(character, story);
+		string finalStory = player.getFinalStory(character, story);
+		finalStory = finalStory.Replace("%C", lover);
+		epilogue.story.text = finalStory;
 	}
 
 	public void clear() {

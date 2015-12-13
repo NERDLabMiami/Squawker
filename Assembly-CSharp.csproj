@@ -79,6 +79,8 @@
      <Compile Include="Assets\Scripts\Mini Games\Love\ObjectEmitter.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningSalonAssistant.cs" />
+     <Compile Include="Assets\Tutorial.cs" />
+     <Compile Include="Assets\TutorialItem.cs" />
      <None Include="Assets\Resources\messages.txt" />
      <None Include="Assets\Resources\marketing.txt" />
  <Reference Include="UnityEngine.UI">

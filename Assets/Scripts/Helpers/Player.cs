@@ -240,11 +240,13 @@ public class Player : MonoBehaviour {
 		if (actionsLeft > 1) {
 			actionsLeft--;
 			saveProgress(actionsLeft, daysLeft);
-			if (actionsLeft == 1) {
-				progress.SetTrigger("one");
-			}
-			if (actionsLeft == 2) {
-				progress.SetTrigger("two");
+			if (progress) {
+				if (actionsLeft == 1) {
+					progress.SetTrigger("one");
+				}
+				if (actionsLeft == 2) {
+					progress.SetTrigger("two");
+				}
 			}
 			return true;
 		}
@@ -262,6 +264,7 @@ public class Player : MonoBehaviour {
 			if (daysLeft < 0) {
 				//GAME OVER
 				Debug.Log("Days have run out");
+				GetComponent<Home>().gameOverMessage.SetActive(true);
 				return false;
 			}
 			else {

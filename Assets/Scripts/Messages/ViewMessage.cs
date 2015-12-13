@@ -47,12 +47,14 @@ public class ViewMessage : MonoBehaviour {
 		else if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
+				player.previewInbox.checkIfEmpty();
 				Application.LoadLevel(type);
 			});
 		} else {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				respond (r.path, r.messageIndex);
-				});	
+				player.previewInbox.checkIfEmpty();
+			});	
 
 			}
 		response.transform.SetParent(responseContainer, false);

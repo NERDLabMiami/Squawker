@@ -20,21 +20,20 @@ public class Player : MonoBehaviour {
 	public Profile profile;
 	public Character avatar;
 	public Animator progress;
-	
+
 	public JSONNode json;
 	private List<string> messageList;
 
 	// Use this for initialization
 	void Start () {
-		json = JSON.Parse(potentialMessages.ToString());
+			json = JSON.Parse(potentialMessages.ToString());
 
-		string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
-		messageList = storedMessages.OfType<string>().ToList();
-		inbox = new List<Message>();
-		refreshInbox();
-		populateStats();
-		updateProfile();
-
+			string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
+			messageList = storedMessages.OfType<string>().ToList();
+			inbox = new List<Message>();
+			refreshInbox();
+			populateStats();
+			updateProfile();
 	}
 
 	public string getFinalStory(string character, string story) {

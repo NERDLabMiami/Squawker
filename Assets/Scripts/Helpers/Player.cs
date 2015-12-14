@@ -250,7 +250,9 @@ public class Player : MonoBehaviour {
 			return true;
 		}
 		else {
-			progress.SetTrigger("three");
+			if (progress) {
+				progress.SetTrigger("three");
+			}
 			daysLeft--;
 			newDay();
 			if (takeTolls) {

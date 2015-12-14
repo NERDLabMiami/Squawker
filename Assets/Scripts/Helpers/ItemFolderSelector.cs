@@ -29,6 +29,7 @@ public class ItemFolderSelector : MonoBehaviour {
 			Vector3 position = new Vector3(gameObject.transform.position.x + (col*120),gameObject.transform.position.y - (row*120),gameObject.transform.position.z);
 			item.transform.position = position;
 			item.GetComponent<ItemSelector>().selectButton.image.sprite = sprites[i];
+			//TODO: Check if game object is enabled. non-randomized avatars have issues
 			if (avatarImage.sprite.name == sprites[i].name && avatarImage.enabled) {
 
 				item.GetComponent<ItemSelector>().use();

@@ -27,7 +27,7 @@ public class Dermatologist : MonoBehaviour {
 		//TODO: With assets in place, animate transitions
 		if (conversationIndex == 4) {
 			player.visitDermatologist();
-			Application.LoadLevel(1);
+			player.loadSceneNumber (1);
 		}
 		else {
 			dermatologistDialog.text = player.getDermatologistMessage(conversationIndex);

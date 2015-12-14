@@ -19,7 +19,7 @@ public class ViewMessage : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
 	private void startEpilogue() {
-
+		
 	}
 
 	public void addResponse(Response r) {
@@ -48,7 +48,7 @@ public class ViewMessage : MonoBehaviour {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
 				player.previewInbox.checkIfEmpty();
-				Application.LoadLevel(type);
+				player.loadSceneNumber(type);
 			});
 		} else {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
@@ -93,19 +93,20 @@ public class ViewMessage : MonoBehaviour {
 
 		return pathArray[index];
 	}
+	/*
 	bool isOffer(GameObject obj, Response r) {
 		string[] pathArray = StringArrayFunctions.getMessage(r.path);
 		if (pathArray [0] == "tanning") {
 			obj.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
-				Application.LoadLevel (1);
+				player.loadSceneNumber(1);
 			});
 			return true;
 		}
 		if (pathArray [0] == "love") {
 			obj.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
-				Application.LoadLevel (2);
+				player.loadSceneNumber(2);
 			});
 			return true;
 		}
@@ -114,7 +115,7 @@ public class ViewMessage : MonoBehaviour {
 			Debug.Log("Skin Exam");
 			obj.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
-				Application.LoadLevel (3);
+				player.loadSceneNumber(3);
 			});
 			return true;
 		}
@@ -122,7 +123,7 @@ public class ViewMessage : MonoBehaviour {
 
 		return false;
 	}
-
+*/
 	void respond(string path, int index) {
 		player.takeAction (true);
 		player.removeMessage(index);

@@ -36,7 +36,7 @@ public class CupidControl : MonoBehaviour {
 	public void returnHome() {
 		//TODO: Proper transition
 		Time.timeScale = 1f;
-		Application.LoadLevel(1);
+		player.loadSceneNumber (1);
 	}
 	public void shoot() {
 		Vector3 pos = transform.position;

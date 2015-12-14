@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AvatarWizard : MonoBehaviour {
 	public AvatarColorSelector skinToneColorSelector;
@@ -15,6 +16,7 @@ public class AvatarWizard : MonoBehaviour {
 	public Image currentFace;
 	public GameObject saveButton;
 	public Character avatar;
+	public Player player;
 
 	public ImageSet[] folders;
 	public int currentFolderIndex = 0;
@@ -44,8 +46,9 @@ public class AvatarWizard : MonoBehaviour {
 		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);
 		avatar.setPaths();
 		avatar.saveCharacter();
-		Application.LoadLevel(1);
+		player.loadSceneNumber (1);
 	}
+
 
 	void populateOptions() {
 		nextOptionButton.image.sprite = folders[currentFolderIndex].getNextSprite();

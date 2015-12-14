@@ -34,13 +34,12 @@ public class TanningSalonAssistant : MonoBehaviour {
 				bed.SetTrigger("close");
 			}
 			else {
-				Application.LoadLevel(1);
+				player.loadSceneNumber (1);
 			}
 		}
 		if (conversationIndex == 5) {
 			Time.timeScale = 1f;
-
-			Application.LoadLevel(1);
+			player.loadSceneNumber (1);
 		}
 	}
 

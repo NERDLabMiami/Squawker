@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour {
 	public Profile profile;
 	public Character avatar;
 	public Animator progress;
+	public GameObject loadingScreen;
 
 	public JSONNode json;
 	private List<string> messageList;
@@ -390,6 +393,24 @@ public class Player : MonoBehaviour {
 		int numMottos = json["mottos"].Count;
 		return json["mottos"][Random.Range (0, numMottos)];
 	}
+
+//	StartCoroutine (loadHome ());
+
+	public void loadSceneNumber(int level) {
+		loadingScreen.SetActive(true);
+		StartCoroutine (loadLevel(level));
+	}
+
+	IEnumerator loadLevel(int level) {
+		AsyncOperation async = SceneManager.LoadSceneAsync (level);
+		while (!async.isDone) {
+			Debug.Log ("ASYNC: " + async.progress);
+			yield return async;		
+		}
+		loadingScreen.SetActive (false);
+		Debug.Log ("Loading complete");
+	}
+
 
 	public void returnHome(){
 		Application.LoadLevel (1);

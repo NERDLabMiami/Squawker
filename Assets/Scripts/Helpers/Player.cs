@@ -413,7 +413,7 @@ public class Player : MonoBehaviour {
 
 
 	public void returnHome(){
-		Application.LoadLevel (1);
+		loadSceneNumber(1);
 	}
 
 

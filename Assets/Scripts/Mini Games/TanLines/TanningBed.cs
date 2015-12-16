@@ -56,6 +56,7 @@ public class TanningBed : MonoBehaviour {
 
 //		assistant.player.setTan (tan);
 		character.setTone (tan);
+
 		if (salonVisits >= visitsRequiredForMole) {
 			character.getMole ();
 		}

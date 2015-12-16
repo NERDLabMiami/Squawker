@@ -56,6 +56,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 		signedWaiver = true;
 		continueButton.SetActive (true);
 		bed.SetTrigger("open");
+		PlayerPrefs.SetInt("days since last change in tan", 0);
 	}
 
 	public void decline() {

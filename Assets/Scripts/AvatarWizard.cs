@@ -51,10 +51,14 @@ public class AvatarWizard : MonoBehaviour {
 
 
 	void populateOptions() {
-		nextOptionButton.image.sprite = folders[currentFolderIndex].getNextSprite();
-		previousOptionButton.image.sprite = folders[currentFolderIndex].getPreviousSprite();
-		leftFace.sprite = currentFace.sprite;
-		rightFace.sprite = currentFace.sprite;
+		leftFace.sprite = folders [currentFolderIndex].getPreviousSprite ();
+		rightFace.sprite = folders [currentFolderIndex].getNextSprite ();
+		leftFace.enabled = true;
+		rightFace.enabled = true;
+		//		nextOptionButton.image.sprite = folders[currentFolderIndex].getNextSprite();
+//		previousOptionButton.image.sprite = folders[currentFolderIndex].getPreviousSprite();
+//		leftFace.sprite = currentFace.sprite;
+//		rightFace.sprite = currentFace.sprite;
 
 		//run avatar check
 		if (avatar.hasCompleteCharacter()) {

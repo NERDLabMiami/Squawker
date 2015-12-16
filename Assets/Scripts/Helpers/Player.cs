@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
 	public JSONNode json;
 	private List<string> messageList;
-
+	public int daysBetweenChangeInTan = 2;
 	// Use this for initialization
 	void Start () {
 			json = JSON.Parse(potentialMessages.ToString());
@@ -266,8 +266,15 @@ public class Player : MonoBehaviour {
 			if (takeTolls) {
 				//TAKE TOLLS ON ATTRACTIVENESS, TAN
 				setAttractiveness (attractiveness - 1);
-				tan = avatar.setTone(tan - 1);
-				
+				int daysSinceLastChangeInTan = PlayerPrefs.GetInt ("days since last change in tan", 0);
+				daysSinceLastChangeInTan++;
+				if (daysBetweenChangeInTan == daysSinceLastChangeInTan) {
+					tan = avatar.setTone(tan - 1);
+					daysSinceLastChangeInTan = 0;
+				}
+				PlayerPrefs.SetInt("days since last change in tan", daysSinceLastChangeInTan);
+
+
 			}
 			refreshInbox();
 			if (daysLeft < 0) {
@@ -353,6 +360,8 @@ public class Player : MonoBehaviour {
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
 		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
+		tan = PlayerPrefs.GetInt("tan", -9999);
+		Debug.Log ("TAN IS " + tan);
 		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
 		if (profile) {
 //			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
@@ -373,7 +382,6 @@ public class Player : MonoBehaviour {
 			}
 
 		}
-		tan = PlayerPrefs.GetInt("tan", 0);
 
 	}
 

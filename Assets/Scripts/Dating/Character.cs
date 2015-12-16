@@ -141,6 +141,11 @@ public class Character : MonoBehaviour {
 	public TextAsset characters;
 	private JSONNode json;
 
+	public Color baseTan;
+	public Color tan2;
+	public Color tan3;
+	public Color sunburn;
+
 	// Use this for initialization
 	void Start () {
 
@@ -190,7 +195,6 @@ public class Character : MonoBehaviour {
 			else {
 				randomlyGenerate(false);
 			}
-			PlayerPrefs.SetInt("tan",0);
 		}
 
 
@@ -250,38 +254,52 @@ public class Character : MonoBehaviour {
 	public bool wearingPiercing() {
 		return hasPiercing;
 	}
-
-
+		
 	public int setTone(int amount) {
 		if (amount <= 0) {
 			amount = 0;
 		}
 		tanTone = amount;
 		PlayerPrefs.SetInt ("tan", tanTone);
-		if (tanTone >= 1) {
-			faceTan.sprite = Resources.Load<Sprite>(faceTanLevelPath + "/" + tanTone + "/" + selectedFaceName);
-			earsTan.sprite = Resources.Load<Sprite>(earsTanLevelPath + "/" + tanTone + "/" + selectedEarsName);
 
-			selectedFaceTanName = faceTan.sprite.name;
-			selectedEarsTanName = earsTan.sprite.name;
-			faceTan.enabled = true;
-			earsTan.enabled = true;
+		Debug.Log ("Fading tone");
+		switch (tanTone) {
+			case 0:
+				faceTan.CrossFadeColor (face.color, 1f, true, true);
+				earsTan.CrossFadeColor (face.color, 1f, true, true);
+				break;
+			case 1:
+				faceTan.CrossFadeColor (baseTan, 1f, true, true);
+				earsTan.CrossFadeColor (baseTan, 1f, true, true);
+				break;
+			case 2:
+				faceTan.CrossFadeColor (tan2, 1f, true, true);
+				earsTan.CrossFadeColor (tan2, 1f, true, true);
+				break;
+			case 3:
+				faceTan.CrossFadeColor (tan3, 1f, true, true);
+				earsTan.CrossFadeColor (tan3, 1f, true, true);
+				break;
+			case 4:
+				faceTan.CrossFadeColor (sunburn, 1f, true, true);
+				earsTan.CrossFadeColor (sunburn, 1f, true, true);
+
+				break;
+			default:
+				break;
 		}
-		else {
-			faceTan.enabled = false;
-			earsTan.enabled = false;
-		}
-//		moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
+			
 		saveCharacter ();
 		return tanTone;
 }
 
 	public void saveCharacter() {
 		int[] assignedColors = new int[3] {baseSkinTone, tanTone, selectedHairColor};
+		Debug.Log ("SAVE CHARACTERS, TAN TONE IS : " + tanTone);
 		string[] assignedSprites = new string[18] {selectedFaceName,selectedEyebrowName,selectedLongHairName, selectedShortHairName, selectedHairLineName,
 																selectedEyesName, selectedIrisName, selectedNoseName, selectedEarsName, selectedMouthName,
 																selectedGlassesName, selectedHeadwearName, selectedHairAccessoryName, selectedTieName, selectedPiercingName,
-																selectedFaceTanName, selectedEarsTanName, selectedMoleName};
+																selectedFaceName, selectedEarsName, selectedMoleName};
 
 		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", assignedColors);
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
@@ -313,6 +331,8 @@ public class Character : MonoBehaviour {
 		baseSkinTone = assignedColors[0];
 //		tanTone = assignedColors[1];
 		tanTone = PlayerPrefs.GetInt("tan", assignedColors[1]);
+		Debug.Log ("LOAD CHARACTER, TAN TONE IS : " + tanTone);
+
 		selectedHairColor = assignedColors[2];
 
 		getPaths();
@@ -353,11 +373,11 @@ public class Character : MonoBehaviour {
 		if (!eyebrows.gameObject.activeSelf) {
 			eyebrows.enabled = false;
 		}
-
+		/*
 		if (!faceTan.gameObject.activeSelf) {
 			faceTan.enabled = false;
 		}
-
+*/
 		if (!glasses.gameObject.activeSelf) {
 			glasses.enabled = false;
 		}
@@ -387,7 +407,7 @@ public class Character : MonoBehaviour {
 		hasTie = tie.enabled;
 		hasPiercing = piercing.enabled;
 		hasMole = mole.enabled;
-		hasTan = faceTan.enabled;
+//		hasTan = faceTan.enabled;
 		hasHairLine = hairLine.enabled;
 		hasEyeBrows = eyebrows.enabled;
 	
@@ -492,18 +512,12 @@ public class Character : MonoBehaviour {
 		}
 
 		selectedHairColor = Random.Range (0, 8);
-		baseSkinTone = Random.Range (0, 4);
+		baseSkinTone = Random.Range (0, 8);
 		tanTone = 0;
 	}
 
 
 	public void loadStyles() {
-			//TODO: When skin tone and color exports arrive, place each in a subfolder, store skin tone in playerprefs
-			//face and skintone affected assets will ultimately be: Avatar/Face/<basetone>/<shade>/
-			//other assets will be: Avatar/iris/<color>
-//		faceStylePath = "Avatar/Face/" + baseSkinTone + "/" + tanTone;
-//		earStylePath = "Avatar/Ears/" + baseSkinTone + "/" + tanTone;
-//		hairLinePath = "Avatar/Hair/" + selectedHairColor + "/" + "/Line";
 
 			faceStyles = Resources.LoadAll<Sprite> (faceStylePath + "/" + baseSkinTone);
 			hairlineStyles = Resources.LoadAll<Sprite> (hairLineStylePath + "/" + selectedHairColor);
@@ -513,10 +527,7 @@ public class Character : MonoBehaviour {
 			eyeStyles = Resources.LoadAll<Sprite> (eyeStylePath);
 			irisStyles = Resources.LoadAll<Sprite> (irisStylePath);
 			earStyles = Resources.LoadAll<Sprite> (earStylePath + "/" + baseSkinTone);
-			if (tanTone >= 1) {
-				faceTanLevels = Resources.LoadAll<Sprite>(faceTanLevelPath + "/" + tanTone);
-				earTanLevels = Resources.LoadAll<Sprite>(earsTanLevelPath + "/" + tanTone);
-			}
+
 			moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
 			noseStyles = Resources.LoadAll<Sprite> (noseStylePath);
 			mouthStyles = Resources.LoadAll<Sprite> (mouthStylePath);
@@ -568,9 +579,31 @@ public class Character : MonoBehaviour {
 		hairAccessory.sprite = Resources.Load<Sprite> (hairAccessoryStylePath + "/" + selectedHairAccessoryName);
 		tie.sprite = Resources.Load<Sprite> (tieStylePath + "/" + selectedTieName);
 		piercing.sprite = Resources.Load<Sprite> (piercingStylePath + "/" + selectedPiercingName);
+		faceTan.sprite = Resources.Load<Sprite> (faceStylePath + "/" + baseSkinTone + "/" + selectedFaceName);	
+		earsTan.sprite = Resources.Load<Sprite> (earStylePath + "/" + baseSkinTone + "/" + selectedEarsName);
+		Debug.Log ("GET SPRITES, TAN TONE IS : " + tanTone);
+
 		if (tanTone >= 1) {
-			faceTan.sprite = Resources.Load<Sprite>(faceTanLevelPath + "/" + tanTone + "/" + selectedFaceTanName);
-			earsTan.sprite = Resources.Load<Sprite>(earsTanLevelPath + "/" + tanTone + "/" + selectedEarsTanName);
+			switch (tanTone) {
+			case 1:
+				faceTan.color = baseTan;
+				earsTan.color = baseTan;
+				break;
+			case 2:
+				faceTan.color = tan2;
+				earsTan.color = tan2;
+				break;
+			case 3:
+				faceTan.color = tan3;
+				earsTan.color = tan3;
+				break;
+			case 4:
+				faceTan.color = sunburn;
+				earsTan.color = sunburn;
+				break;
+			default:
+				break;
+			}
 		}
 		setEnabledAttributes ();
 	}
@@ -593,10 +626,8 @@ public class Character : MonoBehaviour {
 		nose.sprite = noseStyles [selectedNose];
 		mouth.sprite = mouthStyles [selectedMouth];
 		mole.sprite = moleStyles[selectedMole];
-		if (tanTone > 0) {
-			faceTan.sprite = faceTanLevels[selectedFace];
-			earsTan.sprite = earTanLevels[selectedEars];
-		}
+		faceTan.sprite = face.sprite;
+		earsTan.sprite = ears.sprite;
 
 		setEnabledAttributes ();
 
@@ -614,18 +645,6 @@ public class Character : MonoBehaviour {
 		piercing.enabled = hasPiercing;
 		mole.enabled = hasMole;
 
-		if (tanTone >= 1) {
-			earsTan.enabled = true;
-			faceTan.enabled = true;
-		}
-		else {
-			earsTan.enabled = false;
-			faceTan.enabled = false;
-		}
-		if (!hasTan) {
-			earsTan.enabled = false;
-			faceTan.enabled = false;
-		}
 	}
 
 	public void setPaths() {
@@ -703,15 +722,10 @@ public class Character : MonoBehaviour {
 		selectedFaceName = face.sprite.name;
 		selectedMouthName = mouth.sprite.name;
 		selectedNoseName = nose.sprite.name;
+		selectedEarsTanName = ears.sprite.name;
+		selectedFaceTanName = face.sprite.name;
 
-		if (tanTone >= 1) {
-			selectedEarsTanName = earsTan.sprite.name;
-			selectedFaceTanName = faceTan.sprite.name;
-		}
-		else {
-			selectedFaceTanName = "none";
-			selectedEarsTanName = "none";
-		}
+
 	}
 	
 
@@ -729,11 +743,9 @@ public class Character : MonoBehaviour {
 			longHair.sprite = longHairStyles [selectedLongHair];
 			face.sprite = faceStyles[selectedFace];
 			ears.sprite = earStyles[selectedEars];
-			if (tanTone >= 1) {
-				faceTan.sprite = faceTanLevels[selectedFace];
-				earsTan.sprite = earTanLevels[selectedEars];
-			}
-	
+			faceTan.sprite = faceStyles[selectedFace];
+			earsTan.sprite = earStyles[selectedEars];
+
 			hairLine.sprite = hairlineStyles[selectedHairLine];
 			hasHairLine = true;
 			eyes.sprite = eyeStyles[selectedEars];
@@ -769,11 +781,13 @@ public class Character : MonoBehaviour {
 			iris.gameObject.SetActive(true);
 			eyes.gameObject.SetActive(true);
 			face.gameObject.SetActive(true);
+			faceTan.gameObject.SetActive (true);
+			earsTan.gameObject.SetActive (true);
 			ears.gameObject.SetActive(true);
 		}
 	}
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 }

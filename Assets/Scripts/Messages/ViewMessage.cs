@@ -47,6 +47,10 @@ public class ViewMessage : MonoBehaviour {
 		else if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				player.removeMessage (r.messageIndex);
+				string p = getStringFromResponse(r.path,0);
+				Debug.Log("Removing offer with path: " + p);
+				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
+				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
 				player.previewInbox.checkIfEmpty();
 				player.loadSceneNumber(type);
 			});

@@ -38,7 +38,10 @@ public class Player : MonoBehaviour {
 			populateStats();
 			updateProfile();
 	}
+	public void setGenderPreference(string gender) {
+		PlayerPrefs.SetString ("gender preference", gender);
 
+	}
 	public string getFinalStory(string character, string story) {
 		if (json[character] != null) {
 			return json[character]["epilogue"][story];
@@ -171,6 +174,7 @@ public class Player : MonoBehaviour {
 		JSONNode offers = json [type].AsObject;
 		int selectedOffer = Random.Range (0, offers.Count);
 		JSONNode offer = offers [selectedOffer].AsObject;
+		Debug.Log (type + " offers :" + offers.Count + " selected " + selectedOffer);
 		if (offer ["path"] != null) {
 			int offerCount = PlayerPrefs.GetInt(offer["path"] + "_offers", 0);
 			if (offerCount <= 0) {
@@ -179,7 +183,7 @@ public class Player : MonoBehaviour {
 				PlayerPrefs.SetInt(offer["path"] + "_offers", offerCount);
 			}
 		} else {
-			Debug.Log("Offer path doesn't exist...");
+			Debug.Log("Offer path doesn't exist..." + type);
 		}
 	}
 
@@ -209,6 +213,7 @@ public class Player : MonoBehaviour {
 		//ADD TANNING OFFER
 		newOffer("tanning");
 		newOffer ("love");
+
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
 			Debug.Log("MESSAGE LIST:" + i + " " + messageList[i]);
@@ -296,6 +301,7 @@ public class Player : MonoBehaviour {
 		if (cancerRisk > 1) {
 			cancerRisk--;
 		}
+		avatar.removeMole ();
 		PlayerPrefs.SetInt ("cancer risk", cancerRisk);
 	}
 
@@ -350,22 +356,24 @@ public class Player : MonoBehaviour {
 		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
 		if (profile) {
 //			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
-			if (attractiveness > 75) {
-				profile.heart.GetComponent<Animator>().SetTrigger("four");
+			if (attractiveness <= 5) {
+				profile.heart.GetComponent<Animator>().SetTrigger("one");
 			}
-			else if (attractiveness > 50) {
-				profile.heart.GetComponent<Animator>().SetTrigger("three");
-			}
-			else if(attractiveness > 25) {
+
+			if(attractiveness > 5 && attractiveness <= 10) {
 				profile.heart.GetComponent<Animator>().SetTrigger("two");
 			}
-			else {
-				profile.heart.GetComponent<Animator>().SetTrigger("one");
+
+			if (attractiveness <= 20 && attractiveness > 10) {
+				profile.heart.GetComponent<Animator>().SetTrigger("three");
+			}
+
+			if (attractiveness > 20) {
+				profile.heart.GetComponent<Animator>().SetTrigger("four");
 			}
 
 		}
 		tan = PlayerPrefs.GetInt("tan", 0);
-		Debug.Log("THE TAN IS SET TO " + tan);
 
 	}
 

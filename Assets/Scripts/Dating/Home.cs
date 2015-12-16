@@ -12,10 +12,11 @@ public class Home : MonoBehaviour {
 //		player.profile.character.assign("me");
 //		player.refreshInbox();
 //		player.updateProfile();
-		match.newMatch();
-		if (PlayerPrefs.GetInt("tutorial",0) == 0) {
-			introMessage.SetActive(true);
-			PlayerPrefs.SetInt("tutorial",1);
+		if (PlayerPrefs.GetInt ("tutorial", 0) == 0) {
+			introMessage.SetActive (true);
+			PlayerPrefs.SetInt ("tutorial", 1);
+		} else {
+			match.newMatch();
 		}
 
 	}

@@ -6,7 +6,8 @@ public class CupidTalk : MonoBehaviour {
 	public string[] introDialogue;
 	public string[] endDialogue;
 	public Text dialog;
-	public Button startButton;
+	public GameObject startButton;
+	public GameObject continueButton;
 
 	private int dialogIndex = 0;
 	private int selectedDialog = 0;
@@ -39,7 +40,8 @@ public class CupidTalk : MonoBehaviour {
 					dialog.text = introDialogue [dialogIndex];
 				}
 				if (introDialogue.Length - 1 == dialogIndex) {
-					startButton.interactable = true;
+					continueButton.SetActive (false);
+					startButton.SetActive (true);
 				}
 
 				break;

@@ -317,6 +317,24 @@ public class Character : MonoBehaviour {
 
 	}
 
+	public void getMole() {
+		moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
+		selectedMole = Random.Range(0, moleStyles.Length);
+		selectedMole = Random.Range (0, moleStyles.Length);
+		mole.sprite = moleStyles[selectedMole];
+		selectedMoleName = mole.sprite.name;
+		mole.gameObject.SetActive (true);
+		mole.enabled = true;
+		saveCharacter ();
+	}
+
+	public void removeMole() {
+		mole.sprite.name = "none";
+		mole.gameObject.SetActive (false);
+		mole.enabled = false;
+		saveCharacter ();
+	}
+
 	public void setOptions() {
 		if (!longHair.gameObject.activeSelf) {
 			longHair.enabled = false;
@@ -413,9 +431,9 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-	public void assignName(string type) {
-		int numNames = json["names"]["men"].Count;
-		name = json["names"][type][Random.Range(0,numNames)];
+	public void assignName(string gender) {
+		int numNames = json["names"][gender].Count;
+		name = json["names"][gender][Random.Range(0,numNames)];
 		characterName = name;
 //		int numNames = player.json["names"]["men"].Count;
 //		name = player.json ["names"] [type] [Random.Range (0, numNames)];

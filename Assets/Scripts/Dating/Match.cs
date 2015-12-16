@@ -10,7 +10,6 @@ public class Match : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		newMatch();
 	}
 	
 	// Update is called once per frame
@@ -31,7 +30,8 @@ public class Match : MonoBehaviour {
 
 	public void newMatch() {
 		avatar.randomlyGenerate ();
-		avatar.assignName("men");
+		string matchGender = PlayerPrefs.GetString ("gender preference", "both");
+		avatar.assignName(matchGender);
 		alias.text = avatar.name;
 
 	}
@@ -45,7 +45,9 @@ public class Match : MonoBehaviour {
 			//love <= player.love
 			//accessory = accessory match
 			//TODO: Instead of passing to create a new character, it should log it in the system
-			avatar.assignCharacter("men");
+			string matchGender = PlayerPrefs.GetString ("gender preference", "both");
+
+			avatar.assignCharacter(matchGender);
 //			Debug.Log ("Saving Character...");
 
 			avatar.saveCharacter ();

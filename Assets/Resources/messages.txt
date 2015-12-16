@@ -1,6 +1,7 @@
 {
-"names": { 	"men": ["Rogelio","Dominick","Mathew","Anton","Elijah","Efrain", "Kelly", "Nestor","Garry","Kareem", "Francisco",  "Beau",  "Jordan",  "Sandy", "Kennith",  "Pete",  "Delbert",  "Sherman", "Gabriel",  "Ben",  "Ian","Zackary", "Brandon",  "Bradly",  "Stevie",  "Fredrick",  "Jeff",  "Zack",  "Bryce",  "Gerald "],
-					"women": []
+"names": { 	"men": ["Roger","Dominick","Matthew","Anton","Elijah","Efrain", "Kelly", "Nestor","Gary","Kareem", "Francisco",  "Beau",  "Jordan",  "Sandy", "Kenneth",  "Pete",  "Delbert",  "Sherman", "Gabriel",  "Ben",  "Ian","Zackary", "Brandon",  "Bradly",  "Stevie",  "Fredrick",  "Jeff",  "Zack",  "Bryce",  "Gerald "],
+			"women": ["Amber", "Britney", "Caitlin", "Dora", "Elaine", "Fanny", "Grace", "Heather", "Imelda", "Juanita", "Kristin", "Loraine", "Maria", "Nelly", "Ophelia", "Patricia", "Rayna", "Sally", "Taylor", "Uma", "Valentine", "Wanda"],
+			"both": ["Aaron", "Britney", "Clyde", "Daria", "Elle", "Fitz", "Geraldine", "Kelly", "Kim", "Larry", "Laura", "Melanie", "Nick", "Ryan", "Xavier", "Pat", "Tim"]
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
 "characters": ["male1", "male2"],
@@ -858,8 +859,8 @@
 	},
 	
 "love" : {
-	"offer" : {
-			"path": "love/offer/0",
+	"offer1" : {
+			"path": "love/offer1/0",
 			"subject": "Test your ability to love!",
 			"message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
 			"responses" : [
@@ -873,7 +874,41 @@
 							}							
 							
 						]
+		},
+			"offer2" : {
+			"path": "love/offer2/0",
+			"subject": "Test your ability to love! 2",
+			"message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
+			"responses" : [
+							{ 	"response" : "Sure, why not?",
+								"path" : "love",
+								"time" : 9999
+							},
+							{ 	"response" : "No thanks, I'm good.",
+								"path" : "offer/deadend",
+								"time" : 9999
+							}							
+							
+						]
+		},
+	"offer3" : {
+			"path": "love/offer3/0",
+			"subject": "Test your ability to love!3",
+			"message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
+			"responses" : [
+							{ 	"response" : "Sure, why not?",
+								"path" : "love",
+								"time" : 9999
+							},
+							{ 	"response" : "No thanks, I'm good.",
+								"path" : "offer/deadend",
+								"time" : 9999
+							}							
+							
+						]
 		}
+
+
 	},
 "doctor": {
 	"conversation": [

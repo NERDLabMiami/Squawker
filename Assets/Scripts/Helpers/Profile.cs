@@ -14,7 +14,6 @@ public class Profile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		refresh();
 	}
 
 	void refresh() {

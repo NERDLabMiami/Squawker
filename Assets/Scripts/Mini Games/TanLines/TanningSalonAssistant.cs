@@ -10,7 +10,10 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public GameObject waiver;
 	public GameObject tanControls;
 	public GameObject dialogControls;
+	public Animator meter;
 	public Animator bed;
+	public GameObject continueButton;
+	public GameObject stopTanButton;
 
 	private int conversationIndex = 0;
 	private bool signedWaiver = false;
@@ -25,6 +28,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 		if (conversationIndex == 3) {
 			gameObject.SetActive(false);
 			waiver.SetActive(true);
+			continueButton.SetActive (false);
 		}
 		if (conversationIndex == 4) {
 			if (signedWaiver) {
@@ -32,13 +36,15 @@ public class TanningSalonAssistant : MonoBehaviour {
 				Debug.Log("Activating Salon");
 				tanControls.SetActive(true);
 				bed.SetTrigger("close");
+				meter.SetTrigger ("start");
+				stopTanButton.SetActive (true);
+				Debug.Log ("Should have set tan button active");
 			}
 			else {
 				player.loadSceneNumber (1);
 			}
 		}
 		if (conversationIndex == 5) {
-			Time.timeScale = 1f;
 			player.loadSceneNumber (1);
 		}
 	}
@@ -48,6 +54,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 		waiver.SetActive (false);
 		gameObject.SetActive (true);
 		signedWaiver = true;
+		continueButton.SetActive (true);
 		bed.SetTrigger("open");
 	}
 

@@ -25,8 +25,10 @@ public class Dermatologist : MonoBehaviour {
 		//TODO: Keep track of visits to the dermatologist
 		//TODO: With assets in place, transition between close up of dermatologist and player's face
 		//TODO: With assets in place, animate transitions
-		if (conversationIndex == 4) {
+		if (conversationIndex == 2) {
 			player.visitDermatologist();
+		}
+		if (conversationIndex == 4) {
 			player.loadSceneNumber (1);
 		}
 		else {

@@ -65,7 +65,7 @@
 
 
 "love" : {
-	"offer" : {
+	"offers" : {
 			"subject": "Try this MiniGame ???",
 			"message": "Would you like to take advantage of this great opportunity to try this mini game?",
 			"responses" : [

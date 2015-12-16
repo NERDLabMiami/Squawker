@@ -6,9 +6,14 @@ public class TanningBed : MonoBehaviour {
 	public float tanAmount = 0;
 	public TanningSalonAssistant assistant;
 	public Character character;
+	public GameObject stopTanButton;
+	public GameObject continueButton;
+	public int visitsRequiredForMole = 2;
+	private int salonVisits;
 	// Use this for initialization
 	void Start () {
-	
+		salonVisits = PlayerPrefs.GetInt("tanning salon visits",0);
+
 	}
 	
 	// Update is called once per frame
@@ -17,13 +22,16 @@ public class TanningBed : MonoBehaviour {
 	}
 
 	public void startTanningSlider() {
-		Time.timeScale = 1f;
 	}
 
 	public void stopTanningSlider() {
 		//TODO: take into account severity and their risk level
 		//TODO: add sun spots
 		GetComponent<AudioSource> ().Stop ();
+		continueButton.SetActive (true);
+		stopTanButton.SetActive (false);
+		salonVisits++;
+		PlayerPrefs.SetInt ("tanning salon visits", salonVisits);
 		assistant.player.newOffer ("exam");
 		switch((int)tanAmount) {
 		case 0:
@@ -43,12 +51,14 @@ public class TanningBed : MonoBehaviour {
 			assistant.response.text = "I'll have to work on that.";
 			break;	
 		}
-		Time.timeScale = 0f;
 		int tan = (int)tanAmount;
 		Debug.Log("Setting tan to : " + tan);
 
 //		assistant.player.setTan (tan);
 		character.setTone (tan);
+		if (salonVisits >= visitsRequiredForMole) {
+			character.getMole ();
+		}
 		assistant.player.tan = tan;
 		assistant.player.takeAction (false);
 		assistant.dialogControls.SetActive (true);

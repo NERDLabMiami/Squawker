@@ -208,9 +208,12 @@ public class Character : MonoBehaviour {
 		selectRandomStyles();
 
 		//assign sprites
-
-		generateAvatar ();
-
+		if (characterAssignment == "new" || characterAssignment == "me") {
+			generateAvatar(false);
+		}
+		else {
+			generateAvatar (true);
+		}
 		//set sprites
 		setSprites();
 
@@ -712,7 +715,7 @@ public class Character : MonoBehaviour {
 	}
 	
 
-	public void generateAvatar() {
+	public void generateAvatar(bool accessories = true) {
 			selectedLongHair = Random.Range (0, longHairStyles.Length);
 			selectedFace = Random.Range (0, faceStyles.Length);
 			selectedEars = Random.Range (0, earStyles.Length);
@@ -723,20 +726,14 @@ public class Character : MonoBehaviour {
 			selectedNose = Random.Range (0, noseStyles.Length);
 			selectedMouth = Random.Range (0, mouthStyles.Length);
 			selectedTie = Random.Range (0, tieStyles.Length);
-			selectedHeadwear = Random.Range (0, headwearStyles.Length);
-			selectedHairAccessory = Random.Range (0, hairAccessoryStyles.Length);
-			selectedGlasses = Random.Range (0, glassStyles.Length);
-			selectedPiercing = Random.Range (0, piercingStyles.Length);
-			selectedEyebrow = Random.Range (0, eyebrowStyles.Length);
-			selectedMole = Random.Range (0, moleStyles.Length);
 			longHair.sprite = longHairStyles [selectedLongHair];
-
 			face.sprite = faceStyles[selectedFace];
 			ears.sprite = earStyles[selectedEars];
 			if (tanTone >= 1) {
 				faceTan.sprite = faceTanLevels[selectedFace];
 				earsTan.sprite = earTanLevels[selectedEars];
 			}
+	
 			hairLine.sprite = hairlineStyles[selectedHairLine];
 			hasHairLine = true;
 			eyes.sprite = eyeStyles[selectedEars];
@@ -745,16 +742,35 @@ public class Character : MonoBehaviour {
 			nose.sprite = noseStyles[selectedNose];
 			mouth.sprite = mouthStyles[selectedMouth];
 			mole.sprite = moleStyles[selectedMole];
+
+			eyebrows.sprite = eyebrowStyles [selectedEyebrow];
+
+		if (accessories) {
+			selectedHeadwear = Random.Range (0, headwearStyles.Length);
+			selectedHairAccessory = Random.Range (0, hairAccessoryStyles.Length);
+			selectedGlasses = Random.Range (0, glassStyles.Length);
+			selectedPiercing = Random.Range (0, piercingStyles.Length);
+			selectedEyebrow = Random.Range (0, eyebrowStyles.Length);
+			selectedMole = Random.Range (0, moleStyles.Length);
 			tie.sprite = tieStyles[selectedTie];
 			headwear.sprite = headwearStyles [selectedHeadwear];
-			//?
 			hairAccessory.sprite = hairAccessoryStyles [selectedHairAccessory];
-			//?
-				glasses.sprite = glassStyles[selectedGlasses];
-			//?
-				piercing.sprite = piercingStyles[selectedPiercing];
-			//?
-			eyebrows.sprite = eyebrowStyles [selectedEyebrow];
+			glasses.sprite = glassStyles[selectedGlasses];
+			piercing.sprite = piercingStyles[selectedPiercing];
+		}
+		else {
+			/*
+			hairLine.gameObject.SetActive(hasHairLine);
+			shortHair.gameObject.SetActive(hasShortHair);
+			longHair.gameObject.SetActive(hasLongHair);
+*/
+			nose.gameObject.SetActive(true);
+			mouth.gameObject.SetActive(true);
+			iris.gameObject.SetActive(true);
+			eyes.gameObject.SetActive(true);
+			face.gameObject.SetActive(true);
+			ears.gameObject.SetActive(true);
+		}
 	}
 	// Update is called once per frame
 	void Update () {

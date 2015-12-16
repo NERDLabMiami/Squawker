@@ -45,12 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AvatarColorOption.cs" />
-     <Compile Include="Assets\AvatarColorSelector.cs" />
-     <Compile Include="Assets\AvatarWizard.cs" />
-     <Compile Include="Assets\BehaviorTracking.cs" />
-     <Compile Include="Assets\ImageSet.cs" />
-     <Compile Include="Assets\RemoveAvatarOption.cs" />
+     <Compile Include="Assets\Scripts\AvatarColorOption.cs" />
+     <Compile Include="Assets\Scripts\AvatarColorSelector.cs" />
+     <Compile Include="Assets\Scripts\AvatarWizard.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTracking.cs" />
      <Compile Include="Assets\Scripts\Dating\Character.cs" />
      <Compile Include="Assets\Scripts\Dating\Home.cs" />
      <Compile Include="Assets\Scripts\Dating\Match.cs" />
@@ -63,6 +61,7 @@
      <Compile Include="Assets\Scripts\Helpers\Player.cs" />
      <Compile Include="Assets\Scripts\Helpers\Profile.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
+     <Compile Include="Assets\Scripts\ImageSet.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Epilogue.cs" />
@@ -80,8 +79,9 @@
      <Compile Include="Assets\Scripts\Mini Games\Love\ObjectEmitter.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningSalonAssistant.cs" />
-     <Compile Include="Assets\Tutorial.cs" />
-     <Compile Include="Assets\TutorialItem.cs" />
+     <Compile Include="Assets\Scripts\RemoveAvatarOption.cs" />
+     <Compile Include="Assets\Scripts\Tutorial.cs" />
+     <Compile Include="Assets\Scripts\TutorialItem.cs" />
      <None Include="Assets\Resources\messages.txt" />
      <None Include="Assets\Resources\marketing.txt" />
      <None Include="Assets\Parse\README.txt" />
@@ -96,7 +96,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Parse.Unity">
- <HintPath>/Users/clay/Repos/Dreamy/Assets/Parse/Parse.Unity.dll</HintPath>
+ <HintPath>/Users/clay/Documents/Dreamy/Assets/Parse/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

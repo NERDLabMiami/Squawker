@@ -30,9 +30,11 @@ public class ItemFolderSelector : MonoBehaviour {
 			item.transform.position = position;
 			item.GetComponent<ItemSelector>().selectButton.image.sprite = sprites[i];
 			//TODO: Check if game object is enabled. non-randomized avatars have issues
-			if (avatarImage.sprite.name == sprites[i].name && avatarImage.enabled) {
+			if (avatarImage.enabled) {
+				if (avatarImage.sprite.name == sprites[i].name) {
 
-				item.GetComponent<ItemSelector>().use();
+					item.GetComponent<ItemSelector>().use();
+				}
 			}
 			col++;
 

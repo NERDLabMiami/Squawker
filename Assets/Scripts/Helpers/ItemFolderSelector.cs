@@ -26,7 +26,7 @@ public class ItemFolderSelector : MonoBehaviour {
 
 			item.transform.SetParent(gameObject.transform,false);
 			item.transform.localScale = new Vector3(1,1,1);
-			Vector3 position = new Vector3(gameObject.transform.position.x + (col*120),gameObject.transform.position.y - (row*120),gameObject.transform.position.z);
+			Vector3 position = new Vector3(gameObject.transform.position.x + (col*115),gameObject.transform.position.y - (row*120),gameObject.transform.position.z);
 			item.transform.position = position;
 			item.GetComponent<ItemSelector>().selectButton.image.sprite = sprites[i];
 			//TODO: Check if game object is enabled. non-randomized avatars have issues

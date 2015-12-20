@@ -387,7 +387,7 @@ public class Player : MonoBehaviour {
 
 	public void updateProfile() {
 		if (profile) {
-			profile.actionsLeft.text = actionsLeft.ToString();
+//			profile.actionsLeft.text = actionsLeft.ToString();
 			profile.daysLeft.text = daysLeft.ToString("0 days left to get a date");
 			profile.messageCount.text = inbox.Count.ToString();
 			if(inbox.Count <= 0) {

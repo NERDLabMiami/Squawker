@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using SimpleJSON;
 
 public class IncomingMessage : MonoBehaviour {
-	public Text alias;
+//	public Text alias;
 	public string character;
 	public Text subject;
 	public ViewMessage expandedMessageTemplate;
@@ -16,7 +16,7 @@ public class IncomingMessage : MonoBehaviour {
 	public void setMessage(Message msg) {
 		message = msg;
 		character = message.sender;
-		alias.text = message.alias;
+//		alias.text = message.alias;
 		message.alias = PlayerPrefs.GetString(character);
 		avatar.assign(character);
 		subject.text = message.subject;
@@ -29,21 +29,26 @@ public class IncomingMessage : MonoBehaviour {
 
 		switch (message.sender) {
 		case "tanning":
+			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
+
 			break;
 		case "love":
+			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
+
 			break;
 		case "dermatologist":
+			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
+
 			break;
 		default:
 //			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
-
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
 
 			break;
 
 		}
-		msg.transform.SetParent(this.gameObject.transform.parent.parent, false);
+		msg.transform.SetParent(this.gameObject.transform.parent.parent.parent.parent, false);
 		this.transform.parent.gameObject.SetActive(false);
 
 		for (int i = 0; i < message.responses.Count; i++) {

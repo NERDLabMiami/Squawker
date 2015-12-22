@@ -45,6 +45,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 			}
 		}
 		if (conversationIndex == 5) {
+			Time.timeScale = 1.0f;
 			player.loadSceneNumber (1);
 		}
 	}

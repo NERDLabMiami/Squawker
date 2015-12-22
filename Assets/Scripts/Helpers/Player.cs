@@ -63,6 +63,9 @@ public class Player : MonoBehaviour {
 			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
 
 			//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
+			if(profile.character.wearingGlasses() == avatar.wearingGlasses()) {
+				//BOTH WEARING GLASSES
+			}
 
 			if (profile.character.wearingGlasses ()) {
 				responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
@@ -242,6 +245,9 @@ public class Player : MonoBehaviour {
 			saveMessageList();
 		}
 
+	public void setStyle() {
+		takeAction(true);
+	}
 
 	public bool takeAction(bool takeTolls) {
 		if (actionsLeft > 1) {

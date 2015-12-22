@@ -6,6 +6,7 @@ public class ObjectEmitter : MonoBehaviour {
 	public float randomInterval = 0;
 	public float randomInterval2 = 0;
 	public GameObject container;
+
 	private float nextSpawnTime;
 	// Use this for initialization
 	void Start () {

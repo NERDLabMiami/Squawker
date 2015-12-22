@@ -8,6 +8,7 @@ public class CupidTalk : MonoBehaviour {
 	public Text dialog;
 	public GameObject startButton;
 	public GameObject continueButton;
+	public Text heartsHealed;
 
 	private int dialogIndex = 0;
 	private int selectedDialog = 0;
@@ -26,7 +27,17 @@ public class CupidTalk : MonoBehaviour {
 		}
 		if (dialogName == "end") {
 			selectedDialog = 1;
-			dialog.text = endDialogue [dialogIndex];
+//			dialog.text = endDialogue [dialogIndex];
+			dialog.text = "You healed " + heartsHealed.text + " hearts, you're more loveable already!";
+			//TODO: Convert string to int
+			/*			if (gameObject.GetComponent<CupidStats>().healed == 1) {
+				dialog.text = "You healed " + heartsHealed.text + " heart! Maybe you'll do better next time.";
+			}
+			if (gameObject.GetComponent<CupidStats>().healed == 0) {
+				dialog.text = "Oh no, you didn't heal any hearts! Remember, you can shoot an arrow with the spacebar.";
+			}
+			*/
+
 		}
 	}
 
@@ -46,8 +57,9 @@ public class CupidTalk : MonoBehaviour {
 
 				break;
 			case 1:
+
 				if (endDialogue.Length > dialogIndex) {
-					dialog.text = endDialogue [dialogIndex];
+					dialog.text = endDialogue[dialogIndex];
 				}
 				if (endDialogue.Length - 1 == dialogIndex) {
 					//				startButton.interactable = true;
@@ -59,5 +71,6 @@ public class CupidTalk : MonoBehaviour {
 
 	public void cueEndTalk() {
 		dialogIndex = 0;
+
 	}
 }

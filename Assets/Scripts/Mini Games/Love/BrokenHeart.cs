@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class BrokenHeart : MonoBehaviour {
-	private CupidStats cupid;
+//	public CupidStats cupid;
 	// Use this for initialization
 	void Start () {
-		cupid = GameObject.FindGameObjectWithTag("Player").GetComponent<CupidStats>();
+		//cupid = GameObject.FindGameObjectWithTag("Player").GetComponent<CupidStats>();
 	}
 	
 	// Update is called once per frame
@@ -21,18 +21,19 @@ public class BrokenHeart : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "Vulnerable") {
-			cupid.broken();
+			gameObject.GetComponentInParent<BrokenHeartContainer>().cupid.broken();
 			Debug.Log("BROKEN HEART LANDED");
 		}
 	}
 
 	void healed() {
-		cupid.heal();
+		gameObject.GetComponentInParent<BrokenHeartContainer>().cupid.heal();
+
 		GetComponent<AudioSource> ().Play ();
 		Destroy(this.gameObject);
 	}
 
 	void broke() {
-		cupid.broken ();
+		gameObject.GetComponentInParent<BrokenHeartContainer>().cupid.broken();
 	}
 }

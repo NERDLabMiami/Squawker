@@ -27,6 +27,7 @@ public class TanningBed : MonoBehaviour {
 	public void stopTanningSlider() {
 		//TODO: take into account severity and their risk level
 		//TODO: add sun spots
+		Time.timeScale = 0f;
 		GetComponent<AudioSource> ().Stop ();
 		continueButton.SetActive (true);
 		stopTanButton.SetActive (false);
@@ -50,6 +51,10 @@ public class TanningBed : MonoBehaviour {
 			assistant.dialogue.text = "Whoa, that looks painful. You shouldn't stay in there that long.";
 			assistant.response.text = "I'll have to work on that.";
 			break;	
+		case 4:
+			assistant.dialogue.text = "You're not supposed to stay in that long!";
+			assistant.response.text = "Oops!";
+			break;
 		}
 		int tan = (int)tanAmount;
 		Debug.Log("Setting tan to : " + tan);

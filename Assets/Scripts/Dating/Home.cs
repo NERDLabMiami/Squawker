@@ -18,6 +18,14 @@ public class Home : MonoBehaviour {
 		} else {
 			match.newMatch();
 		}
+		if (player.progress) {
+			if (player.actionsLeft == 1) {
+				player.progress.SetTrigger("one");
+			}
+			if (player.actionsLeft == 2) {
+				player.progress.SetTrigger("two");
+			}
+		}
 
 	}
 	

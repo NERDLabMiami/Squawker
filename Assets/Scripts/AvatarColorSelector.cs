@@ -2,14 +2,6 @@
 using System.Collections;
 
 public class AvatarColorSelector : MonoBehaviour {
-	public int selectedColor;
+	public Character character;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

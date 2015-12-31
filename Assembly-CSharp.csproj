@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AvatarOption.cs" />
+     <Compile Include="Assets\AvatarOptions.cs" />
      <Compile Include="Assets\BrokenHeartContainer.cs" />
      <Compile Include="Assets\Scripts\AvatarColorOption.cs" />
      <Compile Include="Assets\Scripts\AvatarColorSelector.cs" />

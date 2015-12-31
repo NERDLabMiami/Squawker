@@ -23,6 +23,7 @@ public class ImageSet : MonoBehaviour {
 	
 	}
 	public void load() {
+		/*
 		if (colorSelector) {
 			Debug.Log("Loading Folder " + colorSelector.selectedColor);
 			sprites = Resources.LoadAll<Sprite>(folder + "/" + colorSelector.selectedColor);
@@ -30,7 +31,7 @@ public class ImageSet : MonoBehaviour {
 		else {
 			sprites = Resources.LoadAll<Sprite>(folder);
 		}
-
+*/
 	}
 	public void checkForColor() {
 		if (colorSelector) {
@@ -39,6 +40,7 @@ public class ImageSet : MonoBehaviour {
 		}
 	}
 	public void set() {
+		/*
 		if (pairedSets.Length > 0) {
 			for(int i = 0; i < pairedSets.Length; i++) {
 				if (pairedSets[i].colorSelector.selectedColor != colorSelector.selectedColor) {
@@ -53,6 +55,7 @@ public class ImageSet : MonoBehaviour {
 		sprite.sprite = sprites[selected];
 		sprite.gameObject.SetActive(true);
 		sprite.enabled = true;
+		*/
 	}
 
 	public Sprite getNextSprite() {

@@ -6,14 +6,9 @@ using UnityEngine.SceneManagement;
 public class AvatarWizard : MonoBehaviour {
 	public AvatarColorSelector skinToneColorSelector;
 	public AvatarColorSelector hairColorSelector;
-	public Text previousFeatureText;
-	public Text nextFeatureText;
 	public Text currentFeatureText;
 	public Button nextOptionButton;
 	public Button previousOptionButton;
-	public Image leftFace;
-	public Image rightFace;
-	public Image currentFace;
 	public GameObject saveButton;
 	public Character avatar;
 	public Player player;
@@ -21,121 +16,76 @@ public class AvatarWizard : MonoBehaviour {
 	public ImageSet[] folders;
 	public int currentFolderIndex = 0;
 
+	private int categoryIndex;
+	public GameObject optionObject;
+	public AvatarOptions[] options;
+
 		// Use this for initialization
 	void Start () {
-		currentFolderIndex = 0;
-		currentFeatureText.text = folders[currentFolderIndex].description;
-		populateOptions();
-		folders[currentFolderIndex].set ();
-		folders[currentFolderIndex].checkForColor();
+		categoryIndex = 0;
+		options = optionObject.GetComponentsInChildren<AvatarOptions>(true);
+		options[0].gameObject.SetActive(true);
+		currentFeatureText.text = options[0].gameObject.name;
 
 	}
 
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	public void saveAndContinue() {
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+	
 		player.resetStats();
 		player.newOffer("tanning");
 		player.newOffer ("love");
 		PlayerPrefs.SetInt("game in progress", 1);
-		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);
+
+//		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);
 		avatar.setPaths();
-		avatar.saveCharacter();
+		avatar.saveCharacter(true);
 		player.loadSceneNumber (1);
 	}
 
 
-	void populateOptions() {
-		leftFace.sprite = folders [currentFolderIndex].getPreviousSprite ();
-		rightFace.sprite = folders [currentFolderIndex].getNextSprite ();
-		leftFace.enabled = true;
-		rightFace.enabled = true;
-		//		nextOptionButton.image.sprite = folders[currentFolderIndex].getNextSprite();
-//		previousOptionButton.image.sprite = folders[currentFolderIndex].getPreviousSprite();
-//		leftFace.sprite = currentFace.sprite;
-//		rightFace.sprite = currentFace.sprite;
+	public void nextCategory() {
+		previousOptionButton.gameObject.SetActive(true);
+		options[categoryIndex].gameObject.SetActive(false);
 
-		//run avatar check
-		if (avatar.hasCompleteCharacter()) {
-			saveButton.SetActive(true);
-		}
-	}
-
-	void populateNavigation() {
-		if (currentFolderIndex == folders.Length - 1) {
-			nextFeatureText.text = folders[0].description;
-		}
-		else {
-			nextFeatureText.text = folders[currentFolderIndex+1].description;
-			//			previousFeatureButton.GetComponent<Text>().text = folders[currentFolderIndex-1].description;
+		categoryIndex++;
+		if (categoryIndex == options.Length -1) {
+			saveButton.GetComponent<Button>().interactable = true;
+			nextOptionButton.gameObject.SetActive(false);
 		}
 
-		if (currentFolderIndex == 0) {
-			previousFeatureText.text = folders[folders.Length - 1].description;
-		}
-		else {
-			previousFeatureText.text = folders[currentFolderIndex-1].description;
-			//			previousFeatureButton.GetComponent<Text>().text = folders[currentFolderIndex-1].description;
+		if (categoryIndex >= options.Length) {
+			categoryIndex = 0;
 		}
 
-		currentFeatureText.text = folders[currentFolderIndex].description;
+		currentFeatureText.text = options[categoryIndex].gameObject.name;
+
+		options[categoryIndex].gameObject.SetActive(true);
+
+
 
 	}
 
-	private void loadOptions() {
+	public void previousCategory() {
+		options[categoryIndex].gameObject.SetActive(false);
+		nextOptionButton.gameObject.SetActive(true);
+
+		categoryIndex--;
+		if (categoryIndex < 0) {
+			categoryIndex = options.Length - 1;
+
+		}
+
+		if (categoryIndex == 0) {
+			previousOptionButton.gameObject.SetActive(false);
+		}
+
+		currentFeatureText.text = options[categoryIndex].gameObject.name;
+
+		options[categoryIndex].gameObject.SetActive(true);
+
 
 	}
-
-	public void nextFeature() {
-		if (folders[currentFolderIndex].colorSelector) {
-			folders[currentFolderIndex].colorSelector.gameObject.SetActive(false);
-
-		}
-		currentFolderIndex++;
-		if (currentFolderIndex >= folders.Length) {
-			currentFolderIndex = 0;
-		}
-
-		folders[currentFolderIndex].checkForColor();
-		if (folders[currentFolderIndex].startWithSpriteEnabled) {
-			folders[currentFolderIndex].set ();
-		}
-		populateNavigation();
-		populateOptions();
-
-	}
-
-	public void previousFeature() {
-		if (folders[currentFolderIndex].colorSelector) {
-			folders[currentFolderIndex].colorSelector.gameObject.SetActive(false);
-		}
-
-		currentFolderIndex--;
-		if (currentFolderIndex < 0) {
-			currentFolderIndex = folders.Length - 1;
-		}
-		folders[currentFolderIndex].checkForColor();
-		if (folders[currentFolderIndex].startWithSpriteEnabled) {
-			folders[currentFolderIndex].set ();
-		}
-		populateNavigation();
-		populateOptions();
-
-	}
-
-	public void nextOption() {
-		folders[currentFolderIndex].next ();
-		populateOptions();
-
-	}
-
-	public void previousOption() {
-		folders[currentFolderIndex].previous();
-		populateOptions();
-	}
+		
 }

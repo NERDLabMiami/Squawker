@@ -9,6 +9,7 @@ public class IncomingMessage : MonoBehaviour {
 	public Text subject;
 	public ViewMessage expandedMessageTemplate;
 	public Character avatar;
+	public Image overrideImage;
 
 	private JSONNode json;
 	private Message message;
@@ -16,6 +17,20 @@ public class IncomingMessage : MonoBehaviour {
 	public void setMessage(Message msg) {
 		message = msg;
 		character = message.sender;
+		switch(character) {
+			case "tanning":
+				overrideImage.enabled = true;
+				break;
+			case "love":
+				overrideImage.enabled = true;
+				break;
+			case "dermatologist":
+				overrideImage.enabled = true;
+				break;
+			default:
+				overrideImage.enabled = false;
+				break;
+		}
 //		alias.text = message.alias;
 		message.alias = PlayerPrefs.GetString(character);
 		avatar.assign(character);
@@ -30,14 +45,18 @@ public class IncomingMessage : MonoBehaviour {
 		switch (message.sender) {
 		case "tanning":
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
+//			msg.GetComponent<ViewMessage>().profilePic = "tanning";
+			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
 
 			break;
 		case "love":
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
+			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
 
 			break;
 		case "dermatologist":
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
+			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
 
 			break;
 		default:

@@ -45,26 +45,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AvatarOption.cs" />
-     <Compile Include="Assets\AvatarOptions.cs" />
-     <Compile Include="Assets\BrokenHeartContainer.cs" />
-     <Compile Include="Assets\Scripts\AvatarColorOption.cs" />
-     <Compile Include="Assets\Scripts\AvatarColorSelector.cs" />
-     <Compile Include="Assets\Scripts\AvatarWizard.cs" />
      <Compile Include="Assets\Scripts\BehaviorTracking.cs" />
      <Compile Include="Assets\Scripts\Dating\Character.cs" />
      <Compile Include="Assets\Scripts\Dating\Home.cs" />
      <Compile Include="Assets\Scripts\Dating\Match.cs" />
      <Compile Include="Assets\Scripts\Debug\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Debug\PlayerDebug.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AvatarColorOption.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AvatarColorSelector.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AvatarOption.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AvatarOptions.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AvatarWizard.cs" />
      <Compile Include="Assets\Scripts\Helpers\Career.cs" />
      <Compile Include="Assets\Scripts\Helpers\CategorySelector.cs" />
+     <Compile Include="Assets\Scripts\Helpers\ImageSet.cs" />
      <Compile Include="Assets\Scripts\Helpers\ItemFolderSelector.cs" />
      <Compile Include="Assets\Scripts\Helpers\ItemSelector.cs" />
      <Compile Include="Assets\Scripts\Helpers\Player.cs" />
      <Compile Include="Assets\Scripts\Helpers\Profile.cs" />
+     <Compile Include="Assets\Scripts\Helpers\RemoveAvatarOption.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
-     <Compile Include="Assets\Scripts\ImageSet.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Epilogue.cs" />
@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Mini Games\Dermatologist\Dermatologist.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\Arrow.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\BrokenHeart.cs" />
+     <Compile Include="Assets\Scripts\Mini Games\Love\BrokenHeartContainer.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\Cloud.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\CupidControl.cs" />
      <Compile Include="Assets\Scripts\Mini Games\Love\CupidStats.cs" />
@@ -82,7 +83,6 @@
      <Compile Include="Assets\Scripts\Mini Games\Love\ObjectEmitter.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningBed.cs" />
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningSalonAssistant.cs" />
-     <Compile Include="Assets\Scripts\RemoveAvatarOption.cs" />
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\Scripts\TutorialItem.cs" />
      <None Include="Assets\Resources\messages.txt" />

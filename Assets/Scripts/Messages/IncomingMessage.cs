@@ -17,18 +17,21 @@ public class IncomingMessage : MonoBehaviour {
 	public void setMessage(Message msg) {
 		message = msg;
 		character = message.sender;
+		avatar.gameObject.SetActive(false);
+		overrideImage.enabled = true;
 		switch(character) {
 			case "tanning":
-				overrideImage.enabled = true;
+				overrideImage.sprite = Resources.Load<Sprite>("Salon/ray");
 				break;
 			case "love":
-				overrideImage.enabled = true;
+				overrideImage.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 				break;
-			case "dermatologist":
-				overrideImage.enabled = true;
+			case "exam":
+				overrideImage.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
 				break;
 			default:
 				overrideImage.enabled = false;
+				avatar.gameObject.SetActive(true);
 				break;
 		}
 //		alias.text = message.alias;
@@ -41,28 +44,31 @@ public class IncomingMessage : MonoBehaviour {
 
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
-
+		msg.GetComponent<ViewMessage>().profilePic.enabled = true;
+		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
 		switch (message.sender) {
 		case "tanning":
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
-//			msg.GetComponent<ViewMessage>().profilePic = "tanning";
-			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
 			break;
 		case "love":
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
-			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 
 			break;
-		case "dermatologist":
+		case "exam":
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
-			msg.GetComponent<ViewMessage>().profilePic.enabled = true;
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
+
 
 			break;
 		default:
 //			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
+			msg.GetComponent<ViewMessage>().profilePic.enabled = false;
+			msg.GetComponent<ViewMessage>().character.gameObject.SetActive(true);
 
 			break;
 

@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 			json = JSON.Parse(potentialMessages.ToString());
-
 			string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
 			messageList = storedMessages.OfType<string>().ToList();
 			inbox = new List<Message>();
@@ -62,10 +61,14 @@ public class Player : MonoBehaviour {
 			responseTime -= attractiveness;
 			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
 
-			//Add response time if NPC hates player style, reduce response time if the NPC loves the player style
-			if(profile.character.wearingGlasses() == avatar.wearingGlasses()) {
-				//BOTH WEARING GLASSES
+			if (profile.character.wearingHairAccessory() || profile.character.wearingHeadwear()) {
+				responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
 			}
+
+			if (profile.character.wearingPiercing()) {
+				responseTime += json[characterPath]["requirements"]["accessories"]["piercing"].AsInt;
+			}
+
 
 			if (profile.character.wearingGlasses ()) {
 				responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
@@ -236,9 +239,6 @@ public class Player : MonoBehaviour {
 						Debug.Log("Tan requirement not met, holding off. Required tan of " + requiredTan + " to proceed");
 					}
 				}
-				else {
-					Debug.Log("Leaving Duration Alone : " + currentDuration);
-				}
 			//TODO: Look at parts of message
 				messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
 			}
@@ -271,13 +271,23 @@ public class Player : MonoBehaviour {
 			newDay();
 			if (takeTolls) {
 				//TAKE TOLLS ON ATTRACTIVENESS, TAN
-				setAttractiveness (attractiveness - 1);
+				if (attractiveness > 0) {
+					setAttractiveness (attractiveness - 1);
+				}
+
 				int daysSinceLastChangeInTan = PlayerPrefs.GetInt ("days since last change in tan", 0);
 				daysSinceLastChangeInTan++;
-				if (daysBetweenChangeInTan == daysSinceLastChangeInTan) {
-					tan = avatar.setTone(tan - 1);
+
+				if (daysBetweenChangeInTan >= daysSinceLastChangeInTan) {
+					Debug.Log("Changing Tan");
+					tan--;
+					if (tan < 0) {
+						tan = 0;
+					}
+					avatar.setTone(tan);
 					daysSinceLastChangeInTan = 0;
 				}
+
 				PlayerPrefs.SetInt("days since last change in tan", daysSinceLastChangeInTan);
 
 
@@ -348,7 +358,7 @@ public class Player : MonoBehaviour {
 
 		Prefs.PlayerPrefsX.SetStringArray("men", list.ToArray());
 		Debug.Log("Saved " + list.Count + " characters");
-		PlayerPrefs.SetInt("tan", Random.Range(0,10));
+		PlayerPrefs.SetInt("tan", 0);
 		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
 		PlayerPrefs.SetInt("style", Random.Range(0,10));
 		PlayerPrefs.SetInt("cancer risk", 0);
@@ -366,11 +376,13 @@ public class Player : MonoBehaviour {
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
 		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
-		tan = PlayerPrefs.GetInt("tan", -9999);
-		Debug.Log ("TAN IS " + tan);
+		tan = PlayerPrefs.GetInt("tan",0);
 		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
+
 		if (profile) {
 //			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
+			avatar.setTone(tan);
+
 			if (attractiveness <= 5) {
 				profile.heart.GetComponent<Animator>().SetTrigger("one");
 			}

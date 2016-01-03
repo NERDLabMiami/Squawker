@@ -15,9 +15,9 @@ public class Home : MonoBehaviour {
 		if (PlayerPrefs.GetInt ("tutorial", 0) == 0) {
 			introMessage.SetActive (true);
 			PlayerPrefs.SetInt ("tutorial", 1);
-		} else {
-			match.newMatch();
-		}
+		} 
+		match.newMatch();
+
 		if (player.progress) {
 			if (player.actionsLeft == 1) {
 				player.progress.SetTrigger("one");

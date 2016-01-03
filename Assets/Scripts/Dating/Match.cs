@@ -55,8 +55,6 @@ public class Match : MonoBehaviour {
 			Debug.Log("adding message for " + avatar.getCharacterAssignment() + " with name of " + avatar.characterName);
 			int timeAdded = player.matches(avatar.getCharacterAssignment());
 			player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);
-			GetComponent<Animator>().SetTrigger("winked");
-
 			player.updateProfile();
 			newMatch();
 

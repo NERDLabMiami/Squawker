@@ -108,9 +108,7 @@ public class Character : MonoBehaviour {
 	private string selectedEyebrowName;
 
 	private string selectedFaceName;
-	private string selectedFaceTanName;
 	private string selectedEarsName;
-	private string selectedEarsTanName;
 	private string selectedEyesName;
 	private string selectedIrisName;
 	private string selectedNoseName;
@@ -145,13 +143,9 @@ public class Character : MonoBehaviour {
 	public TextAsset characters;
 	private JSONNode json;
 
-	public Color baseTan;
-	public Color tan2;
-	public Color tan3;
-	public Color sunburn;
-
 	public Color[] hairCombinations;
 	public Color[] skinCombinations;
+	public Color[] tans;
 
 	// Use this for initialization
 	void Start () {
@@ -193,7 +187,7 @@ public class Character : MonoBehaviour {
 
 	public void setColors(int skinColor, int tanLevel, int hairColor) {
 		selectedHairColor = hairColor;
-		tanTone = tanLevel;
+//		tanTone = tanLevel;
 		baseSkinTone = skinColor;
 	}
 
@@ -212,6 +206,7 @@ public class Character : MonoBehaviour {
 				randomlyGenerate(true);
 			}
 			else {
+				//TODO: work with gender preferences
 				randomlyGenerate(false);
 			}
 		}
@@ -284,45 +279,24 @@ public class Character : MonoBehaviour {
 	}
 		
 	public int setTone(int amount) {
+
 		if (amount <= 0) {
 			amount = 0;
 		}
+
 		tanTone = amount;
 		PlayerPrefs.SetInt ("tan", tanTone);
 
-		Debug.Log ("Fading tone");
-		switch (tanTone) {
-			case 0:
-				faceTan.CrossFadeColor (face.color, 1f, true, true);
-				earsTan.CrossFadeColor (face.color, 1f, true, true);
-				break;
-			case 1:
-				faceTan.CrossFadeColor (baseTan, 1f, true, true);
-				earsTan.CrossFadeColor (baseTan, 1f, true, true);
-				break;
-			case 2:
-				faceTan.CrossFadeColor (tan2, 1f, true, true);
-				earsTan.CrossFadeColor (tan2, 1f, true, true);
-				break;
-			case 3:
-				faceTan.CrossFadeColor (tan3, 1f, true, true);
-				earsTan.CrossFadeColor (tan3, 1f, true, true);
-				break;
-			case 4:
-				faceTan.CrossFadeColor (sunburn, 1f, true, true);
-				earsTan.CrossFadeColor (sunburn, 1f, true, true);
-
-				break;
-			default:
-				break;
-		}
-			
+		faceTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+		earsTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+		faceTan.enabled = true;
+		earsTan.enabled = true;
+		hasTan = true;			
 		saveCharacter ();
 		return tanTone;
 }
 
 	public void saveCharacter(bool disableAccessories = false) {
-//		int[] assignedColors = new int[3] {baseSkinTone, tanTone, selectedHairColor};
 
 		float[] assignedHair = new float[4] {hair.r, hair.g, hair.b, hair.a};
 		float[] assignedSkin = new float[4] {skin.r, skin.g, skin.b, skin.a};
@@ -332,7 +306,6 @@ public class Character : MonoBehaviour {
 																selectedGlassesName, selectedHeadwearName, selectedHairAccessoryName, selectedTieName, selectedPiercingName,
 																selectedFaceName, selectedEarsName, selectedMoleName};
 
-//		Prefs.PlayerPrefsX.SetIntArray(characterAssignment + "_avatar", assignedColors);
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
 		//added 12.8.15, for avatar creation
 		setOptions(disableAccessories);
@@ -348,7 +321,7 @@ public class Character : MonoBehaviour {
 	public void loadCharacter() {
 		name = PlayerPrefs.GetString (characterAssignment);
 		Debug.Log ("Loading " + characterAssignment + " with name of " + characterName);
-		int[] assignedColors = Prefs.PlayerPrefsX.GetIntArray (characterAssignment + "_avatar");
+//		int[] assignedColors = Prefs.PlayerPrefsX.GetIntArray (characterAssignment + "_avatar");
 		float[] skinColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_skin");
 		float[] hairColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_hair");
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
@@ -364,13 +337,8 @@ public class Character : MonoBehaviour {
 		hasEyeBrows = options[9];
 		hasTan = options[10];
 
-//		baseSkinTone = assignedColors[0];
-//		tanTone = assignedColors[1];
 		tanTone = PlayerPrefs.GetInt("tan", 0);
-//		Debug.Log ("LOAD CHARACTER, TAN TONE IS : " + tanTone);
-
-//		selectedHairColor = assignedColors[2];
-
+		//TODO: Check for null values
 		hair = new Color(hairColors[0], hairColors[1], hairColors[2], hairColors[3]);
 		skin = new Color(skinColors[0], skinColors[1], skinColors[2], skinColors[3]);
 		setBaseSkinTone();
@@ -475,8 +443,6 @@ public class Character : MonoBehaviour {
 		selectedTieName = assignedSprites[13];
 		selectedPiercingName = assignedSprites[14];
 
-		selectedFaceTanName = assignedSprites[15];
-		selectedEarsTanName = assignedSprites[16];
 		selectedMoleName = assignedSprites[17];
 	}
 
@@ -508,8 +474,33 @@ public class Character : MonoBehaviour {
 		return longHairStyles [Random.Range (0, longHairStyles.Length)];
 	}
 
+	private void chooseHeadwear() {
+		if (Random.Range (0, 2) == 1) {
+			hasHeadwear = true;
+		} else {
+			hasHeadwear = false;
+		}
+
+		if (Random.Range (0, 2) == 1) {
+			hasHairAccessory = true;
+		} else {
+			hasHairAccessory = false;
+		}
+
+	}
+
+	private void chooseTie() {
+		if (Random.Range (0, 2) == 1) {
+			hasTie = true;
+		} else {
+			hasTie = false;
+		}
+	}
+
 	public void randomlyPickColors() {
 		hasMole = false;
+
+		string gender = PlayerPrefs.GetString("gender preference","both");
 
 		if (Random.Range (0, 10) > 5) {
 			hasShortHair = true;
@@ -519,26 +510,22 @@ public class Character : MonoBehaviour {
 			hasLongHair = true;
 		}
 
-		if (Random.Range (0, 2) == 1) {
-			hasHeadwear = true;
-		} else {
-			hasHeadwear = false;
+		switch(gender) {
+			case "men":
+				chooseTie();
+				hasHeadwear = false;
+				hasHairAccessory = false;
+				hasLongHair = false;
+				break;
+			case "women":
+				chooseHeadwear();
+				hasTie = false;
+				break;
+			case "both":
+				chooseTie();
+				chooseHeadwear();
+				break;
 		}
-		hasHeadwear = true;
-
-		if (Random.Range (0, 2) == 1) {
-			hasHairAccessory = true;
-		} else {
-			hasHairAccessory = false;
-		}
-
-		if (Random.Range (0, 2) == 1) {
-			hasTie = true;
-		} else {
-			hasTie = false;
-		}
-
-		
 
 		if (Random.Range (0, 2) == 1) {
 			hasGlasses = true;
@@ -553,18 +540,23 @@ public class Character : MonoBehaviour {
 		}
 	
 
-		if (characterAssignment.Length == 0) {
+//		if (characterAssignment.Length == 0) {
 			selectedHairColor = Random.Range (0, hairCombinations.Length);
 			baseSkinTone = Random.Range (0, skinCombinations.Length);
-			Debug.Log(characterAssignment + "Selected Hair: " + hairCombinations.Length + " selected skin : " + skinCombinations.Length);
-			hair = hairCombinations[selectedHairColor];
-			skin = skinCombinations[baseSkinTone];
+			//TODO: Check for no colors
+			if (hairCombinations.Length > 0) {
+				hair = hairCombinations[selectedHairColor];
+			}
+			if (skinCombinations.Length > 0) {
+				skin = skinCombinations[baseSkinTone];
+			}
+
 			setHairColor();
 			setBaseSkinTone();
-		}
-		else {
-			Debug.Log("Not assigning colors for " + characterAssignment);
-		}
+//		}
+//		else {
+//			Debug.Log("Not assigning colors for " + characterAssignment);
+//		}
 
 		tanTone = 0;
 	}
@@ -573,7 +565,6 @@ public class Character : MonoBehaviour {
 	public void loadStyles() {
 
 			faceStyles = Resources.LoadAll<Sprite> (faceStylePath);
-			Debug.Log("FACE STYLES: " + faceStyles.Length);
 			hairlineStyles = Resources.LoadAll<Sprite> (hairLineStylePath);
 			longHairStyles = Resources.LoadAll<Sprite> (longHairStylePath);
 			shortHairStyles = Resources.LoadAll<Sprite> (shortHairStylePath);
@@ -633,32 +624,14 @@ public class Character : MonoBehaviour {
 		hairAccessory.sprite = Resources.Load<Sprite> (hairAccessoryStylePath + "/" + selectedHairAccessoryName);
 		tie.sprite = Resources.Load<Sprite> (tieStylePath + "/" + selectedTieName);
 		piercing.sprite = Resources.Load<Sprite> (piercingStylePath + "/" + selectedPiercingName);
-		faceTan.sprite = Resources.Load<Sprite> (faceStylePath + "/" + baseSkinTone + "/" + selectedFaceName);	
-		earsTan.sprite = Resources.Load<Sprite> (earStylePath + "/" + baseSkinTone + "/" + selectedEarsName);
-		Debug.Log ("GET SPRITES, TAN TONE IS : " + tanTone);
+		faceTan.sprite = Resources.Load<Sprite> (faceStylePath + "/" + selectedFaceName);	
+		earsTan.sprite = Resources.Load<Sprite> (earStylePath + "/"  + selectedEarsName);
 
 		if (tanTone >= 1) {
-			switch (tanTone) {
-			case 1:
-				faceTan.color = baseTan;
-				earsTan.color = baseTan;
-				break;
-			case 2:
-				faceTan.color = tan2;
-				earsTan.color = tan2;
-				break;
-			case 3:
-				faceTan.color = tan3;
-				earsTan.color = tan3;
-				break;
-			case 4:
-				faceTan.color = sunburn;
-				earsTan.color = sunburn;
-				break;
-			default:
-				break;
-			}
+			faceTan.color = tans[tanTone];
+			earsTan.color = tans[tanTone];
 		}
+
 		setEnabledAttributes ();
 	}
 
@@ -780,9 +753,6 @@ public class Character : MonoBehaviour {
 		selectedFaceName = face.sprite.name;
 		selectedMouthName = mouth.sprite.name;
 		selectedNoseName = nose.sprite.name;
-		selectedEarsTanName = ears.sprite.name;
-		selectedFaceTanName = face.sprite.name;
-
 
 	}
 	
@@ -799,8 +769,7 @@ public class Character : MonoBehaviour {
 			selectedMouth = Random.Range (0, mouthStyles.Length);
 			selectedTie = Random.Range (0, tieStyles.Length);
 			longHair.sprite = longHairStyles [selectedLongHair];
-		Debug.Log("SELECTED FACE: " + selectedFace);
-		face.sprite = faceStyles[selectedFace];
+			face.sprite = faceStyles[selectedFace];
 			ears.sprite = earStyles[selectedEars];
 			faceTan.sprite = faceStyles[selectedFace];
 			earsTan.sprite = earStyles[selectedEars];

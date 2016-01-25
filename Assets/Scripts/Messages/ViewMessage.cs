@@ -129,6 +129,8 @@ public class ViewMessage : MonoBehaviour {
 	}
 */
 	void respond(string path, int index) {
+		//TODO: TRACK RESPONSE
+
 		player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time

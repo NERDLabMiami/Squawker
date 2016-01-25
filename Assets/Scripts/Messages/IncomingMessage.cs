@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using SimpleJSON;
+using System;
+using System.Collections.Generic;
 
 public class IncomingMessage : MonoBehaviour {
 //	public Text alias;
@@ -41,6 +43,9 @@ public class IncomingMessage : MonoBehaviour {
 	}
 
 	public void show() {
+		//TODO: TRACK VIEWING OF MESSAGE
+		//CURRENTLY USING SAMPLE
+
 
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
@@ -48,23 +53,28 @@ public class IncomingMessage : MonoBehaviour {
 		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
 		switch (message.sender) {
 		case "tanning":
+
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
 			break;
 		case "love":
+
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 
 			break;
 		case "exam":
+
+
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
 
 
 			break;
 		default:
-//			msg.GetComponent<ViewMessage>().character.assign(message.sender);
+//			Analytics.CustomEvent("dialogue"
+			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
 			msg.GetComponent<ViewMessage>().profilePic.enabled = false;

@@ -4,7 +4,10 @@
 			"both": ["Aaron", "Britney", "Clyde", "Daria", "Elle", "Fitz", "Geraldine", "Kelly", "Kim", "Larry", "Laura", "Melanie", "Nick", "Ryan", "Xavier", "Pat", "Tim"]
 	},
 "mottos": ["Walks on the beach are romantic, just like me", "Sailing through life, living for the moment", "I'm a jukebox hero, with stars in my eyes for you"],
-"characters": ["male1", "male2"],
+"both_characters": ["male1", "female2", "female1"],
+"male_characters": ["male1", "male2"],
+"female_characters": ["female1", "female2"],
+
 "character_ids":["C11", "C12", "C13", "C21", "C22", "C23", "C31", "C32", "C33"],
 
 {
@@ -636,6 +639,7 @@
 },
 		
 "male2": {
+    "character_type": "C21",
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {
@@ -663,8 +667,8 @@
 									"time" : 0
 								},
 								{ 	"response" : "What?",
-									"path" : "male2/epilogue",
-									"time" : 0
+									"path" : "ignore",
+									"time" : 9999
 								}
 
 								]
@@ -677,7 +681,100 @@
 				}
 			
 		},
+"female1": {
+    "character_type": "C20",
+	"requirements" : {
+						"tan" : 0,
+						"accessories" : {
+								"glasses": 0,
+								"tie": 1,
+								"band": 0,
+								"ribbon": 0
+									},
+						"love": 11
+						},
+	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
+				"subject": "%C winked back!",
+				"message": "YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "Lemme see a bad ending",
+									"path" : "male2/epilogue/died",
+									"time" : 0
+								},
+								{ 	"response" : "Lemme see a happy ending",
+									"path" : "male2/epilogue/happy",
+									"time" : 0
+								},
+								{ 	"response" : "What?",
+									"path" : "ignore",
+									"time" : 99999
+								}
+
+								]
+
+			},
+	"epilogue" : {
+					"died": "%C died. Happily never after.",
+					"happy": "%C lived forever, now that's a happy ending."
+					
+				}
+			
+		},
+
+"female2": {
+    "character_type": "C12",
+	"requirements" : {
+						"tan" : 0,
+						"accessories" : {
+								"glasses": 0,
+								"tie": 1,
+								"band": 0,
+								"ribbon": 0
+									},
+						"love": 11
+						},
+	"intro" : {
+					"thresholds": {
+						"tan": 0
+					},
+
+				"subject": "%C winked back!",
+				"message": "YOU LOOK JUST LIKE MY FATHER!",
+				"responses" : [
+								{ 	"response" : "Lemme see a bad ending",
+									"path" : "male2/epilogue/died",
+									"time" : 0
+								},
+								{ 	"response" : "Lemme see a happy ending",
+									"path" : "male2/epilogue/happy",
+									"time" : 0
+								},
+								{ 	"response" : "What?",
+									"path" : "ignore",
+									"time" : 99999
+								}
+
+								]
+
+			},
+	"epilogue" : {
+					"died": "%C died. Happily never after.",
+					"happy": "%C lived forever, now that's a happy ending."
+					
+				}
+			
+		},
+
+
+
+
+
 "male3": {
+    "character_type": "C02",
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {
@@ -705,8 +802,8 @@
 									"time" : 9999
 								},
 								{ 	"response" : "What?",
-									"path" : "male3/epilogue",
-									"time" : 0
+									"path" : "ignore",
+									"time" : 99999
 								}
 
 								]
@@ -759,7 +856,9 @@
 
 		},
 	
-	"male5": {
+"male5": {
+	    "character_type": "C11",
+
 	"requirements" : {
 						"tan" : 0,
 						"accessories" : {

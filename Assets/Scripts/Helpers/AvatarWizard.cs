@@ -32,7 +32,8 @@ public class AvatarWizard : MonoBehaviour {
 
 	public void saveAndContinue() {
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-	
+		//TODO: Set Character List Through Gender Preference
+		Debug.Log("Resetting Stats");
 		player.resetStats();
 		player.newOffer("tanning");
 		player.newOffer ("love");

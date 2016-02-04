@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using SimpleJSON;
+//using SimpleJSON;
 using System;
 using System.Collections.Generic;
 
@@ -13,7 +13,7 @@ public class IncomingMessage : MonoBehaviour {
 	public Character avatar;
 	public Image overrideImage;
 
-	private JSONNode json;
+//	private JSONNode json;
 	private Message message;
 
 	public void setMessage(Message msg) {

@@ -32,14 +32,14 @@ public class ViewMessage : MonoBehaviour {
 				player.removeMessage (r.messageIndex);
 				Inbox inbox = GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>();
 				string characterPath = getStringFromResponse(r.path,0);
-				string storyPath = getStringFromResponse(r.path, 2);
-				inbox.populateEpilogue(characterPath, storyPath, character.name);
-				inbox.epilogue.npc.characterAssignment = character.characterAssignment;
-				inbox.epilogue.cue ();
-
-//				Epilogue e = GameObject.Find("/Canvas/Epilogue").GetComponent<Epilogue>();
-//				e.npc = character;
-//				e.cue();
+				if (characterPath.Equals("ignore")) {
+				}
+				else {
+					string storyPath = getStringFromResponse(r.path, 2);
+					inbox.populateEpilogue(characterPath, storyPath, character.name);
+					inbox.epilogue.npc.characterAssignment = character.characterAssignment;
+					inbox.epilogue.cue ();
+				}
 
 			});
 

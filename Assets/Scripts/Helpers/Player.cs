@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 	}
 	public void setGenderPreference(string gender) {
 		PlayerPrefs.SetString ("gender preference", gender);
+		populateMatches ();
 
 	}
 	public string getFinalStory(string character, string story) {
@@ -108,33 +109,35 @@ public class Player : MonoBehaviour {
 		inbox.Clear();
 		for (int i = 0; i < messageList.Count; i++) {
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
-			if (int.Parse(messageParts[2]) <= 0) {
-				//TODO: Check tan requirements. not sure if this is the best place
-				if (tan <= json[messageParts[0]]["requirements"]["tan"].AsInt) {
-					//Don't add message
+			if (!messageParts[0].Equals("ignore")) {
+				if (int.Parse(messageParts[2]) <= 0) {
+					//TODO: Check tan requirements. not sure if this is the best place
+					if (tan <= json[messageParts[0]]["requirements"]["tan"].AsInt) {
+						//Don't add message
 
-				}
-				else {
-				}
-					//new message, add to list
-					Message message = new Message();
-					message.index = i;
-					message.path = messageList[i];
-					message.sender = messageParts[0];
-					message.passage = messageParts[1];
-					message.subject = json[message.sender][message.passage]["subject"];
-					message.alias = PlayerPrefs.GetString(message.sender, "");
-					message.subject = message.subject.Replace("%C", message.alias);
-					
-					message.body = json[message.sender][message.passage]["message"];
-					JSONNode responses = json[message.sender][message.passage]["responses"];
-					for (int j = 0; j < responses.Count; j++) {
-						Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
-						message.responses.Add(r);
 					}
+					else {
+					}
+						//new message, add to list
+						Message message = new Message();
+						message.index = i;
+						message.path = messageList[i];
+						message.sender = messageParts[0];
+						message.passage = messageParts[1];
+						message.subject = json[message.sender][message.passage]["subject"];
+						message.alias = PlayerPrefs.GetString(message.sender, "");
+						message.subject = message.subject.Replace("%C", message.alias);
+						
+						message.body = json[message.sender][message.passage]["message"];
+						JSONNode responses = json[message.sender][message.passage]["responses"];
+						for (int j = 0; j < responses.Count; j++) {
+							Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
+							message.responses.Add(r);
+						}
 
-					inbox.Add(message);
+						inbox.Add(message);
 
+				}
 			}
 		}
 
@@ -335,29 +338,38 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public void populateMatches() {
+		List<string> list = new List<string>();
+		string gender = PlayerPrefs.GetString ("gender preference", "both");
+		string gender_list = "";
+		switch (gender) {
+		case "men":
+			gender_list = "male_characters";
+			break;
+		case "women":
+			gender_list = "female_characters";
+			break;
+		case "both":
+			gender_list = "both_characters";
+			break;
+		default:
+			Debug.Log ("No Gender Preference Assigned");
+			break;
+		}
+		for (int i = 0; i < json[gender_list].Count; i++) {
+			list.Add(json[gender_list][i]);
+		}
+
+		Prefs.PlayerPrefsX.SetStringArray(gender, list.ToArray());
+		Debug.Log("Saved " + list.Count + " characters");
+
+	}
+
 	public void resetStats() {
 //		PlayerPrefs.DeleteKey ("messages");
 		PlayerPrefs.DeleteAll();
 		removeAllMessages();
-		//Debug.Log (json.ToString());
-		/*
-		JSONNode offers = json ["characters"].AsObject;
-		
-		Debug.Log ("Amount of Offers: " + offers.Count);
-		int selectedOffer = Random.Range (0, offers.Count);
-		JSONNode offer = offers [selectedOffer].AsObject;
 
-
-
-*/
-		List<string> list = new List<string>();
-
-		for (int i = 0; i < json["characters"].Count; i++) {
-			list.Add(json["characters"][i]);
-		}
-
-		Prefs.PlayerPrefsX.SetStringArray("men", list.ToArray());
-		Debug.Log("Saved " + list.Count + " characters");
 		PlayerPrefs.SetInt("tan", 0);
 		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
 		PlayerPrefs.SetInt("style", Random.Range(0,10));

@@ -140,6 +140,7 @@ public class Character : MonoBehaviour {
 	
 	public string characterName;
 	public string characterAssignment;
+	public string characterType;
 	public TextAsset characters;
 	private JSONNode json;
 
@@ -149,9 +150,7 @@ public class Character : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		json = JSON.Parse(characters.ToString());
-
 		if (characterName == "me") {
 			characterAssignment = characterName;
 			assign ();
@@ -192,7 +191,7 @@ public class Character : MonoBehaviour {
 	}
 
 	public void assign(string character = null) {
-
+		Debug.Log ("Character assignment: " + character);
 		if (character != null) {
 			characterAssignment = character;
 		}
@@ -206,7 +205,6 @@ public class Character : MonoBehaviour {
 				randomlyGenerate(true);
 			}
 			else {
-				//TODO: work with gender preferences
 				randomlyGenerate(false);
 			}
 		}
@@ -305,7 +303,16 @@ public class Character : MonoBehaviour {
 																selectedEyesName, selectedIrisName, selectedNoseName, selectedEarsName, selectedMouthName,
 																selectedGlassesName, selectedHeadwearName, selectedHairAccessoryName, selectedTieName, selectedPiercingName,
 																selectedFaceName, selectedEarsName, selectedMoleName};
+		json = JSON.Parse(characters.ToString());
+//		JSONNode character = json [characterAssignment];
+//		Debug.Log ("NUMBER IN JSON: " + json.Count);
 
+		Debug.Log ("NUMBER IN CHARACTER " + characterAssignment + ":"+ json[characterAssignment]["character_type"].Count);
+		characterType = json[characterAssignment]["character_type"];
+
+		PlayerPrefs.SetString (characterAssignment + "_type", characterType);
+		Debug.Log ("Character: " + characterAssignment + " Character Type: " + characterType);
+		PlayerPrefs.SetString (characterAssignment + "_type", "C22");
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
 		//added 12.8.15, for avatar creation
 		setOptions(disableAccessories);
@@ -325,6 +332,7 @@ public class Character : MonoBehaviour {
 		float[] skinColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_skin");
 		float[] hairColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_hair");
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
+		characterType = PlayerPrefs.GetString (characterAssignment + "_type");
 		hasLongHair = options [0];
 		hasShortHair = options [1];
 		hasGlasses = options[2];
@@ -447,6 +455,7 @@ public class Character : MonoBehaviour {
 	}
 
 	public void assignCharacter(string type) {
+		Debug.Log ("Assigning Character of Type " + type);
 		string [] dates = Prefs.PlayerPrefsX.GetStringArray(type);
 		//TODO: Check if there are no more potential characters
 		if (dates.Length > 0) {
@@ -456,8 +465,9 @@ public class Character : MonoBehaviour {
 			list.RemoveAt (selectedCharacter);
 			Prefs.PlayerPrefsX.SetStringArray (type, list.ToArray ());
 			PlayerPrefs.SetString (characterAssignment, characterName);
+			Debug.Log ("Setting Character Type " + characterAssignment + " for " + characterName);
 		} else {
-//			Debug.Log("No more characters to assign :(");
+			Debug.Log("No more characters to assign :(");
 		}
 	}
 

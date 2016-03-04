@@ -17,6 +17,7 @@ public class ViewMessage : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
 	}
 	private void startEpilogue() {
 		
@@ -39,15 +40,38 @@ public class ViewMessage : MonoBehaviour {
 					inbox.populateEpilogue(characterPath, storyPath, character.name);
 					inbox.epilogue.npc.characterAssignment = character.characterAssignment;
 					inbox.epilogue.cue ();
+					//TODO: Track Epilogue
+					GetComponent<PlayerBehavior>().trackEvent(6, storyPath,r.belief, characterPath);
+
 				}
 
 			});
 
 		}
+		else if(type == 1) {
+			response.GetComponent<Button> ().onClick.AddListener (() => {
+
+				player.removeMessage (r.messageIndex);
+				string p = getStringFromResponse(r.path,1);
+				GetComponent<PlayerBehavior>().trackEvent(2, "IGNORE", "", p);
+				Debug.Log("Removing offer with path: " + p);
+				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
+				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
+				player.previewInbox.messageContainer.SetActive(true);
+				Destroy (gameObject);
+				player.refreshInbox();
+				player.previewInbox.checkIfEmpty();
+
+			});
+		
+		}
 		else if (type != -1) {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
+				//TODO: Track Event Accepting Offer
+
 				player.removeMessage (r.messageIndex);
 				string p = getStringFromResponse(r.path,0);
+				GetComponent<PlayerBehavior>().trackEvent(2, "ACCEPT", "", p);
 				Debug.Log("Removing offer with path: " + p);
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
@@ -56,7 +80,7 @@ public class ViewMessage : MonoBehaviour {
 			});
 		} else {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
-				respond (r.path, r.messageIndex);
+				respond (r.path, r.messageIndex, r.belief);
 				player.previewInbox.checkIfEmpty();
 			});	
 
@@ -67,6 +91,9 @@ public class ViewMessage : MonoBehaviour {
 
 	int offerType(GameObject obj, Response r) {
 		string[] pathArray = StringArrayFunctions.getMessage(r.path);
+		if (pathArray[0] == "remove") {
+			return 1;
+		}
 		if (pathArray [0] == "tanning") {
 			return 2;
 		}
@@ -128,9 +155,9 @@ public class ViewMessage : MonoBehaviour {
 		return false;
 	}
 */
-	void respond(string path, int index) {
-		//TODO: TRACK RESPONSE
-
+	void respond(string path, int index, string belief) {
+		//TODO: Path update for just character
+		GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, path);
 		player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time

@@ -1,0 +1,17 @@
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/clay/Documents/Dreamy/obj/Debug/Assembly-CSharp-firstpass.dll
+/Users/clay/Documents/Dreamy/obj/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/UnityEngine.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/UnityEditor.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Mono.Cecil.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Unity.DataContract.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/clay/Documents/Dreamy/Temp/bin/Debug/Mono.Cecil.Mdb.dll

@@ -10,6 +10,7 @@ public class Message {
 	public string path;
 	public string passage;
 	public string body;
+	public string belief = "";
 	public int index;
 	public List<Response> responses;
 

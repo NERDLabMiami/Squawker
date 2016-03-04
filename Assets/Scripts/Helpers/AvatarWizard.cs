@@ -34,7 +34,10 @@ public class AvatarWizard : MonoBehaviour {
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		//TODO: Set Character List Through Gender Preference
 		Debug.Log("Resetting Stats");
+		string player_id = PlayerPrefs.GetString("qualtrics_id");
 		player.resetStats();
+		PlayerPrefs.SetString("qualtrics_id", player_id);
+
 		player.newOffer("tanning");
 		player.newOffer ("love");
 		PlayerPrefs.SetInt("game in progress", 1);

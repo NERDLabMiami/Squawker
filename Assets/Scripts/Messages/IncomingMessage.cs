@@ -53,19 +53,23 @@ public class IncomingMessage : MonoBehaviour {
 		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
 		switch (message.sender) {
 		case "tanning":
+			GetComponent<PlayerBehavior>().trackEvent(3, "TAN", "", "");
 
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
 			break;
 		case "love":
+			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "", "");
 
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 
 			break;
 		case "exam":
+			message.belief = "EE";
 
+			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief, "");
 
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
@@ -73,7 +77,7 @@ public class IncomingMessage : MonoBehaviour {
 
 			break;
 		default:
-//			Analytics.CustomEvent("dialogue"
+			GetComponent<PlayerBehavior>().trackEvent(1, "DLG", message.belief, message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;

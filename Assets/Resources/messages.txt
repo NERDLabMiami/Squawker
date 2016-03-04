@@ -3908,7 +3908,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/tanning",
           "time": 9999
         }
       ]
@@ -3925,7 +3925,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/tanning",
           "time": 9999
         }
       ]
@@ -3942,7 +3942,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/tanning",
           "time": 9999
         }
       ]
@@ -3961,7 +3961,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/love",
           "time": 9999
         }
       ]
@@ -3978,7 +3978,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/love",
           "time": 9999
         }
       ]
@@ -3995,7 +3995,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/love",
           "time": 9999
         }
       ]
@@ -4039,7 +4039,7 @@
         },
         {
           "response": "No thanks, I'm good.",
-          "path": "offer/deadend",
+          "path": "remove/dermatologist",
           "time": 9999
         }
       ]

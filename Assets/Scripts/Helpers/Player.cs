@@ -125,13 +125,14 @@ public class Player : MonoBehaviour {
 						message.sender = messageParts[0];
 						message.passage = messageParts[1];
 						message.subject = json[message.sender][message.passage]["subject"];
+						message.belief = json[message.sender][message.passage]["belief_id"];
 						message.alias = PlayerPrefs.GetString(message.sender, "");
 						message.subject = message.subject.Replace("%C", message.alias);
 						
 						message.body = json[message.sender][message.passage]["message"];
 						JSONNode responses = json[message.sender][message.passage]["responses"];
 						for (int j = 0; j < responses.Count; j++) {
-							Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i);
+						Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i, responses[j]["belief_id"]);
 							message.responses.Add(r);
 						}
 
@@ -303,7 +304,7 @@ public class Player : MonoBehaviour {
 				return false;
 			}
 			else {
-				actionsLeft = 3;
+				actionsLeft = 2;
 				saveProgress(actionsLeft, daysLeft);
 				return true;
 			}

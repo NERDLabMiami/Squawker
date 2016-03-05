@@ -24,7 +24,6 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public void respond() {
 		dialogue.text = player.getTanningSalonAssistantMessage (conversationIndex);
 		response.text = player.getTanningSalonAssistantResponse (conversationIndex);
-//		player.gameObject.GetComponent<PlayerBehavior>().trackEvent(4, conversationIndex, "FINDBELIEFINOFFER", null);
 
 		conversationIndex++;
 		if (conversationIndex == 3) {
@@ -50,16 +49,16 @@ public class TanningSalonAssistant : MonoBehaviour {
 		if (conversationIndex == 5) {
 			Time.timeScale = 1.0f;
 			player.loadSceneNumber (1);
-			player.gameObject.GetComponent<PlayerBehavior>().trackEvent(4, "TANNED", "", "");
+			GetComponent<PlayerBehavior>().trackEvent(4, "TANNED", "", "");
 
 		}
 	}
 
 	public void accept() {
 		//TODO: Animate transition between waiver
-		player.gameObject.GetComponent<PlayerBehavior>().trackEvent(4, "SIGNED WAIVER", "FINDBELIEFINOFFER", "");
 		waiver.SetActive (false);
 		gameObject.SetActive (true);
+		GetComponent<PlayerBehavior>().trackEvent(4, "SIGNED WAIVER", "FINDBELIEFINOFFER", "");
 		signedWaiver = true;
 		continueButton.SetActive (true);
 		bed.SetTrigger("open");
@@ -69,8 +68,8 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public void decline() {
 		//TODO: Should log analytics for declining offer
 		//TODO: Animate the transition
-		player.gameObject.GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "FINDBELIEFINOFFER", "");
-
+		GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "FINDBELIEFINOFFER", "");
+	
 		dialogue.text = "Changed your mind? That's okay. Maybe next time!";
 		response.text = "Ok!";
 		waiver.SetActive (false);

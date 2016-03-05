@@ -372,8 +372,7 @@ public class Player : MonoBehaviour {
 		removeAllMessages();
 
 		PlayerPrefs.SetInt("tan", 0);
-		PlayerPrefs.SetInt("attractiveness", Random.Range(0,10));
-		PlayerPrefs.SetInt("style", Random.Range(0,10));
+		PlayerPrefs.SetInt("attractiveness", 3);
 		PlayerPrefs.SetInt("cancer risk", 0);
 		PlayerPrefs.SetInt("dermatologist visits", 0);
 		PlayerPrefs.SetInt("actions left", 3);

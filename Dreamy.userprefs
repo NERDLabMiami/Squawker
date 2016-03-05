@@ -1,35 +1,36 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Messages/ViewMessage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/messages.txt">
     <Files>
-      <File FileName="Assets/Resources/messages.txt" Line="3859" Column="36" />
-      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningSalonAssistant.cs" Line="72" Column="110" />
+      <File FileName="Assets/Resources/messages.txt" Line="4033" Column="105" />
+      <File FileName="Assets/Scripts/Mini Games/TanLines/TanningSalonAssistant.cs" Line="69" Column="1" />
       <File FileName="Assets/Scripts/Messages/Epilogue.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Tutorial.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/TanLines/TanningBed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="160" Column="39" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="26" Column="25" />
       <File FileName="Assets/Scripts/Helpers/Career.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mini Games/Dermatologist/Dermatologist.cs" Line="25" Column="3" />
+      <File FileName="Assets/Scripts/Mini Games/Dermatologist/Dermatologist.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mini Games/Love/CupidControl.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Helpers/ItemFolderSelector.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Character.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dating/Home.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="70" Column="26" />
-      <File FileName="Assets/PlayerBehavior.cs" Line="62" Column="56" />
-      <File FileName="Assets/Scripts/Helpers/AvatarWizard.cs" Line="39" Column="51" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/AvatarWizard.cs" Line="38" Column="17" />
       <File FileName="Assets/Scripts/Messages/Inbox.cs" Line="35" Column="2" />
       <File FileName="Assets/Scripts/Helpers/StringArrayFunctions.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/marketing.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="136" Column="33" />
-      <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="12" Column="21" />
-      <File FileName="Assets/Scripts/Messages/Classes/Response.cs" Line="9" Column="26" />
+      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="376" Column="1" />
+      <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/Classes/Response.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messages/ResponseOption.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/Profile.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/clay/Documents/Dreamy/Assets/Scripts/Helpers/Player.cs" line="467" column="15" />
+      <Breakpoint file="/Users/clay/Documents/Dreamy/Assets/Scripts/Helpers/Player.cs" line="466" column="15" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

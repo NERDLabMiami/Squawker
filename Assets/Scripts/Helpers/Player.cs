@@ -21,11 +21,12 @@ public class Player : MonoBehaviour {
 	public Inbox previewInbox;
 	public Profile profile;
 	public Character avatar;
-	public Animator progress;
+//	public Animator progress;
 	public GameObject loadingScreen;
 
 	public JSONNode json;
 	private List<string> messageList;
+	private int previousMessageCount = 0;
 	public int daysBetweenChangeInTan = 2;
 	// Use this for initialization
 	void Start () {
@@ -106,6 +107,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void refreshInbox() {
+		previousMessageCount = inbox.Count;
 		inbox.Clear();
 		for (int i = 0; i < messageList.Count; i++) {
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
@@ -257,20 +259,9 @@ public class Player : MonoBehaviour {
 		if (actionsLeft > 1) {
 			actionsLeft--;
 			saveProgress(actionsLeft, daysLeft);
-			if (progress) {
-				if (actionsLeft == 1) {
-					progress.SetTrigger("one");
-				}
-				if (actionsLeft == 2) {
-					progress.SetTrigger("two");
-				}
-			}
 			return true;
 		}
 		else {
-			if (progress) {
-				progress.SetTrigger("three");
-			}
 			daysLeft--;
 			newDay();
 			if (takeTolls) {
@@ -297,6 +288,10 @@ public class Player : MonoBehaviour {
 
 			}
 			refreshInbox();
+			if (previousMessageCount < inbox.Count) {
+				//TODO: Play notification sound
+				previewInbox.notify();
+			}
 			if (daysLeft < 0) {
 				//GAME OVER
 				Debug.Log("Days have run out");
@@ -417,13 +412,17 @@ public class Player : MonoBehaviour {
 
 	public void updateProfile() {
 		if (profile) {
-//			profile.actionsLeft.text = actionsLeft.ToString();
-			profile.daysLeft.text = daysLeft.ToString("0 days left to get a date");
+			profile.actionsLeft.text = actionsLeft.ToString();
+			profile.daysLeft.text = daysLeft.ToString("0");
+//			profile.actionsLeft.text = actionsLeft.ToString("0");
 			profile.messageCount.text = inbox.Count.ToString();
+
 			if(inbox.Count <= 0) {
+				profile.messageCount.transform.parent.gameObject.transform.parent.gameObject.SetActive(false);
 				previewInbox.emptyMailboxMessage.SetActive(true);
 			}
 			else {
+				profile.messageCount.transform.parent.gameObject.transform.parent.gameObject.SetActive(true);
 				previewInbox.emptyMailboxMessage.SetActive(false);
 			}
 			

@@ -35,10 +35,11 @@ public class ItemSelector : MonoBehaviour {
 	private void saveChanges() {
 		Debug.Log("Saving Changes");
 		Character character = gameObject.GetComponentInParent<ItemFolderSelector> ().avatarImage.transform.parent.GetComponent<Character> ();
-		character.setPaths ();
+		// COULD REMOVE THESE AND MOVE TO ALL IN ONE SAVE
+/*		character.setPaths ();
 		character.setOptions ();
 		character.saveCharacter ();
-
+*/
 	}
 
 	public void remove() {

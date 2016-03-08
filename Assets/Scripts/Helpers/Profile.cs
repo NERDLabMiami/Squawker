@@ -6,6 +6,7 @@ public class Profile : MonoBehaviour {
 
 //	public Player player;
 	public Text daysLeft;
+	public Text actionsLeft;
 	public Text messageCount;
 	public Image heart;
 	public Character character;

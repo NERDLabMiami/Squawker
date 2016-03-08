@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Mini Games\TanLines\TanningSalonAssistant.cs" />
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\Scripts\TutorialItem.cs" />
+     <Compile Include="Assets\Wink.cs" />
      <None Include="Assets\Resources\messages.txt" />
      <None Include="Assets\Resources\marketing.txt" />
      <None Include="Assets\AssetStoreFiles\README.txt" />

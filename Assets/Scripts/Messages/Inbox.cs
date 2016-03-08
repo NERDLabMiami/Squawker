@@ -8,9 +8,16 @@ public class Inbox : MonoBehaviour {
 	public GameObject messageContainer;
 	public Epilogue epilogue;
 	public GameObject emptyMailboxMessage;
+	public AudioClip notification;
+	public AudioSource source;
 	private Player player;
 
+
 	void Start () {
+	}
+
+	public void notify() {
+		source.PlayOneShot(notification);
 	}
 
 	public void checkIfEmpty() {

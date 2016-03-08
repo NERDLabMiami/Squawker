@@ -284,15 +284,46 @@ public class Character : MonoBehaviour {
 
 		tanTone = amount;
 		PlayerPrefs.SetInt ("tan", tanTone);
-
-		faceTan.CrossFadeColor(tans[tanTone], 1f, true, true);
-		earsTan.CrossFadeColor(tans[tanTone], 1f, true, true);
-		faceTan.enabled = true;
-		earsTan.enabled = true;
-		hasTan = true;			
+		if (amount == 0) {
+			faceTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+			earsTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+			faceTan.enabled = true;
+			earsTan.enabled = true;
+			hasTan = true;
+		}
+		else {
+			faceTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+			earsTan.CrossFadeColor(tans[tanTone], 1f, true, true);
+			faceTan.enabled = true;
+			earsTan.enabled = true;
+			hasTan = false;			
+		}
 		saveCharacter ();
 		return tanTone;
 }
+
+	public void updateCharacter() {
+		setPaths ();
+		setOptions ();
+		saveCharacter ();
+		Debug.Log("FINISHED SAVING CHARACTER: " + characterAssignment);
+		/*
+		setPaths();
+		saveCharacter(false);
+*/
+}
+
+	public void reloadCharacter() {
+		Debug.Log("STARTED RELOADING CHARACTER");
+		if (PlayerPrefs.HasKey (characterAssignment)) {
+			Debug.Log("Has Character Assignment for " + characterAssignment);
+			loadCharacter();
+			getSprites();
+		} else {
+			Debug.Log("Character assignment missing");
+		}
+		Debug.Log("FINISHED RELOADING CHARACTER");
+	}
 
 	public void saveCharacter(bool disableAccessories = false) {
 
@@ -313,6 +344,7 @@ public class Character : MonoBehaviour {
 		PlayerPrefs.SetString (characterAssignment + "_type", characterType);
 		Debug.Log ("Character: " + characterAssignment + " Character Type: " + characterType);
 		PlayerPrefs.SetString (characterAssignment + "_type", "C22");
+		Debug.Log("Assigned Sprites: " + assignedSprites);
 		Prefs.PlayerPrefsX.SetStringArray(characterAssignment + "_avatar_paths", assignedSprites);
 		//added 12.8.15, for avatar creation
 		setOptions(disableAccessories);
@@ -333,6 +365,7 @@ public class Character : MonoBehaviour {
 		float[] hairColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_hair");
 		bool[] options = Prefs.PlayerPrefsX.GetBoolArray (characterAssignment + "_options");
 		characterType = PlayerPrefs.GetString (characterAssignment + "_type");
+
 		hasLongHair = options [0];
 		hasShortHair = options [1];
 		hasGlasses = options[2];
@@ -756,13 +789,25 @@ public class Character : MonoBehaviour {
 		else {
 			selectedPiercingName = "none";
 		}
+		if (ears.sprite) {
+			selectedEarsName = ears.sprite.name;
+		}
+		if (eyes.sprite) {
+			selectedEyesName = eyes.sprite.name;
+		}
+		if (iris.sprite) {
+			selectedIrisName = iris.sprite.name;
+		}
+		if (face.sprite) {
+			selectedFaceName = face.sprite.name;
+		}
+		if (mouth.sprite) {
+			selectedMouthName = mouth.sprite.name;
+		}
 
-		selectedEarsName = ears.sprite.name;
-		selectedEyesName = eyes.sprite.name;
-		selectedIrisName = iris.sprite.name;
-		selectedFaceName = face.sprite.name;
-		selectedMouthName = mouth.sprite.name;
-		selectedNoseName = nose.sprite.name;
+		if (nose.sprite) {
+			selectedNoseName = nose.sprite.name;
+		}
 
 	}
 	

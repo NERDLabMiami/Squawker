@@ -16,8 +16,8 @@ public class Home : MonoBehaviour {
 			introMessage.SetActive (true);
 			PlayerPrefs.SetInt ("tutorial", 1);
 		} 
-		match.newMatch();
-
+//		match.newMatch();
+		/*
 		if (player.progress) {
 			if (player.actionsLeft == 1) {
 				player.progress.SetTrigger("one");
@@ -26,9 +26,9 @@ public class Home : MonoBehaviour {
 				player.progress.SetTrigger("two");
 			}
 		}
-
+*/
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

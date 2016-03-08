@@ -39,27 +39,17 @@ public class Match : MonoBehaviour {
 	public void wink() {
 		if (player.takeAction(true)) {
 
-			//TODO: Check if NPC and Player are a match
-			//TODO: Get Minimimum Required Attributes
-			//TAN > player.tan
-			//love <= player.love
-			//accessory = accessory match
-			//TODO: Instead of passing to create a new character, it should log it in the system
-			string matchGender = PlayerPrefs.GetString ("gender preference", "both");
-
-			avatar.assignCharacter(matchGender);
-//			Debug.Log ("Saving Character...");
-
-			avatar.saveCharacter ();
-
 			Debug.Log("adding message for " + avatar.getCharacterAssignment() + " with name of " + avatar.characterName);
 			int timeAdded = player.matches(avatar.getCharacterAssignment());
 			player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);
 			player.updateProfile();
-			newMatch();
-
+			Invoke("resetName",3);
 		}
 
 
+	}
+
+	private void resetName() {
+		alias.text = "Dream Date";
 	}
 }

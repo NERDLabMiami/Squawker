@@ -34,7 +34,9 @@ public class Player : MonoBehaviour {
 			string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
 			messageList = storedMessages.OfType<string>().ToList();
 			inbox = new List<Message>();
-			refreshInbox();
+			if (previewInbox) {
+				refreshInbox();
+			}
 			populateStats();
 			updateProfile();
 	}
@@ -45,10 +47,20 @@ public class Player : MonoBehaviour {
 	}
 	public string getFinalStory(string character, string story) {
 		if (json[character] != null) {
-			return json[character]["epilogue"][story];
+			//return json[character]["epilogue"][story];
+			return json[character]["epilogue"][story]["story"];
 		}
 		else {
 			return "no story available";
+		}
+	}
+
+	public int getEpilogueType(string character, string story) {
+		if (json[character] != null) {
+			return json[character]["epilogue"][story]["ending"].AsInt;
+		}
+		else {
+			return 0;
 		}
 	}
 
@@ -102,6 +114,7 @@ public class Player : MonoBehaviour {
 			Debug.Log ("Match will respond in " + responseTime + " days");
 			return responseTime;
 		} else {
+			Debug.Log("Can't Find Character Path : " + characterPath);
 			return 9999;
 		}
 	}
@@ -223,8 +236,12 @@ public class Player : MonoBehaviour {
 	private void newDay() {
 
 		//ADD TANNING OFFER
-		newOffer("tanning");
-		newOffer ("love");
+		if (daysLeft%4 == 1) {
+			newOffer ("love");
+		}
+		else if (daysLeft%4 == 3) {
+			newOffer("tanning");
+		}
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
@@ -288,9 +305,11 @@ public class Player : MonoBehaviour {
 
 			}
 			refreshInbox();
-			if (previousMessageCount < inbox.Count) {
-				//TODO: Play notification sound
-				previewInbox.notify();
+			if (previewInbox) {
+				if (previousMessageCount < inbox.Count) {
+					//TODO: Play notification sound
+					previewInbox.notify();
+				}
 			}
 			if (daysLeft < 0) {
 				//GAME OVER
@@ -370,7 +389,7 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("attractiveness", 3);
 		PlayerPrefs.SetInt("cancer risk", 0);
 		PlayerPrefs.SetInt("dermatologist visits", 0);
-		PlayerPrefs.SetInt("actions left", 3);
+		PlayerPrefs.SetInt("actions left", 2);
 		PlayerPrefs.SetInt("days left", 30);
 		PlayerPrefs.SetInt("tutorial", 0);
 

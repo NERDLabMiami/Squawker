@@ -82,24 +82,28 @@
     "I'm a jukebox hero, with stars in my eyes for you"
   ],
   "both_characters": [
-    "male1",
-    "female2",
-    "male4",
-    "female5",
-    "male6",
-    "female7"
+    "C22",
+    "C21",
+    "C13",
+    "C21",
+    "C32",
+    "C12"
   ],
   "male_characters": [
-    "male1",
-    "male2",
-    "male4",
-    "male5",
-    "male6",
-    "male7"
+    "C22",
+    "C11",
+    "C13",
+    "C21",
+    "C31A",
+    "C12"
   ],
   "female_characters": [
-    "female1",
-    "female2"
+    "C22",
+    "C11",
+    "C13",
+    "C21",
+    "C31A",
+    "C12"
   ],
   "character_ids": [
     "C11",
@@ -108,1402 +112,11 @@
     "C21",
     "C22",
     "C23",
-    "C31",
+    "C31A",
     "C32",
     "C33"
   ],
-  "female7": {
-    "character_type": "C31",
-    "requirements": {
-      "tan": "0",
-      "love": "1",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "%C winked back!",
-      "message": "Hey hey! I hope you\u0027re doing well! I was scrolling through my winks on here and thought \u0022this one is intriguing!\u0022\r\n\r\nFun facts about me: music is my life. I follow more bands than I even know what to do with and almost every free evening I have available will be spent at some sort of concert or out at a club. I also love dnacing, and have taken dance classes from jazz to tap to hip hop since I was little. I\u0027m also somewhat addicted to \u0022Dancing With the Out-of-Date Celebrities.\u0022 It\u0027s like my favorite show.\r\n\r\nIf you find me as equally intriguing, feel free to message me back!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I love music as well! And there\u0027s nothing like a fun concert on a free night to take your mind off work!",
-          "path": "male7\/lovemusic",
-          "time": "1"
-        },
-        {
-          "response": "Oh I love \u0022Dancing With the Out-of-Date Celebrities!\u0022 Is there anything better than watching people who have lost their relevancy cling to stardom in the saddest ways?",
-          "path": "male7\/popularitycontest",
-          "time": "1"
-        },
-        {
-          "response": "I\u0027m not a huge dancer, but I\u0027ve been told that I move my body in very unique and interesting ways. Want to find out more?",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "lovemusic": {
-      "subject": "yay!",
-      "message": "That\u0027s great! Who are some of your favorite artists?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I go crazy for Smooch. I love their hard rock style, all that wild stage makeup and that thing they do with their tongues. They\u0027re amazing live.",
-          "path": "male7\/smooch",
-          "time": "1"
-        },
-        {
-          "response": "There\u0027s nobody better than Deyonce. She\u0027s my queen.",
-          "path": "male7\/deyonce",
-          "time": "1"
-        },
-        {
-          "response": "I listen exclusively to Death Metal. It soothes my tormented soul.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "smooch": {
-      "subject": "Rock on",
-      "message": "I love rock like that too. I\u0027ve gone to so many concerts and I\u0027m always trying to be the person they pull up on stage to sing with them.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I know what you mean. It\u0027s basically a beauty contest to see who gets to go up.",
-          "path": "male7\/beauty",
-          "time": "1"
-        },
-        {
-          "response": "Oh I would never want to go up on that stage. I projectile vomit when I get nervous. TMI?",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I always get pulled up on stage actually. It\u0027s so random!",
-          "path": "male7\/pulledonstage",
-          "time": "1"
-        }
-      ]
-    },
-    "deyonce": {
-      "subject": "Of course",
-      "message": "Haha I can\u0027t argue with that. She can riff like nobody else. Have you ever gotten up on stage with her? I\u0027m always trying to be one of those people.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I know what you mean, it\u0027s basically a beauty contest to see who gets to go up.",
-          "path": "male7\/beauty",
-          "time": "1"
-        },
-        {
-          "response": "Oh I would never want to go up on stage. I projectile vomit when I get nervous. TMI?",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I always get pulled up on stage actually. It\u0027s so random!",
-          "path": "male7\/pulledonstage",
-          "time": "1"
-        }
-      ]
-    },
-    "beauty": {
-      "subject": "Right?",
-      "message": "It\u0027s only the prettiest people. The fittest and most tanned individuals. I mean that\u0027s why I spend so much time at the gym and the tanning salon! That, and so everyone I go on a date compliments me on it :D",
-      "belief_id": "SAPV1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "The tanning salon? Why wouldn\u0027t you just tan outside instead of spending money on it?",
-          "path": "male7\/tanningoutside",
-          "time": "1"
-        },
-        {
-          "response": "Oh I avoid tanning salons. I think fake tans make you look kind of leathery. In fact, you look kind of leathery. I don\u0027t think I\u0027m going to be giving you any compliments.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "Oh I get that for sure. I have a membership at my salon and I go at least once a week.",
-          "path": "male7\/membership",
-          "time": "1"
-        }
-      ]
-    },
-    "pulledonstage": {
-      "subject": "So jelly",
-      "message": "Well that\u0027s no surprise, you\u0027ve got an incredibly thorough tan. I\u0027m jealous.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Well thanks for the compliment! I try to tan outside the good old fashioned way more often than not.",
-          "path": "male7\/oldfashionedway",
-          "time": "1"
-        },
-        {
-          "response": "Yeah it\u0027s all the salon! Do you go?",
-          "path": "male7\/allthesalon",
-          "time": "1"
-        },
-        {
-          "response": "I\u0027m not on here to get compliments from strangers, and frankly I find your tone abrasive and inappropriate.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "tanningoutside": {
-      "subject": "It\u0027s safer...",
-      "message": "Tanning beds are actually considered safer than the sun. My tanning salon has a lot of pamphlets and stuff about how it\u0027s actually less dangerous than tanning outdoors.",
-      "belief_id": "HB5",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m fairly certain that\u0027s not true. I\u0027m always surprised when I see promos, like \u0022unlimited free tanning for 7 days!\u0022 There are higher chances of being exposed to excessive UV rays when you use tanning beds without knowing the potential danger.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
-        },
-        {
-          "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
-        },
-        {
-          "response": "Everyone knows those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "membership": {
-      "subject": "Totally worth it",
-      "message": "That\u0027s great. I think it\u0027s incredibly worth it. I mean, although sometimes it gets a little hot and sweaty and makes me uncomfortable.",
-      "belief_id": "DISCOM1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "It can get a little tight in there, but it\u0027s still worth it.",
-          "path": "male7\/tight",
-          "time": "1"
-        },
-        {
-          "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for five hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
-        },
-        {
-          "response": "Yeah, and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "fairlycertain": {
-      "subject": "Hmm...",
-      "message": "Well regardless what\u0027s true or not, I\u0027m sure it\u0027s not as bad as people think. And I like having a little bit of a tan. When I go to concerts with friends everyone always says such nice things, and I think I\u0027m gonna get up on stage sooner or later.",
-      "belief_id": "SAPV2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Alright well someone who carelessly ignores their own health isn\u0027t going to work for me.",
-          "path": "male7\/careless",
-          "time": "1"
-        },
-        {
-          "response": "You might be right. It seems almost like a fad to hate on indoor tanning. And you do look good for it.",
-          "path": "male7\/mightberight",
-          "time": "1"
-        },
-        {
-          "response": "You\u0027re never going to get on stage looking as fake as you do.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "isthattrue": {
-      "subject": "Yeah!",
-      "message": "It\u0027s true. And this may just be personal, but I think it really accents my muscles and makes me look better overall.",
-      "belief_id": "APB1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Muscles? I don\u0027t see any muscles lol. Keep working.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I totally agree. You look great.",
-          "path": "male7\/youlookgreat",
-          "time": "1"
-        },
-        {
-          "response": "If you look better now, that\u0027s not saying much. I can only imagine what you looked like without a tan.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "careless": {
-      "subject": "Hold on!",
-      "message": "I know we differ in opinion on that, but that doesn\u0027t mean we can\u0027t still meet up. How about grabbing coffee? We could chat and actually get to know each other, past our opinions on fake tanning.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Alright, that sounds nice.",
-          "path": "male7\/epilogue\/coffee",
-          "time": "0"
-        },
-        {
-          "response": "I don\u0027t think so.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "mightberight": {
-      "subject": "Yep!",
-      "message": "I think it is. (And thank you for the compliment!)\r\n\r\nWould you want to meet up for dinner sometime?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sure!",
-          "path": "male7\/epilogue\/dinner",
-          "time": "0"
-        },
-        {
-          "response": "I don\u0027t think so.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "youlookgreat": {
-      "subject": "Thanks",
-      "message": "You look great too. And a little bit of tanning could help improve that :) Care to join me? I\u0027m going tomorrow!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m definitely interested!",
-          "path": "male7\/epilogue\/tanning",
-          "time": "0"
-        },
-        {
-          "response": "No thanks!",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "tight": {
-      "subject": "I totally agree!",
-      "message": "It\u0027s worth it to get compliments from the people I go on dates with, and especially worth it if I make it onstage at those concerts!\r\n\r\nAnd speaking oof dates, how about one this weekend?",
-      "belief_id": "SAPV1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
-        },
-        {
-          "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "dontmindtheheat": {
-      "subject": "I totally agree!",
-      "message": "It\u0027s a huge time saver. And my friends are always so complimentary (and a little bit jealous :D )!\r\n\r\nAnyway, how would you feel about going out this weekend?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
-        },
-        {
-          "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "oldfashionedway": {
-      "subject": "Huh...",
-      "message": "I mean, to each their own, but if you don\u0027t mind my asking, why? Isn\u0027t outdoor tanning more dangerous than indoor tanning? I heard that indoor tanning has gives you total control over what you\u0027re exposed to, and the sun is so random and can be much more dangerous.",
-      "belief_id": "HB5",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m fairly certain that\u0027s not true. Scientific studies show that UV exposure provided by sunlamps is often excessive. I actually read that the FDA is trying to strengthen their warning labels to raise awareness of that.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
-        },
-        {
-          "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
-        },
-        {
-          "response": "Everyone knows that those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "allthesalon": {
-      "subject": "I go to the salon!",
-      "message": "Sometimes it gets hot and definitely claustrophobic, but I think the positives outweigh the negatives.",
-      "belief_id": "DISCOM2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "It can get a little tight in there, but it\u0027s still worth it.",
-          "path": "male7\/tight",
-          "time": "1"
-        },
-        {
-          "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for five hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
-        },
-        {
-          "response": "Yeah and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "popularitycontest": {
-      "subject": "Not much!",
-      "message": "There really isn\u0027t anything better! Although sometimes I think the winner is more based on a popularity contest or their physical attractiveness than it should be, but that\u0027s entertainment I suppose.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Oh that\u0027s definitely true. The winner is almost always the most fit, tan, and stereotypically attractive.",
-          "path": "male7\/mostfittan",
-          "time": "1"
-        },
-        {
-          "response": "But last season that super pale nerdy guy won. Granted he was the best dancer, but he definitely wasn\u0027t the most attractive.",
-          "path": "male7\/palenerdy",
-          "time": "1"
-        },
-        {
-          "response": "All I know is that if you were on that show, you\u0027d win in a landslide. You\u0027re the most attractive individual I\u0027ve ever seen. You remind me of myself in that way.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "mostfittan": {
-      "subject": "Reality TV",
-      "message": "Isn\u0027t that the nature of reality TV though? You work out and fake tan, and then you get to win the show!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Yeah it\u0027s so sad. Instead of the person who deserves it, the one who spends the most time killing themselves in a tanning booth gets to win.",
-          "path": "male7\/sosad",
-          "time": "1"
-        },
-        {
-          "response": "If it\u0027s between an ugly person and a pretty person, you better believe I think the pretty person deserves it.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I was on reality TV once. The show was about people who lie about who they are when online dating.... so want to meet for a drink sometime?",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "palenerdy": {
-      "subject": "The pale nerdy guy did win",
-      "message": "That\u0027s true. He was fantastic, and totally deserved it. But have you seen him now, since winning? Someone must have brought him to a tanning salon or something because he is bronze!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I think he looked better before. But maybe I\u0027m just saying that because I don\u0027t think indoor tanning is good for you.",
-          "path": "male7\/betterbefore",
-          "time": "1"
-        },
-        {
-          "response": "I did see him, and he looked a lot better. The tanning salon worked wonders for him. It practically inspired me to go as well.",
-          "path": "male7\/lookedbetter",
-          "time": "1"
-        },
-        {
-          "response": "I just think they\u0027re going to have a show where attractive people always win, the fact that they chose him is a travesty.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "sosad": {
-      "subject": "You sure?",
-      "message": "Killing themselves in a tanning booth? I think that those things are safer than tanning outdoors... right?",
-      "belief_id": "HB5",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I know people think that, but they\u0027re really not. Tanning salons say they look out for their clients, but how would a place that offers unlimited tanning for a week after signing up be looking out for anyone? There\u0027s nothing safe about that.",
-          "path": "male7\/lookoutforclients",
-          "time": "1"
-        },
-        {
-          "response": "Is that true? I thought I\u0027d heard otherwise.",
-          "path": "male7\/isthattrue",
-          "time": "1"
-        },
-        {
-          "response": "I could never do it, I would rather lay out on the beach regardless!",
-          "path": "male7\/layonthebeach",
-          "time": "1"
-        }
-      ]
-    },
-    "lookoutforclients": {
-      "subject": "I\u0027m not sure about that",
-      "message": "I\u0027ve heard from reliable sources that tanning salons are fine. Even good for you. I\u0027ve done my reading.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Well whatever you\u0027re reading isn\u0027t reliable, and you need to recheck your sources.",
-          "path": "male7\/recheck",
-          "time": "1"
-        },
-        {
-          "response": "I\u0027m surprised you can read, because frankly, you sound pretty stupid.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I just want you to know how dangerous it can be. I don\u0027t want anyone unnecessarily exposing themselves to dangers like that.",
-          "path": "male7\/exposedtodanger",
-          "time": "1"
-        }
-      ]
-    },
-    "layonthebeach": {
-      "subject": "That\u0027s understandable...",
-      "message": "I do understand the appeal of that sometimes. A tanning booth can be so claustrophobic.",
-      "belief_id": "DISCOM2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "It can get a little tight in there, but it\u0027s still worth it",
-          "path": "male7\/tight",
-          "time": "1"
-        },
-        {
-          "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for 5 hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
-        },
-        {
-          "response": "Yeah and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "recheck": {
-      "subject": "Forget it",
-      "message": "I\u0027m comfortable with what I\u0027m doing. So back off.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "(DON\u0027T REPLY)",
-          "path": "male7\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "Lol good luck psycho",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "exposedtodanger": {
-      "subject": "Coffee?",
-      "message": "Well you sound really sincere, so maybe I\u0027ll recheck.\r\n\r\nIn the meantime, how about we go out for coffee tomorrow?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds great",
-          "path": "male7\/epilogue\/coffee",
-          "time": "0"
-        },
-        {
-          "response": "No thanks",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "betterbefore": {
-      "subject": "Why?",
-      "message": "Huh. I mean, to each his own, but if you don\u0027t mind my asking, why? Lots of tanning salons claim that indoor tanning is safer than outdoor tanning because they have total control over what you\u0027re exposed to.",
-      "belief_id": "HB5",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m fairly certain that\u0027s not true. Studies show that UV exposure provided by sunlamps is often excessive. I actually read that the FDA is trying to strengthen their warning labels to raise awareness.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
-        },
-        {
-          "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
-        },
-        {
-          "response": "Everyone knows that those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "lookedbetter": {
-      "subject": "Yep!",
-      "message": "I totally agree! It inspired me to go too. My friends are always super complimentary now!\r\n\r\nAnyway, how would you feel about going out this weekend?",
-      "belief_id": "SAPV2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
-        },
-        {
-          "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
-        }
-      ]
-    }
-  },
-  "female5": {
-    "character_type": "C21",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "%C winked back at you!",
-      "message": "How\u0027s it going? I only just joined this thing but figured it would be a nice place to meet people.\r\n\r\nWithout sounding like a jerk, I want to tell you I work professionally as a model. More runway based but I work editorially as well. We\u0027re not all stupid, and Zoolander is one of my favorite movies. There is more to life than being really, really, ridiculously good looking (not that I think I am, believe me, I\u0027m my own worst critic). But outside of that, I volunteer a lot at a local animal shelter with my friends. I think it\u0027s important for everyone to give back however they can, and when you get to give back and play with puppies, that\u0027s a win in my book.\r\n\r\nSay hello if you\u0027re interested, and if not, I wish you the best!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "A model, you say? That\u0027s very interesting! I can imagine it takes a lot of discipline, having your entire job based off your outward appearance.",
-          "path": "male5\/discipline",
-          "time": "1"
-        },
-        {
-          "response": "I think that\u0027s great that you give back like that. Charity and volunteer work is hugely important to me.",
-          "path": "male5\/volunteer",
-          "time": "1"
-        },
-        {
-          "response": "This isn\u0027t the date you\u0027re looking for. Move along.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "discipline": {
-      "subject": "Stressful!",
-      "message": "It can be a little stressful. I find myself constantly craving cake, so that\u0027s one sacrifice. And the physical upkeep is taxing as well, but ultimately I enjoy the job and the people I meet through it.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I care about my appearance but it must be a challenge having your livelihood based on it.",
-          "path": "male5\/challenge",
-          "time": "1"
-        },
-        {
-          "response": "So once you shrivel up in two or three years, what\u0027ll be next on your career list? What\u0027s the backup plan?",
-          "path": "male5\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "That\u0027s good that you\u0027ve made some friends. What do you like to do when you\u0027re not strutting down a runway?",
-          "path": "male5\/preparation",
-          "time": "1"
-        }
-      ]
-    },
-    "volunteer": {
-      "subject": "Of course",
-      "message": "I couldn\u0027t agree more. It\u0027s important to help the less fortunate, and in my case, I like speaking for and working with animals who can\u0027t help themselves. It\u0027s really nice because I love animals, and get to spend most of my day outside with them.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That makes complete sense. Giving a voice to the voiceless is a valiant deed.",
-          "path": "male5\/voiceless",
-          "time": "1"
-        },
-        {
-          "response": "You know, there are humans out there who need help. I think it\u0027s selfish of you to help animals when you could be helping people.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I try to spend as much time as I can outdoors so I think it\u0027s great you\u0027ve figured out a way to give back and be outside.",
-          "path": "male5\/timeoutdoors",
-          "time": "1"
-        }
-      ]
-    },
-    "challenge": {
-      "subject": "Tough",
-      "message": "It can be tough, having to keep up with the workouts, diets, and tanning, outside of the actual work hours itself. But all of that stuff is what helps me stay beautiful, especially the indoor tanning.",
-      "belief_id": "APB2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "What kind of workout routines do you go through? They must be extensive.",
-          "path": "male5\/workoutroutine",
-          "time": "1"
-        },
-        {
-          "response": "What\u0027s your tanning regiment like? You must tan a lot to keep your thorough look.",
-          "path": "male5\/regiment",
-          "time": "1"
-        },
-        {
-          "response": "Ugh, I can\u0027t talk to you anymore. You\u0027re so stuck up.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "preparation": {
-      "subject": "Well...",
-      "message": "We spend a lot of time off the runway preparing for the runway itself. We workout together, get meals, and cook. A lot of my friends also go indoor tanning together, but I am not sure if I\u0027d like to join them for that.",
-      "belief_id": "DN1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Why not? It\u0027s perfectly safe.",
-          "path": "male5\/safe",
-          "time": "1"
-        },
-        {
-          "response": "That\u0027s smart, I wouldn\u0027t go indoor tanning either.",
-          "path": "male5\/understand",
-          "time": "1"
-        },
-        {
-          "response": "Wow, you\u0027re all obsessed with each other then, aren\u0027t you? I could never spend time with work friends outside of work. I would die.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "workoutroutine": {
-      "subject": "Not that easy",
-      "message": "Yeah they\u0027re not super easy. I spend two hours at the gym everyday, mostly running with free weights as well. And my gym has tanning beds, so occasionally I\u0027ll use them after a workout.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds like a great workout. And finishing up with an indoor tan, that\u0027s great. It\u0027s annoying when people tell me how unsafe it is. People need to lighten up.",
-          "path": "male5\/safe",
-          "time": "1"
-        },
-        {
-          "response": "You indoor tan? You know you shouldn\u0027t do that right?",
-          "path": "male5\/understand",
-          "time": "1"
-        },
-        {
-          "response": "I could never date someone who spends two hours at the gym everyday. That\u0027s time you should be paying attention to me.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "regiment": {
-      "subject": "I don\u0027t know",
-      "message": "Well, for my job I need to keep up my tan. But for myself, I try not to indoor tan too much. My family has a history of developing skin cancer, so I am worried if I exposed myself anymore than I\u0027m exposed genetically.",
-      "belief_id": "SSPT1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I just want to tell you that indoor tanning doesn\u0027t actually make you more susceptible to getting skin cancer, that isn\u0027t true.",
-          "path": "male5\/safe",
-          "time": "1"
-        },
-        {
-          "response": "I totally understand what you\u0027re saying as I also have a family history of skin cancer. I wouldn\u0027t want to worry my family at all. I think indoor tanning is important to avoid and be educated about.",
-          "path": "male5\/understand",
-          "time": "1"
-        },
-        {
-          "response": "If you\u0027re going to get it anyway, then why not just go for it? At least you\u0027ll look good.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "safe": {
-      "subject": "Hmmm",
-      "message": "Actually, indoor tanning isn\u0027t safe. It\u0027s actually proven that indoor tanning directly relates to an increased risk of melanoma. And I\u0027m not trying to get the most deadly type of skin cancer if I can avoid it.",
-      "belief_id": "HT11",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027ve heard a lot of mixed things. It\u0027s actually that dangerous?",
-          "path": "male5\/mixed",
-          "time": "1"
-        },
-        {
-          "response": "I mean, I\u0027m still doing it. It\u0027s important to me that I look good just like it is to you.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
-        },
-        {
-          "response": "I don\u0027t want the most deadly type... maybe the second or third most deadly, but not the first.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "understand": {
-      "subject": "Yeah",
-      "message": "I know, it\u0027s not safe. I always make sure to protect my eyes properly though, so I don\u0027t get cataracts or any eye cancers.",
-      "belief_id": "HT12",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Well it\u0027s good you know about indoor tanning leading to blind eye diseases. But there are a lot of other dangers as well. It\u0027s not worth the risk for a quick tan.",
-          "path": "male5\/regiment",
-          "time": "1"
-        },
-        {
-          "response": "Well as long as you protect yourself, I\u0027m sure you\u0027d be fine.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
-        },
-        {
-          "response": "I think it would be cool to be blind. It would make your other senses stronger.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "mixed": {
-      "subject": "It is",
-      "message": "It really is. And it can lead to corneal burns or eye cancers if you don\u0027t properly protect your eyes. Overall, it\u0027s not worth it.",
-      "belief_id": "HT12",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Well it sounds like you\u0027re convincing both of us we shouldn\u0027t be doing it.",
-          "path": "male5\/convinced",
-          "time": "1"
-        },
-        {
-          "response": "Whatever, you need to look good for your job and I like to look good.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
-        },
-        {
-          "response": "Ugh, go use your scare tactics on someone else, I\u0027m not listening.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "canbedangerous": {
-      "subject": "Same here",
-      "message": "See, that\u0027s how I feel. Indoor tanning can be dangerous, but it also makes me look beautiful, and it feels good to look good. That\u0027s important to me professionally.",
-      "belief_id": "APB1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I completely understand. Maybe the two of us should try indoor tanning together sometime?",
-          "path": "male5\/tantogether",
-          "time": "1"
-        },
-        {
-          "response": "I bet we could figure out another way to look good. Any ideas? Maybe something we could do together?",
-          "path": "male5\/hiking",
-          "time": "1"
-        },
-        {
-          "response": "If you want to look good, you have to feel good. Let me help you feel good ;)",
-          "path": "male5\/deadned",
-          "time": "9999"
-        }
-      ]
-    },
-    "convinced": {
-      "subject": "Huh...",
-      "message": "I guess I did. Maybe we could meet for coffee sometime? Anything but indoor tanning, right?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sounds perfect!",
-          "path": "male5\/epilogue\/coffee",
-          "time": "0"
-        },
-        {
-          "response": "I don\u0027t think I\u0027m interested.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "tantogether": {
-      "subject": "Hmm...",
-      "message": "You\u0027ve convinced me. Sure. Let\u0027s go go indoor tanning together.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Looking forward to it!",
-          "path": "male5\/epilogue\/tantogether",
-          "time": "0"
-        },
-        {
-          "response": "On second thought, never mind.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "hiking": {
-      "subject": "Plans",
-      "message": "Maybe we could go for a hike together sometime? Say, this weekend?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sounds perfect!",
-          "path": "male5\/epilogue\/hiking",
-          "time": "0"
-        },
-        {
-          "response": "I don\u0027t think I\u0027m interested.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "voiceless": {
-      "subject": "Valiant?",
-      "message": "Yeah I think it\u0027s the least I can do. It\u0027s the best way I can fill my time outside of work, and my friends volunteer as well so it\u0027s something we do together.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That\u0027s great! What else do you and your friends do for fun?",
-          "path": "male5\/preparation",
-          "time": "1"
-        },
-        {
-          "response": "You must have a lot of downtime. Maybe you should work harder.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "OMG are all your friends models? They must be SUPER hot. Introduce me?",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "timeoutdoors": {
-      "subject": "Being outside",
-      "message": "Completely understandable, and I agree. It\u0027s nice to do something good for someone else, and the good old fashioned tan I get along the way doesn\u0027t hurt :)",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I totally understand. I have friends who go indoor tanning but I know using them can cause melanoma.",
-          "path": "male5\/understand",
-          "time": "1"
-        },
-        {
-          "response": "Why not just try indoor tanning? It\u0027s so much easier, and the rumors that it\u0027s unsafe are completely unfounded!",
-          "path": "male5\/safe",
-          "time": "1"
-        },
-        {
-          "response": "Yeah looking at your pictures, it\u0027s good that you tan. You wouldn\u0027t look good pale.",
-          "path": "male5\/deadend",
-          "time": "9999"
-        }
-      ]
-    }
-  },
-  "female2": {
-    "character_type": "C11",
-    "requirements": {
-      "tan": "2",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "%C winked back!",
-      "message": "Hi there! You and your profile look pretty unique, and I like to think of myself in the same way, so I wanted to say \u0022whatsup!\u0022\r\n\r\nI\u0027m a trainer at a gym, so I spend a lot of time on exercise and going to fitness conferences (yes, they exist!) to learn about new techniques for training. I think the best way to keep the mind sharp is to keep your body at peak physical condition. So I try to stay fit, and presentable, eating right, keeping groomed, and tanning as much as possible to present myself as best as I can!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Wow, I\u0027ve never heard of a fitness conference, you were right. Any exciting new techniques on the horizon that I should know?",
-          "path": "male2\/newtechniques",
-          "time": "1"
-        },
-        {
-          "response": "Well your body is certainly very nice! And your tan is incredible, so more power to you for refining that!",
-          "path": "male2\/incredibletan",
-          "time": "1"
-        },
-        {
-          "response": "All of this talk of fitness and bodies gives me an idea for a workout. It requires two people, little clothing, and really makes you sweat. You in?",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "newtechniques": {
-      "subject": "Yes, there is...",
-      "message": "Well the most recent discussion point was about how dangerous fad diets are for you. There\u0027s a diet being spread over the internet where people only eat the skin off grapes and drink water.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "1"
-      },
-      "responses": [
-        {
-          "response": "Oh yeah! The Grape Skin and Water diet! I\u0027ve been on it for two weeks and I swear I\u0027ve lost like 10 pounds!",
-          "path": "male2\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "Man, people will believe anything they read on the internet. I\u0027ve never understood those aggressive herd mentalities.",
-          "path": "male2\/internetbelief",
-          "time": "1"
-        },
-        {
-          "response": "Well that doesn\u0027t sound safe. You\u0027ve gotta make sure you\u0027re getting the five food groups: pizza, ice cream, hamburgers, french fries, and chips.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "incredibletan": {
-      "subject": "Aww",
-      "message": "Thank you! Everybody wants to be trained by someone they want to look like, so I keep myself in shape. And the tanning secret I would recommend to you: indoor tanning. I only work out indoors so the added bump it gives me does wonders. And the people I date certainly compliment it :)",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I would never indoor tan. Nobody I know uses tanning beds, and frankly I don\u0027t think you should either. It\u0027s incredibly dangerous.",
-          "path": "male2\/neverindoortan",
-          "time": "1"
-        },
-        {
-          "response": "Really? I never thought about indoor tanning to supplement my workout. I always thought it was dangerous.",
-          "path": "male2\/supplement",
-          "time": "1"
-        },
-        {
-          "response": "For sure! There\u0027s nothing like working out followed by a quick session in a tanning bed!",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "internetbelief": {
-      "subject": "Seriously!",
-      "message": "Seriously! I love the myths the internet churns out. Donald Trump should be President, Indoor tanning is bad for you, the Loch Ness Monster. So silly.",
-      "belief_id": "HB1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027d vote for Trump. That man could run a country as smoothly as he runs a comb through his perfect hair.",
-          "path": "male2\/trump",
-          "time": "1"
-        },
-        {
-          "response": "Indoor tanning IS bad for you. That\u0027s not an internet myth. It\u0027s known to directly cause skin cancer.",
-          "path": "male2\/neverindoortan",
-          "time": "1"
-        },
-        {
-          "response": "I\u0027ve seen Nessy, with MY OWN EYE. My good eye. The one that isn\u0027t made of glass.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "trump": {
-      "subject": "Trump for president?",
-      "message": "I\u0027m going to assume that you\u0027re joking. That\u0027s a fair assumption, right?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m 100% joking. I would never vote for Trump. Not if there\u0027s a change that Palin might still jump on the ticket!",
-          "path": "male2\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I\u0027m completely serious. Think about how great it would be to see him turning to other politicans and saying \u0022You\u0027re fired.\u0022",
-          "path": "male2\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "I\u0027m not going to talk politics with someone who is so clearly uneducated on the subject.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "neverindoortan": {
-      "subject": "It\u0027s all hype",
-      "message": "The idea that skin cancer is caused by indoor tanning is hype. There are no conclusive studies that have said so.",
-      "belief_id": "HB6",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Studies have proven a casual relationship between tanning and skin cancer. They\u0027ve shown the more time and sessions spent tanning, the more likely an individual is to develop melanoma later in life. That\u0027s not a myth.",
-          "path": "male2\/notamyth",
-          "time": "1"
-        },
-        {
-          "response": "Is that true? I guess maybe I\u0027m a part of the pack who believed what they read on the internet. Whoops!",
-          "path": "male2\/believedtheinternet",
-          "time": "1"
-        },
-        {
-          "response": "You know what else is all hype? You!",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "notamyth": {
-      "subject": "What about outdoor tanning?",
-      "message": "Look if you think that\u0027s true, then think about regular, outdoor tanning. You\u0027re going to put yourself in danger anyway. And when you\u0027re indoor tanning, the UV levels of radiation are at least being regulated and observed. The sun is way more dangerous if you\u0027re going to tan.",
-      "belief_id": "HB2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Again, not true. Sunlamps provide more dangerous exposure to UV rays than the sun because they are just as strong all year. The sun gets weaker during seasons, or during cloud cover, but your tanning bed is always going to be just as strong and dangerous.",
-          "path": "male2\/sunlamps",
-          "time": "0"
-        },
-        {
-          "response": "Look, if you\u0027re going to be so stubbornly set in your ways and not even listen to reason, I don\u0027t think we\u0027re going to work out.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "Is that a fact? I didn\u0027t know that\u0027s how it worked.",
-          "path": "male2\/believedtheinternet",
-          "time": "1"
-        }
-      ]
-    },
-    "believedtheinternet": {
-      "subject": "Okay...",
-      "message": "It\u0027s alright. It\u0027s just frustrating because people believe tanning is bad, and then everyone tries to tell me that I shouldn\u0027t do it. I\u0027m an adult, I can make my own decisions.",
-      "belief_id": "PC1",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I still don\u0027t think it\u0027s completely safe, but I respect your right to choose for yourself.",
-          "path": "male2\/chooseyourself",
-          "time": "1"
-        },
-        {
-          "response": "I mean, if everyone thinks that it\u0027s dangerous I\u0027m sure there\u0027s some semblance of truth in it. People are probably just trying to look out for you. Stop being so stubborn",
-          "path": "male2\/deadend",
-          "time": "9999"
-        },
-        {
-          "response": "YOLO right? If you want to drop your body in cancer then you\u0027re certainly allowed!",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "sunlamps": {
-      "subject": "What\u0027s next?",
-      "message": "Next you\u0027re going to tell me that you can get a sunburn when indoor tanning, when I know you can\u0027t!",
-      "belief_id": "HB3",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Actually, I am going to tell you that. Staying under a sunlamp for too long can cause sunburn. And even a tan is technically skin damage. You don\u0027t need to have a visible burn.",
-          "path": "male2\/visibleburn",
-          "time": "1"
-        },
-        {
-          "response": "No way, you\u0027d have to be crazy to think that.",
-          "path": "male2\/crazytalk",
-          "time": "1"
-        },
-        {
-          "response": "I\u0027d never tell you that! I\u0027ll just let you find out for yourself ;)",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "visibleburn": {
-      "subject": "Alright...",
-      "message": "Alright, forget it. I can\u0027t win with you.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "I\u0027m honestly just trying to help",
-          "path": "male2\/crazytalk",
-          "time": "1"
-        },
-        {
-          "response": "Alright, bye.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "crazytalk": {
-      "subject": "Okay",
-      "message": "Look, whether or not you\u0027re right about the stuff you\u0027re saying, I\u0027m an adult, and the decision to indoor tan is mine alone to make. Outside of that, how about getting dinner this weekend? You seem very intelligent, and you\u0027re certainly passionate!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That would be nice.",
-          "path": "male2\/epilogue\/dinner",
-          "time": "0"
-        },
-        {
-          "response": "I don\u0027t think so",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "chooseyourself": {
-      "subject": "Coffee?",
-      "message": "Thank you. And I respect your right to feel the way you feel.\r\n\r\nNow that we\u0027re past that, how about getting coffee sometime.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "That sounds great!",
-          "path": "male2\/epilogue\/coffee",
-          "time": "0"
-        },
-        {
-          "response": "I\u0027m not really interested",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "supplement": {
-      "subject": "I think so...",
-      "message": "I think that it\u0027s a safe way to tan, since you can control the time you spend under the sunlamp. And you come out of it looking even better than if you had only worked out.",
-      "belief_id": "HB2",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Right, but to make up for the shortened time, the sunlamp just exposes you to higher levels of UV, doesn\u0027t it?",
-          "path": "male2\/sunlamps",
-          "time": "1"
-        },
-        {
-          "response": "That\u0027s good to know! Maybe I\u0027ll go sometime.",
-          "path": "male2\/gosometime",
-          "time": "1"
-        },
-        {
-          "response": "You could probably use a little more time under the sunlamp to be honest. You\u0027re looking pretty pale.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "gosometime": {
-      "subject": "Together?",
-      "message": "We could go together. How about tonight?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sounds perfect!",
-          "path": "male2\/epilogue\/tanningtogether",
-          "time": "0"
-        },
-        {
-          "response": "On second thought, no thank you.",
-          "path": "male2\/deadend",
-          "time": "9999"
-        }
-      ]
-    },
-    "epilogue": {
-      "dinner": "Dinner with %C",
-      "tanningtogether": "Tanning with %C",
-      "coffee": "Coffee with %C"
-    }
-  },
-  "male1": {
+  "C22": {
     "character_type": "C22",
     "requirements": {
       "tan": "0",
@@ -1524,18 +137,21 @@
       "responses": [
         {
           "response": "I love The Wizard of Oz. Which character do you think you most relate to?",
-          "path": "male1\/r1wizard",
-          "time": "1"
+          "path": "C22\/r1wizard",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "\u0022Pharmaceutical sales\u0022, huh? Fanciest name for a drug dealer I\u2019ve ever heard.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I\u2019ve always wanted to go to New Zealand. But my interest is inspired by Lord of the Rings.",
-          "path": "male1\/r3lotr",
-          "time": "1"
+          "path": "C22\/r3lotr",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1549,18 +165,21 @@
       "responses": [
         {
           "response": "Probably Scarecrow. I can be a bit dense sometimes.",
-          "path": "male1\/r1scarecrow",
-          "time": "1"
+          "path": "C22\/r1scarecrow",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Definitely the Lion. I can\u0027t do horror movies whatsoever. Or the dark. Or being alone. I sleep with a night light.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "The Tin Man. Aren\u0027t we all sort of Tin people on here, looking for love?",
-          "path": "male1\/r3tinman",
-          "time": "1"
+          "path": "C22\/r3tinman",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1574,18 +193,21 @@
       "responses": [
         {
           "response": "I love hiking! I just got a new pair of hiking boots last weekend.",
-          "path": "male1\/r1hiking",
-          "time": "1"
+          "path": "C22\/r1hiking",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m not a big hiker. Or outdoorsman. My ideal trip involves seeing beautiful landscapes through a window.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "One ring to rule them all, one ring to find them, one ring to bring them all and in the darkness bind them!",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1599,18 +221,21 @@
       "responses": [
         {
           "response": "Well thank you.  You look great as well! Just good old fashioned diet and exercise?",
-          "path": "male1\/r1diet",
-          "time": "1"
+          "path": "C22\/r1diet",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I think I just have good metabolism. I hardly work out at all! I don\u0027t really like to.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I do take care of myself. Spend time at the gym, indoor tanning, and eating right. All that good stuff.",
-          "path": "male1\/r3gym",
-          "time": "2"
+          "path": "C22\/r3gym",
+          "time": "2",
+          "belief_id": "none"
         }
       ]
     },
@@ -1624,18 +249,21 @@
       "responses": [
         {
           "response": "Well I spend a lot of time at home, watching TV and using the computer. I prefer staying in to going out in most cases.",
-          "path": "male1\/r1tv",
-          "time": "1"
+          "path": "C22\/r1tv",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I love going to the beach. Swimming and exercising in the sun is so refreshing, and also leaves me with a pretty nice tan.",
-          "path": "male1\/r2beach",
-          "time": "0"
+          "path": "C22\/r2beach",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Nothing so special. I spend time at the gym, watch a lot of television, and enjoy meeting attractive people like yourself!",
-          "path": "male1\/r3nothingspecial",
-          "time": "1"
+          "path": "C22\/r3nothingspecial",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1649,18 +277,21 @@
       "responses": [
         {
           "response": "I do believe it! I\u0027m one of them! Healthy eating and exercise can only do so much for you.",
-          "path": "male1\/r1healthy",
-          "time": "1"
+          "path": "C22\/r1healthy",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "What people believe scares me.",
-          "path": "male1\/r2scary",
-          "time": "1"
+          "path": "C22\/r2scary",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Super dangerous? Don\u0027t those tanning salons have safety regulations?",
-          "path": "male1\/r3dangerous",
-          "time": "1"
+          "path": "C22\/r3dangerous",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1674,13 +305,15 @@
       "responses": [
         {
           "response": "It\u0027s not that dangerous. Maybe once I get a little older it would be, but right now my body can take it.",
-          "path": "male1\/r1notdangerous",
-          "time": "1"
+          "path": "C22\/r1notdangerous",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Don\u0027t be so uptight. You gotta risk it to get the biscuit, am I right?",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1694,13 +327,15 @@
       "responses": [
         {
           "response": "I hear what you\u0027re saying. I just don\u0027t think my tanning salon would want to hurt me. If I died, they would lose a customer right? Hahaha",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Don\u0027t Respond",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1714,13 +349,15 @@
       "responses": [
         {
           "response": "That would be great!",
-          "path": "male1\/epilogue\/coffee",
-          "time": "0"
+          "path": "C22\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m flattered, but no thanks.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1734,18 +371,21 @@
       "responses": [
         {
           "response": "That\u0027s actually pretty scary to think about. But you must be right. I guess they\u0027re doing it for themselves and not so much for their customers.",
-          "path": "male1\/r1notforcustomers",
-          "time": "1"
+          "path": "C22\/r1notforcustomers",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Oh lighten up. If they were really that bad for you the FDA would shut them down. They definitely aren\u0027t trying to hurt us.",
-          "path": "male1\/r2nothurtingus",
-          "time": "1"
+          "path": "C22\/r2nothurtingus",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I usually go with friends, as a kind of social activity. We could go together sometime if you\u0027re scared!",
-          "path": "male1\/r3social",
-          "time": "1"
+          "path": "C22\/r3social",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1759,13 +399,15 @@
       "responses": [
         {
           "response": "I\u0027d love that! Let\u0027s do it!",
-          "path": "male1\/epilogue\/hike",
-          "time": "0"
+          "path": "C22\/epilogue\/hike",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Oh, I don\u0027t think so. But thanks for the invitation.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1779,18 +421,21 @@
       "responses": [
         {
           "response": "I\u0027m glad the FDA is doing that if it\u0027s as bad as you think. That gives me some hope for our crumbling government system.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Well thanks for the warning. I\u0027ll give it some thought next time I\u0027m at the salon.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I wouldn\u0027t give up this tan for anything. I\u0027m glad the salons are getting around the FDA.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1804,18 +449,21 @@
       "responses": [
         {
           "response": "That\u0027s a really good point. I guess I would rather spend on things that aren\u0027t life threatening.",
-          "path": "male1\/r1lifethreatening",
-          "time": "1"
+          "path": "C22\/r1lifethreatening",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t know, people are always coming up with new ways to buy beauty. This is a pretty good way to do it, I think.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Come onnnnn. It\u0027ll be fun!",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1829,13 +477,15 @@
       "responses": [
         {
           "response": "I\u0027d like that!",
-          "path": "male1\/epilogue\/movie",
-          "time": "0"
+          "path": "C22\/epilogue\/movie",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Ah, I have plans this weekend. Sorry.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1849,13 +499,15 @@
       "responses": [
         {
           "response": "I didn\u0027t actually know that.",
-          "path": "male1\/r1didnotknow",
-          "time": "1"
+          "path": "C22\/r1didnotknow",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah, alright, where are you even getting these facts? Some things are worth the risk to look this good.",
-          "path": "male1\/r2worthrisk",
-          "time": "1"
+          "path": "C22\/r2worthrisk",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -1869,18 +521,21 @@
       "responses": [
         {
           "response": "Thank you. Hey, would you be interested in grabbing a drink sometime?",
-          "path": "male1\/r1thankyoudrink",
-          "time": "1"
+          "path": "C22\/r1thankyoudrink",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027ll be more careful then.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "We\u0027ll see. I still look good.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1894,13 +549,15 @@
       "responses": [
         {
           "response": "Sure, sounds good.",
-          "path": "male1\/epilogue\/drinks",
-          "time": "0"
+          "path": "C22\/epilogue\/drinks",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1914,13 +571,15 @@
       "responses": [
         {
           "response": "Sounds great.",
-          "path": "male1\/epilogue\/drinks",
-          "time": "0"
+          "path": "C22\/epilogue\/drinks",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I think that\u0027s a little fast for me. Thanks anyways.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1934,18 +593,21 @@
       "responses": [
         {
           "response": "You deserve every word, gorgeous.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Sorry, I can come on strong when I like someone.",
-          "path": "male1\/r2strong",
-          "time": "1"
+          "path": "C22\/r2strong",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Don\u0027t be ungrateful, that isn\u0027t cute.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1959,13 +621,15 @@
       "responses": [
         {
           "response": "I\u0027m just looking for a pretty guy to go out to dinner with. Any interest?",
-          "path": "male1\/r1prettyguy",
-          "time": "1"
+          "path": "C22\/r1prettyguy",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Just a quick thing. You down?",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1979,13 +643,15 @@
       "responses": [
         {
           "response": "I\u0027ll see you then.",
-          "path": "male1\/epilogue\/dinner",
-          "time": "0"
+          "path": "C22\/epilogue\/dinner",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Actually, I don\u0027t think I can. Sorry.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -1999,18 +665,21 @@
       "responses": [
         {
           "response": "Mountains, definitely. I like my workout to double as a bit of a tanning session as well. I need the clear sky above me!",
-          "path": "male1\/r1mountains",
-          "time": "1"
+          "path": "C22\/r1mountains",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I love a good forest hike. Nothing like the sights and sounds of all those different types of trees and animals to relax you.",
-          "path": "male1\/r2forest",
-          "time": "1"
+          "path": "C22\/r2forest",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Baby, I\u0027m into whatever you are.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2024,18 +693,21 @@
       "responses": [
         {
           "response": "Is that a real thing? I\u0027ve got to go sign up! Indoor tanning is life!",
-          "path": "male1\/r1indoortanningislife",
-          "time": "1"
+          "path": "C22\/r1indoortanningislife",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "That\u0027s horrible. I don\u0027t understand the obsession with indoor tanning these days.",
-          "path": "male1\/r2horrible",
-          "time": "1"
+          "path": "C22\/r2horrible",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I mean, at least you\u0027d be avoiding getting a sunburn like you might outdoors, right?",
-          "path": "male1\/r3sunburn",
-          "time": "1"
+          "path": "C22\/r3sunburn",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -2049,13 +721,15 @@
       "responses": [
         {
           "response": "I\u0027m not tooo sure I could, to be honest",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Maybe we should go on a hike together sometime!",
-          "path": "male1\/r2hikesometime",
-          "time": "1"
+          "path": "C22\/r2hikesometime",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -2069,13 +743,15 @@
       "responses": [
         {
           "response": "That would be fun! Let\u0027s do it!",
-          "path": "male1\/epilogue\/hike",
-          "time": "0"
+          "path": "C22\/epilogue\/hike",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Oh no thanks, I\u0027m allergic to the sun.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2089,18 +765,21 @@
       "responses": [
         {
           "response": "Wow that\u0027s not comforting at all.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "How could you get a sunburn when you\u0027re not in the sun? There\u0027s no way I\u0027m going to believe that.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "UGH WHY IS THE WORLD WE LIVE IN SO DANGEROUS?",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2114,13 +793,15 @@
       "responses": [
         {
           "response": "Works for me!",
-          "path": "male1\/epilogue\/hike",
-          "time": "0"
+          "path": "C22\/epilogue\/hike",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, I don\u0027t think I can.",
-          "path": "male1\/deadend",
-          "time": "9999"
+          "path": "C22\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2132,7 +813,7 @@
       "drinks": "%C meets you at a bar for drinks. After unwinding with a few cocktails, you know that this is the person you want to spend the rest of your life with."
     }
   },
-  "male2": {
+  "C11": {
     "character_type": "C11",
     "requirements": {
       "tan": "2",
@@ -2153,18 +834,21 @@
       "responses": [
         {
           "response": "Wow, I\u0027ve never heard of a fitness conference, you were right. Any exciting new techniques on the horizon that I should know?",
-          "path": "male2\/newtechniques",
-          "time": "1"
+          "path": "C11\/newtechniques",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Well your body is certainly very nice! And your tan is incredible, so more power to you for refining that!",
-          "path": "male2\/incredibletan",
-          "time": "1"
+          "path": "C11\/incredibletan",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "All of this talk of fitness and bodies gives me an idea for a workout. It requires two people, little clothing, and really makes you sweat. You in?",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2178,18 +862,21 @@
       "responses": [
         {
           "response": "Oh yeah! The Grape Skin and Water diet! I\u0027ve been on it for two weeks and I swear I\u0027ve lost like 10 pounds!",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Man, people will believe anything they read on the internet. I\u0027ve never understood those aggressive herd mentalities.",
-          "path": "male2\/internetbelief",
-          "time": "1"
+          "path": "C11\/internetbelief",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Well that doesn\u0027t sound safe. You\u0027ve gotta make sure you\u0027re getting the five food groups: pizza, ice cream, hamburgers, french fries, and chips.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2203,18 +890,21 @@
       "responses": [
         {
           "response": "I would never indoor tan. Nobody I know uses tanning beds, and frankly I don\u0027t think you should either. It\u0027s incredibly dangerous.",
-          "path": "male2\/neverindoortan",
-          "time": "1"
+          "path": "C11\/neverindoortan",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Really? I never thought about indoor tanning to supplement my workout. I always thought it was dangerous.",
-          "path": "male2\/supplement",
-          "time": "1"
+          "path": "C11\/supplement",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "For sure! There\u0027s nothing like working out followed by a quick session in a tanning bed!",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2228,18 +918,21 @@
       "responses": [
         {
           "response": "I\u0027d vote for Trump. That man could run a country as smoothly as he runs a comb through his perfect hair.",
-          "path": "male2\/trump",
-          "time": "1"
+          "path": "C11\/trump",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Indoor tanning IS bad for you. That\u0027s not an internet myth. It\u0027s known to directly cause skin cancer.",
-          "path": "male2\/neverindoortan",
-          "time": "1"
+          "path": "C11\/neverindoortan",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027ve seen Nessy, with MY OWN EYE. My good eye. The one that isn\u0027t made of glass.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2253,18 +946,21 @@
       "responses": [
         {
           "response": "I\u0027m 100% joking. I would never vote for Trump. Not if there\u0027s a change that Palin might still jump on the ticket!",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m completely serious. Think about how great it would be to see him turning to other politicans and saying \u0022You\u0027re fired.\u0022",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m not going to talk politics with someone who is so clearly uneducated on the subject.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2278,18 +974,21 @@
       "responses": [
         {
           "response": "Studies have proven a casual relationship between tanning and skin cancer. They\u0027ve shown the more time and sessions spent tanning, the more likely an individual is to develop melanoma later in life. That\u0027s not a myth.",
-          "path": "male2\/notamyth",
-          "time": "1"
+          "path": "C11\/notamyth",
+          "time": "1",
+          "belief_id": "22"
         },
         {
           "response": "Is that true? I guess maybe I\u0027m a part of the pack who believed what they read on the internet. Whoops!",
-          "path": "male2\/believedtheinternet",
-          "time": "1"
+          "path": "C11\/believedtheinternet",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You know what else is all hype? You!",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2303,18 +1002,21 @@
       "responses": [
         {
           "response": "Again, not true. Sunlamps provide more dangerous exposure to UV rays than the sun because they are just as strong all year. The sun gets weaker during seasons, or during cloud cover, but your tanning bed is always going to be just as strong and dangerous.",
-          "path": "male2\/sunlamps",
-          "time": "0"
+          "path": "C11\/sunlamps",
+          "time": "0",
+          "belief_id": "15"
         },
         {
           "response": "Look, if you\u0027re going to be so stubbornly set in your ways and not even listen to reason, I don\u0027t think we\u0027re going to work out.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Is that a fact? I didn\u0027t know that\u0027s how it worked.",
-          "path": "male2\/believedtheinternet",
-          "time": "1"
+          "path": "C11\/believedtheinternet",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -2328,18 +1030,21 @@
       "responses": [
         {
           "response": "I still don\u0027t think it\u0027s completely safe, but I respect your right to choose for yourself.",
-          "path": "male2\/chooseyourself",
-          "time": "1"
+          "path": "C11\/chooseyourself",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I mean, if everyone thinks that it\u0027s dangerous I\u0027m sure there\u0027s some semblance of truth in it. People are probably just trying to look out for you. Stop being so stubborn",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "39"
         },
         {
           "response": "YOLO right? If you want to drop your body in cancer then you\u0027re certainly allowed!",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2353,18 +1058,21 @@
       "responses": [
         {
           "response": "Actually, I am going to tell you that. Staying under a sunlamp for too long can cause sunburn. And even a tan is technically skin damage. You don\u0027t need to have a visible burn.",
-          "path": "male2\/visibleburn",
-          "time": "1"
+          "path": "C11\/visibleburn",
+          "time": "1",
+          "belief_id": "17"
         },
         {
           "response": "No way, you\u0027d have to be crazy to think that.",
-          "path": "male2\/crazytalk",
-          "time": "1"
+          "path": "C11\/crazytalk",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027d never tell you that! I\u0027ll just let you find out for yourself ;)",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2378,13 +1086,15 @@
       "responses": [
         {
           "response": "I\u0027m honestly just trying to help",
-          "path": "male2\/crazytalk",
-          "time": "1"
+          "path": "C11\/crazytalk",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Alright, bye.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2398,13 +1108,15 @@
       "responses": [
         {
           "response": "That would be nice.",
-          "path": "male2\/epilogue\/dinner",
-          "time": "0"
+          "path": "C11\/epilogue\/dinner",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t think so",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2418,13 +1130,15 @@
       "responses": [
         {
           "response": "That sounds great!",
-          "path": "male2\/epilogue\/coffee",
-          "time": "0"
+          "path": "C11\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m not really interested",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2438,18 +1152,37 @@
       "responses": [
         {
           "response": "Right, but to make up for the shortened time, the sunlamp just exposes you to higher levels of UV, doesn\u0027t it?",
-          "path": "male2\/sunlamps",
-          "time": "1"
+          "path": "C11\/sunlamps",
+          "time": "1",
+          "belief_id": "15"
         },
         {
           "response": "That\u0027s good to know! Maybe I\u0027ll go sometime.",
-          "path": "male2\/gosometime",
-          "time": "1"
+          "path": "C11\/gosometime",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You could probably use a little more time under the sunlamp to be honest. You\u0027re looking pretty pale.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "highuv": {
+      "subject": "none",
+      "message": "none",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "none",
+          "path": "C11\/",
+          "time": "0",
+          "belief_id": "none"
         }
       ]
     },
@@ -2463,23 +1196,25 @@
       "responses": [
         {
           "response": "Sounds perfect!",
-          "path": "male2\/epilogue\/tanningtogether",
-          "time": "0"
+          "path": "C11\/epilogue\/tanningtogether",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, no thank you.",
-          "path": "male2\/deadend",
-          "time": "9999"
+          "path": "C11\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
     "epilogue": {
-      "dinner": "%C and you go for dinner",
-      "tanningtogether": "You tan with %C",
-      "coffee": "You get coffee with %C"
+      "dinner": "You and %C met for dinner. The conversation and the meal were delicious. You fell in love immediately.",
+      "tanningtogether": "You and %C meet at your Rays, your favorite tanning salon. Your tans look amazing. It was love at first tan.",
+      "coffee": "You meet %C for a cup of coffee. It\u0027s incredible how much you have in common. You fall madly in love with each other."
     }
   },
-  "male4": {
+  "C13": {
     "character_type": "C13",
     "requirements": {
       "tan": "1",
@@ -2500,23 +1235,26 @@
       "responses": [
         {
           "response": "Well despite being a little standard, you seem great! I think my favorite nights ever are casual ones with friends, keeping it low key.",
-          "path": "male4\/standard",
-          "time": "1"
+          "path": "C13\/standard",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "That work life balance can be a struggle. How\u0027s your experience on here, if you don\u0027t mind my asking?",
-          "path": "male4\/worklifebalance",
-          "time": "1"
+          "path": "C13\/worklifebalance",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I won\u0027t beat around the bush. All of my fantasies involve identical twins.",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         }
       ]
     },
     "standard": {
-      "subject": "lol",
+      "subject": "none",
       "message": "Haha well thank you for not thinking I\u0027m boring. What sort of stuff do you like doing with your friends on those low key nights?",
       "belief_id": "None",
       "thresholds": {
@@ -2525,18 +1263,21 @@
       "responses": [
         {
           "response": "I always like doing some sort of activity, like mini-golfing or bowling. There\u0027s this awesome indoor rock climbing place I\u0027ve been to a few times as well.",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Oh my friends and I will crack open a bottle of wine and just talk about all the freaks and losers who message us on these dating sites, it\u0027s hilarious!",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m a huge homebody, so I\u0027m all about getting some friends together at my place for a pot luck and some movies. That\u0027s the perfect stress reliever.",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         }
       ]
     },
@@ -2550,23 +1291,26 @@
       "responses": [
         {
           "response": "Oh if I don\u0027t go on a date, I consider that day a failure. I\u0027m a fiend when it comes to dating.",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Yeah I would say the same. Still looking for that person to inspire me to delete my account!",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027ve never met anyone actually. I\u0027ve had dates set up, but for some reason when people see me in public they turn around and run. Apparently I \u0022don\u0027t look like my pictures.\u0022",
-          "path": "male4\/",
-          "time": "0"
+          "path": "C13\/",
+          "time": "0",
+          "belief_id": "none"
         }
       ]
     }
   },
-  "male5": {
+  "C21": {
     "character_type": "C21",
     "requirements": {
       "tan": "0",
@@ -2587,18 +1331,21 @@
       "responses": [
         {
           "response": "A model, you say? That\u0027s very interesting! I can imagine it takes a lot of discipline, having your entire job based off your outward appearance.",
-          "path": "male5\/discipline",
-          "time": "1"
+          "path": "C21\/discipline",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I think that\u0027s great that you give back like that. Charity and volunteer work is hugely important to me.",
-          "path": "male5\/volunteer",
-          "time": "1"
+          "path": "C21\/volunteer",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "This isn\u0027t the date you\u0027re looking for. Move along.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2612,18 +1359,21 @@
       "responses": [
         {
           "response": "I care about my appearance but it must be a challenge having your livelihood based on it.",
-          "path": "male5\/challenge",
-          "time": "1"
+          "path": "C21\/challenge",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "So once you shrivel up in two or three years, what\u0027ll be next on your career list? What\u0027s the backup plan?",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "That\u0027s good that you\u0027ve made some friends. What do you like to do when you\u0027re not strutting down a runway?",
-          "path": "male5\/preparation",
-          "time": "1"
+          "path": "C21\/preparation",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -2637,18 +1387,21 @@
       "responses": [
         {
           "response": "That makes complete sense. Giving a voice to the voiceless is a valiant deed.",
-          "path": "male5\/voiceless",
-          "time": "1"
+          "path": "C21\/voiceless",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You know, there are humans out there who need help. I think it\u0027s selfish of you to help animals when you could be helping people.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I try to spend as much time as I can outdoors so I think it\u0027s great you\u0027ve figured out a way to give back and be outside.",
-          "path": "male5\/timeoutdoors",
-          "time": "1"
+          "path": "C21\/timeoutdoors",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -2662,18 +1415,21 @@
       "responses": [
         {
           "response": "What kind of workout routines do you go through? They must be extensive.",
-          "path": "male5\/workoutroutine",
-          "time": "1"
+          "path": "C21\/workoutroutine",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "What\u0027s your tanning regiment like? You must tan a lot to keep your thorough look.",
-          "path": "male5\/regiment",
-          "time": "1"
+          "path": "C21\/regiment",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Ugh, I can\u0027t talk to you anymore. You\u0027re so stuck up.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2687,18 +1443,21 @@
       "responses": [
         {
           "response": "Why not? It\u0027s perfectly safe.",
-          "path": "male5\/safe",
-          "time": "1"
+          "path": "C21\/safe",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "That\u0027s smart, I wouldn\u0027t go indoor tanning either.",
-          "path": "male5\/understand",
-          "time": "1"
+          "path": "C21\/understand",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Wow, you\u0027re all obsessed with each other then, aren\u0027t you? I could never spend time with work friends outside of work. I would die.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2712,18 +1471,21 @@
       "responses": [
         {
           "response": "That sounds like a great workout. And finishing up with an indoor tan, that\u0027s great. It\u0027s annoying when people tell me how unsafe it is. People need to lighten up.",
-          "path": "male5\/safe",
-          "time": "1"
+          "path": "C21\/safe",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You indoor tan? You know you shouldn\u0027t do that right?",
-          "path": "male5\/understand",
-          "time": "1"
+          "path": "C21\/understand",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I could never date someone who spends two hours at the gym everyday. That\u0027s time you should be paying attention to me.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2737,18 +1499,21 @@
       "responses": [
         {
           "response": "I just want to tell you that indoor tanning doesn\u0027t actually make you more susceptible to getting skin cancer, that isn\u0027t true.",
-          "path": "male5\/safe",
-          "time": "1"
+          "path": "C21\/safe",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I totally understand what you\u0027re saying as I also have a family history of skin cancer. I wouldn\u0027t want to worry my family at all. I think indoor tanning is important to avoid and be educated about.",
-          "path": "male5\/understand",
-          "time": "1"
+          "path": "C21\/understand",
+          "time": "1",
+          "belief_id": "40"
         },
         {
           "response": "If you\u0027re going to get it anyway, then why not just go for it? At least you\u0027ll look good.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2762,18 +1527,21 @@
       "responses": [
         {
           "response": "I\u0027ve heard a lot of mixed things. It\u0027s actually that dangerous?",
-          "path": "male5\/mixed",
-          "time": "1"
+          "path": "C21\/mixed",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I mean, I\u0027m still doing it. It\u0027s important to me that I look good just like it is to you.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
+          "path": "C21\/canbedangerous",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t want the most deadly type... maybe the second or third most deadly, but not the first.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2787,18 +1555,21 @@
       "responses": [
         {
           "response": "Well it\u0027s good you know about indoor tanning leading to blind eye diseases. But there are a lot of other dangers as well. It\u0027s not worth the risk for a quick tan.",
-          "path": "male5\/regiment",
-          "time": "1"
+          "path": "C21\/regiment",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Well as long as you protect yourself, I\u0027m sure you\u0027d be fine.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
+          "path": "C21\/canbedangerous",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I think it would be cool to be blind. It would make your other senses stronger.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2812,18 +1583,21 @@
       "responses": [
         {
           "response": "Well it sounds like you\u0027re convincing both of us we shouldn\u0027t be doing it.",
-          "path": "male5\/convinced",
-          "time": "1"
+          "path": "C21\/convinced",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Whatever, you need to look good for your job and I like to look good.",
-          "path": "male5\/canbedangerous",
-          "time": "1"
+          "path": "C21\/canbedangerous",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Ugh, go use your scare tactics on someone else, I\u0027m not listening.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2837,18 +1611,21 @@
       "responses": [
         {
           "response": "I completely understand. Maybe the two of us should try indoor tanning together sometime?",
-          "path": "male5\/tantogether",
-          "time": "1"
+          "path": "C21\/tantogether",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I bet we could figure out another way to look good. Any ideas? Maybe something we could do together?",
-          "path": "male5\/hiking",
-          "time": "1"
+          "path": "C21\/hiking",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "If you want to look good, you have to feel good. Let me help you feel good ;)",
-          "path": "male5\/deadned",
-          "time": "9999"
+          "path": "C21\/deadned",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2862,13 +1639,15 @@
       "responses": [
         {
           "response": "Sounds perfect!",
-          "path": "male5\/epilogue\/coffee",
-          "time": "0"
+          "path": "C21\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t think I\u0027m interested.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2882,13 +1661,15 @@
       "responses": [
         {
           "response": "Looking forward to it!",
-          "path": "male5\/epilogue\/tantogether",
-          "time": "0"
+          "path": "C21\/epilogue\/tantogether",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, never mind.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2902,13 +1683,15 @@
       "responses": [
         {
           "response": "Sounds perfect!",
-          "path": "male5\/epilogue\/hiking",
-          "time": "0"
+          "path": "C21\/epilogue\/hiking",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t think I\u0027m interested.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2922,18 +1705,21 @@
       "responses": [
         {
           "response": "That\u0027s great! What else do you and your friends do for fun?",
-          "path": "male5\/preparation",
-          "time": "1"
+          "path": "C21\/preparation",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You must have a lot of downtime. Maybe you should work harder.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "OMG are all your friends models? They must be SUPER hot. Introduce me?",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -2947,23 +1733,31 @@
       "responses": [
         {
           "response": "I totally understand. I have friends who go indoor tanning but I know using them can cause melanoma.",
-          "path": "male5\/understand",
-          "time": "1"
+          "path": "C21\/understand",
+          "time": "1",
+          "belief_id": "13"
         },
         {
           "response": "Why not just try indoor tanning? It\u0027s so much easier, and the rumors that it\u0027s unsafe are completely unfounded!",
-          "path": "male5\/safe",
-          "time": "1"
+          "path": "C21\/safe",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah looking at your pictures, it\u0027s good that you tan. You wouldn\u0027t look good pale.",
-          "path": "male5\/deadend",
-          "time": "9999"
+          "path": "C21\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
+    },
+    "epilogue": {
+      "coffee": "You meet %C for coffee and it\u0027s very stimulating. You fall deeply in love.",
+      "tantogether": "You meet %C at the tanning salon to get your bronze on. The two of you produce more heat than a tanning bed. You fall in love instantly.",
+      "hiking": "You go with %C on a hike in the mountains. The scenery is beautiful, but you can\u0027t keep your eyes off each other. You fall in love instantly."
     }
   },
-  "male6": {
+  "C23": {
     "character_type": "C23",
     "requirements": {
       "tan": "0",
@@ -2984,18 +1778,21 @@
       "responses": [
         {
           "response": "Wow, law school. I have some friends who\u0027ve done that. It sounds super tough. How is it going overall?",
-          "path": "male6\/tough",
-          "time": "1"
+          "path": "C23\/tough",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I think it\u0027s awesome that you can give back to those who may not get care any other way.",
-          "path": "male6\/giveback",
-          "time": "1"
+          "path": "C23\/giveback",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I have a serious lawyer\/client fantasy so maybe we can help each other out.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3009,18 +1806,21 @@
       "responses": [
         {
           "response": "I\u0027m glad you\u0027re doing well. There\u0027s no way I would be interested in some law school dropout! ",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "That\u0027s great! Any good lessons you can pass along?",
-          "path": "male6\/lessons",
-          "time": "1"
+          "path": "C23\/lessons",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I am almost CONSTANTLY in legal trouble so having you around would be great for me.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3034,18 +1834,21 @@
       "responses": [
         {
           "response": "That\u0027s great! Any good lessons you can pass along?",
-          "path": "male6\/lessons",
-          "time": "1"
+          "path": "C23\/lessons",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You can probably do less. Like I do. I don\u0027t do good things for anybody except myself, and I like it that way.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I totally understand what you\u0027re saying about getting stuff out as much as you put in. I feel that way about my part time job at the tanning salon. I make money, and get free tanning!",
-          "path": "male6\/gettingstuff",
-          "time": "1"
+          "path": "C23\/gettingstuff",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3059,18 +1862,21 @@
       "responses": [
         {
           "response": "What\u0027s wrong with indoor tanning? I go all the time and I think it makes me look healthy.",
-          "path": "male6\/indoortanningwrong",
-          "time": "1"
+          "path": "C23\/indoortanningwrong",
+          "time": "1",
+          "belief_id": "9"
         },
         {
           "response": "I mean, a lot of my friends go, so sometimes I feel the pressure to join in.",
-          "path": "male6\/pressuretojoin",
-          "time": "1"
+          "path": "C23\/pressuretojoin",
+          "time": "1",
+          "belief_id": "36"
         },
         {
           "response": "Oh, I totally agree, indoor tanning is disgusting. I have a friend who tells me that it makes her look younger, but I think she looks like a walking skin cancer advertisement.",
-          "path": "male6\/indoordisgusting",
-          "time": "1"
+          "path": "C23\/indoordisgusting",
+          "time": "1",
+          "belief_id": "30"
         }
       ]
     },
@@ -3084,18 +1890,21 @@
       "responses": [
         {
           "response": "It\u0027s associated with beauty because a tan is hot. Literally lol. I just love feeling fried!",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Well it\u0027s not like that \u0022damage\u0022 is going to do anything to you. I\u0027ve heard you\u0027re only in danger of getting skin cancer if someone in your family has had it.",
-          "path": "male6\/damage",
-          "time": "1"
+          "path": "C23\/damage",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "It sounds like you just need somebody to go tanning with.",
-          "path": "male6\/enjoysit",
-          "time": "1"
+          "path": "C23\/enjoysit",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3109,18 +1918,21 @@
       "responses": [
         {
           "response": "Well it seems like you have some good friends. Mine are convinced it\u0027s actually good for you.",
-          "path": "male6\/indoortanningwrong",
-          "time": "1"
+          "path": "C23\/indoortanningwrong",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t honestly mind the pressure they put on me, I don\u0027t think I\u0027m at risk like those who have skin cancer running in their family.",
-          "path": "male6\/damage",
-          "time": "1"
+          "path": "C23\/damage",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Who cares what your friends think? Be your own person!",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3134,18 +1946,21 @@
       "responses": [
         {
           "response": "I had no idea. I don\u0027t think I have any reason to go indoor tanning then, if the dangers are so real.",
-          "path": "male6\/noreasontogo",
-          "time": "1"
+          "path": "C23\/noreasontogo",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Well I have a friend who got BRAIN CANCER so I win.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m sorry about your friend, but just because some stranger got sick once isn\u0027t really a strong enough argument for me.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3159,18 +1974,21 @@
       "responses": [
         {
           "response": "Yeah I should. Although I know that she\u0027s not as in danger of getting skin cancer as somebody who actually has it in their family history.",
-          "path": "male6\/damage",
-          "time": "1"
+          "path": "C23\/damage",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I would, but she seems to really enjoy it. Maybe you just need to give it another shot with your friends.",
-          "path": "male6\/enjoysit",
-          "time": "1"
+          "path": "C23\/enjoysit",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Then maybe kids should indoor tan. They always want to look older, right?",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3184,18 +2002,21 @@
       "responses": [
         {
           "response": "It\u0027s only a part time job, and I know I shouldn\u0027t tan, so I try to do it very minimally. I know it isn\u0027t good for you.",
-          "path": "male6\/epilogue\/coffee",
-          "time": "0"
+          "path": "C23\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "Hey, I don\u0027t mind indoor tanning. I have a friend who is certain it makes her look younger.",
-          "path": "male6\/indoordisgusting",
-          "time": "1"
+          "path": "C23\/indoordisgusting",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "It\u0027s great money. And it doesn\u0027t hurt getting to see all those very attractive people stripping down to their underwear. :)",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3209,18 +2030,21 @@
       "responses": [
         {
           "response": "I think you\u0027re right. It isn\u0027t safe, smart, and there\u0027s no reason to put myself in danger like that.",
-          "path": "male6\/noreasontogo",
-          "time": "1"
+          "path": "C23\/noreasontogo",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I guess we\u0027ll agree to disagree. Maybe we could go tanning together sometime? I might convince you.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Your friends sound like losers.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3234,18 +2058,20 @@
       "responses": [
         {
           "response": "Sounds great!",
-          "path": "male6\/epilogue\/coffee",
-          "time": "0"
+          "path": "C23\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "No thank you.",
-          "path": "male6\/deadend",
-          "time": "9999"
+          "path": "C23\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     }
   },
-  "male7": {
+  "C31A": {
     "character_type": "C31",
     "requirements": {
       "tan": "0",
@@ -3266,18 +2092,21 @@
       "responses": [
         {
           "response": "I love music as well! And there\u0027s nothing like a fun concert on a free night to take your mind off work!",
-          "path": "male7\/lovemusic",
-          "time": "1"
+          "path": "C31A\/lovemusic",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Oh I love \u0022Dancing With the Out-of-Date Celebrities!\u0022 Is there anything better than watching people who have lost their relevancy cling to stardom in the saddest ways?",
-          "path": "male7\/popularitycontest",
-          "time": "1"
+          "path": "C31A\/popularitycontest",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m not a huge dancer, but I\u0027ve been told that I move my body in very unique and interesting ways. Want to find out more?",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3291,18 +2120,21 @@
       "responses": [
         {
           "response": "I go crazy for Smooch. I love their hard rock style, all that wild stage makeup and that thing they do with their tongues. They\u0027re amazing live.",
-          "path": "male7\/smooch",
-          "time": "1"
+          "path": "C31A\/smooch",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "There\u0027s nobody better than Deyonce. She\u0027s my queen.",
-          "path": "male7\/deyonce",
-          "time": "1"
+          "path": "C31A\/deyonce",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I listen exclusively to Death Metal. It soothes my tormented soul.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3316,18 +2148,21 @@
       "responses": [
         {
           "response": "I know what you mean. It\u0027s basically a beauty contest to see who gets to go up.",
-          "path": "male7\/beauty",
-          "time": "1"
+          "path": "C31A\/beauty",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Oh I would never want to go up on that stage. I projectile vomit when I get nervous. TMI?",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I always get pulled up on stage actually. It\u0027s so random!",
-          "path": "male7\/pulledonstage",
-          "time": "1"
+          "path": "C31A\/pulledonstage",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3341,18 +2176,21 @@
       "responses": [
         {
           "response": "I know what you mean, it\u0027s basically a beauty contest to see who gets to go up.",
-          "path": "male7\/beauty",
-          "time": "1"
+          "path": "C31A\/beauty",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Oh I would never want to go up on stage. I projectile vomit when I get nervous. TMI?",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I always get pulled up on stage actually. It\u0027s so random!",
-          "path": "male7\/pulledonstage",
-          "time": "1"
+          "path": "C31A\/pulledonstage",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3366,18 +2204,21 @@
       "responses": [
         {
           "response": "The tanning salon? Why wouldn\u0027t you just tan outside instead of spending money on it?",
-          "path": "male7\/tanningoutside",
-          "time": "1"
+          "path": "C31A\/tanningoutside",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Oh I avoid tanning salons. I think fake tans make you look kind of leathery. In fact, you look kind of leathery. I don\u0027t think I\u0027m going to be giving you any compliments.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Oh I get that for sure. I have a membership at my salon and I go at least once a week.",
-          "path": "male7\/membership",
-          "time": "1"
+          "path": "C31A\/membership",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3391,18 +2232,21 @@
       "responses": [
         {
           "response": "Well thanks for the compliment! I try to tan outside the good old fashioned way more often than not.",
-          "path": "male7\/oldfashionedway",
-          "time": "1"
+          "path": "C31A\/oldfashionedway",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah it\u0027s all the salon! Do you go?",
-          "path": "male7\/allthesalon",
-          "time": "1"
+          "path": "C31A\/allthesalon",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m not on here to get compliments from strangers, and frankly I find your tone abrasive and inappropriate.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3416,18 +2260,21 @@
       "responses": [
         {
           "response": "I\u0027m fairly certain that\u0027s not true. I\u0027m always surprised when I see promos, like \u0022unlimited free tanning for 7 days!\u0022 There are higher chances of being exposed to excessive UV rays when you use tanning beds without knowing the potential danger.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
+          "path": "C31A\/fairlycertain",
+          "time": "1",
+          "belief_id": "19"
         },
         {
           "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
+          "path": "C31A\/isthattrue",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Everyone knows those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3441,18 +2288,21 @@
       "responses": [
         {
           "response": "It can get a little tight in there, but it\u0027s still worth it.",
-          "path": "male7\/tight",
-          "time": "1"
+          "path": "C31A\/tight",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for five hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
+          "path": "C31A\/dontmindtheheat",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah, and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3466,18 +2316,21 @@
       "responses": [
         {
           "response": "Alright well someone who carelessly ignores their own health isn\u0027t going to work for me.",
-          "path": "male7\/careless",
-          "time": "1"
+          "path": "C31A\/careless",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You might be right. It seems almost like a fad to hate on indoor tanning. And you do look good for it.",
-          "path": "male7\/mightberight",
-          "time": "1"
+          "path": "C31A\/mightberight",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "You\u0027re never going to get on stage looking as fake as you do.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3491,18 +2344,21 @@
       "responses": [
         {
           "response": "Muscles? I don\u0027t see any muscles lol. Keep working.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I totally agree. You look great.",
-          "path": "male7\/youlookgreat",
-          "time": "1"
+          "path": "C31A\/youlookgreat",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "If you look better now, that\u0027s not saying much. I can only imagine what you looked like without a tan.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3516,13 +2372,15 @@
       "responses": [
         {
           "response": "Alright, that sounds nice.",
-          "path": "male7\/epilogue\/coffee",
-          "time": "0"
+          "path": "C31A\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t think so.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3536,13 +2394,15 @@
       "responses": [
         {
           "response": "Sure!",
-          "path": "male7\/epilogue\/dinner",
-          "time": "0"
+          "path": "C31A\/epilogue\/dinner",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t think so.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3556,13 +2416,15 @@
       "responses": [
         {
           "response": "I\u0027m definitely interested!",
-          "path": "male7\/epilogue\/tanning",
-          "time": "0"
+          "path": "C31A\/epilogue\/tanning",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "No thanks!",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3576,13 +2438,15 @@
       "responses": [
         {
           "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
+          "path": "C31A\/epilogue\/concert",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3596,13 +2460,15 @@
       "responses": [
         {
           "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
+          "path": "C31A\/epilogue\/concert",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3616,18 +2482,21 @@
       "responses": [
         {
           "response": "I\u0027m fairly certain that\u0027s not true. Scientific studies show that UV exposure provided by sunlamps is often excessive. I actually read that the FDA is trying to strengthen their warning labels to raise awareness of that.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
+          "path": "C31A\/fairlycertain",
+          "time": "1",
+          "belief_id": "20"
         },
         {
           "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
+          "path": "C31A\/isthattrue",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Everyone knows that those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3641,18 +2510,21 @@
       "responses": [
         {
           "response": "It can get a little tight in there, but it\u0027s still worth it.",
-          "path": "male7\/tight",
-          "time": "1"
+          "path": "C31A\/tight",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for five hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
+          "path": "C31A\/dontmindtheheat",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3666,18 +2538,21 @@
       "responses": [
         {
           "response": "Oh that\u0027s definitely true. The winner is almost always the most fit, tan, and stereotypically attractive.",
-          "path": "male7\/mostfittan",
-          "time": "1"
+          "path": "C31A\/mostfittan",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "But last season that super pale nerdy guy won. Granted he was the best dancer, but he definitely wasn\u0027t the most attractive.",
-          "path": "male7\/palenerdy",
-          "time": "1"
+          "path": "C31A\/palenerdy",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "All I know is that if you were on that show, you\u0027d win in a landslide. You\u0027re the most attractive individual I\u0027ve ever seen. You remind me of myself in that way.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3691,18 +2566,21 @@
       "responses": [
         {
           "response": "Yeah it\u0027s so sad. Instead of the person who deserves it, the one who spends the most time killing themselves in a tanning booth gets to win.",
-          "path": "male7\/sosad",
-          "time": "1"
+          "path": "C31A\/sosad",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "If it\u0027s between an ugly person and a pretty person, you better believe I think the pretty person deserves it.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I was on reality TV once. The show was about people who lie about who they are when online dating.... so want to meet for a drink sometime?",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3716,18 +2594,21 @@
       "responses": [
         {
           "response": "I think he looked better before. But maybe I\u0027m just saying that because I don\u0027t think indoor tanning is good for you.",
-          "path": "male7\/betterbefore",
-          "time": "1"
+          "path": "C31A\/betterbefore",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I did see him, and he looked a lot better. The tanning salon worked wonders for him. It practically inspired me to go as well.",
-          "path": "male7\/lookedbetter",
-          "time": "1"
+          "path": "C31A\/lookedbetter",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I just think they\u0027re going to have a show where attractive people always win, the fact that they chose him is a travesty.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3741,18 +2622,21 @@
       "responses": [
         {
           "response": "I know people think that, but they\u0027re really not. Tanning salons say they look out for their clients, but how would a place that offers unlimited tanning for a week after signing up be looking out for anyone? There\u0027s nothing safe about that.",
-          "path": "male7\/lookoutforclients",
-          "time": "1"
+          "path": "C31A\/lookoutforclients",
+          "time": "1",
+          "belief_id": "19"
         },
         {
           "response": "Is that true? I thought I\u0027d heard otherwise.",
-          "path": "male7\/isthattrue",
-          "time": "1"
+          "path": "C31A\/isthattrue",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I could never do it, I would rather lay out on the beach regardless!",
-          "path": "male7\/layonthebeach",
-          "time": "1"
+          "path": "C31A\/layonthebeach",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3766,18 +2650,21 @@
       "responses": [
         {
           "response": "Well whatever you\u0027re reading isn\u0027t reliable, and you need to recheck your sources.",
-          "path": "male7\/recheck",
-          "time": "1"
+          "path": "C31A\/recheck",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I\u0027m surprised you can read, because frankly, you sound pretty stupid.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "I just want you to know how dangerous it can be. I don\u0027t want anyone unnecessarily exposing themselves to dangers like that.",
-          "path": "male7\/exposedtodanger",
-          "time": "1"
+          "path": "C31A\/exposedtodanger",
+          "time": "1",
+          "belief_id": "none"
         }
       ]
     },
@@ -3791,18 +2678,21 @@
       "responses": [
         {
           "response": "It can get a little tight in there, but it\u0027s still worth it",
-          "path": "male7\/tight",
-          "time": "1"
+          "path": "C31A\/tight",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "I don\u0027t mind the heat so much, or getting a little sweaty. It\u0027s still more pleasant than if I was laying outside for 5 hours.",
-          "path": "male7\/dontmindtheheat",
-          "time": "1"
+          "path": "C31A\/dontmindtheheat",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Yeah and it\u0027s so easy for me because I get all my appointments for free. Sleeping with the managers has its perks!!!",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3816,13 +2706,15 @@
       "responses": [
         {
           "response": "(DON\u0027T REPLY)",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         },
         {
           "response": "Lol good luck psycho",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3836,13 +2728,15 @@
       "responses": [
         {
           "response": "That sounds great",
-          "path": "male7\/epilogue\/coffee",
-          "time": "0"
+          "path": "C31A\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "No thanks",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3856,18 +2750,21 @@
       "responses": [
         {
           "response": "I\u0027m fairly certain that\u0027s not true. Studies show that UV exposure provided by sunlamps is often excessive. I actually read that the FDA is trying to strengthen their warning labels to raise awareness.",
-          "path": "male7\/fairlycertain",
-          "time": "1"
+          "path": "C31A\/fairlycertain",
+          "time": "1",
+          "belief_id": "20"
         },
         {
           "response": "Huh, is that true? I had no idea they were better than going outside.",
-          "path": "male7\/isthattrue",
-          "time": "1"
+          "path": "C31A\/isthattrue",
+          "time": "1",
+          "belief_id": "none"
         },
         {
           "response": "Everyone knows that those places give you skin cancer. You must have some kind of death wish.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
@@ -3881,72 +2778,332 @@
       "responses": [
         {
           "response": "That sounds good to me!",
-          "path": "male7\/epilogue\/concert",
-          "time": "0"
+          "path": "C31A\/epilogue\/concert",
+          "time": "0",
+          "belief_id": "none"
         },
         {
           "response": "On second thought, I don\u0027t think I\u0027m interested.",
-          "path": "male7\/deadend",
-          "time": "9999"
+          "path": "C31A\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     }
   },
-  "tanning": {
-    "offer1": {
-      "path": "tanning/offer1/0",
-      "subject": "Feeling drab?",
-      "belief_id": "APB1",
-      "belief_marketing_id": "APB1_M1",
-      "B_M_ID_Num": "",
-      "message": "Feeling drab, pale, and sickly? Come in for a session in one of our tanning beds and you’ll immediately look healthy and youthful!",
+  "C12": {
+    "character_type": "C12",
+    "requirements": {
+      "tan": "2",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "%C winked back!",
+      "message": "Hello stranger!\r\n\r\nPleasure to \u0022meet\u0022 you! I\u0027ve spoken to a couple of people on here and frankly I\u0027m searching for that person to get offline with! Maybe you\u0027re them! I actually consider myself a bit of a world traveler and amateur cartographer. I really enjoy exploring new places as well as creating and collecting maps that depict those places in unique ways. I do, however, rarely stray from the beach in my travels. I\u0027m definitely happiest when I\u0027m laying on the sand.\r\n\r\nIf I\u0027ve already won your heart, say hello! (Just kidding, there\u0027s plenty of time for that)",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
       "responses": [
         {
-          "response": "Sounds good! I'll give it a try",
-          "path": "tanning",
-          "time": 5
+          "response": "A passion for cartography! That\u0027s something I can\u0027t say I\u0027ve ever encountered in a person.",
+          "path": "C12\/cartography",
+          "time": "1",
+          "belief_id": "none"
         },
         {
-          "response": "No thanks, I'm good.",
-          "path": "remove/tanning",
-          "time": 9999
+          "response": "I\u0027m a big fan of the beach as well. I\u0027m more of a \u0022splash around in the water\u0022 kind of beach-goer.",
+          "path": "C12\/beach",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "Great to \u0022meet\u0022 you as well. However this is probably all the \u0022meeting\u0022 I\u0027m interested in doing. I fear the outdoors.",
+          "path": "C12\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
-    "offer2": {
-      "path": "tanning/offer2/0",
-      "subject": "Blemishes?",
-      "message": "A silly blemish got you down? Come in for a session in one of our tanning beds and your imperfections will surely be hidden, leaving you feeling clean, carefree, and confident.",
+    "cartography": {
+      "subject": "Small, but passionate.",
+      "message": "Yeah we\u0027re a small but passionate community. I just like being able to talk about a place I\u0027ve visited and then point to it on the wall and be like \u0022it was right here, and we took this path to get there.\u0022 Do you travel much?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
       "responses": [
         {
-          "response": "I hate blemishes, sign me up!",
-          "path": "tanning",
-          "time": 5
+          "response": "I travel all the time! I enjoy getting out of my comfort zone and exploring places people wouldn\u0027t typically think of as a \u0022vacation destination.\u0022",
+          "path": "C12\/nonvacation",
+          "time": "0",
+          "belief_id": "none"
         },
         {
-          "response": "No thanks, I'm good.",
-          "path": "remove/tanning",
-          "time": 9999
+          "response": "I travel, but no where near as much as you I would guess. I\u0027m more of a homebody. A good day trip or overnighter is right up my alley.",
+          "path": "C12\/homebody",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "With Google Earth, why would you even travel at all? The internet can take you anywhere in the world you want to go, and you can do it from your bed while eating McDonalds. I consider that a win.",
+          "path": "C12\/deadend",
+          "time": "9999",
+          "belief_id": "none"
         }
       ]
     },
-    "offer3": {
-      "path": "tanning/offer3/0",
-      "subject": "Feeling uncomfortable in your own skin?",
-      "message": "No person should EVER feel uncomfortable in his or her own skin! If you feel this way, you must fix this situation as soon as possible! One quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful, bold, and bright!",
+    "beach": {
+      "subject": "ha!",
+      "message": "Yeah that can certainly be fun. Not my priority, but I get it. To be honest, I usually go relax on the sand to pick up dates. I hope that\u0027s not too shallow of me haha.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
       "responses": [
         {
-          "response": "Yes, I want to be beautiful!",
-          "path": "tanning",
-          "time": 5
+          "response": "Nothing wrong with that. If you\u0027ve got it, flaunt it, I guess!",
+          "path": "C12\/flaunt",
+          "time": "0",
+          "belief_id": "none"
         },
         {
-          "response": "No thanks, I'm good.",
-          "path": "remove/tanning",
-          "time": 9999
+          "response": "I love relaxing on the sand, and if a date comes from it, then so be it!",
+          "path": "C12\/relax",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "If you were a pool you\u0027d have one of those \u0022no diving\u0022 signs, that\u0027s for sure.",
+          "path": "C12\/",
+          "time": "0",
+          "belief_id": "none"
         }
       ]
+    },
+    "nonvacation": {
+      "subject": "Yep!",
+      "message": "I feel the same way. There\u0027s something incredible about getting completely off the grid. Granted, I miss some of our more modern amenities, but that\u0027s a necessary sacrifice sometimes. What do you think you miss most when you travel?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "In terms of amenities, I would have to say fast food. Not that I\u0027m addicted or anything, but sometimes you just need greasy french fries, right? What do you miss?",
+          "path": "C12\/amenities",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "Not really an amenity, but my dog. Spending any time away from her hurts my heart. What about you?",
+          "path": "C12\/amenities",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "I don\u0027t miss anything. Frankly if I could escape into the middle of nowhere and never come back here I would do it in a heart beat. Want to join me? Let\u0027s just run away together.",
+          "path": "C12\/runaway",
+          "time": "0",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "homebody": {
+      "subject": "That\u0027s fair",
+      "message": "That\u0027s fair. I certainly can get into a day trip or a quick weekend away. It\u0027s nice not having to leave behind all of our modern amenities to travel.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": " Haha, I gotcha. I don\u0027t think I would survive without good cell reception. What kind of modern amenities can\u0027t you live without?",
+          "path": "C12\/amenities",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "I mean I only do the day trips because I can\u0027t take off that much time from work. We can\u0027t all just pack up and go jetting around the world like you seem able to do.",
+          "path": "C12\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Exactly. I like being able to go out and enjoy somewhere interesting, but come home and sleep in my bed. Want to join?",
+          "path": "C12\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "amenities": {
+      "subject": "Well...",
+      "message": "Without sounding super vain, I don\u0027t know what I would do without easy access to an indoor tanning facility. I mean, not just so I look good, but also for health reasons, you know?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I don\u0027t know what you mean by \u0022health reasons.\u0022 I\u0027m like 99% sure that indoor tanning is bad for you.",
+          "path": "C12\/healthreasons",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u0027ve always indoor tanned, but what health reasons are you talking about? I just did it to look good.",
+          "path": "C12\/",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u0027ve never indoor tanned, but all my friends do. They have pretty mixed feelings about it.",
+          "path": "C12\/",
+          "time": "0",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "healthreasons": {
+      "subject": "Heard that before",
+      "message": "I\u0027ve heard that before, but indoor tanning is actually a great source of Vitamin D. In fact, it\u0027s really the only way to make sure you get the amount doctors recommend. So it\u0027s kind of like a prescription haha.",
+      "belief_id": "HB8",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "A doctor might recommend vitamin D, not the tanning :) You can get enough with a good diet and a vitamin supplement.",
+          "path": "C12\/",
+          "time": "0",
+          "belief_id": "26"
+        },
+        {
+          "response": "I always thought being outdoors would get you enough. I guess that\u0027s not true?",
+          "path": "C12\/enough",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "Wow people like you are a special type of stupid.",
+          "path": "C12\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "dinner": "%C get dinner."
     }
+  },
+  "tanning": {
+    "M1": {
+      "path": "tanning\/M1\/0",
+      "subject": "Feeling blah?",
+      "belief_id": "9",
+      "message": "Feeling drab, pale, and sickly? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and youthful!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "M2": {
+    "path": "tanning\/M2\/0",
+    "subject": "Feeling less than than perfect?",
+    "belief_id": "9",
+    "message": "Want to look vibrant and healthy? Come in for a session in one of our tanning beds and you\u2019ll immediately be the best version of yourself!",
+    "responses": [
+      {
+        "response": "Sounds good, sign me up!",
+        "path": "tanning",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, I\u0027m fine.",
+        "path": "remove\/tanning",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    "M3": {
+    "path": "tanning\/M3\/0",
+    "subject": "New Found Health",
+    "belief_id": "9",
+    "message": "What better way to contribute to your newfound healthiness, than to LOOK even healthier? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and toned!",
+    "responses": [
+      {
+        "response": "Sure, sign me up!",
+        "path": "tanning",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, maybe later.",
+        "path": "remove\/tanning",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    "M4": {
+    "path": "tanning\/M4\/0",
+    "subject": "Instant Gratification",
+    "belief_id": "9",
+    "message": "Who doesn\u2019t want to look healthy and vibrant? Come in for a session in one of our tanning beds and you\u2019ll receive instant gratification.",
+    "responses": [
+      {
+        "response": "Sign me up, I need some gratification!",
+        "path": "tanning",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, I\u0027m good.",
+        "path": "remove\/tanning",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    "M5": {
+    "path": "tanning\/M5\/0",
+    "subject": "Skin imperfections?",
+    "belief_id": "10",
+    "message": "Uh oh! Find yet another blemish on your skin? A quick session in one of our tanning beds will fix that right up! It will hide all of your skin imperfections and leave you feeling beautiful and confident.",
+    "responses": [
+      {
+        "response": "Yes please!",
+        "path": "tanning",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, I\u0027m good.",
+        "path": "remove\/tanning",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    
   },
   "love": {
     "offer1": {

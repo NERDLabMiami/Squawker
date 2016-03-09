@@ -53,8 +53,7 @@ public class IncomingMessage : MonoBehaviour {
 		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
 		switch (message.sender) {
 		case "tanning":
-			GetComponent<PlayerBehavior>().trackEvent(3, "TAN", "", "");
-
+			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "");
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
@@ -91,13 +90,19 @@ public class IncomingMessage : MonoBehaviour {
 		this.transform.parent.gameObject.SetActive(false);
 
 		for (int i = 0; i < message.responses.Count; i++) {
-			msg.GetComponent<ViewMessage>().addResponse(message.responses[i]);
+			//ADDS PARENT BELIEF FOR RESPONSE IF IT ISN'T MARKED AS ANOTHER BELIEF ID
+			if (message.responses[i].belief != null) {
+				if(message.responses[i].belief.Contains("none")) {
+						message.responses[i].belief = message.belief;
+					}
+			}
+				msg.GetComponent<ViewMessage>().addResponse(message.responses[i]);
 		}
-
+	
 	}
-
+	/*
 	private string[] getPath(string message) {
 		return message.Split (new string[] {"/"}, System.StringSplitOptions.None);
 	}
-
+*/
 }

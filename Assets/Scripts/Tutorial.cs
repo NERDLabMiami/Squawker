@@ -14,6 +14,7 @@ public class Tutorial : MonoBehaviour {
 			items[tutorialIndex].gameObject.SetActive(true);
 		}
 		else {
+			Debug.Log("Interactable Buttons Exist now!");
 			for(int i = 0; i < buttons.Length; i++) {
 				buttons[i].interactable = true;
 			}

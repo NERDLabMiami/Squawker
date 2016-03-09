@@ -10,6 +10,7 @@ public class Epilogue : MonoBehaviour {
 	public AudioClip sadEnding;
 	public AudioClip middleEnding;
 	public AudioClip happyEnding;
+	public int endingType = 0;
 
 	// Use this for initialization
 	void Start () {

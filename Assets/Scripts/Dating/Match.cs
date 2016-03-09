@@ -37,6 +37,8 @@ public class Match : MonoBehaviour {
 	}
 
 	public void wink() {
+		avatar.assignCharacter(PlayerPrefs.GetString ("gender preference", "both"));
+		avatar.saveCharacter();
 		if (player.takeAction(true)) {
 
 			Debug.Log("adding message for " + avatar.getCharacterAssignment() + " with name of " + avatar.characterName);

@@ -58,7 +58,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 		//TODO: Animate transition between waiver
 		waiver.SetActive (false);
 		gameObject.SetActive (true);
-		GetComponent<PlayerBehavior>().trackEvent(4, "SIGNED WAIVER", "FINDBELIEFINOFFER", "");
+		GetComponent<PlayerBehavior>().trackEvent(4, "SIGNED WAIVER", "", "");
 		signedWaiver = true;
 		continueButton.SetActive (true);
 		bed.SetTrigger("open");
@@ -68,7 +68,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public void decline() {
 		//TODO: Should log analytics for declining offer
 		//TODO: Animate the transition
-		GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "FINDBELIEFINOFFER", "");
+		GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "", "");
 	
 		dialogue.text = "Changed your mind? That's okay. Maybe next time!";
 		response.text = "Ok!";

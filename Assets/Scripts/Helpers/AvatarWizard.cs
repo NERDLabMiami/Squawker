@@ -38,8 +38,6 @@ public class AvatarWizard : MonoBehaviour {
 		player.resetStats();
 		PlayerPrefs.SetString("qualtrics_id", player_id);
 
-		player.newOffer("tanning");
-		player.newOffer ("love");
 		PlayerPrefs.SetInt("game in progress", 1);
 
 //		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);

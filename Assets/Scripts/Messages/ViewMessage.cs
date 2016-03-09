@@ -36,6 +36,7 @@ public class ViewMessage : MonoBehaviour {
 				if (characterPath.Equals("ignore")) {
 				}
 				else {
+					
 					string storyPath = getStringFromResponse(r.path, 2);
 					inbox.populateEpilogue(characterPath, storyPath, character.name);
 					inbox.epilogue.npc.characterAssignment = character.characterAssignment;

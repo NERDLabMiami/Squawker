@@ -359,7 +359,7 @@ public class Character : MonoBehaviour {
 
 	public void loadCharacter() {
 		name = PlayerPrefs.GetString (characterAssignment);
-		Debug.Log ("Loading " + characterAssignment + " with name of " + characterName);
+		Debug.Log ("Loading " + characterAssignment + " with name of " + name);
 //		int[] assignedColors = Prefs.PlayerPrefsX.GetIntArray (characterAssignment + "_avatar");
 		float[] skinColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_skin");
 		float[] hairColors = Prefs.PlayerPrefsX.GetFloatArray(characterAssignment + "_hair");
@@ -495,6 +495,7 @@ public class Character : MonoBehaviour {
 			List<string> list = new List<string> (dates);
 			int selectedCharacter = Random.Range (0, list.Count);
 			characterAssignment = list [selectedCharacter];
+			Debug.Log("Random Character Selection: "  + selectedCharacter);
 			list.RemoveAt (selectedCharacter);
 			Prefs.PlayerPrefsX.SetStringArray (type, list.ToArray ());
 			PlayerPrefs.SetString (characterAssignment, characterName);

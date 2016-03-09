@@ -190,6 +190,12 @@ public class Character : MonoBehaviour {
 		baseSkinTone = skinColor;
 	}
 
+	public string getSkinTone() {
+		return skin.ToString ();
+	}
+	public string getHairColor() {
+		return hair.ToString ();
+	}
 	public void assign(string character = null) {
 		Debug.Log ("Character assignment: " + character);
 		if (character != null) {

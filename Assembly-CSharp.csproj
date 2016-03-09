@@ -88,7 +88,6 @@
      <Compile Include="Assets\Wink.cs" />
      <None Include="Assets\Resources\messages.txt" />
      <None Include="Assets\Resources\marketing.txt" />
-     <None Include="Assets\Resources\messages.backup.txt" />
      <None Include="Assets\AssetStoreFiles\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

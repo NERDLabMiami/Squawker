@@ -20,19 +20,23 @@ public class Match : MonoBehaviour {
 	public void pass() {
 		//TODO: Generate a new potential match
 		// Name randomizer
-
+/*
 		if(player.takeAction(true)) {
 			newMatch();
 			player.updateProfile();
 
 		}
-	}
+*/
+}
 
 	public void newMatch() {
 		avatar.randomlyGenerate ();
 		string matchGender = PlayerPrefs.GetString ("gender preference", "both");
 		avatar.assignName(matchGender);
 		alias.text = avatar.name;
+		if(player.takeAction(true)) {
+			player.updateProfile ();
+		}
 
 	}
 

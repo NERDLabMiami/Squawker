@@ -77,6 +77,7 @@ public class ViewMessage : MonoBehaviour {
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
 				player.previewInbox.checkIfEmpty();
+				player.takeAction(true);
 				player.loadSceneNumber(type);
 			});
 		} else {
@@ -158,7 +159,7 @@ public class ViewMessage : MonoBehaviour {
 */
 	void respond(string path, int index, string belief) {
 		//TODO: Path update for just character
-		GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, path);
+		GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, StringArrayFunctions.getMessage(path)[0]);
 		player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time

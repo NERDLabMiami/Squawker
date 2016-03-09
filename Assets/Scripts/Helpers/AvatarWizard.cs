@@ -32,6 +32,7 @@ public class AvatarWizard : MonoBehaviour {
 
 	public void saveAndContinue() {
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		PlayerBehavior pb = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerBehavior> ();
 		//TODO: Set Character List Through Gender Preference
 		Debug.Log("Resetting Stats");
 		string player_id = PlayerPrefs.GetString("qualtrics_id");
@@ -42,7 +43,10 @@ public class AvatarWizard : MonoBehaviour {
 
 //		avatar.setColors(skinToneColorSelector.selectedColor, 0, hairColorSelector.selectedColor);
 		avatar.setPaths();
+
 		avatar.saveCharacter(true);
+		//TODO: Hair Color & Style
+		pb.newPlayer (avatar.getSkinTone (), avatar.getHairColor(), avatar.face.sprite.name, avatar.ears.sprite.name, avatar.eyes.sprite.name, avatar.iris.sprite.name, avatar.mouth.sprite.name, avatar.nose.sprite.name);
 		player.loadSceneNumber (1);
 	}
 

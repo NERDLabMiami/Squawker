@@ -129,7 +129,7 @@
     },
     "intro": {
       "subject": "%C winked back!",
-      "message": "Hi there! You and your profile look pretty unique, and I like to think of myself in the same way, so I wanted to say \u0022whatsup!\u0022\r\n\r\nI\u0027m a trainer at a gym, so I spend a lot of time on exercise and going to fitness conferences (yes, they exist!) to learn about new techniques for training. I think the best way to keep the mind sharp is to keep your body at peak physical condition. So I try to stay fit, and presentable, eating right, keeping groomed, and tanning as much as possible to present myself as best as I can!",
+      "message": "Hi there! You and your profile look pretty unique, and I like to think of myself in the same way, so I wanted to say \u0022whatsup!\u0022\r\n\r\nI\u0027m a trainer at a gym, so I spend a lot of time on exercise and going to fitness conferences (yes, they exist!) to learn about new techniques for training. I think the best way to keep the mind sharp is to keep your body at peak physical condition. So I try to stay fit, and presentable, eating right, and tanning as much as possible to present myself as best as I can!",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -510,6 +510,352 @@
       }
     }
   },
+  "C13": {
+    "character_type": "C13",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "%C winked back!",
+      "message": "Hey! I hope this message finds you well.\r\n\r\nI spend a lot of time seeing movies, going to bars, really anything I can do with friends. I\u2019m also super close with my family, I have an identical twin and I grew up on the same street as my cousins, so we\u2019re all very close. I have a job that I love and spend too much time doing, so sometimes trying to date can feel like one of those bad romantic comedies where you just don\u2019t know how they can balance it all! Hahaha\r\n\r\nI\u2019ve mentioned friends, family, and work, and while that may not be the most unique, I definitely think I\u2019m worth getting to know. Give me a chance if you\u2019re interested!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Well despite being a little standard, you seem great! I think my favorite nights ever are casual ones with friends, keeping it low key.",
+          "path": "C13\/standard",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "That work life balance can be a struggle. How\u2019s your experience on here, if you don\u2019t mind my asking? ",
+          "path": "C13\/worklifebalance",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "I won\u2019t beat around the bush. All of my fantasies involve identical twins.",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "standard": {
+      "subject": "RE: Keeping it low key",
+      "message": "Haha well thank you for not thinking I\u2019m boring. What sort of stuff do you like doing with your friends on those low key nights?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I always like doing some sort of activity, like mini-golfing or bowling. There\u2019s this awesome indoor rock climbing place I\u2019ve been to a few times as well. ",
+          "path": "C13\/minigolf",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Oh my friends and I will crack open a bottle of wine and just talk about all the freaks and losers who message us on all these dating sites, it\u2019s hilarious!",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u2019m a huge homebody, so I\u2019m all about getting some friends together at my place for a pot luck and some movies. That\u2019s the perfect stress reliever.",
+          "path": "C13\/homebody",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "worklifebalance": {
+      "subject": "RE: That work life balance can be a struggle",
+      "message": "I don\u2019t mind at all! It\u2019s been alright. A few dates here or there, but nothing so substantial yet. How about you?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Oh if I don\u2019t go on a date, I consider that day a failure. I\u2019m a fiend when it comes to dating.",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yeah I would say the same. Still looking for that person to inspire me to delete my account! ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u2019ve never met anyone actually. I\u2019ve had dates set up, but for some reason when people see me in public they turn around and run. Apparently I \u201cdon\u2019t look like my pictures.\u201d",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "minigolf": {
+      "subject": "RE: I always like doing some sort of activity...",
+      "message": "That\u2019s cool! I love going out and doing something on a date. I\u2019ve done some fun things like that too. Ice skating, a picnic on the beach, I even went indoor tanning once on a date. That was so much fun.",
+      "belief_id": "ME1",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "How was indoor tanning as a date? Wouldn\u2019t you just end up all hot and sweaty? ",
+          "path": "C13\/tanningdate",
+          "time": "2",
+          "belief_id": "31"
+        },
+        {
+          "response": "Do you go indoor tanning often? You know that isn\u2019t good for you, right? And a huge waste of money also.",
+          "path": "C13\/nothealthy",
+          "time": "2",
+          "belief_id": "33"
+        },
+        {
+          "response": "I remember you going to that picnic on the beach. I was there too, but you probably didn\u2019t notice me. I was standing a few hundred feet away with the binoculars. ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "homebody": {
+      "subject": "RE: I\u0027m a huge homebody",
+      "message": "I agree completely. It\u2019s good to have things to relieve your stress. Friends is one way I do that for sure. I also relax by reading books or lying in a tanning bed. Just simple things to take my mind off work and relax. ",
+      "belief_id": "ME2",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "While it\u2019s good to have an outlet, do you really think indoor tanning is the best way to relax? I\u2019ve heard that it\u2019s not healthy. And I would imagine laying in those beds would feel incredibly claustrophobic. ",
+          "path": "C13\/nothealthy",
+          "time": "2",
+          "belief_id": "32"
+        },
+        {
+          "response": "indoor tan sometimes too, but I never really do it to relax. I\u2019ve just heard that it\u2019s good for me.",
+          "path": "C13\/notrelaxed",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Forget about books and tanning. Come over to my place and we can de-stress together. ;) ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "tanningdate": {
+      "subject": "RE: Indoor tanning as a date?",
+      "message": "It was pretty good I thought. The discomfort wasn\u2019t such a big deal, since it was good to come out of a date looking better than I did going into it. ",
+      "belief_id": "APB1",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "If you wanted to tan why not just do it outside? That\u2019s supposed to be better for you.",
+          "path": "C13\/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "I get that, that does sound fun. And I know everyone is always talking about the dangers associated but that\u2019s all just a myth I\u2019ve heard. ",
+          "path": "C13\/notrelaxed",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Tanning beds are fine, but if I\u2019m going to get in bed with a date I know a better way to go about it. ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "nothealthy": {
+      "subject": "RE: Indoor tanning isn\u0027t healthy",
+      "message": "Yeah, I know. The risk of contracting Melanoma certainly goes up, as well as other types of skin cancers. I just think being aware of those dangers and avoid excessive tanning makes me a smart and safe indoor tanner.",
+      "belief_id": "HT11",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "So, you know you\u2019re putting yourself at risk and yet you still do it. I don\u2019t think that\u2019s a definition of a smart and safe person. ",
+          "path": "C13\/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well it\u2019s good you\u2019re aware of the risks. You definitely seem like a responsible person to go indoor tanning with.",
+          "path": "C13\/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well still, it\u2019s not like all that can\u2019t happen in the sun. So you\u2019re tanning correctly because the sun can be even more dangerous.",
+          "path": "C13\/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "outdoortan": {
+      "subject": "RE: Tanning outdoors vs. indoors",
+      "message": "Actually, that isn\u2019t true. It seems like sunlamps are safer because you\u2019re under them for a shorter amount of time but if anything, they\u2019re more dangerous. They actually compensate for that short time by giving you stronger UV doses. ",
+      "belief_id": "HT22",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Right, but I\u2019ve heard that because you can indoor tan all year round, your body gets more used to it.",
+          "path": "C13\/allyearround",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "So you\u2019re expertly explaining to me how dangerous it is for you\u2026and yet, you still do it? ",
+          "path": "C13\/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "If we can\u2019t trust our local tanning salons to protect us, who in this world can we trust?!",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "notrelaxed": {
+      "subject": "RE: What I\u0027ve heard",
+      "message": "Well, I know I sound confident about it, but there are dangers associated. For example, I know that if you don\u2019t properly protect your eyes, you can get eye diseases like cataracts or corneal burns. But luckily I always make sure my eyes are properly protected. I think of myself as a smart and safe indoor tanner.",
+      "belief_id": "HT12",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I don\u2019t think there\u2019s a such thing as a smart and safe indoor tanner. You know you\u2019re putting yourself at risk and yet you still do it. That\u2019s my definition of stupid. ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well it\u2019s good you\u2019re aware of the risks. You definitely seem like a responsible person to go indoor tanning with. How about it?",
+          "path": "C13\/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well still, it\u2019s not like all that can\u2019t happen in the sun. So you\u2019re tanning correctly because the sun can be even more dangerous.",
+          "path": "C13\/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "allyearround": {
+      "subject": "RE: Your body gets used to it",
+      "message": "Unfortunately that isn\u2019t the case. It\u2019s because the sun\u2019s intensity varies throughout seasons, the day, and the weather that it\u2019s better for you. Being exposed to the same high intensity everyday is more dangerous than otherwise. ",
+      "belief_id": "HT21",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Alright well you\u2019re scaring me from ever indoor tanning. Why do you do it if you know all these horrible things? ",
+          "path": "C13\/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "It\u2019s weird, but being so informed about this makes me trust that you\u2019ll be smart about it. Maybe we should go together sometime.",
+          "path": "C13\/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Look, the fact that you sound like you\u2019re ok with hurting yourself isn\u2019t ok to me, so I think we should stop talking. ",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "stilldoit": {
+      "subject": "RE: You still do it?",
+      "message": "I guess I don\u2019t really know\u2026 it makes me feel good, but at what cost right? Maybe I\u2019ll take it easy on the tanning. \r\n\r\nHow about meeting for coffee? We could even talk about something not related to indoor tanning!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That sounds great!",
+          "path": "C13\/epilogue\/coffee",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks!",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "responsible": {
+      "subject": "RE: How about it?",
+      "message": "That would be great. But about this weekend?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sounds perfect!",
+          "path": "C13\/epilogue\/tanning",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "On second thought, I don\u0027t think I should.",
+          "path": "C13\/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "coffee": {
+        "story": "You meet %C for coffee and the conversation isn\u0027t the only thing that\u0027s stimulating. You fall in love instantly.",
+        "ending": "3"
+      },
+      "tanning": {
+        "story": "You meet %C at Rays Tanning Salon and get the Golden Bronze Package. It doesn\u0027t take long for you to fall in love with each other after that.",
+        "ending": "5"
+      }
+    }
+  },  
   "C21": {
     "character_type": "C21",
     "requirements": {
@@ -1117,7 +1463,7 @@
     },
     "r3tinman": {
       "subject": "RE: The Tin Man",
-      "message": "Well you\u0027re just a poet now, aren\u0027t you? I like that. What do you do in your spare time, Ms. Poet?",
+      "message": "Well you\u0027re just a poet now, aren\u0027t you? I like that. What do you do in your spare time?",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -1208,7 +1554,7 @@
           "belief_id": "none"
         },
         {
-          "response": "Don\u0027t Respond",
+          "response": "Ignore",
           "path": "C22\/deadend",
           "time": "9999",
           "belief_id": "none"
@@ -1316,7 +1662,7 @@
       ]
     },
     "r3social": {
-      "subject": "I dunno...",
+      "subject": "RE: I usually go with friends",
       "message": "You couldn\u0027t pay me to go into a place like that. They cost so much, I definitely have better things to spend my money on.",
       "belief_id": "DISCOM3",
       "thresholds": {
@@ -1496,7 +1842,7 @@
       },
       "responses": [
         {
-          "response": "I\u0027m just looking for a pretty guy to go out to dinner with. Any interest?",
+          "response": "I\u0027m just looking for someone attractive to go out to dinner with. Any interest?",
           "path": "C22\/r1prettyguy",
           "time": "2",
           "belief_id": "none"
@@ -1695,7 +2041,7 @@
         "ending": "1"
       },
       "movie": {
-        "story": "You and %C catch a movie at the local theater. The movie was not memorable, but the instant feelings you for each other are. You fall in love.",
+        "story": "You and %C catch a movie at the local theater. The movie was not memorable, but the instant feelings you have for each other are. You fall in love.",
         "ending": "1"
       },
       "drinks": {
@@ -2658,7 +3004,7 @@
       },
       "responses": [
         {
-          "response": "(DON\u0027T REPLY)",
+          "response": "Ignore",
           "path": "C31A\/deadend",
           "time": "9999",
           "belief_id": "none"
@@ -2753,7 +3099,7 @@
         "ending": "1"
       },
       "concert": {
-        "story": "You go to a Deyonce concert with %C. It\u0027s an incredible show. You fall madly in love with %C.",
+        "story": "You go to a Wall \u0026 Coats concert with %C. It\u0027s an incredible show. You fall madly in love with %C.",
         "ending": "4"
       },
       "dinner": {
@@ -3326,7 +3672,7 @@
           "belief_id": "none"
         },
         {
-          "response": "I actually have a girlfriend. Her name is Netflix.",
+          "response": "I actually already in a relationship... with Netflix.",
           "path": "C31B\/netflix",
           "time": "4",
           "belief_id": "none"
@@ -4439,7 +4785,7 @@
     },
     "farmersalon": {
       "subject": "RE: Taking care of my farmer\u0027s tan",
-      "message": "Oh, I would never indoor tan. I know some other guys I work with who are obsessed with it, but it\u2019s definitely not for me.",
+      "message": "Oh, I would never indoor tan. I know some other people I work with who are obsessed with it, but it\u2019s definitely not for me.",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -4467,7 +4813,7 @@
     },
     "epilogue": {
       "dinner": {
-        "story": "You meet %C at a new local restaurant. The food is amazing, but the conversation better. You\u0027re in love.",
+        "story": "You meet %C at a new local restaurant. The food is amazing, but the conversation is better. You\u0027re in love.",
         "ending": "1"
       },
       "skydiving": {

@@ -50,39 +50,39 @@ public class Epilogue : MonoBehaviour {
 				break;
 			case 2:
 				//NPC gets cancer but survives, player remains healthy
-				story.text = story.text + " Then one day, " + npc.characterName + " was diagnosed with skin cancer. Thankfully it was caught early and the cancer is now in remission.";
+				story.text = story.text + " Then one day, " + npc.name + " was diagnosed with skin cancer. Thankfully it was caught early and the cancer is now in remission.";
 				source.PlayOneShot (middleEnding);
 				break;
 			case 3:
 				//NPC gets cancer and dies, player remains healthy
 				story.text = story.text + " For a short while, things were great. ";
-				story.text = story.text + "Then came the news. " + npc.characterName + " had skin cancer. You stayed with %C until the end, but you never found a love like that again.";
+				story.text = story.text + "Then came the news. " + npc.name + " had skin cancer. You stayed with %C until the end, but you never found a love like that again.";
 				source.PlayOneShot (sadEnding);
 				break;
 			case 4:
 				//Both get cancer, both survive
 				story.text = story.text + " For a short while, things were great. ";
-				story.text = story.text + "Then came the news. " + npc.characterName + " had skin cancer. ";
+				story.text = story.text + "Then came the news. " + npc.name + " had skin cancer. ";
 				story.text = story.text + " You decided to get a skin exam for yourself and the doctor found a malignant mole. Luckily, you both caught it in time. The two of you had a tough but good life together.";
 				source.PlayOneShot (middleEnding);
 				break;
 			case 5:
 				//Both get cancer, NPC dies
 				story.text = story.text + " For a short while, things were great. ";
-				story.text = story.text + "Then came the news. " + npc.characterName + " had skin cancer. ";
+				story.text = story.text + "Then came the news. " + npc.name + " had skin cancer. ";
 				story.text = story.text + " You decided to get a skin exam for yourself and the doctor found a malignant mole. You caught it in time, but for " + npc.characterName + " the same couldn't be said.";
 				source.PlayOneShot (sadEnding);
 				break;
 			case 6:
 				//Player gets cancer, NPC does not.
-				story.text = story.text + " For some time, things were great. Then one day, " + npc.characterName + " found a suspicious mole on your body. ";
-				story.text = story.text + "It was malignant. You were diagnosed with skin cancer. Fortunately, " + npc.characterName + " stayed with you until the end.";
+				story.text = story.text + " For some time, things were great. Then one day, " + npc.name + " found a suspicious mole on your body. ";
+				story.text = story.text + "It was malignant. You were diagnosed with skin cancer. Fortunately, " + npc.name + " stayed with you until the end.";
 				source.PlayOneShot (middleEnding);
 				break;
 			default:
 				if (playerHasCancer) {
-					story.text = story.text + " For some time, things were great. Then one day, " + npc.characterName + " found a suspicious mole on your body. ";
-					story.text = story.text + "It was malignant. You were diagnosed with skin cancer. You survived, but " + npc.characterName + " left you.";
+					story.text = story.text + " For some time, things were great. Then one day, " + npc.name + " found a suspicious mole on your body. ";
+					story.text = story.text + "It was malignant. You were diagnosed with skin cancer. You survived, but " + npc.name + " left you.";
 					source.PlayOneShot (sadEnding);
 				} else {
 					story.text = story.text + " The two of you lived a long and healthy life together.";

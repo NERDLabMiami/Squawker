@@ -8,6 +8,7 @@ public class Dermatologist : MonoBehaviour {
 	public Text dermatologistDialog;
 	public Text playerDialog;
 	public Player player;
+	public Character avatar;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class Dermatologist : MonoBehaviour {
 			player.visitDermatologist();
 		}
 		if (conversationIndex == 4) {
+			player.reduceTan ();
 			player.loadSceneNumber (1);
 		}
 		else {

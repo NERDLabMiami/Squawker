@@ -5793,7 +5793,7 @@
         "response": "Let me take a look."
       },
       {
-        "assistant": "Just press the button when you've had enough!",
+        "assistant": "Just press the stop button at the tan level you want!",
         "response": "Great!"
       },
       

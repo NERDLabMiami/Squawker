@@ -40,6 +40,15 @@ public class Player : MonoBehaviour {
 			populateStats();
 			updateProfile();
 	}
+
+	public void reduceTan() {
+		tan--;
+		if (tan < 0) {
+			tan = 0;
+		}
+		avatar.setTone(tan);
+
+	}
 	public void setGenderPreference(string gender) {
 		PlayerPrefs.SetString ("gender preference", gender);
 		populateMatches ();
@@ -214,11 +223,13 @@ public class Player : MonoBehaviour {
 
 
 	public string getDermatologistMessage(int index) {
+		//TODO: Low risk, high risk conversation?
 		JSONNode dermatologistMessage = json ["doctor"]["conversation"][index]["doctor"];		
 		return dermatologistMessage;
 	}
 
 	public string getDermatologistResponse(int index) {
+		//TODO: Low risk, high risk conversation?
 		JSONNode dermatologistResponse = json ["doctor"]["conversation"][index]["patient"];		
 		return dermatologistResponse;
 	}
@@ -286,7 +297,7 @@ public class Player : MonoBehaviour {
 				if (attractiveness > 0) {
 					setAttractiveness (attractiveness - 1);
 				}
-
+				/*
 				int daysSinceLastChangeInTan = PlayerPrefs.GetInt ("days since last change in tan", 0);
 				daysSinceLastChangeInTan++;
 
@@ -301,7 +312,7 @@ public class Player : MonoBehaviour {
 				}
 
 				PlayerPrefs.SetInt("days since last change in tan", daysSinceLastChangeInTan);
-
+				*/
 
 			}
 			refreshInbox();

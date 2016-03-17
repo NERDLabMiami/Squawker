@@ -36,15 +36,15 @@ public class TanningBed : MonoBehaviour {
 		assistant.player.newOffer ("exam");
 		switch((int)tanAmount) {
 		case 0:
-			assistant.dialogue.text = "Looks like you didn't get much of a tan, perhaps I'll see you again.";
-			assistant.response.text = "Perhaps...";
+			assistant.dialogue.text = "You didn't get much of a tan, but you still look great!";
+			assistant.response.text = "Thanks!";
 			break;
 		case 1:
-			assistant.dialogue.text = "Hey, nice base tan you got there. Come back if you want to take it to the next level.";
-			assistant.response.text = "We'll see.";
+			assistant.dialogue.text = "Great tan! Come back if you want to keep it that way.";
+			assistant.response.text = "Thanks!";
 			break;
 		case 2:
-			assistant.dialogue.text = "Yo Jersey! That's what I call a tan!";
+			assistant.dialogue.text = "Yo Jersey, looking good! That's what I call a tan!";
 			assistant.response.text = "Thanks!";
 			break;
 		case 3:
@@ -52,11 +52,12 @@ public class TanningBed : MonoBehaviour {
 			assistant.response.text = "I'll have to work on that.";
 			break;	
 		case 4:
-			assistant.dialogue.text = "You're not supposed to stay in that long!";
-			assistant.response.text = "Oops!";
+			assistant.dialogue.text = "Wow, looks like you got sunburned. Be careful next time!";
+			assistant.response.text = "Sounds good!";
 			break;
 		}
 		int tan = (int)tanAmount;
+		//TODO: Send analytics?
 		Debug.Log("Setting tan to : " + tan);
 
 //		assistant.player.setTan (tan);

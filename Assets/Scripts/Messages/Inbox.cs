@@ -38,6 +38,7 @@ public class Inbox : MonoBehaviour {
 		string finalStory = player.getFinalStory(character, story);
 		finalStory = finalStory.Replace("%C", lover);
 		epilogue.story.text = finalStory;
+		epilogue.lover = lover;
 		epilogue.endingType = player.getEpilogueType(character,story);
 	}
 

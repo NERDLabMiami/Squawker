@@ -80,25 +80,33 @@ public class Player : MonoBehaviour {
 		
 			int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
 
-			//Get the difference between the two characters attractiveness. NPC with 50, player with 20, response time is 30. 
+			//Get the difference between the two characters attractiveness. NPC with 10, player with 5, response time is 5.
+			//NPC with 5 player with attractiveness of 10, response time is -5
+			//typical love should be near 5
 			responseTime -= attractiveness;
 			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
 
 			if (profile.character.wearingHairAccessory() || profile.character.wearingHeadwear()) {
+				//characterlikes headwear  -1
+				//character hate headwear +1
 				responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
 			}
 
-			if (profile.character.wearingPiercing()) {
-				responseTime += json[characterPath]["requirements"]["accessories"]["piercing"].AsInt;
-			}
+//			if (profile.character.wearingPiercing()) {
+//				responseTime += json[characterPath]["requirements"]["accessories"]["piercing"].AsInt;
+//			}
 
 
 			if (profile.character.wearingGlasses ()) {
 				responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
+				//character likes glasses, -1
+				//character hates glasses, +1
 				Debug.Log ("Liking the glasses, response time is now " + responseTime);
 			}
 
 			if (profile.character.wearingTie ()) {
+				//character likes glasses, -1
+				//character hates glasses, +1
 				responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
 				Debug.Log ("Liking the tie, response time is now " + responseTime);
 
@@ -117,8 +125,8 @@ public class Player : MonoBehaviour {
 			//If the response time is negative, we just set it to 0 so the NPC responds instantly
 
 			if (responseTime < 0) {
-				responseTime = 0;
-				Debug.Log ("So attractive, response is immediate");
+				responseTime = 1;
+				Debug.Log ("So attractive, response is almost immediate");
 			}
 			Debug.Log ("Match will respond in " + responseTime + " days");
 			return responseTime;
@@ -222,15 +230,15 @@ public class Player : MonoBehaviour {
 	}
 
 
-	public string getDermatologistMessage(int index) {
+	public string getDermatologistMessage(int index, string belief) {
 		//TODO: Low risk, high risk conversation?
-		JSONNode dermatologistMessage = json ["doctor"]["conversation"][index]["doctor"];		
+		JSONNode dermatologistMessage = json ["doctor"]["conversation"][belief][index]["doctor"];		
 		return dermatologistMessage;
 	}
 
-	public string getDermatologistResponse(int index) {
+	public string getDermatologistResponse(int index, string belief) {
 		//TODO: Low risk, high risk conversation?
-		JSONNode dermatologistResponse = json ["doctor"]["conversation"][index]["patient"];		
+		JSONNode dermatologistResponse = json ["doctor"]["conversation"][belief][index]["patient"];		
 		return dermatologistResponse;
 	}
 
@@ -397,7 +405,7 @@ public class Player : MonoBehaviour {
 		removeAllMessages();
 
 		PlayerPrefs.SetInt("tan", 0);
-		PlayerPrefs.SetInt("attractiveness", 3);
+		PlayerPrefs.SetInt("attractiveness", 0);
 		PlayerPrefs.SetInt("cancer risk", 0);
 		PlayerPrefs.SetInt("dermatologist visits", 0);
 		PlayerPrefs.SetInt("actions left", 2);
@@ -420,19 +428,19 @@ public class Player : MonoBehaviour {
 //			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
 			avatar.setTone(tan);
 
-			if (attractiveness <= 5) {
+			if (attractiveness <= 2) {
 				profile.heart.GetComponent<Animator>().SetTrigger("one");
 			}
 
-			if(attractiveness > 5 && attractiveness <= 10) {
+			if(attractiveness > 2 && attractiveness <= 4) {
 				profile.heart.GetComponent<Animator>().SetTrigger("two");
 			}
 
-			if (attractiveness <= 20 && attractiveness > 10) {
+			if (attractiveness > 4 && attractiveness < 10) {
 				profile.heart.GetComponent<Animator>().SetTrigger("three");
 			}
 
-			if (attractiveness > 20) {
+			if (attractiveness > 10) {
 				profile.heart.GetComponent<Animator>().SetTrigger("four");
 			}
 

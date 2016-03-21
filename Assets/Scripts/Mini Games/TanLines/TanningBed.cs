@@ -31,29 +31,49 @@ public class TanningBed : MonoBehaviour {
 		GetComponent<AudioSource> ().Stop ();
 		continueButton.SetActive (true);
 		stopTanButton.SetActive (false);
+		character.gameObject.SetActive(true);
 		salonVisits++;
 		PlayerPrefs.SetInt ("tanning salon visits", salonVisits);
 		assistant.player.newOffer ("exam");
+		//LOW RISK 0-2
+		//HIGH RISK 3-4
+		//SELECTED CONVERSATION
+		int selectedConversation = Random.Range(0,1);
 		switch((int)tanAmount) {
 		case 0:
-			assistant.dialogue.text = "You didn't get much of a tan, but you still look great!";
-			assistant.response.text = "Thanks!";
-			break;
 		case 1:
-			assistant.dialogue.text = "Great tan! Come back if you want to keep it that way.";
-			assistant.response.text = "Thanks!";
-			break;
 		case 2:
-			assistant.dialogue.text = "Yo Jersey, looking good! That's what I call a tan!";
-			assistant.response.text = "Thanks!";
+			switch(selectedConversation) {
+			case 0:
+				//APB 1
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "APB1", "RAY");
+				assistant.dialogue.text = "Looking good! We've got a great promotion until the end of the month if you want to keep it that way.";
+				assistant.response.text = "Thanks!";
+				break;
+			case 1:
+				//HB 5
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "1", "HB5", "RAY");
+				assistant.dialogue.text = "Hope you enjoyed your stay. Come back and tan all you want, our facilities are completely safe!";
+				assistant.response.text = "Thanks!";
+				break;
+			}
 			break;
 		case 3:
-			assistant.dialogue.text = "Whoa, that looks painful. You shouldn't stay in there that long.";
-			assistant.response.text = "I'll have to work on that.";
-			break;	
 		case 4:
-			assistant.dialogue.text = "Wow, looks like you got sunburned. Be careful next time!";
-			assistant.response.text = "Sounds good!";
+			switch(selectedConversation) {
+			case 0:
+				//APB 1
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "APB1", "RAY");
+				assistant.dialogue.text = "Great tan, you look super toned! Have a nice day!";
+				assistant.response.text = "Thanks!";
+				break;
+			case 1:
+				//HB7
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "HB7", "RAY");
+				assistant.dialogue.text = "You might have stayed in there too long, good thing you're young!";
+				assistant.response.text = "Good to know!";
+				break;
+			}
 			break;
 		}
 		int tan = (int)tanAmount;

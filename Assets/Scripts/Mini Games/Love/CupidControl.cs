@@ -26,6 +26,7 @@ public class CupidControl : MonoBehaviour {
 	public void endGame(int healCount) {
 		player.setAttractiveness(Mathf.Min(player.attractiveness + healCount, 100));
 		playing = false;
+		cupid.finalTally = healCount;
 		cupid.changeDialog ("end");
 		cupid.gameObject.SetActive (true);
 		startButton.SetActive (false);

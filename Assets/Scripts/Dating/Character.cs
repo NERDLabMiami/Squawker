@@ -493,8 +493,7 @@ public class Character : MonoBehaviour {
 		selectedMoleName = assignedSprites[17];
 	}
 
-	public void assignCharacter(string type) {
-		Debug.Log ("Assigning Character of Type " + type);
+	public int assignCharacter(string type) {
 		string [] dates = Prefs.PlayerPrefsX.GetStringArray(type);
 		//TODO: Check if there are no more potential characters
 		if (dates.Length > 0) {
@@ -509,6 +508,7 @@ public class Character : MonoBehaviour {
 		} else {
 			Debug.Log("No more characters to assign :(");
 		}
+		return dates.Length;
 	}
 
 	public void assignName(string gender) {
@@ -677,7 +677,7 @@ public class Character : MonoBehaviour {
 		faceTan.sprite = Resources.Load<Sprite> (faceStylePath + "/" + selectedFaceName);	
 		earsTan.sprite = Resources.Load<Sprite> (earStylePath + "/"  + selectedEarsName);
 
-		if (tanTone >= 1) {
+		if (tanTone >= 1 && tans.Length >= tanTone) {
 			faceTan.color = tans[tanTone];
 			earsTan.color = tans[tanTone];
 		}

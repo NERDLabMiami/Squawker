@@ -9,6 +9,7 @@ public class CupidTalk : MonoBehaviour {
 	public GameObject startButton;
 	public GameObject continueButton;
 	public Text heartsHealed;
+	public int finalTally = 0;
 
 	private int dialogIndex = 0;
 	private int selectedDialog = 0;
@@ -28,7 +29,15 @@ public class CupidTalk : MonoBehaviour {
 		if (dialogName == "end") {
 			selectedDialog = 1;
 //			dialog.text = endDialogue [dialogIndex];
-			dialog.text = "You healed " + heartsHealed.text + " hearts, you're more loveable already!";
+			if(finalTally > 0) {
+				dialog.text = "You healed " + finalTally.ToString() + " hearts, you're more loveable already!";
+
+			}
+			else {
+				dialog.text = "Oh no! You didn't heal any hearts. There's always next time.";
+			}
+			Debug.Log("HEAL COUNT: " + finalTally);
+
 			//TODO: Convert string to int
 			/*			if (gameObject.GetComponent<CupidStats>().healed == 1) {
 				dialog.text = "You healed " + heartsHealed.text + " heart! Maybe you'll do better next time.";

@@ -41,13 +41,18 @@ public class Match : MonoBehaviour {
 	}
 
 	public void wink() {
-		avatar.assignCharacter(PlayerPrefs.GetString ("gender preference", "both"));
-		avatar.saveCharacter();
-		if (player.takeAction(true)) {
+		string gender = PlayerPrefs.GetString ("gender preference", "both");
+		bool charactersAvailable = false;
+		if(avatar.assignCharacter(gender) > 0) {
+			avatar.saveCharacter();
+			charactersAvailable = true;
+		}
 
-			Debug.Log("adding message for " + avatar.getCharacterAssignment() + " with name of " + avatar.characterName);
-			int timeAdded = player.matches(avatar.getCharacterAssignment());
-			player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);
+		if (player.takeAction(true)) {
+			if (charactersAvailable) {
+				int timeAdded = player.matches(avatar.getCharacterAssignment());
+				player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);
+			}
 			player.updateProfile();
 			Invoke("resetName",3);
 		}

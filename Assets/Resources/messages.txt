@@ -120,10 +120,10 @@
     "character_type": "C11",
     "requirements": {
       "tan": "2",
-      "love": "0",
+      "love": "5",
       "accessories": {
-        "glasses": "0",
-        "headwear": "0",
+        "glasses": "1",
+        "headwear": "-2",
         "tie": "0"
       }
     },
@@ -158,7 +158,7 @@
     "newtechniques": {
       "subject": "RE: Fitness conference",
       "message": "Well the most recent discussion point was about how dangerous fad diets are for you. There\u0027s a diet being spread over the internet where people only eat the skin off grapes and drink water.",
-      "belief_id": "None",
+      "belief_id": "none",
       "thresholds": {
         "tan": "1"
       },
@@ -186,7 +186,7 @@
     "incredibletan": {
       "subject": "RE: Your body is very nice",
       "message": "Thank you! Everybody wants to be trained by someone they want to look like, so I keep myself in shape. And the tanning secret I would recommend to you: indoor tanning. I only work out indoors so the added bump it gives me does wonders. And the people I date certainly compliment it :)",
-      "belief_id": "None",
+      "belief_id": "none",
       "thresholds": {
         "tan": "0"
       },
@@ -513,10 +513,10 @@
   "C13": {
     "character_type": "C13",
     "requirements": {
-      "tan": "0",
-      "love": "0",
+      "tan": "2",
+      "love": "3",
       "accessories": {
-        "glasses": "0",
+        "glasses": "-2",
         "headwear": "0",
         "tie": "0"
       }
@@ -860,11 +860,11 @@
     "character_type": "C21",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "5",
       "accessories": {
-        "glasses": "0",
+        "glasses": "-1",
         "headwear": "0",
-        "tie": "0"
+        "tie": "2"
       }
     },
     "intro": {
@@ -1342,7 +1342,7 @@
     "character_type": "C22",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "6",
       "accessories": {
         "glasses": "0",
         "headwear": "0",
@@ -1350,7 +1350,7 @@
       }
     },
     "intro": {
-      "subject": "Nice Profile!",
+      "subject": "%C winked back!",
       "message": "I liked the look of your profile so here I am, messaging you!\r\n\r\nSome fun facts about me! My favorite song is \u201cSomewhere Over the Rainbow\u201d from The Wizard of Oz and the fact it was almost cut from the movie still scares me. I work in pharmaceutical sales and I love to travel. If I could go anywhere and do anything there I would probably go to New Zealand and take a hot air balloon ride over the mountains. I think the hot air balloon interest comes from The Wizard of Oz, so maybe I didn\u2019t quite grasp the movie haha!\r\n\r\nAnyway, say hi if you\u2019d like to chat!",
       "belief_id": "None",
       "thresholds": {
@@ -2054,11 +2054,11 @@
     "character_type": "C23",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "4",
       "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
+        "glasses": "1",
+        "headwear": "1",
+        "tie": "1"
       }
     },
     "intro": {
@@ -2374,11 +2374,11 @@
     "character_type": "C31",
     "requirements": {
       "tan": "0",
-      "love": "1",
+      "love": "8",
       "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
+        "glasses": "-1",
+        "headwear": "-1",
+        "tie": "-1"
       }
     },
     "intro": {
@@ -3116,9 +3116,9 @@
     "character_type": "C31",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "4",
       "accessories": {
-        "glasses": "0",
+        "glasses": "1",
         "headwear": "0",
         "tie": "0"
       }
@@ -4068,9 +4068,9 @@
     "character_type": "C32",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "7",
       "accessories": {
-        "glasses": "0",
+        "glasses": "-2",
         "headwear": "0",
         "tie": "0"
       }
@@ -4834,11 +4834,11 @@
     "character_type": "C33",
     "requirements": {
       "tan": "0",
-      "love": "0",
+      "love": "7",
       "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
+        "glasses": "-1",
+        "headwear": "-1",
+        "tie": "-1"
       }
     },
     "intro": {
@@ -5740,29 +5740,92 @@
     }
   },
   "doctor": {
-    "conversation": [
-      {
-        "doctor": "Great, let's take a look.",
-        "patient": "OK",
-        "Belief_ID": "",
-        "Belief_Derm_ID": "",
-        "B_D_ID_Num": ""
-      },
-      {
-        "doctor": "Looks like you have some sun spots, I can try to remove them.",
-        "patient": "That'd be great."
-      },
-      {
-        "doctor": "OK, you're good to go.",
-        "patient": "Thanks!"
-      },
-      {
-        "doctor": "Always use sunscreen!",
-        "patient": "Will do."
-      },
-      
-    ],
-  },
+    "conversation": {
+                      "LOW1": [
+                                { "doctor": "Great, let's take a look.",
+                                  "patient": "OK"
+                                },
+                                { "doctor": "You have a bit of tan. You know that's a self defense mechanism for your skin?",
+                                  "patient": "It is?"
+                                },
+                                { "doctor": "Exposure to UV rays produces more melanin, a pigment that darkens the skin.",
+                                  "patient": "Interesting, but I used a tanning bad though."
+                                },
+                                { "doctor": "That could be worse! Tanning beds often exceed safe UV limits, despite what the salon claims.",
+                                  "patient": "Well I'm glad I talked to you."
+                                },
+                                { "doctor": "Be safe out there, and have a good day.",
+                                  "patient": "Thanks, you too!"
+                                }
+                              ],
+                      "LOW2": [
+                              {
+                                "doctor": "Great, let's take a look.",
+                                "patient": "OK"
+                              },
+                              {
+                                "doctor": "Have you been using a tanning bed?",
+                                "patient": "Yes, I look great right?"
+                              },
+                              {
+                                "doctor": "Actually, tanning can cause premature aging.",
+                                "patient": "Oh, maybe I shouldn't go anymore!"
+                              },
+                              {
+                                "doctor": "Yeah, I wouldn't. Just remember, they are a business that's marketing a product.",
+                                "patient": "I never thought of it that way."
+                              },
+                              {
+                                "doctor": "OK, you're all set. Be safe!",
+                                "patient": "Thanks!"
+                              }
+                              ],
+                      "HIGH1": [
+                              {
+                                "doctor": "You're quite tan. You should be careful.",
+                                "patient": "Why is that?"
+                              },
+                              {
+                                "doctor": "Having a tan isn't a sign of good health. It's skin damage.",
+                                "patient": "Really?"
+                              },
+                              {
+                                "doctor": "Yeah, the risk of melanoma of the skin increases by 75 percent if you use a tanning bed before the age of 35.",
+                                "patient": "Wow, that's crazy."
+                              },                  
+                              {
+                                "doctor": "That's not all, indoor tanning can even lead to blinding eye diseases.",
+                                "patient": "That's horrible, but thanks for the info!"
+                              },
+                              {
+                                "doctor": "All in a days work! Have a nice day and be safe!",
+                                "patient": "Thanks!"
+                              }
+                              ],
+                      "HIGH2": [
+                              {
+                                "doctor": "Wow, you've got quite a tan.",
+                                "patient": "Thanks for noticing!"
+                              },
+                              {
+                                "doctor": "Actually that's not a good thing. Have you been using a tanning bed?",
+                                "patient": "Yes, why?"
+                              },
+                              {
+                                "doctor": "It's skin damage and it can cause premature aging.",
+                                "patient": "Well that's not what I was hoping for!"
+                              },
+                              {
+                                "doctor": "Speaking of age, did you know that melanoma is the second most common cancer for women age 20 to 29?",
+                                "patient": "I did not know that..."
+                              },
+                              {
+                                "doctor": "I'm full of facts today! Here's another one for the road: indoor tanning can lead to cataracts, corneal burning and eye cancer. Yikes!",
+                                "patient": "Well thanks for the info, I guess I'll be going now!"
+                              }
+                              ]
+                    }
+            },
   "exam": {
     "offer": {
       "path": "exam/offer/0",

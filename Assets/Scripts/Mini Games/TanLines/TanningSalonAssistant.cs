@@ -69,11 +69,13 @@ public class TanningSalonAssistant : MonoBehaviour {
 	public void decline() {
 		//TODO: Should log analytics for declining offer
 		//TODO: Animate the transition
-		GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "", "");
 	
 		dialogue.text = "Changed your mind? That's okay. Maybe next time!";
 		response.text = "Ok!";
 		waiver.SetActive (false);
+		gameObject.SetActive (true);
+		continueButton.SetActive (true);
+		GetComponent<PlayerBehavior>().trackEvent(4, "DECLINED WAIVER", "", "");
 	}
 
 }

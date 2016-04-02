@@ -72,7 +72,74 @@ public class Player : MonoBehaviour {
 			return 0;
 		}
 	}
+	public int matches(string characterPath, bool glasses, bool headwear, bool tie) {
+		if (json[characterPath] != null) {
+			int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
+			int matchingBonus = 3;
+			responseTime -= attractiveness;
 
+			if (glasses && !headwear && !tie) {
+				if (!profile.character.wearingTie () && !profile.character.wearingGlasses () && !profile.character.wearingHeadwear ()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (glasses && tie && !headwear) {
+				if (profile.character.wearingGlasses () && profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (glasses && tie && headwear) {
+				if (!profile.character.wearingGlasses () && profile.character.wearingTie () && profile.character.wearingHeadwear()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (!glasses && tie && headwear) {
+				if (profile.character.wearingGlasses () && !profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (!glasses && !tie && headwear) {
+				if (profile.character.wearingGlasses () && profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (!glasses && !tie && !headwear) {
+				if (profile.character.wearingGlasses () && profile.character.wearingTie () && profile.character.wearingHeadwear()) {
+					//BONUS
+					responseTime-=matchingBonus;
+				}
+			}
+
+			if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
+				//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
+				Debug.Log ("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
+				responseTime = 9999;
+				Debug.Log ("Tan not appropriate, response time is now " + responseTime);
+
+			}
+
+			if (responseTime < 0) {
+				responseTime = 1;
+				Debug.Log ("Immediate attraction");
+			}
+			Debug.Log ("Match will respond in " + responseTime + " days");
+			return responseTime;
+		}
+		else {
+			Debug.Log ("Unknown Character Path");
+			return 9999;
+		}
+	}
 	public int matches(string characterPath) {
 		//Get character's attractiveness, between 0 and 100 to set as the initial response time
 
@@ -87,6 +154,8 @@ public class Player : MonoBehaviour {
 			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
 
 			if (profile.character.wearingHairAccessory() || profile.character.wearingHeadwear()) {
+			
+
 				//characterlikes headwear  -1
 				//character hate headwear +1
 				responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;

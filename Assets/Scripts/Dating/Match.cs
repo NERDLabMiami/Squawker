@@ -43,7 +43,6 @@ public class Match : MonoBehaviour {
 	public void wink() {
 		string gender = PlayerPrefs.GetString ("gender preference", "both");
 		bool charactersAvailable = false;
-		// TODO: Check to see if this can come later to allow for more matches if they don't match well
 		if(avatar.assignCharacter(gender) > 0) {
 			avatar.saveCharacter();
 			charactersAvailable = true;

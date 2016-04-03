@@ -395,10 +395,22 @@ public class Character : MonoBehaviour {
 
 	}
 
-	public void getMole() {
+	public void getMole(int visit) {
 		moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
-		selectedMole = Random.Range(0, moleStyles.Length);
-		selectedMole = Random.Range (0, moleStyles.Length);
+		if (mole.enabled) {
+			for (int i = 0; i < moleStyles.Length; i++) {
+				if (selectedMoleName == moleStyles[i].name) {
+					selectedMole = i;
+				}
+			}
+			if (selectedMole < moleStyles.Length - 1) {
+				selectedMole++;
+			}
+		}
+		else {
+			selectedMole = 0;		
+		}
+
 		mole.sprite = moleStyles[selectedMole];
 		selectedMoleName = mole.sprite.name;
 		mole.gameObject.SetActive (true);
@@ -407,10 +419,24 @@ public class Character : MonoBehaviour {
 	}
 
 	public void removeMole() {
-		mole.sprite.name = "none";
-		mole.gameObject.SetActive (false);
-		mole.enabled = false;
-		saveCharacter ();
+		moleStyles = Resources.LoadAll<Sprite>(moleStylePath);
+		int moleNumber = 0;
+		for (int i = 0; i < moleStyles.Length; i++) {
+			if (selectedMoleName == moleStyles[i].name) {
+				moleNumber = i;
+			}
+		}
+		moleNumber--;
+		if (moleNumber <= 0) {
+			mole.sprite.name = "none";
+			mole.gameObject.SetActive (false);
+			mole.enabled = false;
+		}
+		else {
+			mole.sprite.name = moleStyles[moleNumber].name;
+			selectedMoleName = mole.sprite.name;
+		}
+			saveCharacter ();
 	}
 
 	public void setOptions(bool noAccessories = false) {

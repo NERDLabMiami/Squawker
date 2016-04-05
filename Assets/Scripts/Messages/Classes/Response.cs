@@ -15,6 +15,7 @@ public class Response  {
 
 	public Response(string p, string txt, int rt, int index, string b) {
 		responseTime = rt;
+//		if p.Contains("deadend");
 		path = p + "/" + responseTime;
 		text = txt;
 		belief = b;

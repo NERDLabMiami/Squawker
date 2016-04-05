@@ -23,7 +23,6 @@ public class Player : MonoBehaviour {
 	public Character avatar;
 //	public Animator progress;
 	public GameObject loadingScreen;
-
 	public JSONNode json;
 	private List<string> messageList;
 	private int previousMessageCount = 0;
@@ -39,6 +38,23 @@ public class Player : MonoBehaviour {
 			}
 			populateStats();
 			updateProfile();
+	}
+
+	public bool hooked() {
+		int h = PlayerPrefs.GetInt ("hooked", 0);
+		if (h == 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	public void unhook() {
+		PlayerPrefs.SetInt ("hooked", 0);
+	}
+
+	public void hook() {
+		PlayerPrefs.SetInt ("hooked", 1);
 	}
 
 	public void reduceTan() {

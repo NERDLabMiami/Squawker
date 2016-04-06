@@ -6,14 +6,12 @@ using System;
 using System.Collections.Generic;
 
 public class IncomingMessage : MonoBehaviour {
-//	public Text alias;
 	public string character;
 	public Text subject;
 	public ViewMessage expandedMessageTemplate;
 	public Character avatar;
 	public Image overrideImage;
 
-//	private JSONNode json;
 	private Message message;
 
 	public void setMessage(Message msg) {
@@ -36,7 +34,6 @@ public class IncomingMessage : MonoBehaviour {
 				avatar.gameObject.SetActive(true);
 				break;
 		}
-//		alias.text = message.alias;
 		message.alias = PlayerPrefs.GetString(character);
 		avatar.assign(character);
 		subject.text = message.subject;

@@ -163,9 +163,12 @@ public class ViewMessage : MonoBehaviour {
 		player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time
-		if(StringArrayFunctions.getMessage(path)[1].Contains("deadend") {
+		if(StringArrayFunctions.getMessage(path)[1].Contains("deadend")) {
 			//Player chose a dead end, unhook to allow for a new conversation
 			player.unhook();
+		}
+		else {
+			Debug.Log("NOT A DEADEND: " + path);
 		}
 		player.addMessage(path);
 		player.refreshInbox();

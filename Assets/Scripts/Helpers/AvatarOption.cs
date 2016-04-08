@@ -17,5 +17,11 @@ public class AvatarOption : MonoBehaviour {
 		AvatarOptions options = gameObject.GetComponentInParent<AvatarOptions>();
 		options.image.sprite = gameObject.GetComponent<Image>().sprite;
 		options.image.enabled = true;
+		Button[] btns = transform.parent.GetComponentsInChildren<Button>();
+		for(int i = 0; i < btns.Length; i++) {
+			btns[i].interactable = true;
+		}
+		GetComponent<Button>().interactable = false;
+
 	}
 }

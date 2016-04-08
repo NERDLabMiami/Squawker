@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dating/Match.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Leslie.cs">
     <Files>
-      <File FileName="Assets/Scripts/Dating/Match.cs" Line="54" Column="4" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="172" Column="4" />
+      <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
       <File FileName="Assets/Wink.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/AvatarColorOption.cs" Line="31" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/AvatarOption.cs" Line="25" Column="3" />
+      <File FileName="Assets/Leslie.cs" Line="20" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

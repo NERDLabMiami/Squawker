@@ -13,11 +13,20 @@ public class AvatarColorOption : MonoBehaviour {
 	public void setHair() {
 		GetComponentInParent<AvatarColorSelector>().character.hair = GetComponent<Image>().color;
 		GetComponentInParent<AvatarColorSelector>().character.setHairColor();
+		Button[] btns = transform.parent.GetComponentsInChildren<Button>();
+		for(int i = 0; i < btns.Length; i++) {
+			btns[i].interactable = true;
+		}
+		GetComponent<Button>().interactable = false;
 	}
 
 	public void setSkin() {
 		GetComponentInParent<AvatarColorSelector>().character.skin = GetComponent<Image>().color;
 		GetComponentInParent<AvatarColorSelector>().character.setBaseSkinTone();
-
+		Button[] btns = transform.parent.GetComponentsInChildren<Button>();
+		for(int i = 0; i < btns.Length; i++) {
+			btns[i].interactable = true;
+		}
+		GetComponent<Button>().interactable = false;
 	}
 }

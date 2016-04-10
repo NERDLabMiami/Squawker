@@ -1,13 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Leslie.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Helpers/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Dating/Match.cs" Line="55" Column="18" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="53" Column="8" />
       <File FileName="Assets/Wink.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Helpers/AvatarColorOption.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/Helpers/AvatarOption.cs" Line="25" Column="3" />
-      <File FileName="Assets/Leslie.cs" Line="20" Column="28" />
+      <File FileName="Assets/Scripts/Helpers/AvatarColorOption.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/AvatarOption.cs" Line="1" Column="1" />
+      <File FileName="Assets/Leslie.cs" Line="36" Column="67" />
+      <File FileName="Assets/Scripts/Helpers/CategorySelector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="541" Column="67" />
+      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="479" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

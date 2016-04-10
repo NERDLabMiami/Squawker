@@ -459,6 +459,7 @@ public class Player : MonoBehaviour {
 
 	public void populateMatches() {
 		List<string> list = new List<string>();
+		List<string>fizzle = new List<string>();
 		string gender = PlayerPrefs.GetString ("gender preference", "both");
 		string gender_list = "";
 		switch (gender) {
@@ -475,10 +476,14 @@ public class Player : MonoBehaviour {
 			Debug.Log ("No Gender Preference Assigned");
 			break;
 		}
+		for (int i = 0; i < json["fizzles"].Count; i++) {
+			fizzle.Add(json["fizzles"][i]);
+		}
 		for (int i = 0; i < json[gender_list].Count; i++) {
 			list.Add(json[gender_list][i]);
 		}
 
+		Prefs.PlayerPrefsX.SetStringArray("fizzles", fizzle.ToArray());
 		Prefs.PlayerPrefsX.SetStringArray(gender, list.ToArray());
 		Debug.Log("Saved " + list.Count + " characters");
 

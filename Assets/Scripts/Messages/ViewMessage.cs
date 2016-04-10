@@ -78,6 +78,7 @@ public class ViewMessage : MonoBehaviour {
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
 				player.previewInbox.checkIfEmpty();
 				player.takeAction(true);
+				//TODO: Check for piercing, hair offer types
 				player.loadSceneNumber(type);
 			});
 		} else {

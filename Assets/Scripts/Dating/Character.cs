@@ -427,12 +427,12 @@ public class Character : MonoBehaviour {
 			}
 		}
 		moleNumber--;
-		if (moleNumber <= 0) {
-			mole.sprite.name = "none";
+		if (moleNumber <= 0 && mole.sprite) {
+			mole.sprite.name = null;
 			mole.gameObject.SetActive (false);
 			mole.enabled = false;
 		}
-		else {
+		else if (moleNumber >= 1) {
 			mole.sprite.name = moleStyles[moleNumber].name;
 			selectedMoleName = mole.sprite.name;
 		}
@@ -537,6 +537,21 @@ public class Character : MonoBehaviour {
 		return dates.Length;
 	}
 
+	public int assignFizzle() {
+		string[] fizzles = Prefs.PlayerPrefsX.GetStringArray("fizzles");
+		Debug.Log("Have " + fizzles.Length + " fizzles");
+		if (fizzles.Length > 0) {
+			List<string> list = new List<string> (fizzles);
+			int selectedCharacter = Random.Range (0, list.Count);
+			characterAssignment = list [selectedCharacter];
+			list.RemoveAt (selectedCharacter);
+			Prefs.PlayerPrefsX.SetStringArray ("fizzles", list.ToArray ());
+			PlayerPrefs.SetString (characterAssignment, characterName);
+			Debug.Log ("Setting Character Type " + characterAssignment + " for " + characterName);
+		}
+		return fizzles.Length;
+	}
+
 	public void assignName(string gender) {
 		int numNames = json["names"][gender].Count;
 		name = json["names"][gender][Random.Range(0,numNames)];
@@ -609,7 +624,7 @@ public class Character : MonoBehaviour {
 			hasGlasses = false;
 		}
 
-		if (Random.Range (0, 2) == 1) {
+		if (Random.Range (0, 6) == 5) {
 			hasPiercing = true;
 		} else {
 			hasPiercing = false;

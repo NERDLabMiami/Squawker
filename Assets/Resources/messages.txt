@@ -32,6 +32,7 @@
       "Bryce",
       "Gerald "
     ],
+
     "women": [
       "Amber",
       "Britney",
@@ -87,6 +88,9 @@
     "C31B",
     "C32",
     "C33"
+  ],
+  "fizzles": [
+    "FIZZLE1", "FIZZLE2", "FIZZLE3", "FIZZLE4", "FIZZLE5", "FIZZLE6","FIZZLE7", "FIZZLE8", "FIZZLE9"
   ],
   "male_characters": [
     "C11",
@@ -536,7 +540,7 @@
       },
       "responses": [
         {
-          "response": "[[ A passion for cartography! That\u2019s something I can\u2019t say I\u2019ve ever encountered in a person.",
+          "response": "A passion for cartography! That\u2019s something I can\u2019t say I\u2019ve ever encountered in a person.",
           "path": "MC12\/cartography",
           "time": "2",
           "belief_id": "none"
@@ -3895,7 +3899,7 @@
     },
     "intro": {
       "subject": "%C winked back!",
-      "message": "Something about your profile really made you look kinda special. So I just wanted to say hi!\r\n\r\nI usually tell people right off the bat that I love biking, and I also spend a lot of time on the water, boating. Paddle boarding, kayaking, canoeing, really anything to work up a sweat before diving into the water. My friends usually describe me as driven and deter-mined, but I think that\u2019s just passion. On top of that, I\u2019m energetic, tidy, a whole lot of fun, and a little bit frank.\r\n\r\nIf any of that sounds like someone you\u2019d like to get to know, say hey!",
+      "message": "Something about your profile really made you look kinda special. So I just wanted to say hi!\r\n\r\nI usually tell people right off the bat that I love biking, and I also spend a lot of time on the water, boating. Paddle boarding, kayaking, canoeing, really anything to work up a sweat before diving into the water. My friends usually describe me as driven and determined, but I think that\u2019s just passion. On top of that, I\u2019m energetic, tidy, a whole lot of fun, and a little bit frank.\r\n\r\nIf any of that sounds like someone you\u2019d like to get to know, say hey!",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -4611,7 +4615,7 @@
     },
     "regulations": {
       "subject": "RE: Tanning regulations",
-      "message": "That\u2019s what I\u2019m thinking. The FDA wouldn\u2019t let it happen if it could really hurt us so bad-ly, right?",
+      "message": "That\u2019s what I\u2019m thinking. The FDA wouldn\u2019t let it happen if it could really hurt us so badly, right?",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -4624,7 +4628,7 @@
           "belief_id": "none"
         },
         {
-          "response": "I think they do as much as they can, but we do have to make our own decisions. Ciga-rettes aren\u2019t illegal, right? But everyone knows they\u2019re dangerous.",
+          "response": "I think they do as much as they can, but we do have to make our own decisions. Cigarettes aren\u2019t illegal, right? But everyone knows they\u2019re dangerous.",
           "path": "C31B\/asmuchastheycan",
           "time": "2",
           "belief_id": "none"
@@ -5156,7 +5160,7 @@
           "belief_id": "none"
         },
         {
-          "response": "[[ I mean, I get it. Money talks. How much did you say you make as a farmer? ",
+          "response": "I mean, I get it. Money talks. How much did you say you make as a farmer? ",
           "path": "C32\/deadend",
           "time": "9999",
           "belief_id": "none"
@@ -5600,6 +5604,420 @@
       }
     }
   },
+  "FIZZLE1": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Hello?",
+      "message": "Hi! How does this thing work? Are we dating?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "You should ask Leslie for some help.",
+          "path": "FIZZLE1\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Oh yeah, we\u0027re definitely dating.",
+          "path": "FIZZLE1\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "That\u0027s a negative.",
+          "path": "FIZZLE1\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE2": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Oh wow, you have to be the one!",
+      "message": "I think I\u0027ve seen you before. I was sitting on a bench in the park, feeding the pigeons. You were frolicking in the grass. Magnificent. I love pigeons. So majestic, so beautiful. It\u0027s hard to focus when you\u0027re surrounded by such beauty.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, I don\u0027t frolick.",
+          "path": "FIZZLE2\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yes! Pigeons! Definitely not flying rats, that\u0027s for sure.",
+          "path": "FIZZLE2\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Move along!",
+          "path": "FIZZLE2\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE3": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Some weather we\u0027re having, am I right?",
+      "message": "Oh wow. Isn\u0027t it just heavy? I mean, like, do you ever get the feeling that everyone else is a robot? I mean, you\u0027re not a robot right? I\u0027m definitely not a robot.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Yes, I\u0027M A ROBOT!",
+          "path": "FIZZLE3\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No, I\u0027m not a robot.",
+          "path": "FIZZLE3\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "It is heavy, real heavy.",
+          "path": "FIZZLE3\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE4": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Here\u0027s a question for you!",
+      "message": "Would you rather fight 100 duck-sized horses or 1 horse-sized duck?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "100 duck-sized horses, those little horsies don\u0027t stand a chance!",
+          "path": "FIZZLE4\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "1 horse-sized duck, I could take it.",
+          "path": "FIZZLE4\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u0027m not sure.",
+          "path": "FIZZLE4\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE5": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "I know you!",
+      "message": "You were the hoarder at the grocery store, putting all the cookies in your basket! I wanted some cookies too, but you took them all you thief!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, you have the wrong person.",
+          "path": "FIZZLE5\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I regret nothing!",
+          "path": "FIZZLE5\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Cookies! Non nom nom!",
+          "path": "FIZZLE5\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE6": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Something on the side?",
+      "message": "Hey there! I got this free trial and thought I\u0027d see what this thing is all about. I\u0027m looking for something casual. I\u0027m not looking for another relationship, already got that covered thank you very much. Do you own any costumes?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, I don\u0027t own any costumes.",
+          "path": "FIZZLE6\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u0027ve got a Big Bird costume, would that work?",
+          "path": "FIZZLE6\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Of course I own costumes! Who do you think I am?",
+          "path": "FIZZLE6\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE7": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "OMG!",
+      "message": "I absolutely LOVE this thing you\u0027ve got going on. I could never pull off that look but wow, just WOW. Do you workout? Obviously you do, why am I asking? I\u0027m totally embarrassing myself. I\u0027ll stop now.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Thanks?",
+          "path": "FIZZLE7\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yes, you\u0027re definitely embarrassing yourself.",
+          "path": "FIZZLE7\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "What are you talking about? You could totally pull it off!",
+          "path": "FIZZLE7\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE8": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "So...",
+      "message": "What\u0027s up? I\u0027m basically a vampire. Totally into biting, but I don\u0027t suck! ha ha! Anyways, what do you do for fun? I obviously can only hang out at night since the sunlight would burn me to a crisp. Maybe you\u0027d like to meet up sometime, my crypt is very cozy!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Well I\u0027m basically a werewolf, so this isn\u0027t going to work.",
+          "path": "FIZZLE8\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sweet! Are you immortal?",
+          "path": "FIZZLE8\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Bored now.",
+          "path": "FIZZLE8\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE9": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "We\u0027re animals!",
+      "message": "You\u0027re a fierce warrior, I can tell. Just like a warthog. I don\u0027t mind your flatulence either, it\u0027s cool baby.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "It\u0027s so refreshing to have someone not judge my gas!",
+          "path": "FIZZLE9\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "There\u0027s magic everywhere.",
+          "path": "FIZZLE9\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Just stop.",
+          "path": "FIZZLE9\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
   "C33": {
     "character_type": "C33",
     "requirements": {
@@ -5976,124 +6394,124 @@
   },
   "tanning": {
     "M1": {
-    "path": "tanning\/M1\/0",
-    "subject": "Feeling blah?",
-    "belief_id": "APB1",
-    "message": "Feeling drab, pale, and sickly? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and youthful!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M1\/0",
+      "subject": "Feeling blah?",
+      "belief_id": "APB1",
+      "message": "Feeling drab, pale, and sickly? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and youthful!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M2": {
-    "path": "tanning\/M2\/0",
-    "subject": "Feeling less than than perfect?",
-    "belief_id": "APB1",
-    "message": "Want to look vibrant and healthy? Come in for a session in one of our tanning beds and you\u2019ll immediately be the best version of yourself!",
-    "responses": [
-      {
-        "response": "Sounds good, sign me up!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m fine.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M2\/0",
+      "subject": "Feeling less than than perfect?",
+      "belief_id": "APB1",
+      "message": "Want to look vibrant and healthy? Come in for a session in one of our tanning beds and you\u2019ll immediately be the best version of yourself!",
+      "responses": [
+        {
+          "response": "Sounds good, sign me up!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m fine.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M3": {
-    "path": "tanning\/M3\/0",
-    "subject": "New Found Health",
-    "belief_id": "APB1",
-    "message": "What better way to contribute to your newfound healthiness, than to LOOK even healthier? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and toned!",
-    "responses": [
-      {
-        "response": "Sure, sign me up!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, maybe later.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M3\/0",
+      "subject": "New Found Health",
+      "belief_id": "APB1",
+      "message": "What better way to contribute to your newfound healthiness, than to LOOK even healthier? Come in for a session in one of our tanning beds and you\u2019ll immediately look healthy and toned!",
+      "responses": [
+        {
+          "response": "Sure, sign me up!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, maybe later.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M4": {
-    "path": "tanning\/M4\/0",
-    "subject": "Instant Gratification",
-    "belief_id": "APB1",
-    "message": "Who doesn\u2019t want to look healthy and vibrant? Come in for a session in one of our tanning beds and you\u2019ll receive instant gratification.",
-    "responses": [
-      {
-        "response": "Sign me up, I need some gratification!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M4\/0",
+      "subject": "Instant Gratification",
+      "belief_id": "APB1",
+      "message": "Who doesn\u2019t want to look healthy and vibrant? Come in for a session in one of our tanning beds and you\u2019ll receive instant gratification.",
+      "responses": [
+        {
+          "response": "Sign me up, I need some gratification!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M5": {
-    "path": "tanning\/M5\/0",
-    "subject": "Skin imperfections?",
-    "belief_id": "APB2",
-    "message": "Uh oh! Find yet another blemish on your skin? A quick session in one of our tanning beds will fix that right up! It will hide all of your skin imperfections and leave you feeling beautiful and confident.",
-    "responses": [
-      {
-        "response": "Yes please!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M5\/0",
+      "subject": "Skin imperfections?",
+      "belief_id": "APB2",
+      "message": "Uh oh! Find yet another blemish on your skin? A quick session in one of our tanning beds will fix that right up! It will hide all of your skin imperfections and leave you feeling beautiful and confident.",
+      "responses": [
+        {
+          "response": "Yes please!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M6": {
-    "path": "\/M6\/0",
-    "subject": "Just one session!",
-    "belief_id": "APB2",
-    "message": "Tired of skin products that just don\u0027t seem to do the trick? Well, one quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful and confident.",
-    "responses": [
-      {
-        "response": "Sounds good, sign me up!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "\/M6\/0",
+      "subject": "Just one session!",
+      "belief_id": "APB2",
+      "message": "Tired of skin products that just don\u0027t seem to do the trick? Well, one quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful and confident.",
+      "responses": [
+        {
+          "response": "Sounds good, sign me up!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M7": {
       "path": "tanning\/M7\/0",
@@ -6136,406 +6554,407 @@
       ]
     },
     "M9": {
-    "path": "tanning\/M9\/0",
-    "subject": "Drab into Fab!",
-    "belief_id": "APB2",
-    "message": "Want to turn drab into fab?! Come in for a session in one of our tanning beds and you\u2019ll immediately feel beautiful, bright, and breathtaking.",
-    "responses": [
-      {
-        "response": "Yes please!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M9\/0",
+      "subject": "Drab into Fab!",
+      "belief_id": "APB2",
+      "message": "Want to turn drab into fab?! Come in for a session in one of our tanning beds and you\u2019ll immediately feel beautiful, bright, and breathtaking.",
+      "responses": [
+        {
+          "response": "Yes please!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M10": {
-    "path": "tanning\/M10\/0",
-    "subject": "Stressed?",
-    "belief_id": "ME2",
-    "message": "Need to relieve some stress? Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M10\/0",
+      "subject": "Stressed?",
+      "belief_id": "ME2",
+      "message": "Need to relieve some stress? Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M11": {
-    "path": "tanning\/M11\/0",
-    "subject": "Stress Relief Fast!",
-    "belief_id": "ME2",
-    "message": "Who doesn\u2019t need a good stress reliever? Come in for a session in one of our tanning beds and you\u2019ll immediately feel satisfied, serene, and spirited.",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M11\/0",
+      "subject": "Stress Relief Fast!",
+      "belief_id": "ME2",
+      "message": "Who doesn\u2019t need a good stress reliever? Come in for a session in one of our tanning beds and you\u2019ll immediately feel satisfied, serene, and spirited.",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M12": {
-    "path": "tanning\/M12\/0",
-    "subject": "Take a break!",
-    "belief_id": "ME2",
-    "message": "You deserve a break! You\u2019ve been hard at work all week, and our tanning salon recognizes your dedication. Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m fine.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M12\/0",
+      "subject": "Take a break!",
+      "belief_id": "ME2",
+      "message": "You deserve a break! You\u2019ve been hard at work all week, and our tanning salon recognizes your dedication. Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m fine.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M13": {
-    "path": "tanning\/M13\/0",
-    "subject": "Tension building?",
-    "belief_id": "ME2",
-    "message": "Is that tension building up in your neck again? You\u2019ve got to nip it in the bud before it diffuses throughout your whole body! Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M13\/0",
+      "subject": "Tension building?",
+      "belief_id": "ME2",
+      "message": "Is that tension building up in your neck again? You\u2019ve got to nip it in the bud before it diffuses throughout your whole body! Come in for a session in one of our tanning beds and you\u2019ll immediately feel rested, relaxed, and rejuvenated.",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M14": {
-    "path": "tanning\/M14\/0",
-    "subject": "Feel Elated!",
-    "belief_id": "ME1",
-    "message": "Who doesn\u2019t want to be happy? Well, you\u2019re bound to leave one of our tanning sessions feeling elated, ebullient, and ecstatic. Come NOW to one of our salon locations!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m fine.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M14\/0",
+      "subject": "Feel Elated!",
+      "belief_id": "ME1",
+      "message": "Who doesn\u2019t want to be happy? Well, you\u2019re bound to leave one of our tanning sessions feeling elated, ebullient, and ecstatic. Come NOW to one of our salon locations!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m fine.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M15": {
-    "path": "tanning\/M15\/0",
-    "subject": "Do Something For You!",
-    "belief_id": "ME1",
-    "message": "It\u2019s time you do something good for yourself for once! Come in for a session in one of our tanning beds and you\u2019ll immediately feel lively, youthful, and merry.",
-    "responses": [
-      {
-        "response": "Sounds good, I\u0027m in!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M15\/0",
+      "subject": "Do Something For You!",
+      "belief_id": "ME1",
+      "message": "It\u2019s time you do something good for yourself for once! Come in for a session in one of our tanning beds and you\u2019ll immediately feel lively, youthful, and merry.",
+      "responses": [
+        {
+          "response": "Sounds good, I\u0027m in!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M16": {
-    "path": "tanning\/M16\/0",
-    "subject": "Something got you down?",
-    "belief_id": "ME1",
-    "message": "How about we turn that frown upside down? Treat yourself at one of our salon locations for a session in one of our tanning beds and you\u2019ll immediately feel joyful, jubilant, and jolly!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M16\/0",
+      "subject": "Something got you down?",
+      "belief_id": "ME1",
+      "message": "How about we turn that frown upside down? Treat yourself at one of our salon locations for a session in one of our tanning beds and you\u2019ll immediately feel joyful, jubilant, and jolly!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M17": {
-    "path": "tanning\/M17\/0",
-    "subject": "Need a pick me up?",
-    "belief_id": "ME1",
-    "message": "No problem! Come in at one of our salon locations for a session in one of our tanning beds and you\u2019ll immediately feel joyful, jubilant, and jolly.",
-    "responses": [
-      {
-        "response": "Sign me up!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thank you.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M17\/0",
+      "subject": "Need a pick me up?",
+      "belief_id": "ME1",
+      "message": "No problem! Come in at one of our salon locations for a session in one of our tanning beds and you\u2019ll immediately feel joyful, jubilant, and jolly.",
+      "responses": [
+        {
+          "response": "Sign me up!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thank you.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M18": {
-    "path": "tanning\/M18\/0",
-    "subject": "Improve Your Health",
-    "belief_id": "HB1",
-    "message": "We all need to improve our health in one way or another. Why don\u0027t you come in for a session at one of our salon locations? A nice tan from one of our our professional tanning beds will make you feel energized and rejuvenated!",
-    "responses": [
-      {
-        "response": "Sure, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M18\/0",
+      "subject": "Improve Your Health",
+      "belief_id": "HB1",
+      "message": "We all need to improve our health in one way or another. Why don\u0027t you come in for a session at one of our salon locations? A nice tan from one of our our professional tanning beds will make you feel energized and rejuvenated!",
+      "responses": [
+        {
+          "response": "Sure, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M19": {
-    "path": "tanning\/M19\/0",
-    "subject": "Feel Vibrant",
-    "belief_id": "HB1",
-    "message": "Want to feel vibrant, energized, and healthy? Well, you\u2019ve come to the right site. Try out a session in one of our tanning beds. You\u2019ll immediately be the best, healthy version of yourself!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m fine.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M19\/0",
+      "subject": "Feel Vibrant",
+      "belief_id": "HB1",
+      "message": "Want to feel vibrant, energized, and healthy? Well, you\u2019ve come to the right site. Try out a session in one of our tanning beds. You\u2019ll immediately be the best, healthy version of yourself!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m fine.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M20": {
-    "path": "tanning\/M20\/0",
-    "subject": "Are you on a health kick?",
-    "belief_id": "HB1",
-    "message": "You\u2019ve come to the right site. A nice tan from one of our our professional tanning beds will make you feel energized and rejuvenated!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M20\/0",
+      "subject": "Are you on a health kick?",
+      "belief_id": "HB1",
+      "message": "You\u2019ve come to the right site. A nice tan from one of our our professional tanning beds will make you feel energized and rejuvenated!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M21": {
-    "path": "tanning\/M21\/0",
-    "subject": "Get a safe tan!",
-    "belief_id": "HB2",
-    "message": "Do you want a tan but are afraid of absorbing too many rays from the thinning ozone layer? Fear not! Our tanning salons provide a safe, UV-monitored tanning session experience that you can enjoy worry-free whilst achieving your preferential color!",
-    "responses": [
-      {
-        "response": "Sign me up!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M21\/0",
+      "subject": "Get a safe tan!",
+      "belief_id": "HB2",
+      "message": "Do you want a tan but are afraid of absorbing too many rays from the thinning ozone layer? Fear not! Our tanning salons provide a safe, UV-monitored tanning session experience that you can enjoy worry-free whilst achieving your preferential color!",
+      "responses": [
+        {
+          "response": "Sign me up!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M22": {
-    "path": "tanning\/M22\/0",
-    "subject": "Get Some Color",
-    "belief_id": "HB3",
-    "message": "Want some color without the added consequences? Come now to one our our salon locations and receive a safe, secure tanning session and leave unscathed from the effects of the thinning ozone layer.",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M22\/0",
+      "subject": "Get Some Color",
+      "belief_id": "HB3",
+      "message": "Want some color without the added consequences? Come now to one our our salon locations and receive a safe, secure tanning session and leave unscathed from the effects of the thinning ozone layer.",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M23": {
-    "path": "tanning\/M23\/0",
-    "subject": "Relax and Enjoy",
-    "belief_id": "HB5",
-    "message": "Tanning couldn\u2019t be any safer than at one of our tanning salons. All you have to do is lie down, relax, and enjoy your results. It\u2019s simple and safe from all external factors. Easy as pie!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M23\/0",
+      "subject": "Relax and Enjoy",
+      "belief_id": "HB5",
+      "message": "Tanning couldn\u2019t be any safer than at one of our tanning salons. All you have to do is lie down, relax, and enjoy your results. It\u2019s simple and safe from all external factors. Easy as pie!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "M24": {
-    "path": "tanning\/M24\/0",
-    "subject": "Improve Your Health!",
-    "belief_id": "HB5",
-    "message": "Have you been searching for ways to improve your health? A nice tan from one of our our professionally designed safe tanning beds will make you feel like you\u2019ve chugged 100 green juices!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "tanning",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/tanning",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "tanning\/M24\/0",
+      "subject": "Improve Your Health!",
+      "belief_id": "HB5",
+      "message": "Have you been searching for ways to improve your health? A nice tan from one of our our professionally designed safe tanning beds will make you feel like you\u2019ve chugged 100 green juices!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "tanning",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/tanning",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
+    
   },
   "love": {
     "L1": {
-    "path": "love\/L1\/0",
-    "subject": "Test Your Ability to Love!",
-    "belief_id": "none",
-    "message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
-    "responses": [
-      {
-        "response": "Sure, why not?",
-        "path": "love",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027d rather not.",
-        "path": "remove\/love",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "love\/L1\/0",
+      "subject": "Test Your Ability to Love!",
+      "belief_id": "none",
+      "message": "Our patented Love Q is guaranteed to improve your attractiveness. Play the game and increase your desirability!",
+      "responses": [
+        {
+          "response": "Sure, why not?",
+          "path": "love",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027d rather not.",
+          "path": "remove\/love",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "L2": {
-    "path": "love\/L2\/0",
-    "subject": "Improve Your Chances!",
-    "belief_id": "none",
-    "message": "Let potential matches know how desirable you are! Play LoveQ and increase your lovability!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "love",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/love",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "love\/L2\/0",
+      "subject": "Improve Your Chances!",
+      "belief_id": "none",
+      "message": "Let potential matches know how desirable you are! Play LoveQ and increase your lovability!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "love",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/love",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "L3": {
-    "path": "love\/L3\/0",
-    "subject": "Let Us Help You Find Love!",
-    "belief_id": "none",
-    "message": "Your suitors are waiting, but do they know how lovable you are? Play LoveQ and prove your desirability today!",
-    "responses": [
-      {
-        "response": "I\u0027d love to!",
-        "path": "love",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, not today.",
-        "path": "remove\/love",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "love\/L3\/0",
+      "subject": "Let Us Help You Find Love!",
+      "belief_id": "none",
+      "message": "Your suitors are waiting, but do they know how lovable you are? Play LoveQ and prove your desirability today!",
+      "responses": [
+        {
+          "response": "I\u0027d love to!",
+          "path": "love",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, not today.",
+          "path": "remove\/love",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "L4": {
-    "path": "love\/L4\/0",
-    "subject": "Get Tested, For Love!",
-    "belief_id": "none",
-    "message": "It\u0027s hardly a test though, it\u0027s a game that scores your desirability! Play it today!",
-    "responses": [
-      {
-        "response": "Let\u0027s Play!",
-        "path": "love",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks!",
-        "path": "remove\/love",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "love\/L4\/0",
+      "subject": "Get Tested, For Love!",
+      "belief_id": "none",
+      "message": "It\u0027s hardly a test though, it\u0027s a game that scores your desirability! Play it today!",
+      "responses": [
+        {
+          "response": "Let\u0027s Play!",
+          "path": "love",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks!",
+          "path": "remove\/love",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "L5": {
       "path": "love\/L5\/0",
@@ -6556,94 +6975,203 @@
           "belief_id": "none"
         }
       ]
-    }  
+    }
   },
   "doctor": {
     "conversation": {
-                      "LOW1": [
-                                { "doctor": "Great, let's take a look.",
-                                  "patient": "OK"
-                                },
-                                { "doctor": "You have a bit of tan. You know that's a self defense mechanism for your skin?",
-                                  "patient": "It is?"
-                                },
-                                { "doctor": "Exposure to UV rays produces more melanin, a pigment that darkens the skin.",
-                                  "patient": "Interesting, but I used a tanning bad though."
-                                },
-                                { "doctor": "That could be worse! Tanning beds often exceed safe UV limits, despite what the salon claims.",
-                                  "patient": "Well I'm glad I talked to you."
-                                },
-                                { "doctor": "Be safe out there, and have a good day.",
-                                  "patient": "Thanks, you too!"
-                                }
-                              ],
-                      "LOW2": [
-                              {
-                                "doctor": "Great, let's take a look.",
-                                "patient": "OK"
-                              },
-                              {
-                                "doctor": "Have you been using a tanning bed?",
-                                "patient": "Yes, I look great right?"
-                              },
-                              {
-                                "doctor": "Actually, tanning can cause premature aging.",
-                                "patient": "Oh, maybe I shouldn't go anymore!"
-                              },
-                              {
-                                "doctor": "Yeah, I wouldn't. Just remember, they are a business that's marketing a product.",
-                                "patient": "I never thought of it that way."
-                              },
-                              {
-                                "doctor": "OK, you're all set. Be safe!",
-                                "patient": "Thanks!"
-                              }
-                              ],
-                      "HIGH1": [
-                              {
-                                "doctor": "You're quite tan. You should be careful.",
-                                "patient": "Why is that?"
-                              },
-                              {
-                                "doctor": "Having a tan isn't a sign of good health. It's skin damage.",
-                                "patient": "Really?"
-                              },
-                              {
-                                "doctor": "Yeah, the risk of melanoma of the skin increases by 75 percent if you use a tanning bed before the age of 35.",
-                                "patient": "Wow, that's crazy."
-                              },                  
-                              {
-                                "doctor": "That's not all, indoor tanning can even lead to blinding eye diseases.",
-                                "patient": "That's horrible, but thanks for the info!"
-                              },
-                              {
-                                "doctor": "All in a days work! Have a nice day and be safe!",
-                                "patient": "Thanks!"
-                              }
-                              ],
-                      "HIGH2": [
-                              {
-                                "doctor": "Wow, you've got quite a tan.",
-                                "patient": "Thanks for noticing!"
-                              },
-                              {
-                                "doctor": "Actually that's not a good thing. Have you been using a tanning bed?",
-                                "patient": "Yes, why?"
-                              },
-                              {
-                                "doctor": "It's skin damage and it can cause premature aging.",
-                                "patient": "Well that's not what I was hoping for!"
-                              },
-                              {
-                                "doctor": "Speaking of age, did you know that melanoma is the second most common cancer for women age 20 to 29?",
-                                "patient": "I did not know that..."
-                              },
-                              {
-                                "doctor": "I'm full of facts today! Here's another one for the road: indoor tanning can lead to cataracts, corneal burning and eye cancer. Yikes!",
-                                "patient": "Well thanks for the info, I guess I'll be going now!"
-                              }
-                              ]
-                    }
+      "LOW1": [
+        {
+          "doctor": "Great, let's take a look.",
+          "patient": "OK"
+        },
+        {
+          "doctor": "You have a bit of tan. You know that's a self defense mechanism for your skin?",
+          "patient": "It is?"
+        },
+        {
+          "doctor": "Exposure to UV rays produces more melanin, a pigment that darkens the skin.",
+          "patient": "Interesting, but I used a tanning bad though."
+        },
+        {
+          "doctor": "That could be worse! Tanning beds often exceed safe UV limits, despite what the salon claims.",
+          "patient": "Well I'm glad I talked to you."
+        },
+        {
+          "doctor": "Be safe out there, and have a good day.",
+          "patient": "Thanks, you too!"
+        }
+      ],
+      "LOW2": [
+        {
+          "doctor": "Great, let's take a look.",
+          "patient": "OK"
+        },
+        {
+          "doctor": "Have you been using a tanning bed?",
+          "patient": "Yes, I look great right?"
+        },
+        {
+          "doctor": "Actually, tanning can cause premature aging.",
+          "patient": "Oh, maybe I shouldn't go anymore!"
+        },
+        {
+          "doctor": "Yeah, I wouldn't. Just remember, they are a business that's marketing a product.",
+          "patient": "I never thought of it that way."
+        },
+        {
+          "doctor": "OK, you're all set. Be safe!",
+          "patient": "Thanks!"
+        }
+      ],
+      "HIGH1": [
+        {
+          "doctor": "You're quite tan. You should be careful.",
+          "patient": "Why is that?"
+        },
+        {
+          "doctor": "Having a tan isn't a sign of good health. It's skin damage.",
+          "patient": "Really?"
+        },
+        {
+          "doctor": "Yeah, the risk of melanoma of the skin increases by 75 percent if you use a tanning bed before the age of 35.",
+          "patient": "Wow, that's crazy."
+        },
+        {
+          "doctor": "That's not all, indoor tanning can even lead to blinding eye diseases.",
+          "patient": "That's horrible, but thanks for the info!"
+        },
+        {
+          "doctor": "All in a days work! Have a nice day and be safe!",
+          "patient": "Thanks!"
+        }
+      ],
+      "HIGH2": [
+        {
+          "doctor": "Wow, you've got quite a tan.",
+          "patient": "Thanks for noticing!"
+        },
+        {
+          "doctor": "Actually that's not a good thing. Have you been using a tanning bed?",
+          "patient": "Yes, why?"
+        },
+        {
+          "doctor": "It's skin damage and it can cause premature aging.",
+          "patient": "Well that's not what I was hoping for!"
+        },
+        {
+          "doctor": "Speaking of age, did you know that melanoma is the second most common cancer for women age 20 to 29?",
+          "patient": "I did not know that..."
+        },
+        {
+          "doctor": "I'm full of facts today! Here's another one for the road: indoor tanning can lead to cataracts, corneal burning and eye cancer. Yikes!",
+          "patient": "Well thanks for the info, I guess I'll be going now!"
+        }
+      ]
+    }
+  },
+  "haircut": {
+    "HC1": {
+      "path": "haircut\/HC1\/0",
+      "subject": "Change Your Look!",
+      "belief_id": "none",
+      "message": "Are you tired of your hair style? Want to change up your look? We\u0027re looking for hair models. You get a free cut, we get to play with your hair. It\u0027s a win win!",
+      "responses": [
+        {
+          "response": "Yes please! Change my hair style!",
+          "path": "haircut",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/haircut",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "HC2": {
+      "path": "haircut\/HC2\/0",
+      "subject": "Haircut Roulette!",
+      "belief_id": "none",
+      "message": "We\u0027ve got an amazing deal for you! It\u0027s called Haircut Roulette. You don\u0027t have to pay a thing and you get an amazing new hair style!",
+      "responses": [
+        {
+          "response": "Yes please! Change my hair style!",
+          "path": "haircut",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/haircut",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "HC3": {
+      "path": "haircut\/HC3\/0",
+      "subject": "A New Do",
+      "belief_id": "none",
+      "message": "Are you feeling unattractive? Want to make a change to your look? How about changing your hair style? You\u0027re going to love it.",
+      "responses": [
+        {
+          "response": "Yes please! Change my hair style!",
+          "path": "haircut",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/haircut",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    }
+  },
+  "piercing": {
+    "P1": {
+      "path": "piercing\/P1\/0",
+      "subject": "Get Pierced!",
+      "belief_id": "none",
+      "message": "Looking for a way to stand out in a crowd? How about getting a piercing? We\u0027ve got a special offer, just for you! Act now and we\u0027ll give you a free piercing or two... or four.",
+      "responses": [
+        {
+          "response": "Yes please! I\u0027d like to get pierced.",
+          "path": "piercing",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/piercing",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "P2": {
+      "path": "piercing\/P2\/0",
+      "subject": "Get Pierced!",
+      "belief_id": "none",
+      "message": "The new thing is here and it\u0027s piercing! We\u0027ve got a special deal right now for you to meet with our piercing specialist. They\u0027ll figure out the best place on your face for a piercing. What do you say?",
+      "responses": [
+        {
+          "response": "Yes, I want to get pierced!",
+          "path": "piercing",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/piercing",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    }
   },
   "exam": {
     "SE1": {
@@ -6687,24 +7215,24 @@
       ]
     },
     "SE3": {
-    "path": "exam\/SE3\/0",
-    "subject": "Worried About Skin Damage?",
-    "belief_id": "none",
-    "message": "We\u0027re offering free skin exams. Stop worrying and come in!",
-    "responses": [
-      {
-        "response": "Sounds good, let\u0027s do it!",
-        "path": "dermatologist",
-        "time": "9999",
-        "belief_id": "none"
-      },
-      {
-        "response": "No thanks, I\u0027m good.",
-        "path": "remove\/dermatologist",
-        "time": "9999",
-        "belief_id": "none"
-      }
-    ]
+      "path": "exam\/SE3\/0",
+      "subject": "Worried About Skin Damage?",
+      "belief_id": "none",
+      "message": "We\u0027re offering free skin exams. Stop worrying and come in!",
+      "responses": [
+        {
+          "response": "Sounds good, let\u0027s do it!",
+          "path": "dermatologist",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I\u0027m good.",
+          "path": "remove\/dermatologist",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     },
     "SE4": {
       "path": "exam\/SE4\/0",
@@ -6743,6 +7271,7 @@
       },
       
     ],
+    
   },
   
 }

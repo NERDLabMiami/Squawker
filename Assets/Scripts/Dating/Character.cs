@@ -726,6 +726,50 @@ public class Character : MonoBehaviour {
 		setEnabledAttributes ();
 	}
 
+	public void getPierced() {
+		piercingStyles = Resources.LoadAll<Sprite> (piercingStylePath);
+
+		selectedPiercing = Random.Range (0, piercingStyles.Length);
+		piercing.sprite = piercingStyles[selectedPiercing];
+		piercing.enabled = true;
+		hasPiercing = true;
+//		saveCharacter();
+		updateCharacter();
+	}
+
+	public void getHaircut() {
+		if(hasLongHair) {
+			if(Random.Range(0,50) < 25) {
+				hasLongHair = false;
+				longHair.enabled = false;
+			}
+		}
+		else if(!hasShortHair) {
+			shortHair.enabled = true;
+			hasShortHair = true;
+		}
+		else {
+			if (Random.Range(0,50) < 10 && hasShortHair) {
+				//buzzcut
+				hasShortHair = false;
+				shortHair.enabled = false;
+			}
+		}
+		if (hasLongHair) {
+			longHairStyles = Resources.LoadAll<Sprite>(longHairStylePath);
+			selectedLongHair = Random.Range(0, longHairStyles.Length);
+			longHair.sprite = longHairStyles[selectedLongHair];
+			//			longHair.enabled = true;
+		}
+		if (hasShortHair) {
+			shortHairStyles = Resources.LoadAll<Sprite>(shortHairStylePath);
+			selectedShortHair = Random.Range(0, shortHairStyles.Length);
+			shortHair.sprite = shortHairStyles[selectedShortHair];
+			//			shortHair.enabled = true;
+		}
+//		saveCharacter();
+		updateCharacter();
+	}
 
 	public void setSprites() {
 		shortHair.sprite = shortHairStyles [selectedShortHair];

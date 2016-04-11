@@ -12,6 +12,8 @@ public class AvatarWizard : MonoBehaviour {
 	public GameObject saveButton;
 	public Character avatar;
 	public Player player;
+	private float jiggleTimer;
+	private bool touchedNextButton = false;
 
 	public ImageSet[] folders;
 	public int currentFolderIndex = 0;
@@ -26,9 +28,15 @@ public class AvatarWizard : MonoBehaviour {
 		options = optionObject.GetComponentsInChildren<AvatarOptions>(true);
 		options[0].gameObject.SetActive(true);
 		currentFeatureText.text = options[0].gameObject.name;
-
+		jiggleTimer = Time.time + 5f;
 	}
 
+	void Update() {
+		if (jiggleTimer < Time.time && !touchedNextButton) {
+			jiggleTimer+= 5f;
+			nextOptionButton.gameObject.GetComponent<Animator>().SetTrigger("jiggle");
+		}
+	}
 
 	public void saveAndContinue() {
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -54,6 +62,7 @@ public class AvatarWizard : MonoBehaviour {
 	public void nextCategory() {
 		previousOptionButton.gameObject.SetActive(true);
 		options[categoryIndex].gameObject.SetActive(false);
+		touchedNextButton = true;
 
 		categoryIndex++;
 		if (categoryIndex == options.Length -1) {

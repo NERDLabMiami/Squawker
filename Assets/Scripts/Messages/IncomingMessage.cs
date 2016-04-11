@@ -29,7 +29,13 @@ public class IncomingMessage : MonoBehaviour {
 			case "exam":
 				overrideImage.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
 				break;
-			default:
+			case "piercing":
+				overrideImage.sprite = Resources.Load<Sprite>("Home/pierced_larry");
+				break;
+			case "haircut":
+				overrideImage.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
+				break;
+		default:
 				overrideImage.enabled = false;
 				avatar.gameObject.SetActive(true);
 				break;
@@ -69,8 +75,16 @@ public class IncomingMessage : MonoBehaviour {
 
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
-
-
+			break;
+		case "piercing":
+			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING", "", "");
+			msg.GetComponent<ViewMessage>().alias.text = "Larry's Piercing Parlor";
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/pierced_larry");
+			break;
+		case "haircut":
+			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","", "");
+			msg.GetComponent<ViewMessage>().alias.text = "Emerald's Salon";
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
 			break;
 		default:
 			GetComponent<PlayerBehavior>().trackEvent(1, "DLG", message.belief, message.sender);

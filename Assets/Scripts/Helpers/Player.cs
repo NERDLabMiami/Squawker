@@ -338,13 +338,19 @@ public class Player : MonoBehaviour {
 	}
 
 	private void newDay() {
-
 		//ADD TANNING OFFER
 		if (daysLeft%4 == 1) {
 			newOffer ("love");
 		}
 		else if (daysLeft%4 == 3) {
 			newOffer("tanning");
+		}
+
+		if(daysLeft%6 == 2) {
+			newOffer("haircut");
+		}
+		else if (daysLeft%6 == 5) {
+			newOffer("piercing");
 		}
 
 		for(int i = 0; i < messageList.Count; i++) {

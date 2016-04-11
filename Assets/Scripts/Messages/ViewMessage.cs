@@ -79,7 +79,28 @@ public class ViewMessage : MonoBehaviour {
 				player.previewInbox.checkIfEmpty();
 				player.takeAction(true);
 				//TODO: Check for piercing, hair offer types
-				player.loadSceneNumber(type);
+				if (type == 6) {
+					//piercing
+					player.avatar.getPierced();
+					player.previewInbox.messageContainer.SetActive(true);
+					Destroy (gameObject);
+					player.refreshInbox();
+					player.previewInbox.checkIfEmpty();
+					transform.parent.gameObject.SetActive(false);
+
+				}
+				else if (type == 7) {
+					//haircut
+					player.avatar.getHaircut();
+					player.previewInbox.messageContainer.SetActive(true);
+					Destroy (gameObject);
+					player.refreshInbox();
+					player.previewInbox.checkIfEmpty();
+					transform.parent.gameObject.SetActive(false);
+				}
+				else {
+					player.loadSceneNumber(type);
+				}
 			});
 		} else {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
@@ -115,6 +136,12 @@ public class ViewMessage : MonoBehaviour {
 
 				return 5;
 			}
+		}
+		if (pathArray[0] == "piercing") {
+			return 6;
+		}
+		if (pathArray[0] == "haircut") {
+			return 7;
 		}
 	return -1;
 

@@ -13,6 +13,8 @@ public class CupidControl : MonoBehaviour {
 	public CupidTalk cupid;
 	public AudioSource wings;
 	private bool playing = false;
+	private bool shooting = false;
+	private int shootCounter = 0;
 
 
 	// Use this for initialization
@@ -47,13 +49,21 @@ public class CupidControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (shooting) {
+			shootCounter++;
+		}
+		if (shootCounter > 30) {
+			shootCounter = 0;
+			shooting = false;
+		}
 		if (playing) {
 			if (Input.GetButton("Vertical")) {
 				if (Input.GetAxis("Vertical") > 0) {
-					wings.Play();
+					if (!wings.isPlaying) {
+						wings.Play();
+					}
 					GetComponent<Animator>().SetTrigger("flap");
 					transform.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force);
-//					transform.position += Vector3.up* movementIntensity * Time.deltaTime;
 				}
 				else {
 					transform.GetComponent<Rigidbody2D>().AddForce(Vector2.down * force);
@@ -62,8 +72,11 @@ public class CupidControl : MonoBehaviour {
 				}
 			}
 			if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Fire1")) {
-				GetComponent<Animator>().SetTrigger("shoot");
-				Debug.Log("Fire!");
+				if (!shooting) {
+					shooting = true;
+					GetComponent<Animator>().SetTrigger("shoot");
+					Debug.Log("Fire!");
+				}
 			}
 		
 		}

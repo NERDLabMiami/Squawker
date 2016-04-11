@@ -10,13 +10,27 @@ public class CupidTalk : MonoBehaviour {
 	public GameObject continueButton;
 	public Text heartsHealed;
 	public int finalTally = 0;
+	private bool hasPlayedBefore = false;
 
 	private int dialogIndex = 0;
 	private int selectedDialog = 0;
 
 	// Use this for initialization
 	void Start () {
-		dialog.text = introDialogue [0];
+		int playedBefore = PlayerPrefs.GetInt("has played loveQ",0);
+		if (playedBefore == 1) {
+			hasPlayedBefore = true;
+		}
+
+		if (hasPlayedBefore) {
+			continueButton.SetActive (false);
+			startButton.SetActive (true);
+			dialog.text = "Welcome back! Are you ready to play again?";
+		}
+		else {
+			dialog.text = introDialogue [0];
+		}
+
 	}
 
 	public void changeDialog(string dialogName) {
@@ -28,6 +42,8 @@ public class CupidTalk : MonoBehaviour {
 		}
 		if (dialogName == "end") {
 			selectedDialog = 1;
+			PlayerPrefs.SetInt("has played loveQ",1);
+
 //			dialog.text = endDialogue [dialogIndex];
 			if(finalTally > 0) {
 				dialog.text = "You healed " + finalTally.ToString() + " hearts, you're more loveable already!";

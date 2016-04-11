@@ -1,16 +1,25 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Helpers/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dating/Character.cs">
     <Files>
-      <File FileName="Assets/Scripts/Dating/Match.cs" Line="55" Column="18" />
-      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="53" Column="8" />
+      <File FileName="Assets/Scripts/Dating/Match.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messages/ViewMessage.cs" Line="175" Column="38" />
       <File FileName="Assets/Wink.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Helpers/AvatarColorOption.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Helpers/AvatarOption.cs" Line="1" Column="1" />
-      <File FileName="Assets/Leslie.cs" Line="36" Column="67" />
+      <File FileName="Assets/Scripts/Helpers/AvatarOption.cs" Line="20" Column="1" />
+      <File FileName="Assets/Leslie.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Helpers/CategorySelector.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Dating/Character.cs" Line="541" Column="67" />
-      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="479" Column="13" />
+      <File FileName="Assets/Scripts/Dating/Character.cs" Line="737" Column="21" />
+      <File FileName="Assets/Scripts/Helpers/Player.cs" Line="345" Column="30" />
+      <File FileName="Assets/Scripts/Messages/IncomingMessage.cs" Line="87" Column="104" />
+      <File FileName="Assets/Scripts/Messages/Classes/Message.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Mini Games/Love/CupidControl.cs" Line="57" Column="21" />
+      <File FileName="Assets/Scripts/Mini Games/Love/CupidTalk.cs" Line="21" Column="22" />
+      <File FileName="Assets/Scripts/Helpers/AvatarWizard.cs" Line="65" Column="28" />
+      <File FileName="Assets/Scripts/Tutorial.cs" Line="22" Column="31" />
+      <File FileName="Assets/Scripts/Helpers/AvatarOptions.cs" Line="28" Column="10" />
+      <File FileName="Assets/Scripts/Helpers/ItemSelector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helpers/ItemFolderSelector.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

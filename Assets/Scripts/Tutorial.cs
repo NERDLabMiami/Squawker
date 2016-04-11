@@ -7,6 +7,7 @@ public class Tutorial : MonoBehaviour {
 	private TutorialItem[] items;
 	private int tutorialIndex = 0;
 	public Button[] buttons;
+	public GameObject helpButton;
 
 	public void next() {
 		tutorialIndex++;
@@ -18,6 +19,7 @@ public class Tutorial : MonoBehaviour {
 			for(int i = 0; i < buttons.Length; i++) {
 				buttons[i].interactable = true;
 			}
+			helpButton.SetActive(true);
 			gameObject.SetActive(false);
 
 		}
@@ -25,6 +27,7 @@ public class Tutorial : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		helpButton.SetActive(false);
 		items = GetComponentsInChildren<TutorialItem>(true);
 		items[tutorialIndex].gameObject.SetActive(true);
 		for(int i = 0; i < buttons.Length; i++) {

@@ -24,5 +24,9 @@ public class AvatarOptions : MonoBehaviour {
 	public void removeImage() {
 		image.sprite = null;
 		image.enabled = false;
+		//Button[] btns = transform.parent.GetComponentsInChildren<Button>();
+		for(int i = 0; i < buttons.Length; i++) {
+			buttons[i].interactable = true;
+		}
 	}
 }

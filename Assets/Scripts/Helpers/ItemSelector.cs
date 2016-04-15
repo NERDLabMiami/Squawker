@@ -7,9 +7,14 @@ public class ItemSelector : MonoBehaviour {
 	public Button removeButton;
 	public Button selectButton;
 	public string path;
+	public AudioClip selected;
+	public AudioClip discarded;
 	// Use this for initialization
 	void Start () {
 			inUse = false;
+			removeButton.onClick.AddListener (() => {
+				Camera.main.gameObject.GetComponent<AudioSource> ().PlayOneShot (discarded);
+			});
 	}
 	
 	// Update is called once per frame
@@ -17,6 +22,7 @@ public class ItemSelector : MonoBehaviour {
 	}
 
 	public void use() {
+		Camera.main.gameObject.GetComponent<AudioSource> ().PlayOneShot (selected);
 		for(int i = 0; i < gameObject.transform.parent.GetComponentsInChildren<ItemSelector>().Length; i++){
 			ItemSelector item = gameObject.transform.parent.GetComponentsInChildren<ItemSelector>()[i];
 //			if (item.inUse) {

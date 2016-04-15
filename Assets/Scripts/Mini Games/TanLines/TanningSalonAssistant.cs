@@ -38,6 +38,7 @@ public class TanningSalonAssistant : MonoBehaviour {
 				tanControls.SetActive(true);
 				bed.SetTrigger("close");
 				meter.SetTrigger ("start");
+				meter.gameObject.GetComponent<AudioSource> ().Play ();
 				stopTanButton.SetActive (true);
 				player.avatar.gameObject.SetActive(false);
 				Debug.Log ("Should have set tan button active");

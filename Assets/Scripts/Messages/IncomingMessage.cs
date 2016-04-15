@@ -11,6 +11,7 @@ public class IncomingMessage : MonoBehaviour {
 	public ViewMessage expandedMessageTemplate;
 	public Character avatar;
 	public Image overrideImage;
+	public AudioClip click;
 
 	private Message message;
 
@@ -49,7 +50,7 @@ public class IncomingMessage : MonoBehaviour {
 		//TODO: TRACK VIEWING OF MESSAGE
 		//CURRENTLY USING SAMPLE
 
-
+		Camera.main.GetComponent<AudioSource> ().PlayOneShot (click);
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
 		msg.GetComponent<ViewMessage>().profilePic.enabled = true;

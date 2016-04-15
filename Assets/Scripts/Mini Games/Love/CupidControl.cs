@@ -12,6 +12,8 @@ public class CupidControl : MonoBehaviour {
 	public Player player;
 	public CupidTalk cupid;
 	public AudioSource wings;
+	public AudioClip gameOverTrack;
+	public AudioClip gameOverFx;
 	private bool playing = false;
 	private bool shooting = false;
 	private int shootCounter = 0;
@@ -34,6 +36,16 @@ public class CupidControl : MonoBehaviour {
 		startButton.SetActive (false);
 		gameContainer.SetActive (false);
 		endButton.SetActive(true);
+		//STOP TRACK
+		//PLAY FX
+		//CHANGE TO ENDING SONG
+		Camera.main.gameObject.GetComponent<AudioSource> ().loop = false;
+		Camera.main.gameObject.GetComponent<AudioSource> ().Stop ();
+		Camera.main.gameObject.GetComponent<AudioSource> ().PlayOneShot (gameOverFx);
+		Camera.main.gameObject.GetComponent<AudioSource> ().clip = gameOverTrack;
+		Camera.main.gameObject.GetComponent<AudioSource> ().Play ();
+
+
 	}
 
 	public void returnHome() {

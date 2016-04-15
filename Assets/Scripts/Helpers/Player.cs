@@ -226,15 +226,9 @@ public class Player : MonoBehaviour {
 		inbox.Clear();
 		for (int i = 0; i < messageList.Count; i++) {
 			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
+			Debug.Log("Message Parts: " + messageList[i]);
 			if (!messageParts[0].Equals("ignore")) {
 				if (int.Parse(messageParts[2]) <= 0) {
-					//TODO: Check tan requirements. not sure if this is the best place
-					if (tan <= json[messageParts[0]]["requirements"]["tan"].AsInt) {
-						//Don't add message
-
-					}
-					else {
-					}
 						//new message, add to list
 						Message message = new Message();
 						message.index = i;
@@ -279,7 +273,6 @@ public class Player : MonoBehaviour {
 	public void addMessage(string path) {
 		messageList.Add(path);
 		saveMessageList();
-		Debug.Log("Adding Message : " + path);
 	}
 
 	public void removeMessage(int index) {
@@ -301,7 +294,6 @@ public class Player : MonoBehaviour {
 		JSONNode offers = json [type].AsObject;
 		int selectedOffer = Random.Range (0, offers.Count);
 		JSONNode offer = offers [selectedOffer].AsObject;
-		Debug.Log (type + " offers :" + offers.Count + " selected " + selectedOffer);
 		if (offer ["path"] != null) {
 			int offerCount = PlayerPrefs.GetInt(offer["path"] + "_offers", 0);
 			if (offerCount <= 0) {
@@ -309,9 +301,7 @@ public class Player : MonoBehaviour {
 				offerCount++;
 				PlayerPrefs.SetInt(offer["path"] + "_offers", offerCount);
 			}
-		} else {
-			Debug.Log("Offer path doesn't exist..." + type);
-		}
+		} 
 	}
 
 
@@ -338,24 +328,9 @@ public class Player : MonoBehaviour {
 	}
 
 	private void newDay() {
-		//ADD TANNING OFFER
-		if (daysLeft%4 == 1) {
-			newOffer ("love");
-		}
-		else if (daysLeft%4 == 3) {
-			newOffer("tanning");
-		}
-
-		if(daysLeft%6 == 2) {
-			newOffer("haircut");
-		}
-		else if (daysLeft%6 == 5) {
-			newOffer("piercing");
-		}
 
 		for(int i = 0; i < messageList.Count; i++) {
 				//iterate through inbox, reduce wait time for each message
-			Debug.Log("MESSAGE LIST:" + i + " " + messageList[i]);
 				string[] message = StringArrayFunctions.getMessage (messageList[i]);
 				int currentDuration = int.Parse(message[2]);
 				
@@ -380,9 +355,35 @@ public class Player : MonoBehaviour {
 
 	public void setStyle() {
 		takeAction(true);
+		refresh();
 	}
 
+	public void refresh() {
+		refreshInbox();
+		if (previewInbox) {
+			if (previousMessageCount < inbox.Count) {
+				//TODO: Play notification sound
+				previewInbox.notify();
+			}
+		}
+	}
 	public bool takeAction(bool takeTolls) {
+		Debug.Log(daysLeft + "/" + actionsLeft);
+		if (daysLeft%6 == 0 && actionsLeft == 1) {
+			newOffer ("love");
+		}
+		else if (daysLeft%6 == 3 && actionsLeft == 1) {
+			newOffer("tanning");
+		}
+
+		else if(daysLeft%6 == 5 && actionsLeft == 1) {
+			newOffer("haircut");
+		}
+			
+		else if (daysLeft%6 == 2 && actionsLeft == 1) {
+			newOffer("piercing");
+		}
+
 		if (actionsLeft > 1) {
 			actionsLeft--;
 			saveProgress(actionsLeft, daysLeft);
@@ -414,13 +415,8 @@ public class Player : MonoBehaviour {
 				*/
 
 			}
-			refreshInbox();
-			if (previewInbox) {
-				if (previousMessageCount < inbox.Count) {
-					//TODO: Play notification sound
-					previewInbox.notify();
-				}
-			}
+//REFRESHING INBOX HERE
+			//refresh();
 			if (daysLeft < 0) {
 				//GAME OVER
 				Debug.Log("Days have run out");

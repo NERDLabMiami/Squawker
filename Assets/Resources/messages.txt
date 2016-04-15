@@ -32,7 +32,6 @@
       "Bryce",
       "Gerald "
     ],
-
     "women": [
       "Amber",
       "Britney",
@@ -90,7 +89,15 @@
     "C33"
   ],
   "fizzles": [
-    "FIZZLE1", "FIZZLE2", "FIZZLE3", "FIZZLE4", "FIZZLE5", "FIZZLE6","FIZZLE7", "FIZZLE8", "FIZZLE9"
+    "FIZZLE1",
+    "FIZZLE2",
+    "FIZZLE3",
+    "FIZZLE4",
+    "FIZZLE5",
+    "FIZZLE6",
+    "FIZZLE7",
+    "FIZZLE8",
+    "FIZZLE9"
   ],
   "male_characters": [
     "C11",
@@ -6494,7 +6501,7 @@
       ]
     },
     "M6": {
-      "path": "\/M6\/0",
+      "path": "tanning\/M6\/0",
       "subject": "Just one session!",
       "belief_id": "APB2",
       "message": "Tired of skin products that just don\u0027t seem to do the trick? Well, one quick session in one of our tanning beds will hide all of your skin imperfections, leaving you feeling beautiful and confident.",
@@ -7074,7 +7081,7 @@
       "path": "haircut\/HC1\/0",
       "subject": "Change Your Look!",
       "belief_id": "none",
-      "message": "Are you tired of your hair style? Want to change up your look? We\u0027re looking for hair models. You get a free cut, we get to play with your hair. It\u0027s a win win!",
+      "message": "Are you tired of your hair style? Want to change up your look? I\u0027m looking for hair models. You get a free cut, I get to play with your hair. It\u0027s a win win! What do you say, are you in?",
       "responses": [
         {
           "response": "Yes please! Change my hair style!",
@@ -7094,7 +7101,7 @@
       "path": "haircut\/HC2\/0",
       "subject": "Haircut Roulette!",
       "belief_id": "none",
-      "message": "We\u0027ve got an amazing deal for you! It\u0027s called Haircut Roulette. You don\u0027t have to pay a thing and you get an amazing new hair style!",
+      "message": "We\u0027ve got an amazing opportunity! It\u0027s called Haircut Roulette. You don\u0027t have to pay a thing and you get an amazing new hair style!",
       "responses": [
         {
           "response": "Yes please! Change my hair style!",
@@ -7129,6 +7136,46 @@
           "belief_id": "none"
         }
       ]
+    },
+    "HC4": {
+      "path": "haircut\/HC4\/0",
+      "subject": "There\u0027s a new hair stylist in town!",
+      "belief_id": "none",
+      "message": "Hey there! My name is Emerald and I\u0027m a hair stylist in training. I\u0027d love to test some of my ideas out on you. What do you say, are you in?",
+      "responses": [
+        {
+          "response": "I\u0027m in! Change my hair style!",
+          "path": "haircut",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No way!",
+          "path": "remove\/haircut",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "HC5": {
+      "path": "haircut\/HC5\/0",
+      "subject": "Are you boombastic?",
+      "belief_id": "none",
+      "message": "Cuz you\u0027re looking shaggy! How about a new hairstyle? I can hook you up.",
+      "responses": [
+        {
+          "response": "Sure! Make me look fabulous.",
+          "path": "haircut",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks, I like my hair the way it is.",
+          "path": "remove\/haircut",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
     }
   },
   "piercing": {
@@ -7136,7 +7183,7 @@
       "path": "piercing\/P1\/0",
       "subject": "Get Pierced!",
       "belief_id": "none",
-      "message": "Looking for a way to stand out in a crowd? How about getting a piercing? We\u0027ve got a special offer, just for you! Act now and we\u0027ll give you a free piercing or two... or four.",
+      "message": "Looking for a way to stand out in a crowd? How about getting a piercing? We can hook you up! Act now and we\u0027ll give you a free piercing or two... or four.",
       "responses": [
         {
           "response": "Yes please! I\u0027d like to get pierced.",
@@ -7171,107 +7218,167 @@
           "belief_id": "none"
         }
       ]
-    }
+    },
+    "P3": {
+    "path": "piercing\/P3\/0",
+    "subject": "Get Pierced!",
+    "belief_id": "none",
+    "message": "Have you ever thought about getting a facial piercing? It will make you stand out from the crowd and definitely get you more dates!",
+    "responses": [
+      {
+        "response": "Sign me up, I want to get pierced!",
+        "path": "piercing",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, I\u0027m fine with the matches I\u0027m getting.",
+        "path": "remove\/piercing",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    "P4": {
+    "path": "piercing\/P4\/0",
+    "subject": "#piercings #trending",
+    "belief_id": "none",
+    "message": "The twittersphere has been buzzing about facial piercings. I can totally hook you up! What do you say?",
+    "responses": [
+      {
+        "response": "#awesome, sign me up!",
+        "path": "piercing",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "#nothanks",
+        "path": "remove\/piercing",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
+    "P5": {
+    "path": "piercing\/P5\/0",
+    "subject": "#piercings #trending",
+    "belief_id": "none",
+    "message": "You\u0027re unique and I\u0027ve got a way for you to show it. Get pierced! What do you say?",
+    "responses": [
+      {
+        "response": "Sure! Let\u0027s do it!",
+        "path": "piercing",
+        "time": "9999",
+        "belief_id": "none"
+      },
+      {
+        "response": "No thanks, I\u0027d rather not.",
+        "path": "remove\/piercing",
+        "time": "9999",
+        "belief_id": "none"
+      }
+    ]
+    },
   },
-  "exam": {
-    "SE1": {
-      "path": "exam\/SE1\/0",
-      "subject": "Free Skin Exam",
-      "belief_id": "none",
-      "message": "Would you like to take advantage of this great opportunity to have your skin examined?",
-      "responses": [
-        {
-          "response": "Sounds good! I\u0027ll give it a try.",
-          "path": "dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "No thanks, I\u0027m good.",
-          "path": "remove\/dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "SE2": {
-      "path": "exam\/SE2\/0",
-      "subject": "Better Safe Than Sorry!",
-      "belief_id": "none",
-      "message": "Come in today for a free skin exam. Our dermatologists will make sure your skin is flawless.",
-      "responses": [
-        {
-          "response": "Sounds good, let\u0027s do it!",
-          "path": "dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "No thanks, I\u0027m good.",
-          "path": "remove\/dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "SE3": {
-      "path": "exam\/SE3\/0",
-      "subject": "Worried About Skin Damage?",
-      "belief_id": "none",
-      "message": "We\u0027re offering free skin exams. Stop worrying and come in!",
-      "responses": [
-        {
-          "response": "Sounds good, let\u0027s do it!",
-          "path": "dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "No thanks, I\u0027m good.",
-          "path": "remove\/dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "SE4": {
-      "path": "exam\/SE4\/0",
-      "subject": "Have you had your skin examined lately?",
-      "belief_id": "none",
-      "message": "Stop by for a skin exam, it\u0027s on the house!",
-      "responses": [
-        {
-          "response": "Sign me up!",
-          "path": "dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "No thanks, I\u0027m fine.",
-          "path": "remove\/dermatologist",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    }
-  },
-  "salon": {
-    "conversation": [
-      {
-        "assistant": "It looks like you could use some artificial sunlight!",
-        "response": "Sign me up!"
+    "exam": {
+      "SE1": {
+        "path": "exam\/SE1\/0",
+        "subject": "Free Skin Exam",
+        "belief_id": "none",
+        "message": "Would you like to take advantage of this great opportunity to have your skin examined?",
+        "responses": [
+          {
+            "response": "Sounds good! I\u0027ll give it a try.",
+            "path": "dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          },
+          {
+            "response": "No thanks, I\u0027m good.",
+            "path": "remove\/dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          }
+        ]
       },
-      {
-        "assistant": "I just need you to sign this waiver and we can get started.",
-        "response": "Let me take a look."
+      "SE2": {
+        "path": "exam\/SE2\/0",
+        "subject": "Better Safe Than Sorry!",
+        "belief_id": "none",
+        "message": "Come in today for a free skin exam. Our dermatologists will make sure your skin is flawless.",
+        "responses": [
+          {
+            "response": "Sounds good, let\u0027s do it!",
+            "path": "dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          },
+          {
+            "response": "No thanks, I\u0027m good.",
+            "path": "remove\/dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          }
+        ]
       },
-      {
-        "assistant": "Just press the stop button at the tan level you want!",
-        "response": "Great!"
+      "SE3": {
+        "path": "exam\/SE3\/0",
+        "subject": "Worried About Skin Damage?",
+        "belief_id": "none",
+        "message": "We\u0027re offering free skin exams. Stop worrying and come in!",
+        "responses": [
+          {
+            "response": "Sounds good, let\u0027s do it!",
+            "path": "dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          },
+          {
+            "response": "No thanks, I\u0027m good.",
+            "path": "remove\/dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          }
+        ]
       },
+      "SE4": {
+        "path": "exam\/SE4\/0",
+        "subject": "Have you had your skin examined lately?",
+        "belief_id": "none",
+        "message": "Stop by for a skin exam, it\u0027s on the house!",
+        "responses": [
+          {
+            "response": "Sign me up!",
+            "path": "dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          },
+          {
+            "response": "No thanks, I\u0027m fine.",
+            "path": "remove\/dermatologist",
+            "time": "9999",
+            "belief_id": "none"
+          }
+        ]
+      }
+    },
+    "salon": {
+      "conversation": [
+        {
+          "assistant": "It looks like you could use some artificial sunlight!",
+          "response": "Sign me up!"
+        },
+        {
+          "assistant": "I just need you to sign this waiver and we can get started.",
+          "response": "Let me take a look."
+        },
+        {
+          "assistant": "Just press the stop button at the tan level you want!",
+          "response": "Great!"
+        },
+        
+      ],
       
-    ],
+    },
     
-  },
-  
-}
+  }

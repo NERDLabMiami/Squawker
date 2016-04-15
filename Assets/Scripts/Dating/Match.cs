@@ -18,15 +18,7 @@ public class Match : MonoBehaviour {
 	}
 
 	public void pass() {
-		//TODO: Generate a new potential match
-		// Name randomizer
-/*
-		if(player.takeAction(true)) {
-			newMatch();
-			player.updateProfile();
 
-		}
-*/
 }
 
 	public void newMatch() {
@@ -37,6 +29,7 @@ public class Match : MonoBehaviour {
 		if(player.takeAction(true)) {
 			player.updateProfile ();
 		}
+		player.refresh();
 
 	}
 
@@ -74,6 +67,7 @@ public class Match : MonoBehaviour {
 			else if (fizz) {
 				player.addMessage(avatar.getCharacterAssignment() + "/intro/" + 1);
 			}
+			player.refresh();
 			player.updateProfile();
 			Invoke("resetName",3);
 		}

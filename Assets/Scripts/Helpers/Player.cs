@@ -491,6 +491,10 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public void gameOver() {
+		PlayerPrefs.DeleteAll();
+	}
+
 	public void resetStats() {
 //		PlayerPrefs.DeleteKey ("messages");
 		PlayerPrefs.DeleteAll();

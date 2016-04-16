@@ -13,6 +13,9 @@ public class Career : MonoBehaviour {
 		if (started == 1) {
 			continueButton.SetActive(true);
 		}
+		else {
+			continueButton.SetActive(false);
+		}
 
 	}
 	

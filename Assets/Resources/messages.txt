@@ -5632,8 +5632,8 @@
       "responses": [
         {
           "response": "You should ask Leslie for some help.",
-          "path": "FIZZLE1\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE1\/askleslie",
+          "time": "1",
           "belief_id": "none"
         },
         {
@@ -5645,6 +5645,34 @@
         {
           "response": "That\u0027s a negative.",
           "path": "FIZZLE1\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "askleslie": {
+      "subject": "RE: You should ask Leslie for some help",
+      "message": "Who is Leslie??  Does she want a date? How do I go on a date? I don\u0027t know how this works.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Leslie will find you a match, that way you can stop bothering me.",
+          "path": "FIZZLE1\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sounds like you need some help. Good luck with that.",
+          "path": "FIZZLE1\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "We\u0027re on a date right now!",
+          "path": "FIZZLE1\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5684,13 +5712,41 @@
         },
         {
           "response": "Yes! Pigeons! Definitely not flying rats, that\u0027s for sure.",
-          "path": "FIZZLE2\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE2\/rats",
+          "time": "1",
           "belief_id": "none"
         },
         {
           "response": "Move along!",
           "path": "FIZZLE2\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "rats": {
+      "subject": "RE: Yes! Pigeons! Definitely not flying rats, that\u0027s for sure.",
+      "message": "What do you have against rats? I think they\u0027re pretty cool!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "A rat stole my pizza. #neverforget",
+          "path": "FIZZLE2\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I don\u0027t have a problem with rats, just ones that fly.",
+          "path": "FIZZLE2\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I\u0027m more of a fluffy bunny kind of person.",
+          "path": "FIZZLE2\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5716,7 +5772,7 @@
     },
     "intro": {
       "subject": "Some weather we\u0027re having, am I right?",
-      "message": "Oh wow. Isn\u0027t it just heavy? I mean, like, do you ever get the feeling that everyone else is a robot? I mean, you\u0027re not a robot right? I\u0027m definitely not a robot.",
+      "message": "Do you ever get the feeling that everyone else is a robot? I mean, you\u0027re not a robot right? I\u0027m definitely not a robot.",
       "belief_id": "None",
       "thresholds": {
         "tan": "0"
@@ -5730,13 +5786,41 @@
         },
         {
           "response": "No, I\u0027m not a robot.",
-          "path": "FIZZLE3\/fizzled",
+          "path": "FIZZLE3\/robot",
           "time": "9999",
           "belief_id": "none"
         },
         {
-          "response": "It is heavy, real heavy.",
+          "response": "It\u0027s heavy, real heavy.",
           "path": "FIZZLE3\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "robot": {
+      "subject": "RE: No, I\u0027m not a robot.",
+      "message": "How can I be sure that you\u0027re not a robot?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Ask me anything, I\u0027ll try and give my best non-robotic response.",
+          "path": "FIZZLE3\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Dang! You got me. I\u0027m a robot.",
+          "path": "FIZZLE3\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "INVALID INPUT! DOES NOT COMPUTE!",
+          "path": "FIZZLE3\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5770,19 +5854,75 @@
       "responses": [
         {
           "response": "100 duck-sized horses, those little horsies don\u0027t stand a chance!",
-          "path": "FIZZLE4\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE4\/ducks",
+          "time": "2",
           "belief_id": "none"
         },
         {
           "response": "1 horse-sized duck, I could take it.",
-          "path": "FIZZLE4\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE4\/horse",
+          "time": "2",
           "belief_id": "none"
         },
         {
           "response": "I\u0027m not sure.",
           "path": "FIZZLE4\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "ducks": {
+      "subject": "RE: 100 duck-sized horses, those little horsies don\u0027t stand a chance!",
+      "message": "But there would be so many! All that neighing! Are you sure you would be up for the task?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Obviously. I have military miniature equestrian training.",
+          "path": "FIZZLE4\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Come to think of it, that is a lot of horses. Maybe not.",
+          "path": "FIZZLE4\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "*WHINNY* They don\u0027t stand a chance.",
+          "path": "FIZZLE4\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "horse": {
+      "subject": "RE: One horse sized duck",
+      "message": "Whoa! A duck that size would quack so loud, I don\u0027t know if I could handle it. I think I\u0027d rather fight those little horses.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "It\u0027s just quacking, I\u0027m sure it wouldn\u0027t be that bad.",
+          "path": "FIZZLE4\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "100 horses!? That\u0027d be overwhelming.",
+          "path": "FIZZLE4\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "If you couldn\u0027t handle that, I don\u0027t know if you could handle me.",
+          "path": "FIZZLE4\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5868,13 +6008,41 @@
         },
         {
           "response": "I\u0027ve got a Big Bird costume, would that work?",
-          "path": "FIZZLE6\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE6\/bigbird",
+          "time": "2",
           "belief_id": "none"
         },
         {
           "response": "Of course I own costumes! Who do you think I am?",
           "path": "FIZZLE6\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "bigbird": {
+      "subject": "RE: I\u0027ve got a Big Bird costume, would that work?",
+      "message": "Umm... not really a fan of yellow. Got anything else?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "What would you rather I wear?",
+          "path": "FIZZLE6\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "How about a big purple dinosaur?",
+          "path": "FIZZLE6\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Nothing, absolutely nothing...",
+          "path": "FIZZLE6\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5920,7 +6088,35 @@
         },
         {
           "response": "What are you talking about? You could totally pull it off!",
-          "path": "FIZZLE7\/fizzled",
+          "path": "FIZZLE7\/pulleditoff",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "pulleditoff": {
+      "subject": "RE: What are you talking about? You could totally pull it off!",
+      "message": "Aww! You\u0027re so sweet! Just a big bowl of sugar!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Do you have a sweet tooth?",
+          "path": "FIZZLE7\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sometimes I\u0027m sweet, but I\u0027m always spicy.",
+          "path": "FIZZLE7\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I sure hope not, I\u0027m diabetic!",
+          "path": "FIZZLE7\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }
@@ -5954,8 +6150,8 @@
       "responses": [
         {
           "response": "Well I\u0027m basically a werewolf, so this isn\u0027t going to work.",
-          "path": "FIZZLE8\/fizzled",
-          "time": "9999",
+          "path": "FIZZLE8\/werewolf",
+          "time": "2",
           "belief_id": "none"
         },
         {
@@ -5967,6 +6163,34 @@
         {
           "response": "Bored now.",
           "path": "FIZZLE8\/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "werewolf": {
+      "subject": "RE: Well I\u0027m basically a werewolf, so this isn\u0027t going to work.",
+      "message": "I was just kidding! I\u0027m not a vampire, I just don\u0027t know what to say. Beautiful people make me nervous.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Aww shucks, you think I\u0027m beautiful?",
+          "path": "FIZZLE8\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "You don\u0027t need to be nervous around me, I won\u0027t bite... hard. lol!",
+          "path": "FIZZLE8\/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well I wasn\u0027t kidding, I\u0027m a freaking werewolf.",
+          "path": "FIZZLE8\/fizzle",
           "time": "9999",
           "belief_id": "none"
         }

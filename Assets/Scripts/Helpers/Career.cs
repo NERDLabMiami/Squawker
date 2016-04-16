@@ -9,6 +9,7 @@ public class Career : MonoBehaviour {
 	// Use this for initialization
 
 	void Start () {
+//		PlayerPrefs.DeleteAll();
 		int started = PlayerPrefs.GetInt("game in progress", 0);
 		if (started == 1) {
 			continueButton.SetActive(true);

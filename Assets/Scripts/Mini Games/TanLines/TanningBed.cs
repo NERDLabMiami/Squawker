@@ -46,13 +46,13 @@ public class TanningBed : MonoBehaviour {
 			switch(selectedConversation) {
 			case 0:
 				//APB 1
-				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "APB1", "RAY");
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "APB1", "Ray");
 				assistant.dialogue.text = "Looking good! We've got a great promotion until the end of the month if you want to keep it that way.";
 				assistant.response.text = "Thanks!";
 				break;
 			case 1:
 				//HB 5
-				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "1", "HB5", "RAY");
+				assistant.GetComponent<PlayerBehavior>().trackEvent(4, "0", "HB5", "Ray");
 				assistant.dialogue.text = "Hope you enjoyed your stay. Come back and tan all you want, our facilities are completely safe!";
 				assistant.response.text = "Thanks!";
 				break;

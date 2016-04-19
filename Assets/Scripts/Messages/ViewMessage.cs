@@ -54,7 +54,7 @@ public class ViewMessage : MonoBehaviour {
 
 				player.removeMessage (r.messageIndex);
 				string p = getStringFromResponse(r.path,1);
-				GetComponent<PlayerBehavior>().trackEvent(2, "IGNORE", "", p);
+				GetComponent<PlayerBehavior>().trackEvent(2, "IGNORE","none", p);
 				Debug.Log("Removing offer with path: " + p);
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
@@ -72,7 +72,7 @@ public class ViewMessage : MonoBehaviour {
 
 				player.removeMessage (r.messageIndex);
 				string p = getStringFromResponse(r.path,0);
-				GetComponent<PlayerBehavior>().trackEvent(2, "ACCEPT", "", p);
+				GetComponent<PlayerBehavior>().trackEvent(2, "ACCEPT", "none", p);
 				Debug.Log("Removing offer with path: " + p);
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);

@@ -57,14 +57,13 @@ public class IncomingMessage : MonoBehaviour {
 		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
 		switch (message.sender) {
 		case "tanning":
-			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "");
+			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "Ray");
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
 			break;
 		case "love":
-			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "", "");
-
+			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "none", "Cupid");
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 
@@ -72,18 +71,18 @@ public class IncomingMessage : MonoBehaviour {
 		case "exam":
 			message.belief = "EE";
 
-			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief, "");
+			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief,"Doctor");
 
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
 			break;
 		case "piercing":
-			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING", "", "");
+			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING","none", "Larry");
 			msg.GetComponent<ViewMessage>().alias.text = "Larry's Piercing Parlor";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/pierced_larry");
 			break;
 		case "haircut":
-			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","", "");
+			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","none", "Emerald");
 			msg.GetComponent<ViewMessage>().alias.text = "Emerald's Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
 			break;

@@ -14,10 +14,17 @@ public class IncomingMessage : MonoBehaviour {
 	public AudioClip click;
 
 	private Message message;
+	public PlayerBehavior player;
+
+	void Start() {
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
+
+	}
 
 	public void setMessage(Message msg) {
 		message = msg;
 		character = message.sender;
+		message.belief = msg.belief;
 		avatar.gameObject.SetActive(false);
 		overrideImage.enabled = true;
 		switch(character) {
@@ -47,23 +54,32 @@ public class IncomingMessage : MonoBehaviour {
 	}
 
 	public void show() {
-		//TODO: TRACK VIEWING OF MESSAGE
-		//CURRENTLY USING SAMPLE
 
 		Camera.main.GetComponent<AudioSource> ().PlayOneShot (click);
 		GameObject msg = Instantiate(expandedMessageTemplate.gameObject);
 		msg.GetComponent<ViewMessage>().body.text = message.body;
 		msg.GetComponent<ViewMessage>().profilePic.enabled = true;
 		msg.GetComponent<ViewMessage>().character.gameObject.SetActive(false);
-		switch (message.sender) {
+
+		Debug.Log("SENDER: " + message.sender);
+			int eventId = 0;
+			string subtype = "";
+			string characterSendingMessage = "";
+			switch (message.sender) {
 		case "tanning":
-			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "Ray");
+//			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "Ray");
+			characterSendingMessage = "Ray";
+			eventId = 3;
+			subtype = StringArrayFunctions.getMessage(message.path)[1];
 			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
 
 			break;
 		case "love":
-			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "none", "Cupid");
+//			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "none", "Cupid");
+			eventId = 3;
+			subtype = "Love";
+			characterSendingMessage = "Cupid";
 			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
 
@@ -71,23 +87,34 @@ public class IncomingMessage : MonoBehaviour {
 		case "exam":
 			message.belief = "EE";
 
-			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief,"Doctor");
-
+//			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief,"Doctor");
+			characterSendingMessage = "Dermatologist";
+			subtype = "Exam";
+			eventId = 3;
 			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
 			break;
 		case "piercing":
-			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING","none", "Larry");
+			characterSendingMessage = "Larry";
+			eventId = 3;
+			subtype = "Piercing";
+//			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING","none", "Larry");
 			msg.GetComponent<ViewMessage>().alias.text = "Larry's Piercing Parlor";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/pierced_larry");
 			break;
 		case "haircut":
-			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","none", "Emerald");
+//			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","none", "Emerald");
+			subtype = "Haircut";
+			eventId = 3;
+			characterSendingMessage = "Emerald";
 			msg.GetComponent<ViewMessage>().alias.text = "Emerald's Salon";
 			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
 			break;
 		default:
-			GetComponent<PlayerBehavior>().trackEvent(1, "DLG", message.belief, message.sender);
+			eventId = 1;
+			subtype = "DLG";
+			characterSendingMessage = message.sender;
+//			GetComponent<PlayerBehavior>().trackEvent(1, "DLG", message.belief, message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
@@ -97,6 +124,12 @@ public class IncomingMessage : MonoBehaviour {
 			break;
 
 		}
+
+//		GetComponent<PlayerBehavior>().trackEvent(eventId, subtype,message.belief,characterSendingMessage);
+		player.trackEvent(eventId, subtype,message.belief,characterSendingMessage);
+		Debug.Log("Submitting Event");
+		//GetComponent<PlayerBehavior>().trackEvent(1, "test","none","silly");
+
 		msg.transform.SetParent(this.gameObject.transform.parent.parent.parent.parent, false);
 		this.transform.parent.gameObject.SetActive(false);
 
@@ -109,7 +142,7 @@ public class IncomingMessage : MonoBehaviour {
 			}
 				msg.GetComponent<ViewMessage>().addResponse(message.responses[i]);
 		}
-	
+
 	}
 	/*
 	private string[] getPath(string message) {

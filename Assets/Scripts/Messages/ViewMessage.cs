@@ -42,7 +42,8 @@ public class ViewMessage : MonoBehaviour {
 					inbox.epilogue.npc.characterAssignment = character.characterAssignment;
 					inbox.epilogue.cue ();
 					//TODO: Track Epilogue
-					GetComponent<PlayerBehavior>().trackEvent(6, storyPath,r.belief, characterPath);
+					//BELIEF ID = Unhealthy, Healthy, 
+					GetComponent<PlayerBehavior>().trackEvent(6, inbox.epilogue.endingType.ToString(),r.belief, characterPath);
 
 				}
 

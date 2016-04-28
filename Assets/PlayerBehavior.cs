@@ -27,14 +27,21 @@ public class PlayerBehavior : MonoBehaviour {
 		}
 	}
 	public IEnumerator submitEvent(int eventId, string subtype, string beliefId, string characterId) {
+
 		WWWForm form = new WWWForm ();
 		form.AddField("qualtrics_id", PlayerPrefs.GetString("qualtrics_id"));
 		form.AddField("event_id", eventId);
 		if (beliefId.Length > 0) {
 			form.AddField("belief_id", beliefId);
+			Debug.Log("Belief Exists");
+		}
+		else {
+			Debug.Log("Belief length is 0 or less!");
 		}
 		if (characterId.Length > 0) {
 			form.AddField("character_id", characterId);
+			Debug.Log("Adding Character Id");
+
 		}
 		form.AddField("subtype", subtype);
 		form.AddField("days", PlayerPrefs.GetInt("days left",-1));
@@ -42,20 +49,24 @@ public class PlayerBehavior : MonoBehaviour {
 		form.AddField("tan",PlayerPrefs.GetInt("tan",0));
 		form.AddField("attractiveness", PlayerPrefs.GetInt("attractiveness"));
 		WWW link = new WWW ("http://track.nerdlab.miami/event.php", form);
+		Debug.Log("Getting to the yield part with form : " + form);
+
 		yield return link;
+
+		Debug.Log("ERROR: " + link.error);
+		Debug.Log("MESSAGE: " + link.text);
 		if (!string.IsNullOrEmpty(link.error)) {
 			Debug.Log (link.error);
+			Debug.Log("Got an Error");
+
 		}
 		else {
-			Debug.Log ("Submitted Event");
+			Debug.Log ("Submitted Event from IENumerator");
 		}
 	}
 
 	public void trackEvent(int eventId, string subtype, string beliefId, string characterId) {
-		Debug.Log("EVENT: " + eventId);
-		Debug.Log("SUBTYPE: " + subtype);
-		Debug.Log("BELIEF: " + beliefId);
-		Debug.Log("CHARACTER ID: " + characterId);
+		Debug.Log("Called Track Event");
 
 		StartCoroutine(submitEvent(eventId, subtype, beliefId, characterId));	
 	}

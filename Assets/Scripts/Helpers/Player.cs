@@ -237,6 +237,8 @@ public class Player : MonoBehaviour {
 						message.passage = messageParts[1];
 						message.subject = json[message.sender][message.passage]["subject"];
 						message.belief = json[message.sender][message.passage]["belief_id"];
+					//TODO: Integrate dialog id for subtype
+					//message.subtype = json[message.sender][message.passage]["belief_dialog_id"];
 						message.alias = PlayerPrefs.GetString(message.sender, "");
 						message.subject = message.subject.Replace("%C", message.alias);
 						

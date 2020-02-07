@@ -38,12 +38,15 @@ public class ViewMessage : MonoBehaviour {
 				else {
 					
 					string storyPath = getStringFromResponse(r.path, 2);
+                    /*
 					inbox.populateEpilogue(characterPath, storyPath, character.name);
 					inbox.epilogue.npc.characterAssignment = character.characterAssignment;
 					inbox.epilogue.cue ();
-					//TODO: Track Epilogue
+	*/				
+    //TODO: Track Epilogue
 					//BELIEF ID = Unhealthy, Healthy, 
-					GetComponent<PlayerBehavior>().trackEvent(6, inbox.epilogue.endingType.ToString(),r.belief, characterPath);
+
+//					GetComponent<PlayerBehavior>().trackEvent(6, inbox.epilogue.endingType.ToString(),r.belief, characterPath);
 
 				}
 
@@ -82,7 +85,6 @@ public class ViewMessage : MonoBehaviour {
 				//TODO: Check for piercing, hair offer types
 				if (type == 6) {
 					//piercing
-					player.avatar.getPierced();
 					player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
 					player.refreshInbox();
@@ -92,7 +94,6 @@ public class ViewMessage : MonoBehaviour {
 				}
 				else if (type == 7) {
 					//haircut
-					player.avatar.getHaircut();
 					player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
 					player.refreshInbox();
@@ -155,40 +156,10 @@ public class ViewMessage : MonoBehaviour {
 
 		return pathArray[index];
 	}
-	/*
-	bool isOffer(GameObject obj, Response r) {
-		string[] pathArray = StringArrayFunctions.getMessage(r.path);
-		if (pathArray [0] == "tanning") {
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				player.loadSceneNumber(1);
-			});
-			return true;
-		}
-		if (pathArray [0] == "love") {
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				player.loadSceneNumber(2);
-			});
-			return true;
-		}
-
-		if (pathArray [0] == "dermatologist") {
-			Debug.Log("Skin Exam");
-			obj.GetComponent<Button> ().onClick.AddListener (() => {
-				player.removeMessage (r.messageIndex);
-				player.loadSceneNumber(3);
-			});
-			return true;
-		}
-
-
-		return false;
-	}
-*/
 	void respond(string path, int index, string belief) {
-		//TODO: Path update for just character
-		GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, StringArrayFunctions.getMessage(path)[0]);
+        //TODO: Path update for just character
+        //PLAYER RESPONSE EVENT
+        GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, StringArrayFunctions.getMessage(path)[0]);
 		player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time
@@ -216,7 +187,6 @@ public class ViewMessage : MonoBehaviour {
 	}
 	
 	void OnDisable() {
-//		GameObject.FindGameObjectWithTag("Inbox").GetComponent<Inbox>().messageContainer.SetActive(true);
 		Destroy (this.gameObject);
 	}
 }

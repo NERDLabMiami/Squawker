@@ -6,7 +6,8 @@ public class PlayerBehavior : MonoBehaviour {
 
 	public InputField playerId;
 
-	public IEnumerator submitPlayer(string skin, string hair, string face, string ears, string eyes, string iris, string mouth, string nose) {
+    [System.Obsolete]
+    public IEnumerator submitPlayer(string skin, string hair, string face, string ears, string eyes, string iris, string mouth, string nose) {
 		WWWForm form = new WWWForm ();
 		form.AddField("qualtrics", playerId.text);
 		form.AddField ("skin", skin);
@@ -17,7 +18,7 @@ public class PlayerBehavior : MonoBehaviour {
 		form.AddField ("iris", iris);
 		form.AddField ("mouth", mouth);
 		form.AddField ("nose", nose);
-		WWW link = new WWW ("http://track.nerdlab.miami/player.php", form);
+        WWW link = new WWW("http://track.nerdlab.miami/player.php", form);
 		yield return link;
 		if (!string.IsNullOrEmpty(link.error)) {
 			Debug.Log (link.error);

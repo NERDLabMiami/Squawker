@@ -25,21 +25,6 @@ public class Epilogue : MonoBehaviour {
 	}
 
 	public void cue() {
-		//TODO: Check player's cancer risk
-		bool playerHasCancer = false;
-		if (playerStats.cancerRisk > 0) {
-			//TODO: Figure out proper odds
-
-			int riskFactor = Random.Range(playerStats.cancerRisk, 10);
-			if (riskFactor >= 5) {
-				//IF PLAYER TANNED 5 TIMES, THEY WILL GET CANCER
-				//IF PLAYER TANNED 4 TIMES, THEIR ODDS ARE 5:6
-				//IF PLAYER TANNED 3 TIMES, THEIR ODDS ARE 4:6
-				//HAS CANCER
-				playerHasCancer = true;
-			}
-
-		}
 		gameObject.SetActive (true);
 		npc.assign ();
 		source.Stop ();
@@ -81,14 +66,8 @@ public class Epilogue : MonoBehaviour {
 				source.PlayOneShot (middleEnding);
 				break;
 			default:
-				if (playerHasCancer) {
-					story.text = story.text + " For some time, things were great. Then one day, " + lover + " found a suspicious mole on your body. ";
-					story.text = story.text + "It was malignant. You were diagnosed with skin cancer. You survived, but " + lover + " left you.";
-					source.PlayOneShot (sadEnding);
-				} else {
 					story.text = story.text + " The two of you lived a long and healthy life together.";
 					source.PlayOneShot (happyEnding);
-				}
 				break;			
 		}
 

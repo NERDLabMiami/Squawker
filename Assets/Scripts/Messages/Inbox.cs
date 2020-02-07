@@ -6,7 +6,6 @@ using System.Linq;
 public class Inbox : MonoBehaviour {
 	public IncomingMessage messageTemplate;
 	public GameObject messageContainer;
-	public Epilogue epilogue;
 	public GameObject emptyMailboxMessage;
 	public AudioClip notification;
 	public AudioSource source;
@@ -32,14 +31,6 @@ public class Inbox : MonoBehaviour {
 
 			}
 
-	}
-	public void populateEpilogue(string character, string story, string lover) {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		string finalStory = player.getFinalStory(character, story);
-		finalStory = finalStory.Replace("%C", lover);
-		epilogue.story.text = finalStory;
-		epilogue.lover = lover;
-		epilogue.endingType = player.getEpilogueType(character,story);
 	}
 
 	public void clear() {

@@ -9,17 +9,6 @@ public class Match : MonoBehaviour {
 	private string path;
 
 	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void pass() {
-
-}
 
 	public void newMatch() {
 		avatar.randomlyGenerate ();
@@ -56,7 +45,7 @@ public class Match : MonoBehaviour {
 
 		if (player.takeAction(true)) {
 			if (charactersAvailable & !fizz) {
-				int timeAdded = player.matches (avatar.getCharacterAssignment (), avatar.wearingGlasses (), avatar.wearingHeadwear (), avatar.wearingTie ());
+				int timeAdded = player.matches (avatar.getCharacterAssignment ());
 				if (timeAdded < 50) {
 					//NPC with tanning intention now exists
 					player.addMessage(avatar.getCharacterAssignment() + "/intro/" + timeAdded);

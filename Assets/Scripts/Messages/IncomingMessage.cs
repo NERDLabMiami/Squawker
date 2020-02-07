@@ -28,20 +28,8 @@ public class IncomingMessage : MonoBehaviour {
 		avatar.gameObject.SetActive(false);
 		overrideImage.enabled = true;
 		switch(character) {
-			case "tanning":
-				overrideImage.sprite = Resources.Load<Sprite>("Salon/ray");
-				break;
-			case "love":
-				overrideImage.sprite = Resources.Load<Sprite>("LoveQ/cupid");
-				break;
-			case "exam":
-				overrideImage.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
-				break;
-			case "piercing":
-				overrideImage.sprite = Resources.Load<Sprite>("Home/pierced_larry");
-				break;
-			case "haircut":
-				overrideImage.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
+			case "custom":
+				overrideImage.sprite = Resources.Load<Sprite>("Folder/Path");
 				break;
 		default:
 				overrideImage.enabled = false;
@@ -66,55 +54,18 @@ public class IncomingMessage : MonoBehaviour {
 			string subtype = "";
 			string characterSendingMessage = "";
 			switch (message.sender) {
-		case "tanning":
-//			GetComponent<PlayerBehavior>().trackEvent(3, StringArrayFunctions.getMessage(message.path)[1], message.belief, "Ray");
-			characterSendingMessage = "Ray";
+		case "custom":
+			characterSendingMessage = "Jane Doe";
 			eventId = 3;
 			subtype = StringArrayFunctions.getMessage(message.path)[1];
-			msg.GetComponent<ViewMessage>().alias.text = "Rays Tanning Salon";
-			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Salon/ray");
+			msg.GetComponent<ViewMessage>().alias.text = "Alias Name";
+			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Custom/Path");
 
-			break;
-		case "love":
-//			GetComponent<PlayerBehavior>().trackEvent(3, "LOVE", "none", "Cupid");
-			eventId = 3;
-			subtype = "Love";
-			characterSendingMessage = "Cupid";
-			msg.GetComponent<ViewMessage>().alias.text = "LoveQ";
-			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("LoveQ/cupid");
-
-			break;
-		case "exam":
-			message.belief = "EE";
-
-//			GetComponent<PlayerBehavior>().trackEvent(3, "EXAM", message.belief,"Doctor");
-			characterSendingMessage = "Dermatologist";
-			subtype = "Exam";
-			eventId = 3;
-			msg.GetComponent<ViewMessage>().alias.text = "Dermafreeze";
-			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Dermatologist/dermatologist");
-			break;
-		case "piercing":
-			characterSendingMessage = "Larry";
-			eventId = 3;
-			subtype = "Piercing";
-//			GetComponent<PlayerBehavior>().trackEvent(3, "PIERCING","none", "Larry");
-			msg.GetComponent<ViewMessage>().alias.text = "Larry's Piercing Parlor";
-			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/pierced_larry");
-			break;
-		case "haircut":
-//			GetComponent<PlayerBehavior>().trackEvent(3, "HAIRCUT","none", "Emerald");
-			subtype = "Haircut";
-			eventId = 3;
-			characterSendingMessage = "Emerald";
-			msg.GetComponent<ViewMessage>().alias.text = "Emerald's Salon";
-			msg.GetComponent<ViewMessage>().profilePic.sprite = Resources.Load<Sprite>("Home/hairstylist_emerald");
 			break;
 		default:
 			eventId = 1;
 			subtype = "DLG";
 			characterSendingMessage = message.sender;
-//			GetComponent<PlayerBehavior>().trackEvent(1, "DLG", message.belief, message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(message.sender);
 			msg.GetComponent<ViewMessage>().character.assign(character);
 			msg.GetComponent<ViewMessage>().alias.text = msg.GetComponent<ViewMessage>().character.name;
@@ -124,12 +75,9 @@ public class IncomingMessage : MonoBehaviour {
 			break;
 
 		}
-
-//		GetComponent<PlayerBehavior>().trackEvent(eventId, subtype,message.belief,characterSendingMessage);
-		player.trackEvent(eventId, subtype,message.belief,characterSendingMessage);
-		Debug.Log("Submitting Event");
-		//GetComponent<PlayerBehavior>().trackEvent(1, "test","none","silly");
-
+        Debug.Log("Submitting Event");
+        //SEND TRACK EVENT FOR PLAYER SEEING MESSAGE
+        player.trackEvent(eventId, subtype,message.belief,characterSendingMessage);
 		msg.transform.SetParent(this.gameObject.transform.parent.parent.parent.parent, false);
 		this.transform.parent.gameObject.SetActive(false);
 

@@ -8,13 +8,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-	public int tan = 0;
-	public int style = 0;
-	public int attractiveness = 0;
-	public int cancerRisk = 0;
 	public int actionsLeft = 0;
 	public int daysLeft = 0;
-	public int dermatologistVisits = 0;
 	public TextAsset potentialMessages;
 	public bool reset = false;
 	public List<Message> inbox;
@@ -57,14 +52,6 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt ("hooked", 1);
 	}
 
-	public void reduceTan() {
-		tan--;
-		if (tan < 0) {
-			tan = 0;
-		}
-		avatar.setTone(tan);
-
-	}
 	public void setGenderPreference(string gender) {
 		PlayerPrefs.SetString ("gender preference", gender);
 		populateMatches ();
@@ -88,75 +75,24 @@ public class Player : MonoBehaviour {
 			return 0;
 		}
 	}
-	public int matches(string characterPath, bool glasses, bool headwear, bool tie) {
-		if (json[characterPath] != null) {
-			int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
+	public int matches(string characterPath) {
+        int responseTime = 0;
+        if (json[characterPath] != null) {
+			responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
 			int matchingBonus = 3;
-			responseTime -= attractiveness;
-
-			if (glasses && !headwear && !tie) {
-				if (!profile.character.wearingTie () && !profile.character.wearingGlasses () && !profile.character.wearingHeadwear ()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (glasses && tie && !headwear) {
-				if (profile.character.wearingGlasses () && profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (glasses && tie && headwear) {
-				if (!profile.character.wearingGlasses () && profile.character.wearingTie () && profile.character.wearingHeadwear()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (!glasses && tie && headwear) {
-				if (profile.character.wearingGlasses () && !profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (!glasses && !tie && headwear) {
-				if (profile.character.wearingGlasses () && profile.character.wearingTie () && !profile.character.wearingHeadwear()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (!glasses && !tie && !headwear) {
-				if (profile.character.wearingGlasses () && profile.character.wearingTie () && profile.character.wearingHeadwear()) {
-					//BONUS
-					responseTime-=matchingBonus;
-				}
-			}
-
-			if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
-				//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
-				Debug.Log ("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
-				responseTime = 9999;
-				Debug.Log ("Tan not appropriate, response time is now " + responseTime);
-
+//			responseTime -= attractiveness;
+			responseTime-=matchingBonus;
 			}
 
 			if (responseTime < 0) {
 				responseTime = 1;
 				Debug.Log ("Immediate attraction");
 			}
-			Debug.Log ("Match will respond in " + responseTime + " days");
-			return responseTime;
-		}
-		else {
-			Debug.Log ("Unknown Character Path");
-			return 9999;
-		}
+		Debug.Log ("Match will respond in " + responseTime + " days");
+		return responseTime;
 	}
-	public int matches(string characterPath) {
+
+	public int matches2(string characterPath) {
 		//Get character's attractiveness, between 0 and 100 to set as the initial response time
 
 		if (json[characterPath] != null) {
@@ -166,46 +102,9 @@ public class Player : MonoBehaviour {
 			//Get the difference between the two characters attractiveness. NPC with 10, player with 5, response time is 5.
 			//NPC with 5 player with attractiveness of 10, response time is -5
 			//typical love should be near 5
-			responseTime -= attractiveness;
-			Debug.Log ("Accounting for attractiveness, response time is now " + responseTime);
+	//		responseTime -= attractiveness;
 
-			if (profile.character.wearingHairAccessory() || profile.character.wearingHeadwear()) {
-			
-
-				//characterlikes headwear  -1
-				//character hate headwear +1
-				responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
-			}
-
-//			if (profile.character.wearingPiercing()) {
-//				responseTime += json[characterPath]["requirements"]["accessories"]["piercing"].AsInt;
-//			}
-
-
-			if (profile.character.wearingGlasses ()) {
-				responseTime += json [characterPath] ["requirements"] ["accessories"] ["glasses"].AsInt;
-				//character likes glasses, -1
-				//character hates glasses, +1
-				Debug.Log ("Liking the glasses, response time is now " + responseTime);
-			}
-
-			if (profile.character.wearingTie ()) {
-				//character likes glasses, -1
-				//character hates glasses, +1
-				responseTime += json [characterPath] ["requirements"] ["accessories"] ["tie"].AsInt;
-				Debug.Log ("Liking the tie, response time is now " + responseTime);
-
-			}
-
-
-			if (tan < json [characterPath] ["requirements"] ["tan"].AsInt) {
-				//must meet tan requirement. If they don't, this gets manually pushed to 9999 to be unresponsive.
-				Debug.Log ("TAN IS " + tan + " and requirement is " + json [characterPath] ["requirements"] ["tan"].AsInt);
-				responseTime = 9999;
-				Debug.Log ("Tan not appropriate, response time is now " + responseTime);
-
-			}
-
+			responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
 
 			//If the response time is negative, we just set it to 0 so the NPC responds instantly
 
@@ -291,75 +190,27 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.SetInt("actions left", actions);
 		PlayerPrefs.SetInt("days left", days);
 	}
-	
-	public void newOffer(string type) {
-		JSONNode offers = json [type].AsObject;
-		int selectedOffer = Random.Range (0, offers.Count);
-		JSONNode offer = offers [selectedOffer].AsObject;
-		if (offer ["path"] != null) {
-			int offerCount = PlayerPrefs.GetInt(offer["path"] + "_offers", 0);
-			if (offerCount <= 0) {
-				addMessage (offer ["path"]);
-				offerCount++;
-				PlayerPrefs.SetInt(offer["path"] + "_offers", offerCount);
-			}
-		} 
-	}
+    private void newDay()
+    {
 
+        for (int i = 0; i < messageList.Count; i++)
+        {
+            //iterate through inbox, reduce wait time for each message
+            string[] message = StringArrayFunctions.getMessage(messageList[i]);
+            int currentDuration = int.Parse(message[2]);
 
-	public string getDermatologistMessage(int index, string belief) {
-		//TODO: Low risk, high risk conversation?
-		JSONNode dermatologistMessage = json ["doctor"]["conversation"][belief][index]["doctor"];		
-		return dermatologistMessage;
-	}
+            if (currentDuration > 0)
+            {
+                //TODO: Check tan requirements here and if not met, add 1?
+                //int requiredTan = json[message[0]][message[1]]["thresholds"]["tan"].AsInt;
+                int requiredTan = json[message[0]]["requirements"]["tan"].AsInt;
+                //TODO: Look at parts of message
+                messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
+            }
+            saveMessageList();
+        }
 
-	public string getDermatologistResponse(int index, string belief) {
-		//TODO: Low risk, high risk conversation?
-		JSONNode dermatologistResponse = json ["doctor"]["conversation"][belief][index]["patient"];		
-		return dermatologistResponse;
-	}
-
-	public string getTanningSalonAssistantMessage(int index) {
-		JSONNode tanningSalonMessage = json ["salon"] ["conversation"] [index] ["assistant"];
-		return tanningSalonMessage;
-	}
-
-	public string getTanningSalonAssistantResponse(int index) {
-		JSONNode tanningSalonMessage = json ["salon"] ["conversation"] [index] ["response"];
-		return tanningSalonMessage;
-	}
-
-	private void newDay() {
-
-		for(int i = 0; i < messageList.Count; i++) {
-				//iterate through inbox, reduce wait time for each message
-				string[] message = StringArrayFunctions.getMessage (messageList[i]);
-				int currentDuration = int.Parse(message[2]);
-				
-				if(currentDuration > 0) {
-				//TODO: Check tan requirements here and if not met, add 1?
-				//int requiredTan = json[message[0]][message[1]]["thresholds"]["tan"].AsInt;
-				int requiredTan = json[message[0]]["requirements"]["tan"].AsInt;
-				if (requiredTan <= tan) {
-						Debug.Log("Meets tan requirements, counting down to conversation");
-						currentDuration-=1;
-
-					}
-					else {
-						Debug.Log("Tan requirement not met, holding off. Required tan of " + requiredTan + " to proceed");
-					}
-				}
-			//TODO: Look at parts of message
-				messageList[i] = message[0] + "/" + message[1] + "/" + currentDuration.ToString();
-			}
-			saveMessageList();
-		}
-
-	public void setStyle() {
-		takeAction(true);
-		refresh();
-	}
-
+    }
 	public void refresh() {
 		refreshInbox();
 		if (previewInbox) {
@@ -372,18 +223,18 @@ public class Player : MonoBehaviour {
 	public bool takeAction(bool takeTolls) {
 		Debug.Log(daysLeft + "/" + actionsLeft);
 		if (daysLeft%6 == 0 && actionsLeft == 1) {
-			newOffer ("love");
+		//	newOffer ("love");
 		}
 		else if (daysLeft%6 == 3 && actionsLeft == 1) {
-			newOffer("tanning");
+		//	newOffer("tanning");
 		}
 
 		else if(daysLeft%6 == 5 && actionsLeft == 1) {
-			newOffer("haircut");
+		//	newOffer("haircut");
 		}
 			
 		else if (daysLeft%6 == 2 && actionsLeft == 1) {
-			newOffer("piercing");
+		//	newOffer("piercing");
 		}
 
 		if (actionsLeft > 1) {
@@ -394,30 +245,7 @@ public class Player : MonoBehaviour {
 		else {
 			daysLeft--;
 			newDay();
-			if (takeTolls) {
-				//TAKE TOLLS ON ATTRACTIVENESS, TAN
-				if (attractiveness > 0) {
-					setAttractiveness (attractiveness - 1);
-				}
-				/*
-				int daysSinceLastChangeInTan = PlayerPrefs.GetInt ("days since last change in tan", 0);
-				daysSinceLastChangeInTan++;
-
-				if (daysBetweenChangeInTan >= daysSinceLastChangeInTan) {
-					Debug.Log("Changing Tan");
-					tan--;
-					if (tan < 0) {
-						tan = 0;
-					}
-					avatar.setTone(tan);
-					daysSinceLastChangeInTan = 0;
-				}
-
-				PlayerPrefs.SetInt("days since last change in tan", daysSinceLastChangeInTan);
-				*/
-
-			}
-//REFRESHING INBOX HERE
+        //REFRESHING INBOX HERE
 			//refresh();
 			if (daysLeft < 0) {
 				//GAME OVER
@@ -431,33 +259,6 @@ public class Player : MonoBehaviour {
 				return true;
 			}
 		}
-
-	}
-
-	public void setTan(int amount) {
-		if (tan < amount) {
-			//tan increased, increase risk by amount tanned
-			int riskIncrease = amount - tan;
-			cancerRisk += riskIncrease;
-			PlayerPrefs.SetInt("cancer risk", cancerRisk);
-		}
-		tan = amount;
-//		profile.character.transform 
-		PlayerPrefs.SetInt("tan", tan);
-	}
-
-	public void visitDermatologist() {
-		if (cancerRisk > 1) {
-			cancerRisk--;
-		}
-		avatar.removeMole ();
-		PlayerPrefs.SetInt ("cancer risk", cancerRisk);
-	}
-
-	public void setAttractiveness(int amount) {
-		//TODO: Decide if attractiveness is additive or just personal best in the love game
-		attractiveness = amount;		
-		PlayerPrefs.SetInt("attractiveness", amount);
 
 	}
 
@@ -513,44 +314,13 @@ public class Player : MonoBehaviour {
 	}
 	
 	private void populateStats() {
-		attractiveness = PlayerPrefs.GetInt("attractiveness", 0);
-			//TODO: Style becomes an avatar choice with accessories
-		style = PlayerPrefs.GetInt("style", 0);
 		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
 		daysLeft = PlayerPrefs.GetInt("days left", 0);
-		cancerRisk = PlayerPrefs.GetInt("cancer risk", 0);
-		tan = PlayerPrefs.GetInt("tan",0);
-		dermatologistVisits = PlayerPrefs.GetInt("dermatologist visits", 0);
-
-		if (profile) {
-//			profile.heart.CrossFadeAlpha (Remap (attractiveness, 0, 100, 0, 1), 3, true);
-			avatar.setTone(tan);
-
-			if (attractiveness <= 2) {
-				profile.heart.GetComponent<Animator>().SetTrigger("one");
-			}
-
-			if(attractiveness > 2 && attractiveness <= 4) {
-				profile.heart.GetComponent<Animator>().SetTrigger("two");
-			}
-
-			if (attractiveness > 4 && attractiveness < 10) {
-				profile.heart.GetComponent<Animator>().SetTrigger("three");
-			}
-
-			if (attractiveness > 10) {
-				profile.heart.GetComponent<Animator>().SetTrigger("four");
-			}
-
-		}
 
 	}
 
 	public void updateProfile() {
 		if (profile) {
-			profile.actionsLeft.text = actionsLeft.ToString();
-			profile.daysLeft.text = daysLeft.ToString("0");
-//			profile.actionsLeft.text = actionsLeft.ToString("0");
 			profile.messageCount.text = inbox.Count.ToString();
 
 			if(inbox.Count <= 0) {
@@ -597,10 +367,5 @@ public class Player : MonoBehaviour {
 		loadSceneNumber(1);
 	}
 
-    /*
-	public float Remap (this float value, float from1, float to1, float from2, float to2) {
-		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-	}
-    */
 		
 }

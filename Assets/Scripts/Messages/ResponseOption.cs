@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 public class ResponseOption : MonoBehaviour {
 	public Text response;
-	public AudioClip click;
+    public GameObject playerResponseTemplate;
+    public AudioClip click;
+
 	// Use this for initialization
 	void Start () {
 	

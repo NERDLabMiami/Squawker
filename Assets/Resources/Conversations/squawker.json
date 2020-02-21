@@ -1,0 +1,1359 @@
+{
+  "names": {
+    "men": [
+      "Roger",
+      "Dominick",
+      "Matthew",
+      "Anton",
+      "Elijah",
+      "Efrain",
+      "Kelly",
+      "Nestor",
+      "Gary",
+      "Kareem",
+      "Francisco",
+      "Beau",
+      "Jordan",
+      "Sandy",
+      "Kenneth",
+      "Pete",
+      "Delbert",
+      "Sherman",
+      "Gabriel",
+      "Ben",
+      "Ian",
+      "Zackary",
+      "Brandon",
+      "Bradly",
+      "Stevie",
+      "Fredrick",
+      "Jeff",
+      "Zack",
+      "Bryce",
+      "Gerald "
+    ],
+    "women": [
+      "Amber",
+      "Britney",
+      "Caitlin",
+      "Dora",
+      "Elaine",
+      "Fanny",
+      "Grace",
+      "Heather",
+      "Imelda",
+      "Juanita",
+      "Kristin",
+      "Loraine",
+      "Maria",
+      "Nelly",
+      "Ophelia",
+      "Patricia",
+      "Rayna",
+      "Sally",
+      "Taylor",
+      "Uma",
+      "Valentine",
+      "Wanda"
+    ],
+    "both": [
+      "Aaron",
+      "Britney",
+      "Clyde",
+      "Daria",
+      "Elle",
+      "Fitz",
+      "Geraldine",
+      "Kelly",
+      "Kim",
+      "Larry",
+      "Laura",
+      "Melanie",
+      "Nick",
+      "Ryan",
+      "Xavier",
+      "Pat",
+      "Tim"
+    ]
+  },
+  "both_characters": [
+    "C11",
+    "MC12",
+    "C13",
+    "C21",
+    "C22",
+    "C23",
+    "C31A",
+    "C31B",
+    "C32",
+    "C33"
+  ],
+  "fizzles": [
+    "FIZZLE1",
+    "FIZZLE2",
+    "FIZZLE3",
+    "FIZZLE4",
+    "FIZZLE5",
+    "FIZZLE6",
+    "FIZZLE7",
+    "FIZZLE8",
+    "FIZZLE9"
+  ],
+  "male_characters": [
+    "C11",
+    "MC12",
+    "C13",
+    "C21",
+    "C22",
+    "C23",
+    "C31A",
+    "C31B",
+    "C32",
+    "C33"
+  ],
+  "female_characters": [
+    "C11",
+    "MC12",
+    "C13",
+    "C21",
+    "C22",
+    "C23",
+    "C31A",
+    "C31B",
+    "C32",
+    "C33"
+  ],
+  "character_ids": [
+    "anxiety",
+    "depression"
+  ],
+  "anxiety": {
+    "character_type": "anxiety",
+    "intro": {
+      "message": "Hey, do you have a second?",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "What's up? You’ve been missing class a lot. You alright?",
+          "path": "anxiety/intro2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro2": {
+      "message": "I'm fine. Just a lot of drama lately.",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "Oohh gurl, spill dem beans!",
+          "path": "anxiety/intro3",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro3": {
+      "message": "It's not the good juicy drama. It’s the bad drama.",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "Bad, how?",
+          "path": "anxiety/intro4",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro4": {
+      "message": "Lots of anxiety about classes and stuff...",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "Yeah but that's normal. Everyone worries about college.",
+          "path": "anxiety/intro5",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro5": {
+      "message": "I'm going to assume that you're joking. That's a fair assumption, right?",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "I think I’m going to drop out of school",
+          "path": "anxiety/intro6",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro6": {
+      "message": "The idea that skin cancer is caused by indoor tanning is hype. There are no conclusive studies that have said so.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "WHAT?! WHY?!",
+          "path": "anxiety/start",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "start": {
+      "message": "I really don't care anymore.  I'm DONE... The professor gave us an extra assignment right before midterms and I just broke down. I don’t have a life, I can't think, I can't concentrate, and I just can't handle it.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "Is that what you really want to do?",
+          "path": "anxiety/start2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Are you really sure about this?",
+          "path": "anxiety/start2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Bruh, like maybe you should take a second to re-think this?",
+          "path": "anxiety/start2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "start2": {
+      "message": "I am 100% sure this is what I want to do.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "My dude, please, this is like a really bad decision.",
+          "path": "anxiety/start3",
+          "belief_id": "none"
+        },
+        {
+          "response": "I think this is a 100% bad decision, no offense :c",
+          "path": "anxiety/start3",
+          "belief_id": "none"
+        },
+        {
+          "response": "Maybe we could rethink this.",
+          "path": "anxiety/start3",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "start3": {
+      "message": "There is nothing to rethink. I know you're trying to help but I am so stressed out and school just isn't for me.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "I'm stressed out too, but we can't give up hope. I know you can pass the midterm! Have you ever tried going to counseling?",
+          "path": "anxiety/start4",
+          "belief_id": "none"
+        },
+        {
+          "response": "Ya dude, I for sure get that. It's a stressful time, but have you thought about seeing someone for your anxiety?",
+          "path": "anxiety/start4",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well... have you ever considered counseling for your stress and anxiety? It seems like it's messing you up a lot :c",
+          "path": "anxiety/start4",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "start4": {
+      "message": "Like with a therapist? ",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "Yaas, it's actually pretty chill.",
+          "path": "anxiety/start5",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yes, they can be super helpful!",
+          "path": "anxiety/start5",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yup. Seeing a therapist can really be a positive experience.",
+          "path": "anxiety/start5",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "start5": {
+      "message": "No thanks. I’ll save myself the trouble.",
+      "belief_id": "None",
+      "responses": [
+        {
+          "response": "Why do you say that?",
+          "path": "anxiety/prompt1",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "prompt1": {
+      "message": "All they're going to do is judge me and blame me for not being a good student. I already know I'm too stupid for school. I don't need them asking me how it feels to be a failure.",
+      "belief_id": "NB1",
+      "responses": [
+        {
+          "response": "No one expects you to be a perfect super star student. This is why you're in school. To learn. Going to a therapist can help you cope and manage emotions. It doesn't hurt to try. I want us to graduate together, so we can’t give up.",
+          "path": "anxiety/prompt2",
+          "belief_id": "PB3"
+        },
+        {
+          "response": "I'm NOT blaming you or judging you. No one is. I really think that if me or any of our other friends were having lots of anxiety, they would go to counseling. So please think about going? I don’t want to be alone in math class lol.",
+          "path": "anxiety/prompt2",
+          "belief_id": "NOB1"
+        },
+        {
+          "response": "No one cares if you're failing. You're not the first one to flunk. You can recover your grades if you go balls-to-the wall studying, but you gotta stop being mopey.",
+          "path": "anxiety/reroute1",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "prompt2": {
+      "message": "Okay. Let's say I do go, then people are going to start posting about \"How the crazy girl had a panic attack and now she needs a straight jacket.\" No offense but I don't need a glorified baby-sitter making me feel like a delicate flower.",
+      "belief_id": "NB1",
+      "responses": [
+        {
+          "response": "Not true! Asking for a little extra help doesn't mean anything bad. It can resolve those feelings of anxiety. What if you find out what's been REALLY bugging you? Then you can look at life with good vibes only.",
+          "path": "anxiety/prompt3",
+          "belief_id": "PB2"
+        },
+        {
+          "response": "You need to get over it, it isn't that big of a deal. People won't know if you don't say anything.",
+          "path": "anxiety/reroute2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "prompt3": {
+      "message": "I guess you're right, but usually it goes away once I vent to someone. On good days it goes away by itself lol. So I don't think going to the counselor is going to help me. Thanks for letting me bother you with my drama, it really calmed me down.",
+      "belief_id": "NB3+4",
+      "responses": [
+        {
+          "response": "You might feel better now but your anxiety's going to come back eventually.  I think everyone would be super happy to see you going to a counselor. You shouldn't have to deal with these horrible panic attacks by yourself. ",
+          "path": "anxiety/prompt4",
+          "belief_id": "NOB2"
+        },
+        {
+          "response": "What if one day I'm not here to help you through your anxiety?  Seeing a professional can help you regain confidence to handle all the stress. I need to know you're going to be okay if something happens",
+          "path": "anxiety/prompt4",
+          "belief_id": "PB1"
+        },
+        {
+          "response": "I don't mind helping you through your anxiety but you can’t always rely on others. What are you going to do if no one is there to talk to you? Are you going to talk to the wall? NO.",
+          "path": "anxiety/reroute3",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "prompt4": {
+      "message": "My mom used to make all my doctor's appointments for me. This is a big decision and\nI don't think I have the courage to call them myself. I wouldn’t know what to say.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "We are both adults and we can solve our problems. We will find a way!\nGoing to the student counseling center isn’t difficult. I go when I'm feeling down, so I’m confident I can show you.",
+          "path": "anxiety/ending",
+          "belief_id": "CB2"
+        },
+        {
+          "response": "I've never personally gone to the counseling center, but we are adults and we can figure this out. I have a good idea of what to do and who to talk to. Let's go together and find out.",
+          "path": "anxiety/ending",
+          "belief_id": "CB1"
+        },
+        {
+          "response": "I’m not going to do it for you. I’ll help you find out the information but YOU have to make the call and take charge.",
+          "path": "anxiety/reroute4",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "ending": {
+      "message": "I don't want to be rude, but I really need a nap right now. It’s been a long day.\nI’ve been crying a lot and my face is all red and puffy. I REALLY REALLY want to take a nap right now.\nLet’s please find out about the counseling tomorrow after class. I think you’re right about everything you said.\nThanks so much for your advice :)",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "No problem, I think I need a nap too. Night!",
+          "path": "feed/anxiety/resolved",
+          "belief_id": "none"
+        }
+      ]
+    }
+  },
+  "depression": {
+    "character_type": "depression",
+    "intro": {
+      "subject": "%C winked back!",
+      "message": "Hey! I hope this message finds you well.\r\n\r\nI spend a lot of time seeing movies, going to bars, really anything I can do with friends. I’m also super close with my family, I have an identical twin and I grew up on the same street as my cousins, so we’re all very close. I have a job that I love and spend too much time doing, so sometimes trying to date can feel like one of those bad romantic comedies where you just don’t know how they can balance it all! Hahaha\r\n\r\nI’ve mentioned friends, family, and work, and while that may not be the most unique, I definitely think I’m worth getting to know. Give me a chance if you’re interested!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Well despite being a little standard, you seem great! I think my favorite nights ever are casual ones with friends, keeping it low key.",
+          "path": "C13/standard",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "That work life balance can be a struggle. How’s your experience on here, if you don’t mind my asking? ",
+          "path": "C13/worklifebalance",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "I won’t beat around the bush. All of my fantasies involve identical twins.",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "standard": {
+      "subject": "RE: Keeping it low key",
+      "message": "Haha well thank you for not thinking I’m boring. What sort of stuff do you like doing with your friends on those low key nights?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I always like doing some sort of activity, like mini-golfing or bowling. There’s this awesome indoor rock climbing place I’ve been to a few times as well. ",
+          "path": "C13/minigolf",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Oh my friends and I will crack open a bottle of wine and just talk about all the freaks and losers who message us on all these dating sites, it’s hilarious!",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I’m a huge homebody, so I’m all about getting some friends together at my place for a pot luck and some movies. That’s the perfect stress reliever.",
+          "path": "C13/homebody",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "worklifebalance": {
+      "subject": "RE: That work life balance can be a struggle",
+      "message": "I don’t mind at all! It’s been alright. A few dates here or there, but nothing so substantial yet. How about you?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Oh if I don’t go on a date, I consider that day a failure. I’m a fiend when it comes to dating.",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yeah I would say the same. Still looking for that person to inspire me to delete my account! ",
+          "path": "C13/minigolf",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I’ve never met anyone actually. I’ve had dates set up, but for some reason when people see me in public they turn around and run. Apparently I “don’t look like my pictures.”",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "minigolf": {
+      "subject": "RE: Some sort of activity...",
+      "message": "That’s cool! I love going out and doing something on a date. I’ve done some fun things like that too. Ice skating, a picnic on the beach, I even went indoor tanning once on a date. That was so much fun.",
+      "belief_id": "ME1",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "How was indoor tanning as a date? Wouldn’t you just end up all hot and sweaty? ",
+          "path": "C13/tanningdate",
+          "time": "2",
+          "belief_id": "DISCOM1"
+        },
+        {
+          "response": "Do you go indoor tanning often? You know that isn’t good for you, right? And a huge waste of money also.",
+          "path": "C13/nothealthy",
+          "time": "2",
+          "belief_id": "DISCOM3"
+        },
+        {
+          "response": "I remember you going to that picnic on the beach. I was there too, but you probably didn’t notice me. I was standing a few hundred feet away with the binoculars. ",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "homebody": {
+      "subject": "RE: I'm a huge homebody",
+      "message": "I agree completely. It’s good to have things to relieve your stress. Friends is one way I do that for sure. I also relax by reading books or lying in a tanning bed. Just simple things to take my mind off work and relax. ",
+      "belief_id": "ME2",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "While it’s good to have an outlet, do you really think indoor tanning is the best way to relax? I’ve heard that it’s not healthy. And I would imagine laying in those beds would feel incredibly claustrophobic. ",
+          "path": "C13/nothealthy",
+          "time": "2",
+          "belief_id": "DISCOM2"
+        },
+        {
+          "response": "indoor tan sometimes too, but I never really do it to relax. I’ve just heard that it’s good for me.",
+          "path": "C13/notrelaxed",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Forget about books and tanning. Come over to my place and we can de-stress together. ;) ",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "tanningdate": {
+      "subject": "RE: Indoor tanning as a date?",
+      "message": "It was pretty good I thought. The discomfort wasn’t such a big deal, since it was good to come out of a date looking better than I did going into it. ",
+      "belief_id": "APB1",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "If you wanted to tan why not just do it outside? That’s supposed to be better for you.",
+          "path": "C13/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "I get that, that does sound fun. And I know everyone is always talking about the dangers associated but that’s all just a myth I’ve heard. ",
+          "path": "C13/notrelaxed",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Tanning beds are fine, but if I’m going to get in bed with a date I know a better way to go about it. ",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "nothealthy": {
+      "subject": "RE: Indoor tanning isn't healthy",
+      "message": "Yeah, I know. The risk of contracting Melanoma certainly goes up, as well as other types of skin cancers. I just think being aware of those dangers and avoid excessive tanning makes me a smart and safe indoor tanner.",
+      "belief_id": "HT11",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "So, you know you’re putting yourself at risk and yet you still do it. I don’t think that’s a definition of a smart and safe person. ",
+          "path": "C13/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well it’s good you’re aware of the risks. You definitely seem like a responsible person to go indoor tanning with.",
+          "path": "C13/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well still, it’s not like all that can’t happen in the sun. So you’re tanning correctly because the sun can be even more dangerous.",
+          "path": "C13/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "outdoortan": {
+      "subject": "RE: Tanning outdoors vs. indoors",
+      "message": "Actually, that isn’t true. It seems like sunlamps are safer because you’re under them for a shorter amount of time but if anything, they’re more dangerous. They actually compensate for that short time by giving you stronger UV doses. ",
+      "belief_id": "HT22",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Right, but I’ve heard that because you can indoor tan all year round, your body gets more used to it.",
+          "path": "C13/allyearround",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "So you’re expertly explaining to me how dangerous it is for you…and yet, you still do it? ",
+          "path": "C13/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "If we can’t trust our local tanning salons to protect us, who in this world can we trust?!",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "notrelaxed": {
+      "subject": "RE: What I've heard",
+      "message": "Well, I know I sound confident about it, but there are dangers associated. I just think being aware of those dangers and how to counteract them makes me better off. For example, I know that if you don’t properly protect your eyes, eye diseases like cataracts  or corneal burns. But luckily I always make sure my eyes are properly protected. I think of myself as a smart indoor tanner. ",
+      "belief_id": "HT22",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "I don’t think there’s a such thing as a smart and safe indoor tanner. You know you’re putting yourself at risk and yet you still do it. That’s my definition of stupid. ",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well it’s good you’re aware of the risks. You definitely seem like a responsible person to go indoor tanning with. How about it?",
+          "path": "C13/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well still, it’s not like all that can’t happen in the sun. So you’re tanning correctly because the sun can be even more dangerous.",
+          "path": "C13/outdoortan",
+          "time": "2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "allyearround": {
+      "subject": "RE: Your body gets used to it",
+      "message": "Unfortunately that isn’t the case. It’s because the sun’s intensity varies throughout seasons, the day, and the weather that it’s better for you. Being exposed to the same high intensity everyday is more dangerous than otherwise. ",
+      "belief_id": "HT21",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Alright well you’re scaring me from ever indoor tanning. Why do you do it if you know all these horrible things? ",
+          "path": "C13/stilldoit",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "It’s weird, but being so informed about this makes me trust that you’ll be smart about it. Maybe we should go together sometime.",
+          "path": "C13/responsible",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Look, the fact that you sound like you’re ok with hurting yourself isn’t ok to me, so I think we should stop talking. ",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "stilldoit": {
+      "subject": "RE: You still do it?",
+      "message": "I guess I don’t really know… it makes me feel good, but at what cost right? Maybe I’ll take it easy on the tanning. \r\n\r\nHow about meeting for coffee? We could even talk about something not related to indoor tanning!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "That sounds great!",
+          "path": "C13/epilogue/coffee",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "No thanks!",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "responsible": {
+      "subject": "RE: How about it?",
+      "message": "That would be great. But about this weekend?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sounds perfect!",
+          "path": "C13/epilogue/tanning",
+          "time": "0",
+          "belief_id": "none"
+        },
+        {
+          "response": "On second thought, I don't think I should.",
+          "path": "C13/deadend",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "coffee": {
+        "story": "You meet %C for coffee and the conversation isn't the only thing that's stimulating. You fall in love instantly.",
+        "ending": "3"
+      },
+      "tanning": {
+        "story": "You meet %C at Rays Tanning Salon and get the Golden Bronze Package. It doesn't take long for you to fall in love with each other after that.",
+        "ending": "5"
+      }
+    }
+  },
+  "FIZZLE1": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Hello?",
+      "message": "Hi! How does this thing work? Are we dating?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "You should ask Leslie for some help.",
+          "path": "FIZZLE1/askleslie",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "Oh yeah, we're definitely dating.",
+          "path": "FIZZLE1/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "That's a negative.",
+          "path": "FIZZLE1/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "askleslie": {
+      "subject": "RE: You should ask Leslie for some help",
+      "message": "Who is Leslie??  Does she want a date? How do I go on a date? I don't know how this works.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Leslie will find you a match, that way you can stop bothering me.",
+          "path": "FIZZLE1/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sounds like you need some help. Good luck with that.",
+          "path": "FIZZLE1/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "We're on a date right now!",
+          "path": "FIZZLE1/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE2": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Oh wow, you have to be the one!",
+      "message": "I think I've seen you before. I was sitting on a bench in the park, feeding the pigeons. You were frolicking in the grass. Magnificent. I love pigeons. So majestic, so beautiful. It's hard to focus when you're surrounded by such beauty.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, I don't frolick.",
+          "path": "FIZZLE2/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yes! Pigeons! Definitely not flying rats, that's for sure.",
+          "path": "FIZZLE2/rats",
+          "time": "1",
+          "belief_id": "none"
+        },
+        {
+          "response": "Move along!",
+          "path": "FIZZLE2/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "rats": {
+      "subject": "RE: Yes! Pigeons! Definitely not flying rats, that's for sure.",
+      "message": "What do you have against rats? I think they're pretty cool!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "A rat stole my pizza. #neverforget",
+          "path": "FIZZLE2/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I don't have a problem with rats, just ones that fly.",
+          "path": "FIZZLE2/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I'm more of a fluffy bunny kind of person.",
+          "path": "FIZZLE2/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE3": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Some weather we're having, am I right?",
+      "message": "Do you ever get the feeling that everyone else is a robot? I mean, you're not a robot right? I'm definitely not a robot.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Yes, I'M A ROBOT!",
+          "path": "FIZZLE3/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "No, I'm not a robot.",
+          "path": "FIZZLE3/robot",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "It's heavy, real heavy.",
+          "path": "FIZZLE3/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "robot": {
+      "subject": "RE: No, I'm not a robot.",
+      "message": "How can I be sure that you're not a robot?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Ask me anything, I'll try and give my best non-robotic response.",
+          "path": "FIZZLE3/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Dang! You got me. I'm a robot.",
+          "path": "FIZZLE3/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "INVALID INPUT! DOES NOT COMPUTE!",
+          "path": "FIZZLE3/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE4": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Here's a question for you!",
+      "message": "Would you rather fight 100 duck-sized horses or 1 horse-sized duck?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "100 duck-sized horses, those little horsies don't stand a chance!",
+          "path": "FIZZLE4/ducks",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "1 horse-sized duck, I could take it.",
+          "path": "FIZZLE4/horse",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "I'm not sure.",
+          "path": "FIZZLE4/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "ducks": {
+      "subject": "RE: 100 duck-sized horses, those little horsies don't stand a chance!",
+      "message": "But there would be so many! All that neighing! Are you sure you would be up for the task?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Obviously. I have military miniature equestrian training.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Come to think of it, that is a lot of horses. Maybe not.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "*WHINNY* They don't stand a chance.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "horse": {
+      "subject": "RE: One horse sized duck",
+      "message": "Whoa! A duck that size would quack so loud, I don't know if I could handle it. I think I'd rather fight those little horses.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "It's just quacking, I'm sure it wouldn't be that bad.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "100 horses!? That'd be overwhelming.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "If you couldn't handle that, I don't know if you could handle me.",
+          "path": "FIZZLE4/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE5": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "I know you!",
+      "message": "You were the hoarder at the grocery store, putting all the cookies in your basket! I wanted some cookies too, but you took them all you thief!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, you have the wrong person.",
+          "path": "FIZZLE5/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I regret nothing!",
+          "path": "FIZZLE5/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Cookies! Non nom nom!",
+          "path": "FIZZLE5/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE6": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "Something on the side?",
+      "message": "Hey there! I got this free trial and thought I'd see what this thing is all about. I'm looking for something casual. I'm not looking for another relationship, already got that covered thank you very much. Do you own any costumes?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Sorry, I don't own any costumes.",
+          "path": "FIZZLE6/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I've got a Big Bird costume, would that work?",
+          "path": "FIZZLE6/bigbird",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Of course I own costumes! Who do you think I am?",
+          "path": "FIZZLE6/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "bigbird": {
+      "subject": "RE: I've got a Big Bird costume, would that work?",
+      "message": "Umm... not really a fan of yellow. Got anything else?",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "What would you rather I wear?",
+          "path": "FIZZLE6/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "How about a big purple dinosaur?",
+          "path": "FIZZLE6/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Nothing, absolutely nothing...",
+          "path": "FIZZLE6/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE7": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "OMG!",
+      "message": "I absolutely LOVE this thing you've got going on. I could never pull off that look but wow, just WOW. Do you workout? Obviously you do, why am I asking? I'm totally embarrassing myself. I'll stop now.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Thanks?",
+          "path": "FIZZLE7/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yes, you're definitely embarrassing yourself.",
+          "path": "FIZZLE7/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "What are you talking about? You could totally pull it off!",
+          "path": "FIZZLE7/pulleditoff",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "pulleditoff": {
+      "subject": "RE: What are you talking about? You could totally pull it off!",
+      "message": "Aww! You're so sweet! Just a big bowl of sugar!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Do you have a sweet tooth?",
+          "path": "FIZZLE7/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sometimes I'm sweet, but I'm always spicy.",
+          "path": "FIZZLE7/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "I sure hope not, I'm diabetic!",
+          "path": "FIZZLE7/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE8": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "So...",
+      "message": "What's up? I'm basically a vampire. Totally into biting, but I don't suck! ha ha! Anyways, what do you do for fun? I obviously can only hang out at night since the sunlight would burn me to a crisp. Maybe you'd like to meet up sometime, my crypt is very cozy!",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Well I'm basically a werewolf, so this isn't going to work.",
+          "path": "FIZZLE8/werewolf",
+          "time": "2",
+          "belief_id": "none"
+        },
+        {
+          "response": "Sweet! Are you immortal?",
+          "path": "FIZZLE8/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Bored now.",
+          "path": "FIZZLE8/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "werewolf": {
+      "subject": "RE: Well I'm basically a werewolf, so this isn't going to work.",
+      "message": "I was just kidding! I'm not a vampire, I just don't know what to say. Beautiful people make me nervous.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "Aww shucks, you think I'm beautiful?",
+          "path": "FIZZLE8/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "You don't need to be nervous around me, I won't bite... hard. lol!",
+          "path": "FIZZLE8/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Well I wasn't kidding, I'm a freaking werewolf.",
+          "path": "FIZZLE8/fizzle",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  },
+  "FIZZLE9": {
+    "character_type": "none",
+    "requirements": {
+      "tan": "0",
+      "love": "0",
+      "accessories": {
+        "glasses": "0",
+        "headwear": "0",
+        "tie": "0"
+      }
+    },
+    "intro": {
+      "subject": "We're animals!",
+      "message": "You're a fierce warrior, I can tell. Just like a warthog. I don't mind your flatulence either, it's cool baby.",
+      "belief_id": "None",
+      "thresholds": {
+        "tan": "0"
+      },
+      "responses": [
+        {
+          "response": "It's so refreshing to have someone not judge my gas!",
+          "path": "FIZZLE9/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "There's magic everywhere.",
+          "path": "FIZZLE9/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        },
+        {
+          "response": "Just stop.",
+          "path": "FIZZLE9/fizzled",
+          "time": "9999",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "epilogue": {
+      "fizzy": {
+        "story": "Your date did not go well. Keep trying.",
+        "ending": "0"
+      }
+    }
+  }
+}

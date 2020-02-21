@@ -6,8 +6,6 @@ public class Profile : MonoBehaviour {
 
 //	public Player player;
 	public Text messageCount;
-	public Image heart;
-	public Character character;
 
 
 	// Use this for initialization

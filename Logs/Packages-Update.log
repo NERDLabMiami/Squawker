@@ -22,3 +22,11 @@ The following packages were updated:
   com.unity.textmeshpro from version 1.2.4 to 2.0.1
 The following packages were removed:
   com.unity.package-manager-ui@1.9.11
+
+=== Fri Feb 14 13:13:43 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.test-framework from version 1.1.9 to 1.1.11

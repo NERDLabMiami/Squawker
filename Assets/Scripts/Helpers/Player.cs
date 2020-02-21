@@ -8,34 +8,59 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-	public int actionsLeft = 0;
-	public int daysLeft = 0;
 	public TextAsset potentialMessages;
 	public bool reset = false;
 	public List<Message> inbox;
-	public Inbox previewInbox;
+    public Inbox chatLog;
 	public Profile profile;
-	public Character avatar;
-//	public Animator progress;
 	public GameObject loadingScreen;
 	public JSONNode json;
 	private List<string> messageList;
 	private int previousMessageCount = 0;
-	public int daysBetweenChangeInTan = 2;
 	// Use this for initialization
 	void Start () {
 			json = JSON.Parse(potentialMessages.ToString());
-			string[] storedMessages = Prefs.PlayerPrefsX.GetStringArray("messages", null, 0);
-			messageList = storedMessages.OfType<string>().ToList();
 			inbox = new List<Message>();
-			if (previewInbox) {
-				refreshInbox();
-			}
-			populateStats();
-			updateProfile();
-	}
+        //			refreshInbox();
+       Chat("anxiety", "intro");
+    }
 
-	public bool hooked() {
+
+    public void Chat(string character, string passage)
+    {
+//        string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
+
+        //new message, add to list
+        Message message = new Message();
+//                    message.index = i;
+//                    message.path = messageList[i];
+        message.sender = character;
+        message.passage = passage;
+        message.belief = json[message.sender][message.passage]["belief_id"];
+        message.body = json[message.sender][message.passage]["message"];
+
+        chatLog.addMessage(message);
+
+        //REMOVE PREVIOUS RESPONSE OPTIONS
+        foreach (Transform child in chatLog.responseOptions.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        JSONNode responses = json[message.sender][message.passage]["responses"];
+        for (int i = 0; i < responses.Count; i++)
+        {
+            Response r = new Response(responses[i]["path"], responses[i]["response"], responses[i]["time"].AsInt, i, responses[i]["belief_id"]);
+            message.responses.Add(r);
+            chatLog.addResponse(r);
+        }
+        chatLog.responseContainer.SetActive(true);
+
+        //            inbox.Add(message);
+
+    }
+
+
+    public bool hooked() {
 		int h = PlayerPrefs.GetInt ("hooked", 0);
 		if (h == 0) {
 			return false;
@@ -134,13 +159,7 @@ public class Player : MonoBehaviour {
 						message.path = messageList[i];
 						message.sender = messageParts[0];
 						message.passage = messageParts[1];
-						message.subject = json[message.sender][message.passage]["subject"];
-						message.belief = json[message.sender][message.passage]["belief_id"];
-					//TODO: Integrate dialog id for subtype
-					//message.subtype = json[message.sender][message.passage]["belief_dialog_id"];
-						message.alias = PlayerPrefs.GetString(message.sender, "");
-						message.subject = message.subject.Replace("%C", message.alias);
-						
+						message.belief = json[message.sender][message.passage]["belief_id"];						
 						message.body = json[message.sender][message.passage]["message"];
 						JSONNode responses = json[message.sender][message.passage]["responses"];
 						for (int j = 0; j < responses.Count; j++) {
@@ -154,17 +173,8 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if (previewInbox != null) {
-			previewInbox.clear();
-			updatePreviewBox();
-		}
 	}
 
-	public void updatePreviewBox() {
-		for (int i = 0; i < inbox.Count; i++) {
-			previewInbox.addMessage(inbox[i]);
-		}
-	}
 
 
 	private void saveMessageList() {
@@ -212,55 +222,14 @@ public class Player : MonoBehaviour {
 
     }
 	public void refresh() {
-		refreshInbox();
-		if (previewInbox) {
-			if (previousMessageCount < inbox.Count) {
-				//TODO: Play notification sound
-				previewInbox.notify();
-			}
-		}
 	}
 	public bool takeAction(bool takeTolls) {
-		Debug.Log(daysLeft + "/" + actionsLeft);
-		if (daysLeft%6 == 0 && actionsLeft == 1) {
-		//	newOffer ("love");
-		}
-		else if (daysLeft%6 == 3 && actionsLeft == 1) {
-		//	newOffer("tanning");
-		}
-
-		else if(daysLeft%6 == 5 && actionsLeft == 1) {
-		//	newOffer("haircut");
-		}
-			
-		else if (daysLeft%6 == 2 && actionsLeft == 1) {
-		//	newOffer("piercing");
-		}
-
-		if (actionsLeft > 1) {
-			actionsLeft--;
-			saveProgress(actionsLeft, daysLeft);
-			return true;
-		}
-		else {
-			daysLeft--;
 			newDay();
         //REFRESHING INBOX HERE
-			//refresh();
-			if (daysLeft < 0) {
-				//GAME OVER
-				Debug.Log("Days have run out");
-				GetComponent<Home>().gameOverMessage.SetActive(true);
-				return false;
-			}
-			else {
-				actionsLeft = 2;
-				saveProgress(actionsLeft, daysLeft);
-				return true;
-			}
-		}
+        //refresh();
+        return true;
+    }
 
-	}
 
 	public void populateMatches() {
 		List<string> list = new List<string>();
@@ -303,20 +272,10 @@ public class Player : MonoBehaviour {
 		PlayerPrefs.DeleteAll();
 		removeAllMessages();
 
-		PlayerPrefs.SetInt("tan", 0);
-		PlayerPrefs.SetInt("attractiveness", 0);
-		PlayerPrefs.SetInt("cancer risk", 0);
-		PlayerPrefs.SetInt("dermatologist visits", 0);
-		PlayerPrefs.SetInt("actions left", 2);
-		PlayerPrefs.SetInt("days left", 30);
-		PlayerPrefs.SetInt("tutorial", 0);
-
 	}
 	
 	private void populateStats() {
-		actionsLeft = PlayerPrefs.GetInt("actions left", 0);
-		daysLeft = PlayerPrefs.GetInt("days left", 0);
-
+		
 	}
 
 	public void updateProfile() {
@@ -325,11 +284,11 @@ public class Player : MonoBehaviour {
 
 			if(inbox.Count <= 0) {
 				profile.messageCount.transform.parent.gameObject.transform.parent.gameObject.SetActive(false);
-				previewInbox.emptyMailboxMessage.SetActive(true);
+//				previewInbox.emptyMailboxMessage.SetActive(true);
 			}
 			else {
 				profile.messageCount.transform.parent.gameObject.transform.parent.gameObject.SetActive(true);
-				previewInbox.emptyMailboxMessage.SetActive(false);
+//				previewInbox.emptyMailboxMessage.SetActive(false);
 			}
 			
 		}

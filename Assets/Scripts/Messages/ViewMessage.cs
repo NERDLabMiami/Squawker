@@ -62,10 +62,10 @@ public class ViewMessage : MonoBehaviour {
 				Debug.Log("Removing offer with path: " + p);
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
-				player.previewInbox.messageContainer.SetActive(true);
+//				player.previewInbox.messageContainer.SetActive(true);
 				Destroy (gameObject);
 				player.refreshInbox();
-				player.previewInbox.checkIfEmpty();
+//				player.previewInbox.checkIfEmpty();
 
 			});
 		
@@ -80,24 +80,24 @@ public class ViewMessage : MonoBehaviour {
 				Debug.Log("Removing offer with path: " + p);
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
-				player.previewInbox.checkIfEmpty();
+	//			player.previewInbox.checkIfEmpty();
 				player.takeAction(true);
 				//TODO: Check for piercing, hair offer types
 				if (type == 6) {
 					//piercing
-					player.previewInbox.messageContainer.SetActive(true);
+		//			player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
 					player.refreshInbox();
-					player.previewInbox.checkIfEmpty();
+		//			player.previewInbox.checkIfEmpty();
 					transform.parent.gameObject.SetActive(false);
 
 				}
 				else if (type == 7) {
 					//haircut
-					player.previewInbox.messageContainer.SetActive(true);
+		//			player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
 					player.refreshInbox();
-					player.previewInbox.checkIfEmpty();
+		//			player.previewInbox.checkIfEmpty();
 					transform.parent.gameObject.SetActive(false);
 				}
 				else {
@@ -107,7 +107,7 @@ public class ViewMessage : MonoBehaviour {
 		} else {
 			response.GetComponent<Button> ().onClick.AddListener (() => {
 				respond (r.path, r.messageIndex, r.belief);
-				player.previewInbox.checkIfEmpty();
+		//		player.previewInbox.checkIfEmpty();
 			});	
 
 			}
@@ -172,13 +172,13 @@ public class ViewMessage : MonoBehaviour {
 		}
 		player.addMessage(path);
 		player.refreshInbox();
-		player.previewInbox.messageContainer.SetActive(true);
+		//player.previewInbox.messageContainer.SetActive(true);
 		Destroy (gameObject);
 
 	}
 
 	public void ignore() {
-		player.previewInbox.messageContainer.SetActive(true);
+		//player.previewInbox.messageContainer.SetActive(true);
 		Destroy (gameObject);
 	}
 	// Update is called once per frame

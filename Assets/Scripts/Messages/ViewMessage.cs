@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ViewMessage : MonoBehaviour {
 	public Image profilePic;
-	public Character character;
+	//public Character character;
 	public Text alias;
 	public Text body;
 	public Transform responseContainer;
@@ -64,7 +64,7 @@ public class ViewMessage : MonoBehaviour {
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
 //				player.previewInbox.messageContainer.SetActive(true);
 				Destroy (gameObject);
-				player.refreshInbox();
+//				player.refreshInbox();
 //				player.previewInbox.checkIfEmpty();
 
 			});
@@ -81,13 +81,13 @@ public class ViewMessage : MonoBehaviour {
 				int offerCount = PlayerPrefs.GetInt(p + "_offers", 0);
 				PlayerPrefs.SetInt(p + "_offers", offerCount - 1);
 	//			player.previewInbox.checkIfEmpty();
-				player.takeAction(true);
+	//			player.takeAction(true);
 				//TODO: Check for piercing, hair offer types
 				if (type == 6) {
 					//piercing
 		//			player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
-					player.refreshInbox();
+//					player.refreshInbox();
 		//			player.previewInbox.checkIfEmpty();
 					transform.parent.gameObject.SetActive(false);
 
@@ -96,7 +96,7 @@ public class ViewMessage : MonoBehaviour {
 					//haircut
 		//			player.previewInbox.messageContainer.SetActive(true);
 					Destroy (gameObject);
-					player.refreshInbox();
+//					player.refreshInbox();
 		//			player.previewInbox.checkIfEmpty();
 					transform.parent.gameObject.SetActive(false);
 				}
@@ -160,18 +160,18 @@ public class ViewMessage : MonoBehaviour {
         //TODO: Path update for just character
         //PLAYER RESPONSE EVENT
         GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, StringArrayFunctions.getMessage(path)[0]);
-		player.takeAction (true);
+		//player.takeAction (true);
 		player.removeMessage(index);
 		//TODO: Check threshold requirements if needed in mid conversation to add/remove response time
 		if(StringArrayFunctions.getMessage(path)[1].Contains("deadend")) {
 			//Player chose a dead end, unhook to allow for a new conversation
-			player.unhook();
+			//player.unhook();
 		}
 		else {
 			Debug.Log("NOT A DEADEND: " + path);
 		}
 		player.addMessage(path);
-		player.refreshInbox();
+//		player.refreshInbox();
 		//player.previewInbox.messageContainer.SetActive(true);
 		Destroy (gameObject);
 

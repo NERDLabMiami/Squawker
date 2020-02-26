@@ -7,8 +7,9 @@ public class PlayerDebug : MonoBehaviour {
 	public Text actionsLeft;
 	public Player player;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    /*
+    void Start () {
 		refresh();
 	}
 
@@ -27,4 +28,5 @@ public class PlayerDebug : MonoBehaviour {
 	void Update () {
 	
 	}
+    */
 }

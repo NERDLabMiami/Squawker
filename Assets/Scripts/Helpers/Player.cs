@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
 	public TextAsset potentialMessages;
-	public bool reset = false;
-	public List<Message> inbox;
+    public bool reset = false;
+//	public List<Message> inbox;
     public Inbox chatLog;
 	public Profile profile;
 	public GameObject loadingScreen;
@@ -19,21 +19,22 @@ public class Player : MonoBehaviour {
 	private int previousMessageCount = 0;
 	// Use this for initialization
 	void Start () {
-			json = JSON.Parse(potentialMessages.ToString());
-			inbox = new List<Message>();
+
+        json = JSON.Parse(potentialMessages.ToString());
+			//inbox = new List<Message>();
         //			refreshInbox();
-       Chat("anxiety", "intro");
+
+        //TODO: Update based on feed comment/DM
+        if (SceneManager.GetActiveScene().name == "Chat")
+        {
+            Chat("anxiety", "intro");
+        }
     }
 
 
     public void Chat(string character, string passage)
     {
-//        string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
-
-        //new message, add to list
         Message message = new Message();
-//                    message.index = i;
-//                    message.path = messageList[i];
         message.sender = character;
         message.passage = passage;
         message.belief = json[message.sender][message.passage]["belief_id"];
@@ -46,20 +47,19 @@ public class Player : MonoBehaviour {
         {
             GameObject.Destroy(child.gameObject);
         }
+
         JSONNode responses = json[message.sender][message.passage]["responses"];
         for (int i = 0; i < responses.Count; i++)
         {
-            Response r = new Response(responses[i]["path"], responses[i]["response"], responses[i]["time"].AsInt, i, responses[i]["belief_id"]);
+            Response r = new Response(responses[i]["path"], responses[i]["response"], i, responses[i]["belief_id"]);
             message.responses.Add(r);
             chatLog.addResponse(r);
         }
-        chatLog.responseContainer.SetActive(true);
-
-        //            inbox.Add(message);
+        chatLog.responseOptions.SetActive(false);
 
     }
 
-
+/*
     public bool hooked() {
 		int h = PlayerPrefs.GetInt ("hooked", 0);
 		if (h == 0) {
@@ -144,7 +144,9 @@ public class Player : MonoBehaviour {
 			return 9999;
 		}
 	}
+    */
 
+        /*
 	public void refreshInbox() {
 		previousMessageCount = inbox.Count;
 		inbox.Clear();
@@ -180,22 +182,22 @@ public class Player : MonoBehaviour {
 	private void saveMessageList() {
 		Prefs.PlayerPrefsX.SetStringArray("messages", messageList.ToArray());
 	}
-
+    */
 	public void addMessage(string path) {
 		messageList.Add(path);
-		saveMessageList();
+//		saveMessageList();
 	}
 
 	public void removeMessage(int index) {
 		messageList.RemoveAt(index);
-		saveMessageList();
+//		saveMessageList();
 	}
 
 	public void removeAllMessages() {
 		messageList.Clear();
-		saveMessageList();
+//		saveMessageList();
 	}
-	
+	/*
 	private void saveProgress(int actions, int days) {
 		PlayerPrefs.SetInt("actions left", actions);
 		PlayerPrefs.SetInt("days left", days);
@@ -303,11 +305,11 @@ public class Player : MonoBehaviour {
 		int numMottos = json["mottos"].Count;
 		return json["mottos"][Random.Range (0, numMottos)];
 	}
-
+    */
 //	StartCoroutine (loadHome ());
 
 	public void loadSceneNumber(int level) {
-		loadingScreen.SetActive(true);
+//		loadingScreen.SetActive(true);
 		StartCoroutine (loadLevel(level));
 	}
 
@@ -317,14 +319,14 @@ public class Player : MonoBehaviour {
 			Debug.Log ("ASYNC: " + async.progress);
 			yield return async;		
 		}
-		loadingScreen.SetActive (false);
+	//	loadingScreen.SetActive (false);
 		Debug.Log ("Loading complete");
 	}
 
-
+    /*
 	public void returnHome(){
 		loadSceneNumber(1);
 	}
-
+    */
 		
 }

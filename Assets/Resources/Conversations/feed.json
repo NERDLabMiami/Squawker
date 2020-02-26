@@ -1,0 +1,167 @@
+{
+  "interventions": {
+    "anxiety": {
+      "post": "BIG GIRLS DON'T CRY... EXCEPT IF IT'S FORMAT ALGEBRA MIDTERMS.",
+      "name": "Amelia",
+      "avatar": "1.png",
+      "responses": [
+        {
+          "response": "Hang in there",
+          "path": "chat/anxiety"
+        },
+        {
+          "response": "LOL JUST USE A CALCULATOR, IT'S NOT THAT HARD.",
+          "path": "feed/random"
+        }
+        
+      ]
+    },
+    "depression": {
+      "post": "I don't care about anything. I am just going to sleep all day",
+      "name": "Dave",
+      "avatar": "2.png",
+      "responses": [
+        {
+          "response": "Hang in there. Everything is going to be alright.",
+          "path": "chat/depression"
+        },
+        {
+          "response": "Sleep is fun lol, I wish I could do that.",
+          "path": "feed/random"
+        }
+
+      ]
+    }
+  },
+  "random": {
+    "names": [
+      "Matthew",
+      "Dominick",
+      "Anton",
+      "Elijah",
+      "Efrain",
+      "Kelly",
+      "Nestor",
+      "Gary",
+      "Kareem",
+      "Francisco",
+      "Beau",
+      "Jordan",
+      "Sandy",
+      "Kenneth",
+      "Pete",
+      "Delbert",
+      "Sherman",
+      "Gabriel",
+      "Ben",
+      "Ian",
+      "Zackary",
+      "Brandon",
+      "Bradly",
+      "Stevie",
+      "Fredrick",
+      "Jeff",
+      "Zack",
+      "Bryce",
+      "Gerald",
+      "Amber",
+      "Britney",
+      "Caitlin",
+      "Dora",
+      "Elaine",
+      "Fanny",
+      "Grace",
+      "Heather",
+      "Imelda",
+      "Juanita",
+      "Kristin",
+      "Loraine",
+      "Maria",
+      "Nelly",
+      "Ophelia",
+      "Patricia",
+      "Rayna",
+      "Sally",
+      "Taylor",
+      "Uma",
+      "Valentine",
+      "Wanda",
+      "Aaron",
+      "Britney",
+      "Clyde",
+      "Daria",
+      "Elle",
+      "Fitz",
+      "Geraldine",
+      "Kelly",
+      "Kim",
+      "Larry",
+      "Laura",
+      "Melanie",
+      "Nick",
+      "Ryan",
+      "Xavier",
+      "Pat",
+      "Tim"
+       
+    ],
+    "posts": [
+      {
+      "post": "SUP!!!",
+      "responses": [
+        {
+          "response": "Yo!!!",
+          "path": "feed/random"
+        },
+        {
+          "response": "Sup?",
+          "path": "feed/random"
+        }
+
+      ]
+    },
+      {
+      "post": "people are funny....",
+      "responses": [
+        {
+          "response": "Why?",
+          "path": "feed/random"
+        },
+        {
+          "response": "I know, right?",
+          "path": "feed/random"
+        }
+
+      ]
+    },
+      {
+      "post": "listening to some dope beets",
+      "responses": [
+        {
+          "response": "what are you listening to???",
+          "path": "feed/random"
+        },
+        {
+          "response": "you're listening to vegetables?",
+          "path": "feed/random"
+        }
+
+      ]
+    },
+      {
+      "post": "omg, mini horses are sooo cute!!!",
+      "responses": [
+        {
+          "response": "they ain't as cute as sloths",
+          "path": "feed/random"
+        },
+        {
+          "response": "100% agree",
+          "path": "feed/random"
+        }
+
+      ]
+    }    
+    ]
+  }
+}

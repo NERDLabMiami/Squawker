@@ -8,7 +8,6 @@ public class ImageSet : MonoBehaviour {
 	public Sprite[] sprites;
 	public int selected = 0;
 	public Image sprite;
-	public AvatarColorSelector colorSelector;
 	public ImageSet[] pairedSets;
 	public bool startWithSpriteEnabled;
 	
@@ -32,12 +31,6 @@ public class ImageSet : MonoBehaviour {
 			sprites = Resources.LoadAll<Sprite>(folder);
 		}
 */
-	}
-	public void checkForColor() {
-		if (colorSelector) {
-			colorSelector.gameObject.SetActive(true);
-			
-		}
 	}
 	public void set() {
 		/*

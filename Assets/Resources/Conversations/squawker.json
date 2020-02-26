@@ -174,19 +174,8 @@
       ]
     },
     "intro5": {
-      "message": "I'm going to assume that you're joking. That's a fair assumption, right?",
+      "message": "I think I’m going to drop out of school",
       "belief_id": "None",
-      "responses": [
-        {
-          "response": "I think I’m going to drop out of school",
-          "path": "anxiety/intro6",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "intro6": {
-      "message": "The idea that skin cancer is caused by indoor tanning is hype. There are no conclusive studies that have said so.",
-      "belief_id": "none",
       "responses": [
         {
           "response": "WHAT?! WHY?!",

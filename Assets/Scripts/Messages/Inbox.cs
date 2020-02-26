@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class Inbox : MonoBehaviour {
 	public IncomingMessage messageTemplate;
     public GameObject responseTemplate;
+    public GameObject playerMessageTemplate;
 	public GameObject messageContainer;
     public GameObject responseContainer;
     public GameObject responseOptions;
 	public GameObject emptyMailboxMessage;
+    public GameObject respondButton;
+    public ScrollRect m_ScrollRect;
 	public AudioClip notification;
 	public AudioSource source;
     public string characterPath;
@@ -29,7 +32,7 @@ public class Inbox : MonoBehaviour {
 	public void checkIfEmpty() {
 		//TODO: Look at player
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-	
+	/*
 			if (player.inbox.Count < 1) {
 				emptyMailboxMessage.SetActive (true);
 			}
@@ -37,7 +40,7 @@ public class Inbox : MonoBehaviour {
 				emptyMailboxMessage.SetActive (false);
 
 			}
-
+            */
 	}
 
 	public void clear() {
@@ -51,26 +54,56 @@ public class Inbox : MonoBehaviour {
 		GameObject message = Instantiate(messageTemplate.gameObject);
         message.GetComponent<IncomingMessage>().setMessage(msg);
 		message.transform.SetParent(messageContainer.transform, false);
+        float backup = m_ScrollRect.verticalNormalizedPosition;
+        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
 	}
+
+    public void addResponseToChatLog(string response)
+    {
+        GameObject r = Instantiate(playerMessageTemplate);
+        r.GetComponent<PlayerMessage>().setText(response);
+        r.transform.SetParent(messageContainer.transform, false);
+        float backup = m_ScrollRect.verticalNormalizedPosition;
+        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
+
+    }
+
+    IEnumerator ApplyScrollPosition(ScrollRect sr, float verticalPos)
+    {
+        yield return new WaitForEndOfFrame();
+        sr.verticalNormalizedPosition = verticalPos;
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)sr.transform);
+    }
 
     public void addResponse(Response r)
     {
-        GameObject response = Instantiate(responseTemplate, responseOptions.transform);
-        response.GetComponent<ResponseOption>().response.text = r.text;
-            response.GetComponentInChildren<Button>().onClick.AddListener(() => {
+        string[] param = StringArrayFunctions.getMessage(r.path);
+        Debug.Log("param count: " + param.Length);
+        if (param.Length > 2)
+        {
+            //double check param 2 for "resolved"
+            Debug.Log("HOORAY! ALERT FEED UPDATE!");
+        }
+        else
+        {
+            Debug.Log("Adding Response");
+            GameObject response = Instantiate(responseTemplate, responseOptions.transform);
+            response.GetComponent<ResponseOption>().response.text = r.text;
+            response.GetComponentInChildren<Button>().onClick.AddListener(() =>
+            {
                 Debug.Log("PATH: " + r.path + " MESSAGE: " + r.messageIndex + " BELIEF: " + r.belief);
+                addResponseToChatLog(r.text);
                 respond(r.path, r.messageIndex, r.belief);
             });
-
+        }
 
     }
 
     void respond(string path, int index, string belief)
     {
-        responseContainer.SetActive(false);
-
-        //TODO: Clear Options Children
-
+        //        responseContainer.SetActive(false);
+        responseOptions.GetComponent<ResponseOptions>().options.Clear();
+        responseOptions.GetComponent<ResponseOptions>().togglePagination(false);
         string[] res = StringArrayFunctions.getMessage(path);
         player.Chat("anxiety", res[1]);
 
@@ -82,17 +115,21 @@ public class Inbox : MonoBehaviour {
         if (StringArrayFunctions.getMessage(path)[1].Contains("deadend"))
         {
             //Player chose a dead end, unhook to allow for a new conversation
-            player.unhook();
+//            player.unhook();
         }
         else
         {
-            Debug.Log("NOT A DEADEND: " + path);
+  //          Debug.Log("NOT A DEADEND: " + path);
         }
-//        addMessage(path);
+        //        addMessage(path);
         //player.refreshInbox();
         //player.previewInbox.messageContainer.SetActive(true);
-  //      Destroy(gameObject);
+        //      Destroy(gameObject);
 
+
+
+
+        respondButton.SetActive(true);
     }
 
 }

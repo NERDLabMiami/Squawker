@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 public class IncomingMessage : MonoBehaviour {
 	public string character;
-	public Character avatar;
     public Text body;
     private Message message;
 

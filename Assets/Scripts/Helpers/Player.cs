@@ -9,193 +9,217 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
 	public TextAsset potentialMessages;
-    public bool reset = false;
-//	public List<Message> inbox;
-    public Inbox chatLog;
+	public bool reset = false;
+	//	public List<Message> inbox;
+	public Inbox chatLog;
 	public Profile profile;
 	public GameObject loadingScreen;
 	public JSONNode json;
 	private List<string> messageList;
+	private string character;
 	private int previousMessageCount = 0;
 	// Use this for initialization
-	void Start () {
-
-        json = JSON.Parse(potentialMessages.ToString());
-			//inbox = new List<Message>();
-        //			refreshInbox();
-
-        //TODO: Update based on feed comment/DM
-        if (SceneManager.GetActiveScene().name == "Chat")
-        {
-            Chat("anxiety", "intro");
-        }
-    }
 
 
-    public void Chat(string character, string passage)
-    {
-        Message message = new Message();
-        message.sender = character;
-        message.passage = passage;
-        message.belief = json[message.sender][message.passage]["belief_id"];
-        message.body = json[message.sender][message.passage]["message"];
 
-        chatLog.addMessage(message);
-
-        //REMOVE PREVIOUS RESPONSE OPTIONS
-        foreach (Transform child in chatLog.responseOptions.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
-
-        JSONNode responses = json[message.sender][message.passage]["responses"];
-        for (int i = 0; i < responses.Count; i++)
-        {
-            Response r = new Response(responses[i]["path"], responses[i]["response"], i, responses[i]["belief_id"]);
-            message.responses.Add(r);
-            chatLog.addResponse(r);
-        }
-        chatLog.responseOptions.SetActive(false);
-
-    }
-
-/*
-    public bool hooked() {
-		int h = PlayerPrefs.GetInt ("hooked", 0);
-		if (h == 0) {
-			return false;
+	void Start() {
+		if (reset) {
+			ResetChats();
 		}
-		else {
-			return true;
+		json = JSON.Parse(potentialMessages.ToString());
+		//inbox = new List<Message>();
+		//			refreshInbox();
+
+		//TODO: Update based on feed comment/DM
+		if (SceneManager.GetActiveScene().name == "Chat")
+		{
+			//set conversation thread
+
+			character = PlayerPrefs.GetString("chatting_with");
+
+			Chat(character, "intro");
 		}
 	}
-	public void unhook() {
-		PlayerPrefs.SetInt ("hooked", 0);
-	}
-
-	public void hook() {
-		PlayerPrefs.SetInt ("hooked", 1);
-	}
-
-	public void setGenderPreference(string gender) {
-		PlayerPrefs.SetString ("gender preference", gender);
-		populateMatches ();
-
-	}
-	public string getFinalStory(string character, string story) {
-		if (json[character] != null) {
-			//return json[character]["epilogue"][story];
-			return json[character]["epilogue"][story]["story"];
-		}
-		else {
-			return "no story available";
+	
+	private void ResetChats()
+	{
+		if(reset)
+		{
+			PlayerPrefs.DeleteKey("chats");
 		}
 	}
-
-	public int getEpilogueType(string character, string story) {
-		if (json[character] != null) {
-			return json[character]["epilogue"][story]["ending"].AsInt;
-		}
-		else {
-			return 0;
-		}
+	public string getCharacter()
+	{
+		return character;
 	}
-	public int matches(string characterPath) {
-        int responseTime = 0;
-        if (json[characterPath] != null) {
-			responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
-			int matchingBonus = 3;
-//			responseTime -= attractiveness;
-			responseTime-=matchingBonus;
+
+	public void Chat(string character, string passage)
+	{
+		Message message = new Message();
+		message.sender = character;
+		message.passage = passage;
+		message.belief = json[message.sender][message.passage]["belief_id"];
+		message.body = json[message.sender][message.passage]["message"];
+
+		//store conversation in player prefs. Example anxiety_intro = "Hey, you've been missing class a lot. You alright?"
+		PlayerPrefs.SetString(character + "_" + passage, message.body);
+
+		chatLog.addMessage(message);
+
+		//REMOVE PREVIOUS RESPONSE OPTIONS
+		foreach (Transform child in chatLog.responseOptions.transform)
+		{
+			GameObject.Destroy(child.gameObject);
+		}
+
+		JSONNode responses = json[message.sender][message.passage]["responses"];
+		for (int i = 0; i < responses.Count; i++)
+		{
+			Response r = new Response(responses[i]["path"], responses[i]["response"], i, responses[i]["belief_id"], character);
+			message.responses.Add(r);
+			chatLog.addResponse(r);
+		}
+		chatLog.responseOptions.SetActive(false);
+
+	}
+
+	/*
+		public bool hooked() {
+			int h = PlayerPrefs.GetInt ("hooked", 0);
+			if (h == 0) {
+				return false;
 			}
-
-			if (responseTime < 0) {
-				responseTime = 1;
-				Debug.Log ("Immediate attraction");
+			else {
+				return true;
 			}
-		Debug.Log ("Match will respond in " + responseTime + " days");
-		return responseTime;
-	}
+		}
+		public void unhook() {
+			PlayerPrefs.SetInt ("hooked", 0);
+		}
 
-	public int matches2(string characterPath) {
-		//Get character's attractiveness, between 0 and 100 to set as the initial response time
+		public void hook() {
+			PlayerPrefs.SetInt ("hooked", 1);
+		}
 
-		if (json[characterPath] != null) {
-		
-			int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
+		public void setGenderPreference(string gender) {
+			PlayerPrefs.SetString ("gender preference", gender);
+			populateMatches ();
 
-			//Get the difference between the two characters attractiveness. NPC with 10, player with 5, response time is 5.
-			//NPC with 5 player with attractiveness of 10, response time is -5
-			//typical love should be near 5
-	//		responseTime -= attractiveness;
-
-			responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
-
-			//If the response time is negative, we just set it to 0 so the NPC responds instantly
-
-			if (responseTime < 0) {
-				responseTime = 1;
-				Debug.Log ("So attractive, response is almost immediate");
+		}
+		public string getFinalStory(string character, string story) {
+			if (json[character] != null) {
+				//return json[character]["epilogue"][story];
+				return json[character]["epilogue"][story]["story"];
 			}
+			else {
+				return "no story available";
+			}
+		}
+
+		public int getEpilogueType(string character, string story) {
+			if (json[character] != null) {
+				return json[character]["epilogue"][story]["ending"].AsInt;
+			}
+			else {
+				return 0;
+			}
+		}
+		public int matches(string characterPath) {
+			int responseTime = 0;
+			if (json[characterPath] != null) {
+				responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
+				int matchingBonus = 3;
+	//			responseTime -= attractiveness;
+				responseTime-=matchingBonus;
+				}
+
+				if (responseTime < 0) {
+					responseTime = 1;
+					Debug.Log ("Immediate attraction");
+				}
 			Debug.Log ("Match will respond in " + responseTime + " days");
 			return responseTime;
-		} else {
-			Debug.Log("Can't Find Character Path : " + characterPath);
-			return 9999;
 		}
-	}
-    */
 
-        /*
-	public void refreshInbox() {
-		previousMessageCount = inbox.Count;
-		inbox.Clear();
-		for (int i = 0; i < messageList.Count; i++) {
-			string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
-			Debug.Log("Message Parts: " + messageList[i]);
-			if (!messageParts[0].Equals("ignore")) {
-				if (int.Parse(messageParts[2]) <= 0) {
-						//new message, add to list
-						Message message = new Message();
-						message.index = i;
-						message.path = messageList[i];
-						message.sender = messageParts[0];
-						message.passage = messageParts[1];
-						message.belief = json[message.sender][message.passage]["belief_id"];						
-						message.body = json[message.sender][message.passage]["message"];
-						JSONNode responses = json[message.sender][message.passage]["responses"];
-						for (int j = 0; j < responses.Count; j++) {
-						Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i, responses[j]["belief_id"]);
-							message.responses.Add(r);
-						}
+		public int matches2(string characterPath) {
+			//Get character's attractiveness, between 0 and 100 to set as the initial response time
 
-						inbox.Add(message);
+			if (json[characterPath] != null) {
 
+				int responseTime = json [characterPath] ["requirements"] ["love"].AsInt;
+
+				//Get the difference between the two characters attractiveness. NPC with 10, player with 5, response time is 5.
+				//NPC with 5 player with attractiveness of 10, response time is -5
+				//typical love should be near 5
+		//		responseTime -= attractiveness;
+
+				responseTime += json[characterPath]["requirements"]["accessories"]["headwear"].AsInt;
+
+				//If the response time is negative, we just set it to 0 so the NPC responds instantly
+
+				if (responseTime < 0) {
+					responseTime = 1;
+					Debug.Log ("So attractive, response is almost immediate");
 				}
+				Debug.Log ("Match will respond in " + responseTime + " days");
+				return responseTime;
+			} else {
+				Debug.Log("Can't Find Character Path : " + characterPath);
+				return 9999;
 			}
 		}
+		*/
 
+	/*
+public void refreshInbox() {
+	previousMessageCount = inbox.Count;
+	inbox.Clear();
+	for (int i = 0; i < messageList.Count; i++) {
+		string[] messageParts = StringArrayFunctions.getMessage(messageList[i]);
+		Debug.Log("Message Parts: " + messageList[i]);
+		if (!messageParts[0].Equals("ignore")) {
+			if (int.Parse(messageParts[2]) <= 0) {
+					//new message, add to list
+					Message message = new Message();
+					message.index = i;
+					message.path = messageList[i];
+					message.sender = messageParts[0];
+					message.passage = messageParts[1];
+					message.belief = json[message.sender][message.passage]["belief_id"];						
+					message.body = json[message.sender][message.passage]["message"];
+					JSONNode responses = json[message.sender][message.passage]["responses"];
+					for (int j = 0; j < responses.Count; j++) {
+					Response r = new Response(responses[j]["path"], responses[j]["response"], responses[j]["time"].AsInt, i, responses[j]["belief_id"]);
+						message.responses.Add(r);
+					}
+
+					inbox.Add(message);
+
+			}
+		}
 	}
 
+}
 
 
-	private void saveMessageList() {
-		Prefs.PlayerPrefsX.SetStringArray("messages", messageList.ToArray());
-	}
-    */
+
+private void saveMessageList() {
+	Prefs.PlayerPrefsX.SetStringArray("messages", messageList.ToArray());
+}
+*/
 	public void addMessage(string path) {
 		messageList.Add(path);
-//		saveMessageList();
+		//		saveMessageList();
 	}
 
 	public void removeMessage(int index) {
 		messageList.RemoveAt(index);
-//		saveMessageList();
+		//		saveMessageList();
 	}
 
 	public void removeAllMessages() {
 		messageList.Clear();
-//		saveMessageList();
+		//		saveMessageList();
 	}
 	/*
 	private void saveProgress(int actions, int days) {
@@ -306,21 +330,27 @@ public class Player : MonoBehaviour {
 		return json["mottos"][Random.Range (0, numMottos)];
 	}
     */
-//	StartCoroutine (loadHome ());
+	//	StartCoroutine (loadHome ());
 
 	public void loadSceneNumber(int level) {
-//		loadingScreen.SetActive(true);
-		StartCoroutine (loadLevel(level));
+		//		loadingScreen.SetActive(true);
+		StartCoroutine(loadLevel(level));
 	}
 
 	IEnumerator loadLevel(int level) {
-		AsyncOperation async = SceneManager.LoadSceneAsync (level);
+		AsyncOperation async = SceneManager.LoadSceneAsync(level);
 		while (!async.isDone) {
-			Debug.Log ("ASYNC: " + async.progress);
-			yield return async;		
+			Debug.Log("ASYNC: " + async.progress);
+			yield return async;
 		}
-	//	loadingScreen.SetActive (false);
-		Debug.Log ("Loading complete");
+		//	loadingScreen.SetActive (false);
+		Debug.Log("Loading complete");
+	}
+
+	public void chatWithCharacter(string _character)
+	{
+		PlayerPrefs.SetString("chatting_with", _character);
+		StartCoroutine(loadLevel(2));
 	}
 
     /*

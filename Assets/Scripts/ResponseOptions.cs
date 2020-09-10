@@ -15,9 +15,9 @@ public class ResponseOptions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextButton.SetActive(false);
-        previousButton.SetActive(false);
-        gameObject.SetActive(false);
+//        nextButton.SetActive(false);
+//        previousButton.SetActive(false);
+//        gameObject.SetActive(false);
     }
 
     public void togglePagination(bool active)
@@ -37,6 +37,7 @@ public class ResponseOptions : MonoBehaviour
             optionIndex = 0;
             togglePagination(true);
             SetAllResponseOptionsInactive();
+            Debug.Log("Setting Option " + optionIndex + " Active");
             options[optionIndex].gameObject.SetActive(true);
         }
         else

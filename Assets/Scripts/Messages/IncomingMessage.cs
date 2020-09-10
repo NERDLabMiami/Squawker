@@ -8,10 +8,10 @@ using System.Collections.Generic;
 public class IncomingMessage : MonoBehaviour {
 	public string character;
     public Text body;
+	public Image bubble;
     private Message message;
 
 	void Start() {
-
 	}
 
 	public void setMessage(Message msg) {

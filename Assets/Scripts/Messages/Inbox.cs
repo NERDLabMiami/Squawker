@@ -18,7 +18,8 @@ public class Inbox : MonoBehaviour {
 	public AudioSource source;
     public string characterPath;
 	private Player player;
-
+    
+ 
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -54,17 +55,20 @@ public class Inbox : MonoBehaviour {
 		GameObject message = Instantiate(messageTemplate.gameObject);
         message.GetComponent<IncomingMessage>().setMessage(msg);
 		message.transform.SetParent(messageContainer.transform, false);
-        float backup = m_ScrollRect.verticalNormalizedPosition;
-        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
+        m_ScrollRect.normalizedPosition = new Vector2(0, 0);
+        //   float backup = m_ScrollRect.verticalNormalizedPosition;
+     //   StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
 	}
 
     public void addResponseToChatLog(string response)
     {
         GameObject r = Instantiate(playerMessageTemplate);
-        r.GetComponent<PlayerMessage>().setText(response);
+        PlayerMessage message = r.GetComponent<PlayerMessage>();
+        message.setText(response);
         r.transform.SetParent(messageContainer.transform, false);
-        float backup = m_ScrollRect.verticalNormalizedPosition;
-        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
+        //        float backup = m_ScrollRect.verticalNormalizedPosition;
+        //        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
+        m_ScrollRect.normalizedPosition = new Vector2(0, 0);
 
     }
 
@@ -77,6 +81,7 @@ public class Inbox : MonoBehaviour {
 
     public void addResponse(Response r)
     {
+       
         string[] param = StringArrayFunctions.getMessage(r.path);
         Debug.Log("param count: " + param.Length);
         if (param.Length > 2)
@@ -92,7 +97,14 @@ public class Inbox : MonoBehaviour {
             response.GetComponentInChildren<Button>().onClick.AddListener(() =>
             {
                 Debug.Log("PATH: " + r.path + " MESSAGE: " + r.messageIndex + " BELIEF: " + r.belief);
+               
                 addResponseToChatLog(r.text);
+                //store conversation in player prefs string array. Example anxiety = "Hey, you've been missing class a lot. You alright? - Are you really sure about this?"
+                string[] previous_responses = PlayerPrefsX.GetStringArray("responses_" + player.getCharacter());
+                List<string> previous_responses_list = previous_responses.ToList();
+                previous_responses_list.Add(r.text);
+                PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
+//                PlayerPrefs.SetString(r.to + "_" + StringArrayFunctions.getMessage(r.path)[0] + "_response", r.path);
                 respond(r.path, r.messageIndex, r.belief);
             });
         }
@@ -105,11 +117,10 @@ public class Inbox : MonoBehaviour {
         responseOptions.GetComponent<ResponseOptions>().options.Clear();
         responseOptions.GetComponent<ResponseOptions>().togglePagination(false);
         string[] res = StringArrayFunctions.getMessage(path);
-        player.Chat("anxiety", res[1]);
+        player.Chat(player.getCharacter(), res[1]);
 
         Debug.Log(path);
 
-        
         
         //        GetComponent<PlayerBehavior>().trackEvent(2, "DLG", belief, StringArrayFunctions.getMessage(path)[0]);
         if (StringArrayFunctions.getMessage(path)[1].Contains("deadend"))

@@ -1,5 +1,16 @@
 {
   "interventions": {
+    "characters": [
+      {
+        "name": "Amelia",
+        "avatar": "1.png"
+      },
+      {
+        "name": "Dave",
+        "avatar": "2.png"
+
+      }
+    ],
     "anxiety": {
       "post": "BIG GIRLS DON'T CRY... EXCEPT IF IT'S FORMAT ALGEBRA MIDTERMS.",
       "name": "Amelia",
@@ -7,7 +18,8 @@
       "responses": [
         {
           "response": "Hang in there",
-          "path": "chat/anxiety"
+          "path": "chat/anxiety/amelia",
+          "character": 0
         },
         {
           "response": "LOL JUST USE A CALCULATOR, IT'S NOT THAT HARD.",
@@ -23,7 +35,8 @@
       "responses": [
         {
           "response": "Hang in there. Everything is going to be alright.",
-          "path": "chat/depression"
+          "path": "chat/depression/dave",
+          "character": 1
         },
         {
           "response": "Sleep is fun lol, I wish I could do that.",

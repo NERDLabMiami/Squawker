@@ -5,6 +5,7 @@ public class ResponseOption : MonoBehaviour {
 	public Text response;
     public GameObject playerResponseTemplate;
     public AudioClip click;
+	public Button postCommentButton;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,10 @@ public class ResponseOption : MonoBehaviour {
 	}
 
 	public void clicked() {
+		Debug.Log("Clicked Option, Turning Off Comment Button");
 		Camera.main.gameObject.GetComponent<AudioSource> ().PlayOneShot (click);
+		//disable comment button
+		postCommentButton.interactable = false;
+
 	}
 }

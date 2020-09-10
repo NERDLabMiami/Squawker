@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Feed.unity
     guid: 98168aca293491349b3c81b63be87731
   - enabled: 1
+    path: Assets/Scenes/Messages.unity
+    guid: 54350a74efe14ca4ba52f91a9e7ea7a0
+  - enabled: 1
     path: Assets/Scenes/Chat.unity
     guid: 5e339d73f17275d4ead50453b2f01c4e
   m_configObjects: {}

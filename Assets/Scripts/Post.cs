@@ -10,7 +10,9 @@ public class Post : MonoBehaviour
     public Text timePosted;
     public Text status;
     public Text comments;
+    public bool responsesPopulated;
     private int commentCount;
+    public Button commentButton;
     public float age;
 
     
@@ -18,6 +20,7 @@ public class Post : MonoBehaviour
     void Start()
     {
         age = 0;
+        responsesPopulated = false;
     }
 
     // Update is called once per frame

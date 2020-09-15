@@ -39,10 +39,12 @@ public class ResponseOptions : MonoBehaviour
             SetAllResponseOptionsInactive();
             Debug.Log("Setting Option " + optionIndex + " Active");
             options[optionIndex].gameObject.SetActive(true);
+            TypeOut();
         }
         else
         {
             togglePagination(false);
+            GetComponentInChildren<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
         }
     }
 
@@ -66,7 +68,12 @@ public class ResponseOptions : MonoBehaviour
         }
 
         options[optionIndex].gameObject.SetActive(true);
+        TypeOut();
+    }
 
+    private void TypeOut()
+    {
+            options[optionIndex].GetComponent<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
     }
 
     public void Previous()
@@ -84,7 +91,7 @@ public class ResponseOptions : MonoBehaviour
         }
 
         options[optionIndex].gameObject.SetActive(true);
-
+        TypeOut();
     }
 
     // Update is called once per frame

@@ -29,10 +29,12 @@ public class Player : MonoBehaviour {
 		if (reset) {
 			ResetChats();
 		}
-		json = JSON.Parse(potentialMessages.ToString());
-		//inbox = new List<Message>();
-		//			refreshInbox();
-
+		if (potentialMessages)
+		{
+			json = JSON.Parse(potentialMessages.ToString());
+			//inbox = new List<Message>();
+			//			refreshInbox();
+		}
 		//TODO: Update based on feed comment/DM
 		if (SceneManager.GetActiveScene().name == "Chat")
 		{
@@ -363,7 +365,7 @@ private void saveMessageList() {
 	public void chatWithCharacter(string _character)
 	{
 		PlayerPrefs.SetString("chatting_with", _character);
-		StartCoroutine(loadLevel(2));
+		StartCoroutine(loadLevel(3));
 	}
 
     /*

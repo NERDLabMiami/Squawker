@@ -86,7 +86,7 @@ public class Feed : MonoBehaviour
                         comment.GetComponent<ResponseOption>().clicked();
 
                         //POST COMMENT CLICK
-                        post.GetComponent<Post>().SetCommentCount(1);
+                        post.GetComponent<Post>().UpdateCommentCount();
                         //                        comments.togglePagination(false);
                         //                        comments.gameObject.SetActive(false);
                         //check if there's a DM

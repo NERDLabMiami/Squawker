@@ -156,7 +156,7 @@ public class Inbox : MonoBehaviour {
                 PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
                 //                PlayerPrefs.SetString(r.to + "_" + StringArrayFunctions.getMessage(r.path)[0] + "_response", r.path);
                 //set timer for response
-                responseTimer = Time.time + Random.Range(1f, 5f);
+                responseTimer = Time.time + Random.Range(1.5f, 3f);
                 //cleanup option display
                 responseOptions.GetComponent<ResponseOptions>().options.Clear();
                 responseOptions.GetComponent<ResponseOptions>().togglePagination(false);

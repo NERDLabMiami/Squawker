@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\ResponseOptions.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
+     <Compile Include="Assets\UITextTypeWriter.cs" />
      <None Include="Assets\Resources\marketing.txt" />
      <None Include="Assets\AssetStoreFiles\README.txt" />
      <None Include="Assets\Resources\messages.txt" />

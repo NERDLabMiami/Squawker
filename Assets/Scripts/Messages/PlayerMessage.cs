@@ -7,11 +7,18 @@ public class PlayerMessage : MonoBehaviour
 {
     public Text body;
     private Message message;
+    public Inbox inbox;
     
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public void scrollToBottom()
+    {
+        inbox.m_ScrollRect.normalizedPosition = new Vector2(0, 0);
+
     }
 
     // Update is called once per frame

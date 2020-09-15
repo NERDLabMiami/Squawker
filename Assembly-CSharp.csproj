@@ -56,7 +56,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\TutorialItem.cs" />
+     <Compile Include="Assets\Scripts\Helpers\PlayerPrefsX.cs" />
      <Compile Include="Assets\Scripts\Messages\PlayerMessage.cs" />
+     <Compile Include="Assets\Conversation.cs" />
      <Compile Include="Assets\Scripts\Debug\InboxDebug.cs" />
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
@@ -72,12 +74,10 @@
      <Compile Include="Assets\Scripts\Feed.cs" />
      <Compile Include="Assets\Scripts\Messages\IncomingMessage.cs" />
      <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
+     <Compile Include="Assets\Messages.cs" />
      <Compile Include="Assets\Scripts\ResponseOptions.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
-     <Compile Include="Assets\Messages.cs" />
-     <Compile Include="Assets\Scripts\Helpers\PlayerPrefsX.cs" />
-     <Compile Include="Assets\Conversation.cs" />
      <None Include="Assets\Resources\marketing.txt" />
      <None Include="Assets\AssetStoreFiles\README.txt" />
      <None Include="Assets\Resources\messages.txt" />

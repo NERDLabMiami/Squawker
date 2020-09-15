@@ -10,6 +10,7 @@ public class IncomingMessage : MonoBehaviour {
     public Text body;
 	public Image bubble;
     private Message message;
+	public Inbox inbox;
 
 	void Start() {
 	}
@@ -20,7 +21,11 @@ public class IncomingMessage : MonoBehaviour {
 		body.text = msg.body;
 	}
 
+	public void scrollToBottom()
+	{
+		inbox.m_ScrollRect.normalizedPosition = new Vector2(0, 0);
 
+	}
 	/*
 	private string[] getPath(string message) {
 		return message.Split (new string[] {"/"}, System.StringSplitOptions.None);

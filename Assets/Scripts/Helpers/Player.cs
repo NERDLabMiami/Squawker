@@ -18,6 +18,9 @@ public class Player : MonoBehaviour {
 	private List<string> messageList;
 	private string character;
 	private int previousMessageCount = 0;
+	private string sender;
+	private string passage;
+	private Message message;
 	// Use this for initialization
 
 
@@ -37,7 +40,7 @@ public class Player : MonoBehaviour {
 
 			character = PlayerPrefs.GetString("chatting_with");
 
-			Chat(character, "intro");
+			SendMessageToPlayer(character, "intro");
 		}
 	}
 	
@@ -53,26 +56,18 @@ public class Player : MonoBehaviour {
 		return character;
 	}
 
-	public void Chat(string character, string passage)
+	public void ClearResponseOptions()
 	{
-		Message message = new Message();
-		message.sender = character;
-		message.passage = passage;
-		message.belief = json[message.sender][message.passage]["belief_id"];
-		message.body = json[message.sender][message.passage]["message"];
-
-		//store conversation in player prefs. Example anxiety_intro = "Hey, you've been missing class a lot. You alright?"
-		PlayerPrefs.SetString(character + "_" + passage, message.body);
-
-		chatLog.addMessage(message);
-
 		//REMOVE PREVIOUS RESPONSE OPTIONS
 		foreach (Transform child in chatLog.responseOptions.transform)
 		{
 			GameObject.Destroy(child.gameObject);
 		}
+	}
 
-		JSONNode responses = json[message.sender][message.passage]["responses"];
+	public void PopulateResponses() { 
+
+		JSONNode responses = json[sender][passage]["responses"];
 		for (int i = 0; i < responses.Count; i++)
 		{
 			Response r = new Response(responses[i]["path"], responses[i]["response"], i, responses[i]["belief_id"], character);
@@ -81,6 +76,24 @@ public class Player : MonoBehaviour {
 		}
 		chatLog.responseOptions.SetActive(false);
 
+	}
+
+	public void SendMessageToPlayer(string character, string _passage)
+	{
+		message = new Message();
+		message.sender = character;
+		message.passage = _passage;
+		message.belief = json[message.sender][message.passage]["belief_id"];
+		message.body = json[message.sender][message.passage]["message"];
+
+		//store conversation in player prefs. Example anxiety_intro = "Hey, you've been missing class a lot. You alright?"
+		PlayerPrefs.SetString(character + "_" + passage, message.body);
+		
+		chatLog.addMessage(message);
+		sender = character;
+		passage = _passage;
+		chatLog.waitingForResponse = true;
+		chatLog.responsesPopulated = false;
 	}
 
 	/*

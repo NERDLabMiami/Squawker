@@ -18,11 +18,52 @@ public class Inbox : MonoBehaviour {
 	public AudioSource source;
     public string characterPath;
 	private Player player;
-    
- 
+    public bool waitingForResponse;
+    public bool waitingForNPCMessage;
+    public bool responsesPopulated;
+
+    private string responseText;
+    private string responsePath;
+    private int    responseIndex;
+    private string responseBelief;
+    private float responseTimer;
+
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+    }
+
+    void Update()
+    {
+
+        if (waitingForNPCMessage)
+        {
+            if (responseTimer <= Time.time)
+            {
+                Debug.Log("responding now");
+                respond(responsePath, responseIndex, responseBelief);
+                waitingForNPCMessage = false;
+            }
+            else
+            {
+                Debug.Log("Counting down...");
+            }
+        }
+
+        if (waitingForResponse)
+        {
+            if (!responsesPopulated)
+            {
+                responseOptions.transform.parent.gameObject.SetActive(true);
+
+                player.PopulateResponses();
+
+                responsesPopulated = true;
+            }
+
+
+        }
 
     }
 
@@ -30,7 +71,13 @@ public class Inbox : MonoBehaviour {
 		source.PlayOneShot(notification);
 	}
 
-	public void checkIfEmpty() {
+    public void scrollToBottom()
+    {
+        m_ScrollRect.normalizedPosition = new Vector2(0, 0);
+
+    }
+
+    public void checkIfEmpty() {
 		//TODO: Look at player
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	/*
@@ -54,10 +101,8 @@ public class Inbox : MonoBehaviour {
 	public void addMessage(Message msg)  {
 		GameObject message = Instantiate(messageTemplate.gameObject);
         message.GetComponent<IncomingMessage>().setMessage(msg);
+        message.GetComponent<IncomingMessage>().inbox = this;
 		message.transform.SetParent(messageContainer.transform, false);
-        m_ScrollRect.normalizedPosition = new Vector2(0, 0);
-        //   float backup = m_ScrollRect.verticalNormalizedPosition;
-     //   StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
 	}
 
     public void addResponseToChatLog(string response)
@@ -65,10 +110,8 @@ public class Inbox : MonoBehaviour {
         GameObject r = Instantiate(playerMessageTemplate);
         PlayerMessage message = r.GetComponent<PlayerMessage>();
         message.setText(response);
+        message.inbox = this;
         r.transform.SetParent(messageContainer.transform, false);
-        //        float backup = m_ScrollRect.verticalNormalizedPosition;
-        //        StartCoroutine(ApplyScrollPosition(m_ScrollRect, backup));
-        m_ScrollRect.normalizedPosition = new Vector2(0, 0);
 
     }
 
@@ -92,20 +135,33 @@ public class Inbox : MonoBehaviour {
         else
         {
             Debug.Log("Adding Response");
+            //show response in chat interface
             GameObject response = Instantiate(responseTemplate, responseOptions.transform);
             response.GetComponent<ResponseOption>().response.text = r.text;
             response.GetComponentInChildren<Button>().onClick.AddListener(() =>
             {
                 Debug.Log("PATH: " + r.path + " MESSAGE: " + r.messageIndex + " BELIEF: " + r.belief);
-               
+
+                responseText = r.text;
+                responsePath = r.path;
+                responseIndex = r.messageIndex;
+                responseBelief = r.belief;
+                
                 addResponseToChatLog(r.text);
+
                 //store conversation in player prefs string array. Example anxiety = "Hey, you've been missing class a lot. You alright? - Are you really sure about this?"
                 string[] previous_responses = PlayerPrefsX.GetStringArray("responses_" + player.getCharacter());
                 List<string> previous_responses_list = previous_responses.ToList();
                 previous_responses_list.Add(r.text);
                 PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
-//                PlayerPrefs.SetString(r.to + "_" + StringArrayFunctions.getMessage(r.path)[0] + "_response", r.path);
-                respond(r.path, r.messageIndex, r.belief);
+                //                PlayerPrefs.SetString(r.to + "_" + StringArrayFunctions.getMessage(r.path)[0] + "_response", r.path);
+                //set timer for response
+                responseTimer = Time.time + Random.Range(1f, 5f);
+                //cleanup option display
+                responseOptions.GetComponent<ResponseOptions>().options.Clear();
+                responseOptions.GetComponent<ResponseOptions>().togglePagination(false);
+                responseOptions.transform.parent.gameObject.SetActive(false);
+                waitingForNPCMessage = true;
             });
         }
 
@@ -114,10 +170,9 @@ public class Inbox : MonoBehaviour {
     void respond(string path, int index, string belief)
     {
         //        responseContainer.SetActive(false);
-        responseOptions.GetComponent<ResponseOptions>().options.Clear();
-        responseOptions.GetComponent<ResponseOptions>().togglePagination(false);
         string[] res = StringArrayFunctions.getMessage(path);
-        player.Chat(player.getCharacter(), res[1]);
+        player.SendMessageToPlayer(player.getCharacter(), res[1]);
+        player.ClearResponseOptions();
 
         Debug.Log(path);
 
@@ -126,19 +181,7 @@ public class Inbox : MonoBehaviour {
         if (StringArrayFunctions.getMessage(path)[1].Contains("deadend"))
         {
             //Player chose a dead end, unhook to allow for a new conversation
-//            player.unhook();
         }
-        else
-        {
-  //          Debug.Log("NOT A DEADEND: " + path);
-        }
-        //        addMessage(path);
-        //player.refreshInbox();
-        //player.previewInbox.messageContainer.SetActive(true);
-        //      Destroy(gameObject);
-
-
-
 
         respondButton.SetActive(true);
     }

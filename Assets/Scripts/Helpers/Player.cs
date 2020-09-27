@@ -85,6 +85,8 @@ public class Player : MonoBehaviour {
 			tracker = FindObjectOfType<Tracker>();
 		}
 	}
+
+
 	public void SendMessageToPlayer(string character, string _passage)
 	{
 		FindTracker();

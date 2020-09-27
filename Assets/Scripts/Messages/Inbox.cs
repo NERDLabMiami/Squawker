@@ -14,6 +14,7 @@ public class Inbox : MonoBehaviour {
 	public GameObject emptyMailboxMessage;
     public GameObject respondButton;
     public GameObject gameFinishedPanel;
+    public GameObject leaveConversation;
     public ScrollRect m_ScrollRect;
 	public AudioClip notification;
 	public AudioSource source;
@@ -28,6 +29,8 @@ public class Inbox : MonoBehaviour {
     private int    responseIndex;
     private string responseBelief;
     private float responseTimer;
+    private int rerouteCounter = 0;
+    public int maxReroutes;
 
 
 	void Start () {
@@ -46,10 +49,6 @@ public class Inbox : MonoBehaviour {
                 respond(responsePath, responseIndex, responseBelief);
                 waitingForNPCMessage = false;
             }
-            else
-            {
-                Debug.Log("Counting down...");
-            }
         }
 
         if (waitingForResponse)
@@ -57,9 +56,7 @@ public class Inbox : MonoBehaviour {
             if (!responsesPopulated)
             {
                 responseOptions.transform.parent.gameObject.SetActive(true);
-
                 player.PopulateResponses();
-
                 responsesPopulated = true;
             }
 
@@ -106,12 +103,11 @@ public class Inbox : MonoBehaviour {
     {
        
         string[] param = StringArrayFunctions.getMessage(r.path);
-        Debug.Log("param count: " + param.Length);
         if (param.Length > 2)
         {
             //double check param 2 for "resolved"
-            Debug.Log("HOORAY! ALERT FEED UPDATE!");
             gameFinishedPanel.SetActive(true);
+            
         }
         else
         {
@@ -121,32 +117,62 @@ public class Inbox : MonoBehaviour {
             response.GetComponent<ResponseOption>().response.text = r.text;
             response.GetComponentInChildren<Button>().onClick.AddListener(() =>
             {
-                Debug.Log("PATH: " + r.path + " MESSAGE: " + r.messageIndex + " BELIEF: " + r.belief);
+
 
                 responseText = r.text;
                 responsePath = r.path;
                 responseIndex = r.messageIndex;
                 responseBelief = r.belief;
-                
+
                 addResponseToChatLog(r.text);
+                responseTimer = Time.time + Random.Range(1.5f, 3f);
 
                 //store conversation in player prefs string array. Example anxiety = "Hey, you've been missing class a lot. You alright? - Are you really sure about this?"
+
                 string[] previous_responses = PlayerPrefsX.GetStringArray("responses_" + player.getCharacter());
                 List<string> previous_responses_list = previous_responses.ToList();
                 previous_responses_list.Add(r.text);
                 PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
-                //                PlayerPrefs.SetString(r.to + "_" + StringArrayFunctions.getMessage(r.path)[0] + "_response", r.path);
-                //set timer for response
-                responseTimer = Time.time + Random.Range(1.5f, 3f);
+
+                if (!r.path.Contains("reroute")) {
+                    Debug.Log("good choice!");
+                    waitingForNPCMessage = true;
+                }
+
+                else if (r.path.Contains("reroute") && rerouteCounter < maxReroutes) {
+                    //end conversation, player failed
+                    Debug.Log("bad choice...");
+                    rerouteCounter++;
+                    waitingForNPCMessage = true;
+
+                }
+                else if(rerouteCounter >= maxReroutes)
+                {
+                    Debug.Log("failed...");
+                    waitingForNPCMessage = false;
+                    waitingForResponse = false;
+                    //spawn message
+                    NPCLeftConversation();
+                }
                 //cleanup option display
                 responseOptions.GetComponent<ResponseOptions>().options.Clear();
                 responseOptions.GetComponent<ResponseOptions>().togglePagination(false);
                 responseOptions.transform.parent.gameObject.SetActive(false);
-                waitingForNPCMessage = true;
             });
         }
 
+
+
     }
+
+    public void NPCLeftConversation()
+    {
+        GameObject leave = Instantiate(leaveConversation);
+        leave.GetComponentInChildren<Text>().text = player.getCharacter() + " has left the conversation...";
+        leave.transform.SetParent(messageContainer.transform, false);
+
+    }
+
 
     void respond(string path, int index, string belief)
     {

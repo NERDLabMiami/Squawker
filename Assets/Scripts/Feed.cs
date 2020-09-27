@@ -15,10 +15,13 @@ public class Feed : MonoBehaviour
     public ResponseOptions comments;
     public GameObject footer;
     public GameObject notifications;
+    public Image[] characterImages;
+    private string[] characterNames;
     public float timeBetweenPosts;
     private float timeUntilNextPost;
     private int randomCharacterPostIndex;
     private JSONNode responses;
+    private int interventionCharacterIndex = 0;
 
     // Start is called before the first frame update
 
@@ -26,15 +29,34 @@ public class Feed : MonoBehaviour
     {
         json = JSON.Parse(feed.ToString());
         NewStatusUpdate("interventions/anxiety");
-        timeUntilNextPost = Time.time + timeBetweenPosts;        
+        timeUntilNextPost = Time.time + timeBetweenPosts;
+        characterNames = new string[characterImages.Length];
+        for(int i = 0; i < characterImages.Length; i++)
+        {
+//            characterNames[i] = 
+        }
+        //count sprites
+        //assign names to sprites / map
+        //select person based on sprite sets
     }
 
+    public AssignNames()
+    {
+        int randomCharacterNameIndex = Random.Range(0, json["random"]["names"].Count);
+
+    }
 
     public void NewStatusUpdate(string path)
     {
+        if(path.Contains("random"))
+        {
+            //only use 
+        }
+
         GameObject post = Instantiate(postTemplate, postContainer.transform);
         post.GetComponent<Post>().timePosted.text = "Now";
         string[] message = StringArrayFunctions.getMessage(path);
+
         if (message.Length == 2)
         {
             //INTERVENTION

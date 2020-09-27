@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Messages\ResponseOption.cs" />
      <Compile Include="Assets\Scripts\Post.cs" />
      <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
+     <Compile Include="Assets\Tracker.cs" />
      <Compile Include="Assets\Scripts\Messages\ViewMessage.cs" />
      <Compile Include="Assets\Scripts\Debug\PlayerDebug.cs" />
      <Compile Include="Assets\UITextTypeWriter.cs" />
@@ -79,7 +80,6 @@
      <Compile Include="Assets\Scripts\ResponseOptions.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
-     <Compile Include="Assets\Tracker.cs" />
      <None Include="Assets\Resources\marketing.txt" />
      <None Include="Assets\AssetStoreFiles\README.txt" />
      <None Include="Assets\Resources\messages.txt" />

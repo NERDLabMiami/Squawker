@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1517769958}
   m_HandleRect: {fileID: 1517769957}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1943,6 +1943,8 @@ MonoBehaviour:
   emptyMailboxMessage: {fileID: 0}
   respondButton: {fileID: 176978210}
   gameFinishedPanel: {fileID: 1682570041}
+  leaveConversation: {fileID: 6468863403403067281, guid: c1a26af78af14d045a7d5b5b8d462d01,
+    type: 3}
   m_ScrollRect: {fileID: 1383995447}
   notification: {fileID: 0}
   source: {fileID: 0}
@@ -1950,6 +1952,7 @@ MonoBehaviour:
   waitingForResponse: 0
   waitingForNPCMessage: 0
   responsesPopulated: 0
+  maxReroutes: 2
 --- !u!1 &1904315236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,7 +2413,7 @@ PrefabInstance:
     - target: {fileID: 6944591171230087476, guid: 2b40bcd779bf3f84a9a24ca33653a96c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -300.00003
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 6944591171230087476, guid: 2b40bcd779bf3f84a9a24ca33653a96c,
         type: 3}

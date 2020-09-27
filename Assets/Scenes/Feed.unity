@@ -916,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 9113260617389518728, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.999954
+      value: 41.99994
       objectReference: {fileID: 0}
     - target: {fileID: 9113260617389518728, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
@@ -988,7 +988,7 @@ PrefabInstance:
     - target: {fileID: 9113260617934651950, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.999985
+      value: 41.99997
       objectReference: {fileID: 0}
     - target: {fileID: 9113260617934651950, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   comments: {fileID: 1465351401}
   footer: {fileID: 820589450}
   notifications: {fileID: 55511192}
-  timeBetweenPosts: 5
+  timeBetweenPosts: 60
 --- !u!222 &1267740599
 CanvasRenderer:
   m_ObjectHideFlags: 0

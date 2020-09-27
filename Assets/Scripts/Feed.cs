@@ -33,17 +33,17 @@ public class Feed : MonoBehaviour
         characterNames = new string[characterImages.Length];
         for(int i = 0; i < characterImages.Length; i++)
         {
-//            characterNames[i] = 
+            characterNames[i] = AssignNames();
         }
         //count sprites
         //assign names to sprites / map
         //select person based on sprite sets
     }
 
-    public AssignNames()
+    public string AssignNames()
     {
         int randomCharacterNameIndex = Random.Range(0, json["random"]["names"].Count);
-
+        return json["random"]["names"][randomCharacterNameIndex];
     }
 
     public void NewStatusUpdate(string path)
@@ -68,6 +68,7 @@ public class Feed : MonoBehaviour
         else if(message.Length == 1)
         {
             //RANDOM
+
             int randomCharacterNameIndex = Random.Range(0, json[message[0]]["names"].Count);
             randomCharacterPostIndex = Random.Range(0, json[message[0]]["posts"].Count);
             post.GetComponent<Post>().status.text = json[message[0]]["posts"][randomCharacterPostIndex]["post"];

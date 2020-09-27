@@ -916,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 9113260617389518728, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.99994
+      value: 41.999947
       objectReference: {fileID: 0}
     - target: {fileID: 9113260617389518728, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
@@ -988,7 +988,7 @@ PrefabInstance:
     - target: {fileID: 9113260617934651950, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.99997
+      value: 41.999977
       objectReference: {fileID: 0}
     - target: {fileID: 9113260617934651950, guid: 2037460c947915d4c90cb550c9e31e89,
         type: 3}
@@ -1618,6 +1618,7 @@ MonoBehaviour:
   comments: {fileID: 1465351401}
   footer: {fileID: 820589450}
   notifications: {fileID: 55511192}
+  characterImages: []
   timeBetweenPosts: 60
 --- !u!222 &1267740599
 CanvasRenderer:
@@ -1851,7 +1852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1561408354

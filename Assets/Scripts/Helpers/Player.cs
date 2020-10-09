@@ -9,8 +9,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
 	public TextAsset potentialMessages;
-	public bool reset = false;
-	//	public List<Message> inbox;
 	public Inbox chatLog;
 	public Profile profile;
 	public GameObject loadingScreen;
@@ -21,37 +19,52 @@ public class Player : MonoBehaviour {
 	private string sender;
 	private string passage;
 	private Message message;
+	private int character_id;
 	public Tracker tracker;
+	public GameObject notification;
+	private Sprite avatar;
 
+	public bool finishedConversation = false;
 
 	void Start() {
-		if (reset) {
-			ResetChats();
-		}
 		if (potentialMessages)
 		{
 			json = JSON.Parse(potentialMessages.ToString());
-			//inbox = new List<Message>();
-			//			refreshInbox();
-		}
-		//TODO: Update based on feed comment/DM
-		if (SceneManager.GetActiveScene().name == "Chat")
-		{
-			//set conversation thread
-
+			Debug.Log("Loading chat...");
 			character = PlayerPrefs.GetString("chatting_with");
+			character_id = PlayerPrefs.GetInt("character id", 0);
+			avatar = Resources.Load<Sprite>("Characters/" + character);
 
-			SendMessageToPlayer(character, "intro");
+			string[] chat_path_history = PlayerPrefsX.GetStringArray(character);
+			string[] chat_path_response_history = PlayerPrefsX.GetStringArray(character + "_responses");
+			int responseCounter = 0;
+
+			for (int i = 0; i < chat_path_history.Length; i++)
+			{
+				SendMessageToPlayer(character, chat_path_history[i], false);
+				if(i < chat_path_response_history.Length)
+				{
+					chatLog.addResponseToChatLog(chat_path_response_history[i]);
+					responseCounter++;
+				}
+
+			}
+
+			if (responseCounter < chat_path_response_history.Length)
+			{
+				Debug.LogError("still remaining responses in archive");
+			}
+
+			if (chat_path_history.Length == 0)
+			{
+				SendMessageToPlayer(character, "intro", true);
+
+			}
+
+
 		}
 	}
-	
-	private void ResetChats()
-	{
-		if(reset)
-		{
-			PlayerPrefs.DeleteKey("chats");
-		}
-	}
+
 	public string getCharacter()
 	{
 		return character;
@@ -87,7 +100,7 @@ public class Player : MonoBehaviour {
 	}
 
 
-	public void SendMessageToPlayer(string character, string _passage)
+	public void SendMessageToPlayer(string character, string _passage, bool archive)
 	{
 		FindTracker();
 		message = new Message();
@@ -104,21 +117,59 @@ public class Player : MonoBehaviour {
 
 		//TODO: save belief
 
-		//store conversation in player prefs. Example anxiety_intro = "Hey, you've been missing class a lot. You alright?"
-		PlayerPrefs.SetString(character + "_" + passage, message.body);
-		
-		chatLog.addMessage(message);
+		chatLog.addMessage(message, avatar);
 		sender = character;
 		passage = _passage;
-		chatLog.waitingForResponse = true;
-		chatLog.responsesPopulated = false;
-		if(tracker)
+		
+		if(archive) { 
+			List<string> chat_path_history = PlayerPrefsX.GetStringArray(character).ToList();
+			chat_path_history.Add(passage);
+			Debug.Log("character: " + character + " passage:" + _passage);
+			PlayerPrefsX.SetStringArray(character, chat_path_history.ToArray());
+			ToggleResponseOptions();
+			if(passage.Contains("finished"))
+			{
+				PlayerPrefs.SetInt("intervention index", 1);
+				//show notification
+				Notification notice = Instantiate(notification, chatLog.transform.parent.parent.parent).GetComponent<Notification>();
+				notice.SetNotice("Amelia has sent you a message", 5);
+			}
+		}
+		else {
+			Debug.Log("not archiving...");
+			Debug.Log("passage: " + passage);
+			if (passage.Contains("finished"))
+			{
+				
+				Debug.Log("Deactivating Responses");
+				chatLog.respondButton.SetActive(false);
+				chatLog.responseContainer.SetActive(false);
+				chatLog.waitingForResponse = false;
+
+			}
+			else
+			{
+				ToggleResponseOptions();
+
+			}
+
+
+		}
+
+		if (tracker)
 		{
 			tracker.Track();
 
 		}
 	}
 
+
+	private void ToggleResponseOptions()
+	{
+		chatLog.waitingForResponse = true;
+		chatLog.responsesPopulated = false;
+
+	}
 
 	public void addMessage(string path) {
 		messageList.Add(path);
@@ -149,9 +200,10 @@ public class Player : MonoBehaviour {
 		Debug.Log("Loading complete");
 	}
 
-	public void chatWithCharacter(string _character)
+	public void chatWithCharacter(string _character, int index)
 	{
 		PlayerPrefs.SetString("chatting_with", _character);
+		PlayerPrefs.SetInt("character id", index);
 		StartCoroutine(loadLevel(3));
 	}
 

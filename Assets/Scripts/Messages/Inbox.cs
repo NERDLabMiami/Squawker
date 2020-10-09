@@ -23,6 +23,7 @@ public class Inbox : MonoBehaviour {
     public bool waitingForResponse;
     public bool waitingForNPCMessage;
     public bool responsesPopulated;
+    public int currentY;
 
     private string responseText;
     private string responsePath;
@@ -75,11 +76,16 @@ public class Inbox : MonoBehaviour {
 
     }
 
-	public void addMessage(Message msg)  {
+	public void addMessage(Message msg, Sprite _avatar)  {
+        Vector3 messagePosition = transform.position;
 		GameObject message = Instantiate(messageTemplate.gameObject);
-        message.GetComponent<IncomingMessage>().setMessage(msg);
         message.GetComponent<IncomingMessage>().inbox = this;
-		message.transform.SetParent(messageContainer.transform, false);
+        message.GetComponent<IncomingMessage>().avatar.sprite = _avatar; 
+        message.GetComponent<IncomingMessage>().setMessage(msg);
+        messagePosition.y = currentY;
+        message.transform.position = messagePosition;
+
+        message.transform.SetParent(messageContainer.transform, false);
 	}
 
     public void addResponseToChatLog(string response)
@@ -125,14 +131,20 @@ public class Inbox : MonoBehaviour {
                 responseBelief = r.belief;
 
                 addResponseToChatLog(r.text);
+
+                List<string> chat_path_response_history = PlayerPrefsX.GetStringArray(player.getCharacter() + "_responses").ToList();
+                chat_path_response_history.Add(r.text);
+                Debug.Log("character: response: "+ r.text);
+                PlayerPrefsX.SetStringArray(player.getCharacter() + "_responses", chat_path_response_history.ToArray());
+
                 responseTimer = Time.time + Random.Range(1.5f, 3f);
 
                 //store conversation in player prefs string array. Example anxiety = "Hey, you've been missing class a lot. You alright? - Are you really sure about this?"
 
-                string[] previous_responses = PlayerPrefsX.GetStringArray("responses_" + player.getCharacter());
-                List<string> previous_responses_list = previous_responses.ToList();
-                previous_responses_list.Add(r.text);
-                PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
+//                string[] previous_responses = PlayerPrefsX.GetStringArray("responses_" + player.getCharacter());
+//                List<string> previous_responses_list = previous_responses.ToList();
+//                previous_responses_list.Add(r.text);
+//                PlayerPrefsX.SetStringArray("responses_" + player.getCharacter(), previous_responses_list.ToArray());
 
                 if (!r.path.Contains("reroute")) {
                     Debug.Log("good choice!");
@@ -178,7 +190,8 @@ public class Inbox : MonoBehaviour {
     {
         //        responseContainer.SetActive(false);
         string[] res = StringArrayFunctions.getMessage(path);
-        player.SendMessageToPlayer(player.getCharacter(), res[1]);
+        player.SendMessageToPlayer(player.getCharacter(), res[1], true);
+        Debug.Log("responding to " + player.getCharacter() + " with passage: " + res[1]);
         player.ClearResponseOptions();
 
         Debug.Log(path);
@@ -187,8 +200,15 @@ public class Inbox : MonoBehaviour {
         {
             //Player chose a dead end, unhook to allow for a new conversation
         }
-
         respondButton.SetActive(true);
+
+        if (StringArrayFunctions.getMessage(path)[1].Contains("finished"))
+        {
+            //Player chose a dead end, unhook to allow for a new conversation
+            Debug.Log("Conversation Finished");
+            waitingForResponse = false;
+        }
+
     }
 
 }

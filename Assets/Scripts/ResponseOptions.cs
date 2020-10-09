@@ -15,9 +15,7 @@ public class ResponseOptions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-//        nextButton.SetActive(false);
-//        previousButton.SetActive(false);
-//        gameObject.SetActive(false);
+
     }
 
     public void togglePagination(bool active)

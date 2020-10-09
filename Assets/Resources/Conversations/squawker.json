@@ -127,6 +127,61 @@
     "anxiety",
     "depression"
   ],
+  "naomi": {
+    "character_type": "tutor",
+    "intro": {
+      "message": "Yo...",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "first message",
+          "path": "tutor/intro2",
+          "belief_id": "none"
+        }
+      ]
+    },
+    "intro2": {
+      "message": "this time of year is wild at counseling center I'm interning at",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "second message",
+          "path": "tutor/intro3",
+          "belief_id": "none"
+        }
+      ]
+  	},
+    "intro3": {
+      "message": "so much stress! hey, if any of your friends ",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "third message",
+          "path": "tutor/finished",
+          "belief_id": "none"
+        }
+        ]
+  	},
+    "finished":	{
+    	"message": "cool, thanks!",
+    	"belief_id": "none",
+    	"responses" : [
+    	]
+    	},
+    "success":	{
+    	"message": "hey, your friend reached out to the center and mentioned you helped them get through a rough patch. you're pretty good at this!",
+    	"belief_id": "none",
+    	"responses" : [
+        {
+          "response": "thanks! maybe I can intern at the center too!",
+          "path": "tutor/final",
+          "belief_id": "none"
+        }
+
+    	]
+    	},
+
+  	},
   "amelia": {
     "character_type": "anxiety",
     "intro": {

@@ -55,33 +55,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\TutorialItem.cs" />
      <Compile Include="Assets\Scripts\Helpers\PlayerPrefsX.cs" />
      <Compile Include="Assets\Scripts\Messages\PlayerMessage.cs" />
-     <Compile Include="Assets\Conversation.cs" />
+     <Compile Include="Assets\Scripts\Notification.cs" />
+     <Compile Include="Assets\Scripts\Conversation.cs" />
      <Compile Include="Assets\Scripts\Debug\InboxDebug.cs" />
-     <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Helpers\StringArrayFunctions.cs" />
      <Compile Include="Assets\Scripts\Helpers\Player.cs" />
      <Compile Include="Assets\Scripts\Helpers\Profile.cs" />
-     <Compile Include="Assets\Scripts\Helpers\ImageSet.cs" />
-     <Compile Include="Assets\Scripts\Helpers\CategorySelector.cs" />
      <Compile Include="Assets\Scripts\Messages\ResponseOption.cs" />
      <Compile Include="Assets\Scripts\Post.cs" />
      <Compile Include="Assets\Scripts\Messages\Inbox.cs" />
-     <Compile Include="Assets\Tracker.cs" />
+     <Compile Include="Assets\Scripts\Tracker.cs" />
      <Compile Include="Assets\Scripts\Messages\ViewMessage.cs" />
      <Compile Include="Assets\Scripts\Debug\PlayerDebug.cs" />
-     <Compile Include="Assets\UITextTypeWriter.cs" />
+     <Compile Include="Assets\Scripts\UITextTypeWriter.cs" />
      <Compile Include="Assets\Scripts\Feed.cs" />
      <Compile Include="Assets\Scripts\Messages\IncomingMessage.cs" />
      <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
-     <Compile Include="Assets\Messages.cs" />
+     <Compile Include="Assets\Scripts\Messages.cs" />
      <Compile Include="Assets\Scripts\ResponseOptions.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Response.cs" />
      <Compile Include="Assets\Scripts\Messages\Classes\Message.cs" />
-     <None Include="Assets\Resources\marketing.txt" />
-     <None Include="Assets\AssetStoreFiles\README.txt" />
      <None Include="Assets\Resources\messages.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/imfaculty/Documents/GitHub/Squawker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

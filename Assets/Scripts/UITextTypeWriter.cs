@@ -30,7 +30,7 @@ void Awake()
 	foreach (char c in story)
 	{
 		txt.text += c;
-		yield return new WaitForSeconds(0.075f);
+		yield return new WaitForSeconds(0.025f);
 	}
 }
 

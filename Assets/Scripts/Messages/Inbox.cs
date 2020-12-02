@@ -14,6 +14,7 @@ public class Inbox : MonoBehaviour {
 	public GameObject emptyMailboxMessage;
     public GameObject respondButton;
     public GameObject gameFinishedPanel;
+    public GameObject gameOverPanel;
     public GameObject leaveConversation;
     public ScrollRect m_ScrollRect;
 	public AudioClip notification;
@@ -105,15 +106,25 @@ public class Inbox : MonoBehaviour {
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)sr.transform);
     }
 
+    private void GameFinished()
+    {
+        gameFinishedPanel.SetActive(true);
+
+    }
+
+    private void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+
+    }
+
     public void addResponse(Response r)
     {
        
         string[] param = StringArrayFunctions.getMessage(r.path);
         if (param.Length > 2)
         {
-            //double check param 2 for "resolved"
-            gameFinishedPanel.SetActive(true);
-            
+            Invoke("GameFinished", 6.0f);
         }
         else
         {
@@ -182,6 +193,7 @@ public class Inbox : MonoBehaviour {
         GameObject leave = Instantiate(leaveConversation);
         leave.GetComponentInChildren<Text>().text = player.getCharacter() + " has left the conversation...";
         leave.transform.SetParent(messageContainer.transform, false);
+        Invoke("GameOver", 1.5f);
 
     }
 

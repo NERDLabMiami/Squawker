@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	public bool finishedConversation = false;
 
 	void Start() {
+
 		if (potentialMessages)
 		{
 			json = JSON.Parse(potentialMessages.ToString());
@@ -64,6 +65,12 @@ public class Player : MonoBehaviour {
 
 		}
 	}
+
+	public void ResetChats()
+	{
+		PlayerPrefs.DeleteAll();
+	}
+
 
 	public string getCharacter()
 	{
@@ -131,8 +138,7 @@ public class Player : MonoBehaviour {
 			{
 				PlayerPrefs.SetInt("intervention index", 1);
 				//show notification
-				Notification notice = Instantiate(notification, chatLog.transform.parent.parent.parent).GetComponent<Notification>();
-				notice.SetNotice("Amelia has sent you a message", 5);
+				Invoke("SendNotification", 3.0f);
 			}
 		}
 		else {
@@ -161,6 +167,12 @@ public class Player : MonoBehaviour {
 			tracker.Track();
 
 		}
+	}
+	private void SendNotification()
+    {
+		Notification notice = Instantiate(notification, chatLog.transform.parent.parent.parent).GetComponent<Notification>();
+		notice.SetNotice("Amelia has sent you a message", 5);
+
 	}
 
 

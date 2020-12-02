@@ -15,6 +15,25 @@ public class Messages : MonoBehaviour
     private bool hasStartedGame = false;
     // Start is called before the first frame update
 
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (!PlayerPrefs.HasKey("game started"))
+        {
+            PlayerPrefs.SetInt("game started", 1);
+            AddTutorial(true);
+        }
+        else
+        {
+            AddTutorial(false);
+            if (PlayerPrefs.GetInt("intervention index", 0) == 1)
+            {
+                startNewIntervention = true;
+            }
+
+        }
+
+    }
 
     void AddTutorial(bool newMessage)
     {
@@ -45,25 +64,7 @@ public class Messages : MonoBehaviour
             }
         });
     }
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (!PlayerPrefs.HasKey("game started"))
-        {
-            PlayerPrefs.SetInt("game started", 1);
-            AddTutorial(true);
-        }
-        else
-        {
-            AddTutorial(false);
-            if (PlayerPrefs.GetInt("intervention index", 0) == 1)
-            {
-                startNewIntervention = true;
-            }
 
-        }
-
-    }
 
     // Update is called once per frame
     void Update()

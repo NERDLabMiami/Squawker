@@ -28,6 +28,7 @@ public class IncomingMessage : MonoBehaviour {
 		Debug.Log("RT currently " + rt.sizeDelta.y + " setting to " + height);
 		rt.sizeDelta = new Vector2(rt.sizeDelta.x, height);
 		inbox.currentY += height;
+		scrollToBottom();
 	}
 
 	public void scrollToBottom()

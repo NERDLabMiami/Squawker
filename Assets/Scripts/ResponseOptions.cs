@@ -8,8 +8,9 @@ public class ResponseOptions : MonoBehaviour
     public GameObject nextButton;
     public GameObject previousButton;
     private int optionIndex;
-//    public ResponseOptions[] options;
+    public DotNavigation dots;
     public List<ResponseOption> options;
+    public bool TypeOutResponse;
 
 
     // Start is called before the first frame update
@@ -28,13 +29,14 @@ public class ResponseOptions : MonoBehaviour
     public void CheckForResponseOptions()
     {
         Debug.Log("RESPONSE OPTIONS: " + transform.childCount);
-        if(transform.childCount > 1)
+        if (transform.childCount > 1)
         {
             options.Clear();
             options.AddRange(GetComponentsInChildren<ResponseOption>());
             optionIndex = 0;
             togglePagination(true);
             SetAllResponseOptionsInactive();
+            dots.SetNumberOfDots(transform.childCount);
             Debug.Log("Setting Option " + optionIndex + " Active");
             options[optionIndex].gameObject.SetActive(true);
             TypeOut();
@@ -42,6 +44,7 @@ public class ResponseOptions : MonoBehaviour
         else
         {
             togglePagination(false);
+            dots.SetNumberOfDots(1);
             GetComponentInChildren<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
         }
     }

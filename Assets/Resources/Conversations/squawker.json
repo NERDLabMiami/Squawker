@@ -1,173 +1,158 @@
 {
-  "names": {
-    "men": [
-      "Roger",
-      "Dominick",
-      "Matthew",
-      "Anton",
-      "Elijah",
-      "Efrain",
-      "Kelly",
-      "Nestor",
-      "Gary",
-      "Kareem",
-      "Francisco",
-      "Beau",
-      "Jordan",
-      "Sandy",
-      "Kenneth",
-      "Pete",
-      "Delbert",
-      "Sherman",
-      "Gabriel",
-      "Ben",
-      "Ian",
-      "Zackary",
-      "Brandon",
-      "Bradly",
-      "Stevie",
-      "Fredrick",
-      "Jeff",
-      "Zack",
-      "Bryce",
-      "Gerald "
-    ],
-    "women": [
-      "Amber",
-      "Britney",
-      "Caitlin",
-      "Dora",
-      "Elaine",
-      "Fanny",
-      "Grace",
-      "Heather",
-      "Imelda",
-      "Juanita",
-      "Kristin",
-      "Loraine",
-      "Maria",
-      "Nelly",
-      "Ophelia",
-      "Patricia",
-      "Rayna",
-      "Sally",
-      "Taylor",
-      "Uma",
-      "Valentine",
-      "Wanda"
-    ],
-    "both": [
-      "Aaron",
-      "Britney",
-      "Clyde",
-      "Daria",
-      "Elle",
-      "Fitz",
-      "Geraldine",
-      "Kelly",
-      "Kim",
-      "Larry",
-      "Laura",
-      "Melanie",
-      "Nick",
-      "Ryan",
-      "Xavier",
-      "Pat",
-      "Tim"
-    ]
-  },
-  "both_characters": [
-    "C11",
-    "MC12",
-    "C13",
-    "C21",
-    "C22",
-    "C23",
-    "C31A",
-    "C31B",
-    "C32",
-    "C33"
-  ],
-  "fizzles": [
-    "FIZZLE1",
-    "FIZZLE2",
-    "FIZZLE3",
-    "FIZZLE4",
-    "FIZZLE5",
-    "FIZZLE6",
-    "FIZZLE7",
-    "FIZZLE8",
-    "FIZZLE9"
-  ],
-  "male_characters": [
-    "C11",
-    "MC12",
-    "C13",
-    "C21",
-    "C22",
-    "C23",
-    "C31A",
-    "C31B",
-    "C32",
-    "C33"
-  ],
-  "female_characters": [
-    "C11",
-    "MC12",
-    "C13",
-    "C21",
-    "C22",
-    "C23",
-    "C31A",
-    "C31B",
-    "C32",
-    "C33"
-  ],
   "character_ids": [
     "anxiety",
     "depression"
-  ],
+  ],  
   "naomi": {
     "character_type": "tutor",
     "intro": {
-      "message": "Yo...",
+      "message": "I feel like I haven't seen you in forever!",
       "belief_id": "none",
       "responses": [
         {
-          "response": "first message",
+          "response": "sup?",
           "path": "tutor/intro2",
           "belief_id": "none"
         }
       ]
     },
     "intro2": {
-      "message": "this time of year is wild at counseling center I'm interning at",
+      "message": "I got this really cool job at the counseling center as an intern and it’s teaching me a lot about my major in psychology.",
       "belief_id": "none",
       "responses": [
         {
-          "response": "second message",
+          "response": "Cool, tell me more about it!",
           "path": "tutor/intro3",
           "belief_id": "none"
         }
       ]
   	},
     "intro3": {
-      "message": "so much stress! hey, if any of your friends ",
+      "message": "There are a lot more students out there that are suffering from mental health issues that we know of.",
       "belief_id": "none",
       "responses": [
         {
-          "response": "third message",
-          "path": "tutor/finished",
+          "response": "Dang is it pretty hectic there?",
+          "path": "tutor/intro4",
+          "belief_id": "none"
+        },
+        {
+          "response": "How do you know?",
+          "path": "tutor/intro5",
+          "belief_id": "none"
+        },
+        {
+          "response": "Yeah I would say the same",
+          "path": "tutor/intro6",
+          "belief_id": "none"
+        }
+
+        ]
+  	},
+
+    "intro4": {
+      "message": "We barely get any students but there are so many signs of college students suffering in silence.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "What are the signs?",
+          "path": "tutor/signs",
           "belief_id": "none"
         }
         ]
-  	},
-    "finished":	{
-    	"message": "cool, thanks!",
+    },
+
+    "intro5": {
+      "message": "My mentor told me some signs to look out for.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "What are the signs?",
+          "path": "tutor/signs",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+
+
+
+    "signs": {
+      "message": "It's a lot to get into but some might be stress, alcohol and drug abuse, or even withdrawing from friends.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "Oh wow I never thought those could be signs of mental health issues! Thought it was the aftermath of college.",
+          "path": "tutor/intro7",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+    "seensigns": {
+      "message": "What are some signs you've seen?",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "I've seen some people not showing up for class, barely getting out of bed, and not eating that much.",
+          "path": "tutor/intro8",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+    "intro7": {
+      "message": "Apparently, there's this huge stigma about the counseling center and how students are sometimes embarrassed to go.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "I hope none of my friends are suffering in silence.",
+          "path": "tutor/closing",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+    "intro8": {
+      "message": "Yeah there are actually many more signs that can point to mental health issues but those are definitely some.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "Dang who would have thought.",
+          "path": "tutor/closing",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+    "closing": {
+      "message": "I've been keeping an extra eye open to look for signs. You should too.",
+      "belief_id": "none",
+      "responses": [
+        {
+          "response": "Yeah fosho! Definitely going to look out.",
+          "path": "tutor/finished",
+          "belief_id": "none"
+        },
+        {
+          "response": "I'll try but I'm not sure how to even approach someone if I do think they need help.",
+          "path": "tutor/finished2",
+          "belief_id": "none"
+        }
+      ]
+    },
+
+    "finished": {
+      "message": "Cool, thanks for looking out. Let's talk later, my brother wants to facetime",
+      "belief_id": "none",
+      "responses" : []
+    },
+    "finished2": {
+    	"message": "I think if you are close to the person, you'll know what to say and how to say it. Let's talk more later! I'm getting a call from my mom.",
     	"belief_id": "none",
-    	"responses" : [
-    	]
-    	},
+    	"responses" : []
+    },
+    
     "success":	{
     	"message": "hey, your friend reached out to the center and mentioned you helped them get through a rough patch. you're pretty good at this!",
     	"belief_id": "none",
@@ -177,11 +162,10 @@
           "path": "tutor/final",
           "belief_id": "none"
         }
-
     	]
-    	},
+    },
+  },  
 
-  	},
   "amelia": {
     "character_type": "anxiety",
     "intro": {
@@ -339,6 +323,11 @@
       "belief_id": "NB1",
       "responses": [
         {
+          "response": "No one cares if you're failing. You're not the first one to flunk. You can recover your grades if you go balls-to-the wall studying, but you gotta stop being mopey.",
+          "path": "amelia/reroute1",
+          "belief_id": "none"
+        },
+        {
           "response": "No one expects you to be a perfect super star student. This is why you're in school. To learn. Going to a therapist can help you cope and manage emotions. It doesn't hurt to try. I want us to graduate together, so we can’t give up.",
           "path": "amelia/prompt2",
           "belief_id": "PB3"
@@ -347,11 +336,6 @@
           "response": "I'm NOT blaming you or judging you. No one is. I really think that if me or any of our other friends were having lots of anxiety, they would go to counseling. So please think about going? I don’t want to be alone in math class lol.",
           "path": "amelia/prompt2",
           "belief_id": "NOB1"
-        },
-        {
-          "response": "No one cares if you're failing. You're not the first one to flunk. You can recover your grades if you go balls-to-the wall studying, but you gotta stop being mopey.",
-          "path": "amelia/reroute1",
-          "belief_id": "none"
         }
       ]
     },
@@ -360,14 +344,14 @@
       "belief_id": "NB1",
       "responses": [
         {
+          "response": "You need to get over it, it isn't that big of a deal. People won't know if you don't say anything.",
+          "path": "amelia/reroute2",
+          "belief_id": "none",
+        },
+        {
           "response": "Not true! Asking for a little extra help doesn't mean anything bad. It can resolve those feelings of anxiety. What if you find out what's been REALLY bugging you? Then you can look at life with good vibes only.",
           "path": "amelia/prompt3",
           "belief_id": "PB2"
-        },
-        {
-          "response": "You need to get over it, it isn't that big of a deal. People won't know if you don't say anything.",
-          "path": "amelia/reroute2",
-          "belief_id": "none"
         }
       ]
     },
@@ -381,14 +365,14 @@
           "belief_id": "NOB2"
         },
         {
-          "response": "What if one day I'm not here to help you through your anxiety?  Seeing a professional can help you regain confidence to handle all the stress. I need to know you're going to be okay if something happens",
-          "path": "amelia/prompt4",
-          "belief_id": "PB1"
-        },
-        {
           "response": "I don't mind helping you through your anxiety but you can’t always rely on others. What are you going to do if no one is there to talk to you? Are you going to talk to the wall? NO.",
           "path": "amelia/reroute3",
           "belief_id": "none"
+        },
+        {
+          "response": "What if one day I'm not here to help you through your anxiety?  Seeing a professional can help you regain confidence to handle all the stress. I need to know you're going to be okay if something happens",
+          "path": "amelia/prompt4",
+          "belief_id": "PB1"
         }
       ]
     },
@@ -402,14 +386,14 @@
           "belief_id": "CB2"
         },
         {
-          "response": "I've never personally gone to the counseling center, but we are adults and we can figure this out. I have a good idea of what to do and who to talk to. Let's go together and find out.",
-          "path": "amelia/ending",
-          "belief_id": "CB1"
-        },
-        {
           "response": "I'm not going to do it for you. I'll help you find out the information but YOU have to make the call and take charge.",
           "path": "amelia/reroute4",
           "belief_id": "none"
+        },
+        {
+          "response": "I've never personally gone to the counseling center, but we are adults and we can figure this out. I have a good idea of what to do and who to talk to. Let's go together and find out.",
+          "path": "amelia/ending",
+          "belief_id": "CB1"
         }
       ]
     },
@@ -485,10 +469,6 @@
         }
       ]
     },
-
-
-
-
 
     "ending": {
       "message": "I don't want to be rude, but I really need a nap right now. It’s been a long day.\nI’ve been crying a lot and my face is all red and puffy. I REALLY REALLY want to take a nap right now.\nLet’s please find out about the counseling tomorrow after class. I think you’re right about everything you said.\nThanks so much for your advice :)",
@@ -836,644 +816,6 @@
       "tanning": {
         "story": "You meet %C at Rays Tanning Salon and get the Golden Bronze Package. It doesn't take long for you to fall in love with each other after that.",
         "ending": "5"
-      }
-    }
-  },
-  "FIZZLE1": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "Hello?",
-      "message": "Hi! How does this thing work? Are we dating?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "You should ask Leslie for some help.",
-          "path": "FIZZLE1/askleslie",
-          "time": "1",
-          "belief_id": "none"
-        },
-        {
-          "response": "Oh yeah, we're definitely dating.",
-          "path": "FIZZLE1/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "That's a negative.",
-          "path": "FIZZLE1/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "askleslie": {
-      "subject": "RE: You should ask Leslie for some help",
-      "message": "Who is Leslie??  Does she want a date? How do I go on a date? I don't know how this works.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Leslie will find you a match, that way you can stop bothering me.",
-          "path": "FIZZLE1/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Sounds like you need some help. Good luck with that.",
-          "path": "FIZZLE1/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "We're on a date right now!",
-          "path": "FIZZLE1/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE2": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "Oh wow, you have to be the one!",
-      "message": "I think I've seen you before. I was sitting on a bench in the park, feeding the pigeons. You were frolicking in the grass. Magnificent. I love pigeons. So majestic, so beautiful. It's hard to focus when you're surrounded by such beauty.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sorry, I don't frolick.",
-          "path": "FIZZLE2/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Yes! Pigeons! Definitely not flying rats, that's for sure.",
-          "path": "FIZZLE2/rats",
-          "time": "1",
-          "belief_id": "none"
-        },
-        {
-          "response": "Move along!",
-          "path": "FIZZLE2/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "rats": {
-      "subject": "RE: Yes! Pigeons! Definitely not flying rats, that's for sure.",
-      "message": "What do you have against rats? I think they're pretty cool!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "A rat stole my pizza. #neverforget",
-          "path": "FIZZLE2/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "I don't have a problem with rats, just ones that fly.",
-          "path": "FIZZLE2/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "I'm more of a fluffy bunny kind of person.",
-          "path": "FIZZLE2/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE3": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "Some weather we're having, am I right?",
-      "message": "Do you ever get the feeling that everyone else is a robot? I mean, you're not a robot right? I'm definitely not a robot.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Yes, I'M A ROBOT!",
-          "path": "FIZZLE3/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "No, I'm not a robot.",
-          "path": "FIZZLE3/robot",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "It's heavy, real heavy.",
-          "path": "FIZZLE3/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "robot": {
-      "subject": "RE: No, I'm not a robot.",
-      "message": "How can I be sure that you're not a robot?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Ask me anything, I'll try and give my best non-robotic response.",
-          "path": "FIZZLE3/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Dang! You got me. I'm a robot.",
-          "path": "FIZZLE3/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "INVALID INPUT! DOES NOT COMPUTE!",
-          "path": "FIZZLE3/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE4": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "Here's a question for you!",
-      "message": "Would you rather fight 100 duck-sized horses or 1 horse-sized duck?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "100 duck-sized horses, those little horsies don't stand a chance!",
-          "path": "FIZZLE4/ducks",
-          "time": "2",
-          "belief_id": "none"
-        },
-        {
-          "response": "1 horse-sized duck, I could take it.",
-          "path": "FIZZLE4/horse",
-          "time": "2",
-          "belief_id": "none"
-        },
-        {
-          "response": "I'm not sure.",
-          "path": "FIZZLE4/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "ducks": {
-      "subject": "RE: 100 duck-sized horses, those little horsies don't stand a chance!",
-      "message": "But there would be so many! All that neighing! Are you sure you would be up for the task?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Obviously. I have military miniature equestrian training.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Come to think of it, that is a lot of horses. Maybe not.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "*WHINNY* They don't stand a chance.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "horse": {
-      "subject": "RE: One horse sized duck",
-      "message": "Whoa! A duck that size would quack so loud, I don't know if I could handle it. I think I'd rather fight those little horses.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "It's just quacking, I'm sure it wouldn't be that bad.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "100 horses!? That'd be overwhelming.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "If you couldn't handle that, I don't know if you could handle me.",
-          "path": "FIZZLE4/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE5": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "I know you!",
-      "message": "You were the hoarder at the grocery store, putting all the cookies in your basket! I wanted some cookies too, but you took them all you thief!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sorry, you have the wrong person.",
-          "path": "FIZZLE5/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "I regret nothing!",
-          "path": "FIZZLE5/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Cookies! Non nom nom!",
-          "path": "FIZZLE5/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE6": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "Something on the side?",
-      "message": "Hey there! I got this free trial and thought I'd see what this thing is all about. I'm looking for something casual. I'm not looking for another relationship, already got that covered thank you very much. Do you own any costumes?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Sorry, I don't own any costumes.",
-          "path": "FIZZLE6/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "I've got a Big Bird costume, would that work?",
-          "path": "FIZZLE6/bigbird",
-          "time": "2",
-          "belief_id": "none"
-        },
-        {
-          "response": "Of course I own costumes! Who do you think I am?",
-          "path": "FIZZLE6/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "bigbird": {
-      "subject": "RE: I've got a Big Bird costume, would that work?",
-      "message": "Umm... not really a fan of yellow. Got anything else?",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "What would you rather I wear?",
-          "path": "FIZZLE6/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "How about a big purple dinosaur?",
-          "path": "FIZZLE6/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Nothing, absolutely nothing...",
-          "path": "FIZZLE6/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE7": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "OMG!",
-      "message": "I absolutely LOVE this thing you've got going on. I could never pull off that look but wow, just WOW. Do you workout? Obviously you do, why am I asking? I'm totally embarrassing myself. I'll stop now.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Thanks?",
-          "path": "FIZZLE7/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Yes, you're definitely embarrassing yourself.",
-          "path": "FIZZLE7/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "What are you talking about? You could totally pull it off!",
-          "path": "FIZZLE7/pulleditoff",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "pulleditoff": {
-      "subject": "RE: What are you talking about? You could totally pull it off!",
-      "message": "Aww! You're so sweet! Just a big bowl of sugar!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Do you have a sweet tooth?",
-          "path": "FIZZLE7/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Sometimes I'm sweet, but I'm always spicy.",
-          "path": "FIZZLE7/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "I sure hope not, I'm diabetic!",
-          "path": "FIZZLE7/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE8": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "So...",
-      "message": "What's up? I'm basically a vampire. Totally into biting, but I don't suck! ha ha! Anyways, what do you do for fun? I obviously can only hang out at night since the sunlight would burn me to a crisp. Maybe you'd like to meet up sometime, my crypt is very cozy!",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Well I'm basically a werewolf, so this isn't going to work.",
-          "path": "FIZZLE8/werewolf",
-          "time": "2",
-          "belief_id": "none"
-        },
-        {
-          "response": "Sweet! Are you immortal?",
-          "path": "FIZZLE8/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Bored now.",
-          "path": "FIZZLE8/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "werewolf": {
-      "subject": "RE: Well I'm basically a werewolf, so this isn't going to work.",
-      "message": "I was just kidding! I'm not a vampire, I just don't know what to say. Beautiful people make me nervous.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "Aww shucks, you think I'm beautiful?",
-          "path": "FIZZLE8/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "You don't need to be nervous around me, I won't bite... hard. lol!",
-          "path": "FIZZLE8/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Well I wasn't kidding, I'm a freaking werewolf.",
-          "path": "FIZZLE8/fizzle",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
-      }
-    }
-  },
-  "FIZZLE9": {
-    "character_type": "none",
-    "requirements": {
-      "tan": "0",
-      "love": "0",
-      "accessories": {
-        "glasses": "0",
-        "headwear": "0",
-        "tie": "0"
-      }
-    },
-    "intro": {
-      "subject": "We're animals!",
-      "message": "You're a fierce warrior, I can tell. Just like a warthog. I don't mind your flatulence either, it's cool baby.",
-      "belief_id": "None",
-      "thresholds": {
-        "tan": "0"
-      },
-      "responses": [
-        {
-          "response": "It's so refreshing to have someone not judge my gas!",
-          "path": "FIZZLE9/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "There's magic everywhere.",
-          "path": "FIZZLE9/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        },
-        {
-          "response": "Just stop.",
-          "path": "FIZZLE9/fizzled",
-          "time": "9999",
-          "belief_id": "none"
-        }
-      ]
-    },
-    "epilogue": {
-      "fizzy": {
-        "story": "Your date did not go well. Keep trying.",
-        "ending": "0"
       }
     }
   }

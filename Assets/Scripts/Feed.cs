@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON;
+using System.Linq;
 
 public class Feed : MonoBehaviour
 {
@@ -12,11 +13,15 @@ public class Feed : MonoBehaviour
     public GameObject commentTemplate;
     public GameObject postContainer;
     public ResponseOptions comments;
-    public Text notifications;
+    public GameObject footer;
+    public GameObject notifications;
+    public Image[] characterImages;
+    private string[] characterNames;
     public float timeBetweenPosts;
     private float timeUntilNextPost;
     private int randomCharacterPostIndex;
     private JSONNode responses;
+    private int interventionCharacterIndex = 0;
 
     // Start is called before the first frame update
 
@@ -24,15 +29,34 @@ public class Feed : MonoBehaviour
     {
         json = JSON.Parse(feed.ToString());
         NewStatusUpdate("interventions/anxiety");
-        timeUntilNextPost = Time.time + timeBetweenPosts;        
+        timeUntilNextPost = Time.time + timeBetweenPosts;
+        characterNames = new string[characterImages.Length];
+        for(int i = 0; i < characterImages.Length; i++)
+        {
+            characterNames[i] = AssignNames();
+        }
+        //count sprites
+        //assign names to sprites / map
+        //select person based on sprite sets
     }
 
+    public string AssignNames()
+    {
+        int randomCharacterNameIndex = Random.Range(0, json["random"]["names"].Count);
+        return json["random"]["names"][randomCharacterNameIndex];
+    }
 
     public void NewStatusUpdate(string path)
     {
+        if(path.Contains("random"))
+        {
+            //only use 
+        }
+
         GameObject post = Instantiate(postTemplate, postContainer.transform);
         post.GetComponent<Post>().timePosted.text = "Now";
         string[] message = StringArrayFunctions.getMessage(path);
+
         if (message.Length == 2)
         {
             //INTERVENTION
@@ -44,6 +68,7 @@ public class Feed : MonoBehaviour
         else if(message.Length == 1)
         {
             //RANDOM
+
             int randomCharacterNameIndex = Random.Range(0, json[message[0]]["names"].Count);
             randomCharacterPostIndex = Random.Range(0, json[message[0]]["posts"].Count);
             post.GetComponent<Post>().status.text = json[message[0]]["posts"][randomCharacterPostIndex]["post"];
@@ -52,9 +77,15 @@ public class Feed : MonoBehaviour
         }
         post.GetComponentInChildren<Button>().onClick.AddListener(() =>
         {
-            //
+            //Pop Up Footer
 
-            if(message.Length == 1)
+            footer.SetActive(true);
+
+
+
+
+            //Populate Responses
+            if (message.Length == 1)
             {
                 responses = json[message[0]]["posts"][randomCharacterPostIndex]["responses"];
             }
@@ -63,36 +94,70 @@ public class Feed : MonoBehaviour
                 responses = json[message[0]][message[1]]["responses"];
 
             }
-
-            for (int i = 0; i < responses.Count; i++)
+            if (!post.GetComponent<Post>().responsesPopulated)
             {
-                string[] param = StringArrayFunctions.getMessage(responses[i]["path"]);
-
-                GameObject comment = Instantiate(commentTemplate, comments.gameObject.transform);
-                comment.GetComponent<ResponseOption>().response.text = responses[i]["response"];
-                comment.GetComponentInChildren<Button>().onClick.AddListener(() =>
+                for (int i = 0; i < responses.Count; i++)
                 {
-                    //POST COMMENT CLICK
-                    post.GetComponent<Post>().SetCommentCount(1);
-                    comments.togglePagination(false);
-                    comments.gameObject.SetActive(false);
-                    //check if there's a DM
-                    if (param[0].Contains("chat")) { 
-                        notifications.text = "1";
+                    string[] param = StringArrayFunctions.getMessage(responses[i]["path"]);
+
+                    GameObject comment = Instantiate(commentTemplate, comments.gameObject.transform);
+                    comment.GetComponent<ResponseOption>().response.text = responses[i]["response"];
+                    comment.GetComponent<ResponseOption>().postCommentButton = post.GetComponent<Post>().commentButton;
+                    comment.GetComponentInChildren<Button>().onClick.AddListener(() =>
+
+                    {
+                        comment.GetComponent<ResponseOption>().clicked();
+
+                        //POST COMMENT CLICK
+                        post.GetComponent<Post>().UpdateCommentCount();
+                        //                        comments.togglePagination(false);
+                        //                        comments.gameObject.SetActive(false);
+                        //check if there's a DM
+                        if (param[0].Contains("chat"))
+                        {
+                            string[] chats = PlayerPrefsX.GetStringArray("chats");
+                            List<string> chats_list = chats.ToList();
+                            if (!chats_list.Contains(param[2]))
+                            {
+                                Debug.Log("This chat doesn't exist yet, adding it to chat list");
+                                chats_list.Add(param[2]);
+                                PlayerPrefsX.SetStringArray("chats", chats_list.ToArray());
+                            }
+                            else
+                            {
+                                Debug.Log("This chat already exists, not adding it to the list");
+                            }
+                        notifications.SetActive(true);
                     }
                     //REMOVE PREVIOUS RESPONSE OPTIONS
                     foreach (Transform child in comments.transform)
-                    {
-                        GameObject.Destroy(child.gameObject);
-                    }
+                        {
+                            GameObject.Destroy(child.gameObject);
+                        }
 
-                });
-
+                    footer.SetActive(false);                    
+                    });
+                }
+                post.GetComponent<Post>().responsesPopulated = true;
+                comments.CheckForResponseOptions();
+                comments.gameObject.SetActive(true);
             }
 
-            comments.gameObject.SetActive(true);
-            comments.CheckForResponseOptions();
+
+
+
+
+
+
+
+
         });
+
+    }
+
+
+    public void PopulateResponses()
+    {
 
     }
 

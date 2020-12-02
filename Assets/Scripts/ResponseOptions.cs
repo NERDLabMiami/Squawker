@@ -8,16 +8,15 @@ public class ResponseOptions : MonoBehaviour
     public GameObject nextButton;
     public GameObject previousButton;
     private int optionIndex;
-//    public ResponseOptions[] options;
+    public DotNavigation dots;
     public List<ResponseOption> options;
+    public bool TypeOutResponse;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        nextButton.SetActive(false);
-        previousButton.SetActive(false);
-        gameObject.SetActive(false);
+
     }
 
     public void togglePagination(bool active)
@@ -30,18 +29,23 @@ public class ResponseOptions : MonoBehaviour
     public void CheckForResponseOptions()
     {
         Debug.Log("RESPONSE OPTIONS: " + transform.childCount);
-        if(transform.childCount > 1)
+        if (transform.childCount > 1)
         {
             options.Clear();
             options.AddRange(GetComponentsInChildren<ResponseOption>());
             optionIndex = 0;
             togglePagination(true);
             SetAllResponseOptionsInactive();
+            dots.SetNumberOfDots(transform.childCount);
+            Debug.Log("Setting Option " + optionIndex + " Active");
             options[optionIndex].gameObject.SetActive(true);
+            TypeOut();
         }
         else
         {
             togglePagination(false);
+            dots.SetNumberOfDots(1);
+            GetComponentInChildren<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
         }
     }
 
@@ -65,7 +69,12 @@ public class ResponseOptions : MonoBehaviour
         }
 
         options[optionIndex].gameObject.SetActive(true);
+        TypeOut();
+    }
 
+    private void TypeOut()
+    {
+            options[optionIndex].GetComponent<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
     }
 
     public void Previous()
@@ -83,7 +92,7 @@ public class ResponseOptions : MonoBehaviour
         }
 
         options[optionIndex].gameObject.SetActive(true);
-
+        TypeOut();
     }
 
     // Update is called once per frame

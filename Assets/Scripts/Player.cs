@@ -138,7 +138,7 @@ public class Player : MonoBehaviour {
 			{
 				PlayerPrefs.SetInt("intervention index", 1);
 				//show notification
-				Invoke("SendNotification", 3.0f);
+				Invoke("SendNotification", 10.0f);
 			}
 		}
 		else {

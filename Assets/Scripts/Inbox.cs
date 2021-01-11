@@ -193,7 +193,7 @@ public class Inbox : MonoBehaviour {
         GameObject leave = Instantiate(leaveConversation);
         leave.GetComponentInChildren<Text>().text = player.getCharacter() + " has left the conversation...";
         leave.transform.SetParent(messageContainer.transform, false);
-        Invoke("GameOver", 1.5f);
+        Invoke("GameOver", 10f);
 
     }
 

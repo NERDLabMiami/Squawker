@@ -45,7 +45,7 @@ public class ResponseOptions : MonoBehaviour
         {
             togglePagination(false);
             dots.SetNumberOfDots(1);
-            GetComponentInChildren<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
+//            GetComponentInChildren<ResponseOption>().response.GetComponent<UITextTypeWriter>().TypeText();
         }
     }
 
